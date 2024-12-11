@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./stylix.nix
     ];
 
   # Bootloader.
@@ -15,6 +16,7 @@
     kernelPackages = pkgs.linuxPackages_latest;
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
+    plymouth.enable = true;
   };
 
   environment.shells = with pkgs; [ zsh ];
