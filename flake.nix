@@ -1,15 +1,14 @@
 {
 
-  description = "My flake";
+  description = "My nixvm flake";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    stylix.url = "github:danth/stylix";
   };
 
-  outputs = { self, nixpkgs, stylix, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, ... }:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -18,13 +17,13 @@
     nixosConfigurations = {
       nixvm = lib.nixosSystem {
         inherit system;
-	modules = [ stylix.nixosModules.stylix ./configuration.nix ];
+	modules = [ ./configuration.nix ];
       };
     };
     homeConfigurations = {
       msiwiec = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-	modules = [ stylix.nixosModules.stylix ./home.nix ];
+	modules = [ ./home.nix ];
       };
     };
 
