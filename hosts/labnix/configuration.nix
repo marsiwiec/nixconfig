@@ -9,6 +9,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../modules/stylix.nix
+    ./modules/vfio.nix
   ];
 
   # Attempt to fix resume from suspend
@@ -31,7 +32,6 @@
     kernelPackages = pkgs.linuxPackages_latest;
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
-    plymouth.enable = true;
   };
 
   environment.shells = with pkgs; [ zsh ];
@@ -64,7 +64,23 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  hardware.graphics.enable = true;
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  hardware = {
+    graphics = {
+      enable = true;
+    };
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = false;
+      powerManagement.finegrained = false;
+      open = false;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      nvidiaPersistenced = true;
+    };
+  };
 
   # Enable the GNOME Desktop Environment.
   #services.xserver.displayManager.gdm.enable = true;
@@ -114,7 +130,9 @@
     isNormalUser = true;
     description = "msiwiec";
     extraGroups = [
-      "libvirt"
+      "kvm"
+      "qemu"
+      "libvirtd"
       "networkmanager"
       "wheel"
     ];
@@ -132,6 +150,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    pciutils
     neovim
     wget
     git
@@ -143,7 +162,15 @@
       background = "${../../wallpapers/wolf.png}";
       loginBackground = true;
     })
+    fastfetch
+    yazi
+    htop
+    fzf
+    ripgrep
+    bat
   ];
+
+  systemd.tpm2.enable = true;
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [

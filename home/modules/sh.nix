@@ -9,6 +9,7 @@
     "/" = "cd /";
     sudo = "sudo ";
     v = "hx";
+    yy = "yazi";
     ls = "ls --color=auto";
     grep = "grep --color=auto";
   };
