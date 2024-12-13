@@ -4,20 +4,32 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     stylix.url = "github:danth/stylix";
   };
 
   outputs =
-    {
+    inputs@{
       self,
       nixpkgs,
       home-manager,
       stylix,
+      plasma-manager,
       ...
     }:
     let
+      username = "msiwiec";
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -33,11 +45,18 @@
         };
       };
       homeConfigurations = {
-        msiwiec = home-manager.lib.homeManagerConfiguration {
+        "${username}" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
+            inputs.plasma-manager.homeManagerModules.plasma-manager
             stylix.homeManagerModules.stylix
             ./home/home.nix
+            {
+              home = {
+                username = "${username}";
+                homeDirectory = "/home/${username}";
+              };
+            }
           ];
         };
       };

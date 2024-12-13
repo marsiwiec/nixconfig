@@ -11,6 +11,9 @@
     ../modules/stylix.nix
   ];
 
+  # Attempt to fix resume from suspend
+  powerManagement.enable = false;
+
   # Set up mount options for btrfs
   fileSystems = {
     "/".options = [ "compress=zstd" ];
@@ -20,6 +23,8 @@
       "noatime"
     ];
   };
+
+  services.btrfs.autoScrub.enable = true;
 
   # Bootloader.
   boot = {
@@ -67,6 +72,7 @@
 
   services.displayManager.sddm = {
     enable = true;
+    theme = "catppuccin-frappe";
     wayland = {
       enable = true;
       compositor = "kwin";
@@ -130,6 +136,13 @@
     wget
     git
     kitty
+    (catppuccin-sddm.override {
+      flavor = "frappe";
+      font = "Intel One Mono";
+      fontSize = "12";
+      background = "${../../wallpapers/wolf.png}";
+      loginBackground = true;
+    })
   ];
 
   programs.nix-ld.enable = true;
