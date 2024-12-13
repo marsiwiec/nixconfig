@@ -8,8 +8,17 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./stylix.nix
+    ../modules/stylix.nix
   ];
+
+  fileSystems = {
+    "/".options = [ "compress=zstd" ];
+    "/home".options = [ "compress=zstd" ];
+    "/nix".options = [
+      "compress=zstd"
+      "noatime"
+    ];
+  };
 
   # Bootloader.
   boot = {
@@ -23,7 +32,7 @@
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
-  networking.hostName = "nixvm"; # Define your hostname.
+  networking.hostName = "labnix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking

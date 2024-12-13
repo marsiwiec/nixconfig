@@ -2,10 +2,10 @@
 
 {
   imports = [
-    ./sh.nix
-    ./helix.nix
-    ./stylix.nix
-    ./kitty.nix
+    ./modules/sh.nix
+    ./modules/helix.nix
+    ./modules/stylix.nix
+    ./modules/kitty.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should

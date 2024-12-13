@@ -24,11 +24,11 @@
     in
     {
       nixosConfigurations = {
-        nixvm = lib.nixosSystem {
+        labnix = lib.nixosSystem {
           inherit system;
           modules = [
             stylix.nixosModules.stylix
-            ./configuration.nix
+            ./hosts/labnix/configuration.nix
           ];
         };
       };
@@ -37,7 +37,7 @@
           inherit pkgs;
           modules = [
             stylix.homeManagerModules.stylix
-            ./home.nix
+            ./home/home.nix
           ];
         };
       };
