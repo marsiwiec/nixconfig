@@ -2,16 +2,16 @@
 
 {
   home.shellAliases = {
-     ll = "ls -l";
-     ".." = "cd ..";
-     "..." = "cd ../..";
-     "...." = "cd ../../..";
-     "/" = "cd /";
-     sudo = "sudo ";
-     v = "nvim";
-     ls = "ls --color=auto";
-     grep = "grep --color=auto";
-   };
+    ll = "ls -l";
+    ".." = "cd ..";
+    "..." = "cd ../..";
+    "...." = "cd ../../..";
+    "/" = "cd /";
+    sudo = "sudo ";
+    v = "hx";
+    ls = "ls --color=auto";
+    grep = "grep --color=auto";
+  };
   programs = {
     zsh = {
       enable = true;

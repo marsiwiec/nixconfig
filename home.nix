@@ -3,23 +3,15 @@
 {
   imports = [
     ./sh.nix
+    ./helix.nix
+    ./stylix.nix
+    ./kitty.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "msiwiec";
   home.homeDirectory = "/home/msiwiec";
-  home.shellAliases = {
-    "ll" = "ls -l";
-    ".." = "cd ..";
-    "..." = "cd ../..";
-    "...." = "cd ../../..";
-    "/" = "cd /";
-    "sudo" = "sudo ";
-    "v" = "nvim";
-    "ls" = "ls --color=auto";
-    "grep" = "grep --color=auto";
-  };
 
   programs.git = {
     enable = true;
@@ -89,8 +81,8 @@
   #  /etc/profiles/per-user/msiwiec/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
+    EDITOR = "hx";
+    VISUAL = "hx";
   };
 
   # Let Home Manager install and manage itself.
