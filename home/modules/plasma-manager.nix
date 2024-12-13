@@ -2,6 +2,9 @@
 {
   programs.plasma = {
     enable = true;
+    powerdevil = {
+      AC.powerProfile = "performance";
+    };
     krunner = {
       position = "center";
     };
