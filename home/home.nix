@@ -6,21 +6,13 @@
     ./modules/helix.nix
     ./modules/stylix.nix
     ./modules/kitty.nix
+    ./modules/git.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "msiwiec";
   home.homeDirectory = "/home/msiwiec";
-
-  programs.git = {
-    enable = true;
-    userName = "marsiwiec";
-    userEmail = "marsiwiec@users.noreply.github.com";
-    extraConfig = {
-      init.defaultBranch = "main";
-    };
-  };
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
