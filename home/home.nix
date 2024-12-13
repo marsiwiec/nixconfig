@@ -7,6 +7,7 @@
     ./modules/stylix.nix
     ./modules/kitty.nix
     ./modules/git.nix
+    ./modules/gh.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
