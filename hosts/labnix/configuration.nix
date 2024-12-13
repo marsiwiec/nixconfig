@@ -11,6 +11,7 @@
     ../modules/stylix.nix
   ];
 
+  # Set up mount options for btrfs
   fileSystems = {
     "/".options = [ "compress=zstd" ];
     "/home".options = [ "compress=zstd" ];
@@ -107,6 +108,7 @@
     isNormalUser = true;
     description = "msiwiec";
     extraGroups = [
+      "libvirt"
       "networkmanager"
       "wheel"
     ];
@@ -138,8 +140,6 @@
 
   # List services that you want to enable:
   services = {
-    spice-vdagentd.enable = true;
-    qemuGuest.enable = true;
     openssh.enable = true;
   };
 
