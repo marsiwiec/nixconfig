@@ -17,6 +17,11 @@
     };
 
     stylix.url = "github:danth/stylix";
+
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -26,6 +31,7 @@
       home-manager,
       stylix,
       plasma-manager,
+      spicetify-nix,
       ...
     }:
     let
@@ -50,6 +56,7 @@
           modules = [
             inputs.plasma-manager.homeManagerModules.plasma-manager
             stylix.homeManagerModules.stylix
+            inputs.spicetify-nix.homeManagerModules.default
             ./home/home.nix
             {
               home = {
@@ -58,6 +65,7 @@
               };
             }
           ];
+          extraSpecialArgs = { inherit inputs; };
         };
       };
 
