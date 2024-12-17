@@ -9,6 +9,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../modules/stylix.nix
+    ../modules/R.nix
   ];
 
   # Attempt to fix resume from suspend
