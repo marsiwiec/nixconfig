@@ -12,6 +12,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ../modules/utils.nix
     ../modules/stylix.nix
     ../modules/gaming.nix
     ../modules/R.nix
@@ -156,11 +157,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    pciutils
     neovim
-    wget
-    git
-    kitty
     (catppuccin-sddm.override {
       flavor = "frappe";
       font = "Intel One Mono";
@@ -168,15 +165,7 @@
       background = "${../../wallpapers/wolf.png}";
       loginBackground = true;
     })
-    fastfetch
-    yazi
-    htop
-    fzf
-    ripgrep
-    bat
   ];
-
-  systemd.tpm2.enable = true;
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
