@@ -16,6 +16,7 @@
     ../modules/gaming.nix
     ../modules/R.nix
     ../modules/python.nix
+    ../modules/firefox.nix
   ];
 
   # Attempt to fix resume from suspend
