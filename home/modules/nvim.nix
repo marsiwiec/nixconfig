@@ -20,9 +20,6 @@ in
 
 {
   programs.neovim = {
-    extraLuaConfig = ''
-      ${builtins.readFile ./nvim/init.lua};
-    '';
     enable = true;
     plugins = with pkgs.vimPlugins; [
       nvim-lspconfig
