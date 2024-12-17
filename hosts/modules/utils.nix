@@ -16,5 +16,6 @@
     bat
     htop
     kitty
+    tree
   ];
 }
