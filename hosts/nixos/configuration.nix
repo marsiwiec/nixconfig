@@ -13,8 +13,9 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../modules/stylix.nix
-    ./modules/vfio.nix
     ../modules/gaming.nix
+    ../modules/R.nix
+    ../modules/python.nix
   ];
 
   # Attempt to fix resume from suspend

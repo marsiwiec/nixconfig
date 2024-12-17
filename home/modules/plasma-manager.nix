@@ -2,6 +2,10 @@
 {
   programs.plasma = {
     enable = true;
+    configFile.kdeglobals.General = {
+      BrowserApplication = "firefox.desktop";
+      TerminalApplication = "kitty";
+    };
     powerdevil = {
       AC.powerProfile = "performance";
     };
@@ -19,6 +23,11 @@
       virtualDesktops = {
         number = 4;
         rows = 1;
+      };
+    };
+    shortcuts = {
+      kwin = {
+        "Window Close" = [ "Meta+Q" ];
       };
     };
   };
