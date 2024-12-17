@@ -42,6 +42,7 @@
     in
     {
       nixosConfigurations = {
+        ### Home desktop ###
         nixgroot = lib.nixosSystem {
           inherit system;
           modules = [
@@ -49,6 +50,15 @@
             ./hosts/nixgroot/configuration.nix
           ];
         };
+        ### Lab desktop ###
+        labnix = lib.nixosSystem {
+          inherit system;
+          modules = [
+            stylix.nixosModules.stylix
+            ./hosts/labnix/configuration.nix
+          ];
+        };
+
       };
       homeConfigurations = {
         "${username}" = home-manager.lib.homeManagerConfiguration {
