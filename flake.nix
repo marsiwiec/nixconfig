@@ -1,6 +1,6 @@
 {
 
-  description = "My nixvm flake";
+  description = "My nixos flake";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -42,11 +42,11 @@
     in
     {
       nixosConfigurations = {
-        labnix = lib.nixosSystem {
+        nixos = lib.nixosSystem {
           inherit system;
           modules = [
             stylix.nixosModules.stylix
-            ./hosts/labnix/configuration.nix
+            ./hosts/nixos/configuration.nix
           ];
         };
       };

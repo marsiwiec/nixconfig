@@ -2,7 +2,11 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -10,10 +14,13 @@
     ./hardware-configuration.nix
     ../modules/stylix.nix
     ./modules/vfio.nix
+    ../modules/gaming.nix
   ];
 
   # Attempt to fix resume from suspend
   powerManagement.enable = false;
+
+  vfio.enable = true;
 
   # Set up mount options for btrfs
   fileSystems = {
@@ -38,7 +45,7 @@
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
-  networking.hostName = "labnix"; # Define your hostname.
+  networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking
@@ -78,7 +85,6 @@
       open = false;
       nvidiaSettings = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
-      nvidiaPersistenced = true;
     };
   };
 

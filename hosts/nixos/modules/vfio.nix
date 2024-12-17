@@ -1,8 +1,8 @@
 let
   # GTX1060
   gpuIDs = [
-    "10de:1c02" # Graphics
-    "10de:10f1" # Audio
+    "10de:2782" # Graphics
+    "10de:22bc" # Audio
   ];
 in
 {
@@ -18,22 +18,27 @@ in
       cfg = config.vfio;
     in
     {
+      programs.dconf.enable = true;
+      environment.systemPackages = with pkgs; [
+        virt-manager
+        quickemu
+      ];
+
       programs.virt-manager.enable = true;
       virtualisation = {
         libvirtd = {
           enable = true;
+          onShutdown = "shutdown";
           qemu = {
             package = pkgs.qemu_kvm;
-            runAsRoot = true;
             swtpm.enable = true;
             ovmf = {
               enable = true;
-              packages = [ pkgs.OVMF.fd ];
+              packages = [ pkgs.OVMFFull.fd ];
             };
           };
         };
       };
-
       boot = {
         initrd.kernelModules = [
           "vfio_pci"
@@ -52,18 +57,13 @@ in
             # isolate the GPU
             ("vfio-pci.ids=" + lib.concatStringsSep "," gpuIDs);
 
-        blacklistedKernelModules = [ "nouveau" ];
-      };
-
-      environment = {
-        systemPackages = [
-          (pkgs.writeShellScriptBin "qemu-system-x86_64-uefi" ''
-            qemu-system-x86_64 \
-              -bios ${pkgs.OVMF.fd}/FV/OVMF.fd \
-              "$@"
-          '')
+        blacklistedKernelModules = [
+          "nouveau"
+          #"nvidia"
+          #"nvidia_modeset"
+          #"nvidia_uvm"
+          #"nvidia_drm"
         ];
-
       };
 
       hardware.graphics.enable = true;
