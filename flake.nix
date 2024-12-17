@@ -42,11 +42,11 @@
     in
     {
       nixosConfigurations = {
-        nixos = lib.nixosSystem {
+        nixgroot = lib.nixosSystem {
           inherit system;
           modules = [
             stylix.nixosModules.stylix
-            ./hosts/nixos/configuration.nix
+            ./hosts/nixgroot/configuration.nix
           ];
         };
       };
