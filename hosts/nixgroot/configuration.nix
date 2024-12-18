@@ -94,7 +94,6 @@
     theme = "catppuccin-frappe";
     wayland = {
       enable = true;
-      compositor = "kwin";
     };
   };
 
