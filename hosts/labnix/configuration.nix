@@ -8,11 +8,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../modules/stylix.nix
-    ../modules/R.nix
-    ../modules/python.nix
-    ../modules/utils.nix
-    ../modules/firefox.nix
+    ../modules/common.nix
   ];
 
   # Attempt to fix resume from suspend
@@ -154,7 +150,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     pciutils
-    neovim
+    vim
     wget
     git
     kitty

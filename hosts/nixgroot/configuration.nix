@@ -12,12 +12,8 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../modules/utils.nix
-    ../modules/stylix.nix
+    ../modules/common.nix
     ../modules/gaming.nix
-    ../modules/R.nix
-    ../modules/python.nix
-    ../modules/firefox.nix
   ];
 
   # Attempt to fix resume from suspend
@@ -157,7 +153,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim
+    vim
     (catppuccin-sddm.override {
       flavor = "frappe";
       font = "Intel One Mono";
@@ -169,6 +165,7 @@
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc
     # Add any missing dynamic libraries for unpackaged programs
     # here, NOT in environment.systemPackages
   ];
