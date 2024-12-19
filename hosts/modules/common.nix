@@ -7,5 +7,8 @@
     ./stylix.nix
     ./utils.nix
     ./virtualisation.nix
+    ./avahi.nix
+    ./tailscale.nix
+    ./inputleap.nix
   ];
 }

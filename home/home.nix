@@ -14,6 +14,7 @@
     ./modules/spicetify.nix
     ./modules/plasma-manager.nix
     ./modules/nvim.nix
+    ./modules/office.nix
   ];
 
   # This value determines the Home Manager release that your configuration is

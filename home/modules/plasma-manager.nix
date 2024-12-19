@@ -2,6 +2,7 @@
 {
   programs.plasma = {
     enable = true;
+    overrideConfig = true;
     configFile.kdeglobals.General = {
       BrowserApplication = "firefox.desktop";
       TerminalApplication = "kitty";
@@ -29,6 +30,8 @@
       kwin = {
         "Window Close" = [ "Meta+Q" ];
       };
+      "services/net.local.kitty.desktop"."_launch" = "Meta+Return";
+      "services/firefox.desktop"."_launch" = "Meta+Shift+Return";
     };
   };
 }
