@@ -64,21 +64,21 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  # services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware = {
     graphics = {
       enable = true;
     };
-    nvidia = {
-      modesetting.enable = true;
-      powerManagement.enable = false;
-      powerManagement.finegrained = false;
-      open = false;
-      nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-      nvidiaPersistenced = true;
-    };
+    # nvidia = {
+    #   modesetting.enable = true;
+    #   powerManagement.enable = false;
+    #   powerManagement.finegrained = false;
+    #   open = false;
+    #   nvidiaSettings = true;
+    #   package = config.boot.kernelPackages.nvidiaPackages.stable;
+    #   nvidiaPersistenced = true;
+    # };
   };
 
   # Enable the GNOME Desktop Environment.
@@ -171,11 +171,13 @@
 
   systemd.tpm2.enable = true;
 
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    # Add any missing dynamic libraries for unpackaged programs
-    # here, NOT in environment.systemPackages
-  ];
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      # Add any missing dynamic libraries for unpackaged programs
+      # here, NOT in environment.systemPackages
+    ];
+  };
 
   # List services that you want to enable:
   services = {

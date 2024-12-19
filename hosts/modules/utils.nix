@@ -5,6 +5,7 @@
   ...
 }:
 {
+  environment.localBinInPath = true;
   environment.systemPackages = with pkgs; [
     pciutils
     wget

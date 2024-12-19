@@ -18,9 +18,6 @@
       enable = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
-      initExtra = ''
-        export PATH=$HOME/.local/bin:$PATH
-      '';
     };
     starship = {
       enable = true;

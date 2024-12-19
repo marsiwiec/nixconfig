@@ -45,6 +45,9 @@
         ### Home desktop ###
         nixgroot = lib.nixosSystem {
           inherit system;
+          specialArgs = {
+            username = "${username}";
+          };
           modules = [
             stylix.nixosModules.stylix
             ./hosts/nixgroot/configuration.nix
@@ -53,6 +56,9 @@
         ### Lab desktop ###
         labnix = lib.nixosSystem {
           inherit system;
+          specialArgs = {
+            username = "${username}";
+          };
           modules = [
             stylix.nixosModules.stylix
             ./hosts/labnix/configuration.nix
