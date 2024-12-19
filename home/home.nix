@@ -11,7 +11,6 @@
     ./modules/stylix.nix
     ./modules/kitty.nix
     ./modules/git.nix
-    ./modules/gh.nix
     ./modules/spicetify.nix
     ./modules/plasma-manager.nix
     ./modules/nvim.nix
