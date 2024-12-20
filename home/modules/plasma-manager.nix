@@ -64,6 +64,10 @@
       };
       "services/net.local.kitty.desktop"."_launch" = "Meta+Return";
       "services/firefox.desktop"."_launch" = "Meta+Shift+Return";
+      "services/org.kde.krunner.desktop"."_launch" = [
+        "Search"
+        "Meta+Space"
+      ];
     };
   };
 }
