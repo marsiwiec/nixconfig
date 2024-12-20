@@ -16,6 +16,7 @@
     ./modules/nvim.nix
     ./modules/office.nix
     ./modules/looking-glass.nix
+    ./modules/hyprland.nix
   ];
 
   # This value determines the Home Manager release that your configuration is

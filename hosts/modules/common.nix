@@ -11,5 +11,6 @@
     ./tailscale.nix
     ./inputleap.nix
     ./gc.nix
+    ./hyprland.nix
   ];
 }
