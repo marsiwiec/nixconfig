@@ -15,6 +15,7 @@
     ./modules/plasma-manager.nix
     ./modules/nvim.nix
     ./modules/office.nix
+    ./modules/looking-glass.nix
   ];
 
   # This value determines the Home Manager release that your configuration is

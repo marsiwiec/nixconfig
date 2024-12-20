@@ -10,5 +10,6 @@
     ./avahi.nix
     ./tailscale.nix
     ./inputleap.nix
+    ./gc.nix
   ];
 }
