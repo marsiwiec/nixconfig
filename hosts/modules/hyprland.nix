@@ -1,13 +1,9 @@
 { pkgs, ... }:
 {
-  programs.hyprland.enable = true;
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
 
-  environment.systemPackages = with pkgs; [
-    kitty
-    waybar
-    mako
-    playerctl
-    rofi-wayland
-  ];
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }

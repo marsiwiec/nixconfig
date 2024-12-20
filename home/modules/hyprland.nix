@@ -8,12 +8,12 @@
   ];
   wayland.windowManager.hyprland = {
     enable = true;
-    systemd.variables = [ "--all" ];
+    systemd.enable = false;
     settings = {
       "\$mod" = "SUPER";
       "\$terminal" = "kitty";
       "\$fileManager" = "dolphin";
-      "monitor" = ",3440x1440@160,auto,auto";
+      "monitor" = ",preferred,auto,auto";
       input = {
         kb_layout = "pl";
         kb_options = "caps:escape";

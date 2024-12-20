@@ -14,6 +14,7 @@
     ./hardware-configuration.nix
     ../modules/common.nix
     ../modules/gaming.nix
+    ../modules/nixgroot/vfio.nix
   ];
 
   # Attempt to fix resume from suspend
