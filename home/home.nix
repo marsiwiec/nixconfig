@@ -15,7 +15,8 @@
     ./modules/nvim.nix
     ./modules/office.nix
     ./modules/looking-glass.nix
-    ./modules/hyprland.nix
+    #./modules/hyprland.nix
+    ./modules/maestral.nix
     ../stylix/stylix.nix
   ];
 
