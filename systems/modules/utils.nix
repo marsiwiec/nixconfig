@@ -14,6 +14,8 @@
     kitty
     tree
     fzf
+    dysk
+
   ];
   programs = {
     bat.enable = true;

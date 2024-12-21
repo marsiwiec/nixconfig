@@ -8,7 +8,6 @@
   imports = [
     ./modules/sh.nix
     ./modules/helix.nix
-    ./modules/stylix.nix
     ./modules/kitty.nix
     ./modules/git.nix
     ./modules/spicetify.nix
@@ -17,6 +16,7 @@
     ./modules/office.nix
     ./modules/looking-glass.nix
     ./modules/hyprland.nix
+    ../stylix/stylix.nix
   ];
 
   # This value determines the Home Manager release that your configuration is

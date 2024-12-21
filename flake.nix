@@ -50,7 +50,7 @@
           };
           modules = [
             stylix.nixosModules.stylix
-            ./hosts/nixgroot/configuration.nix
+            ./systems/nixgroot/configuration.nix
           ];
         };
         ### Lab desktop ###
@@ -61,7 +61,7 @@
           };
           modules = [
             stylix.nixosModules.stylix
-            ./hosts/labnix/configuration.nix
+            ./systems/labnix/configuration.nix
           ];
         };
 
