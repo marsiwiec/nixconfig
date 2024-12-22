@@ -15,6 +15,9 @@
     tree
     fzf
     dysk
+    inotify-tools
+    nixd
+    lua-language-server
 
   ];
   programs = {

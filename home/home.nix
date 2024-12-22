@@ -17,6 +17,8 @@
     ./modules/looking-glass.nix
     #./modules/hyprland.nix
     ./modules/maestral.nix
+    ./modules/rclone.nix
+    ./modules/zotero.nix
     ../stylix/stylix.nix
   ];
 
