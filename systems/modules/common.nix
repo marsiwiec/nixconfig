@@ -10,8 +10,10 @@
     ./tailscale.nix
     ./inputleap.nix
     ./gc.nix
-    #./hyprland.nix
+    ./hyprland.nix
     ./nvidia-enable.nix
+    ./plasma6.nix
     ../../stylix/stylix.nix
+    ./thunar.nix
   ];
 }

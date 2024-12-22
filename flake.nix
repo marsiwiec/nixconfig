@@ -16,6 +16,8 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    hyprland.url = "github:hyprwm/Hyprland";
+
     stylix.url = "github:danth/stylix";
 
     spicetify-nix = {
@@ -47,6 +49,7 @@
           inherit system;
           specialArgs = {
             username = "${username}";
+            inherit inputs;
           };
           modules = [
             stylix.nixosModules.stylix
@@ -58,6 +61,7 @@
           inherit system;
           specialArgs = {
             username = "${username}";
+            inherit inputs;
           };
           modules = [
             stylix.nixosModules.stylix

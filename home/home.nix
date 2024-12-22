@@ -15,7 +15,7 @@
     ./modules/nvim.nix
     ./modules/office.nix
     ./modules/looking-glass.nix
-    #./modules/hyprland.nix
+    ./modules/hyprland.nix
     ./modules/maestral.nix
     ./modules/rclone.nix
     ./modules/zotero.nix
@@ -83,8 +83,8 @@
   #  /etc/profiles/per-user/msiwiec/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    EDITOR = "hx";
-    VISUAL = "hx";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
   };
 
   # Let Home Manager install and manage itself.

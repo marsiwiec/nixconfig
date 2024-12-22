@@ -8,7 +8,7 @@
     "...." = "cd ../../..";
     "/" = "cd /";
     sudo = "sudo ";
-    v = "hx";
+    v = "nvim";
     yy = "yazi";
     ls = "ls --color=auto";
     grep = "grep --color=auto";

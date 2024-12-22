@@ -37,6 +37,18 @@
     kernelPackages = pkgs.linuxPackages_latest;
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
+    plymouth.enable = true;
+    consoleLogLevel = 0;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "loglevel=3"
+      "rd.system.show_status=false"
+      "rd.udev,log_level=3"
+      "udev.log_priority=3"
+    ];
   };
 
   environment.shells = with pkgs; [ zsh ];
@@ -90,15 +102,31 @@
   #services.xserver.displayManager.gdm.enable = true;
   #services.xserver.desktopManager.gnome.enable = true;
 
-  services.displayManager.sddm = {
+  #  services.displayManager.sddm = {
+  #    enable = true;
+  #    theme = "everforest";
+  #    wayland = {
+  #      enable = true;
+  #    };
+  #  };
+
+  services.greetd = {
     enable = true;
-    theme = "catppuccin-frappe";
-    wayland = {
-      enable = true;
+    settings = {
+      default_session = {
+        command = "tuigreet --time --remember --remember-session";
+        user = "greeter";
+      };  
     };
   };
 
   services.desktopManager.plasma6.enable = true;
+  services.sunshine = {
+    enable = true;
+    autoStart = true;
+    capSysAdmin = true;
+    openFirewall = true;
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -154,6 +182,9 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
+    sunshine
+    greetd.greetd
+    greetd.tuigreet
     (catppuccin-sddm.override {
       flavor = "frappe";
       font = "Intel One Mono";

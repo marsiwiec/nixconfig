@@ -1,47 +1,130 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
-  programs.waybar.enable = true;
-  services.mako.enable = true;
+  imports = [
+    ./waybar.nix
+    ./hypridle.nix
+  ];
+
+  programs = {
+    fuzzel.enable = true;
+    hyprlock.enable = true;
+  };
+
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     pavucontrol
+    wl-clipboard
+    playerctl
+    hyprpaper
+    hypridle
+    hyprpicker
+    udiskie
   ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    extraConfig = ''
+      env = QT_QPA_PLATFORMTHEME,kde
+    '';
     settings = {
-      "\$mod" = "SUPER";
-      "\$terminal" = "kitty";
-      "\$fileManager" = "dolphin";
+      "$mod" = "SUPER";
+      "$terminal" = "kitty";
+      "$fileManager" = "thunar";
       "monitor" = ",preferred,auto,auto";
+      exec-once = [
+        "uwsm finalize"
+        "uwsm app -- waybar"
+        "uwsm app -- mako"
+        "uwsm app -- hyprpaper"
+        "uwsm app -- hypridle"
+        "uwsm app -- udiskie"
+        "uwsm app -- wl-paste --type text --watch cliphist store # Stores only text data"
+        "uwsm app -- wl-paste --type image --watch cliphist store # Stores only image data"
+      ];
+
+      general = {
+        gaps_in = 3;
+        gaps_out = 6;
+        border_size = 3;
+        resize_on_border = false;
+        allow_tearing = false;
+        layout = "dwindle";
+      };
+      misc = {
+        disable_hyprland_logo = true;
+        disable_splash_rendering = true;
+      };
+
       input = {
         kb_layout = "pl";
         kb_options = "caps:escape";
         follow_mouse = 1;
         sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
       };
-      exec-once = [
-        "waybar"
-        "mako"
-      ];
+
+      decoration = {
+        rounding = 10;
+        blur = {
+          enabled = true;
+          size = 3;
+          passes = 1;
+          vibrancy = 0.1696;
+        };
+      };
+
+      animations = {
+        enabled = true;
+        bezier = [
+          "overshot, 0.05, 0.9, 0.1, 1.05"
+          "smoothOut, 0.36, 0, 0.66, -0.56"
+          "smoothIn, 0.25, 1, 0.5, 1"
+        ];
+        animation = [
+          "windows, 1, 5, overshot, slide"
+          "windowsOut, 1, 4, smoothOut, slide"
+          "windowsMove, 1, 4, default"
+          "border, 1, 10, default"
+          "fade, 1, 10, smoothIn"
+          "fadeDim, 1, 10, smoothIn"
+          "workspaces, 1, 6, default"
+        ];
+      };
+      # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
+      dwindle = {
+        pseudotile = true; # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+        preserve_split = true; # You probably want this
+      };
+
+      # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
+      master = {
+        new_status = "master";
+      };
 
       ###################
       ### KEYBINDINGS ###
       ###################
+      submap = [
+        "passthru"
+        "reset"
+      ];
       bind = [
-        "$mod, RETURN, exec, $terminal"
+        "$mod, RETURN, exec, uwsm app -- $terminal"
         "$mod, Q, killactive"
         "$mod SHIFT, E, exit"
-        "$mod, W, exec, $fileManager"
-        "$mod SHIFT, Return, exec, firefox"
+        "$mod, W, exec, uwsm app -- $fileManager"
+        "$mod SHIFT, Return, exec, uwsm app -- firefox"
         "$mod, V, togglefloating"
-        "$mod, SPACE, exec, rofi -show drun || pkill rofi"
+        "$mod, SPACE, exec, uwsm app -- fuzzel || uwsm app -- pkill fuzzel"
         "$mod, P, pseudo" # dwindle
         "$mod, J, togglesplit" # dwindle
-        "$mod, C, exec, hyprpicker -a"
-        "$mod SHIFT, L, exec, pidof hyprlock || hyprlock"
+        "$mod, C, exec, uwsm app -- hyprpicker -a"
+        "$mod SHIFT, L, exec, uwsm app -- pidof hyprlock || uwsm app -- hyprlock"
         "$mod, F, fullscreen"
-        "$mod SHIFT, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+
+        "$mod SHIFT, P, submap, passthru" # Passthrough SUPER key to VM
+        "SUPER, Escape, submap, reset" # Reset passthrough"
 
         # Switch workspaces with mod + [0-9]
         "$mod, 1, workspace, 1"
@@ -82,38 +165,66 @@
         "$mod SHIFT, right, movefocus, r"
         "$mod SHIFT, up, movefocus, u"
         "$mod SHIFT, down, movefocus, d"
+      ];
 
+      bindm = [
         # Move/resize windows with mod + LMB/RMB and dragging
         "$mod, mouse:272, movewindow"
-        # "$mod, mouse:273, resizewindow"
+        "$mod, mouse:273, resizewindow"
       ];
 
       bindel = [
         # Laptop multimedia keys for volume and LCD brightness
-        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1"
-        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        ", XF86MonBrightnessUp, exec, brightnessctl s 10%+"
-        ", XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+        ", XF86AudioRaiseVolume, exec, uwsm app -- wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1"
+        ", XF86AudioLowerVolume, exec, uwsm app -- wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ", XF86AudioMute, exec, uwsm app -- wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86AudioMicMute, exec, uwsm app -- wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       ];
 
       bindl = [
         # Requires playerctl
-        ", XF86AudioNext, exec, playerctl next"
-        ", XF86AudioPause, exec, playerctl play-pause"
-        ", XF86AudioPlay, exec, playerctl play-pause"
-        ", XF86AudioPrev, exec, playerctl previous"
+        ", XF86AudioNext, exec, uwsm app -- playerctl next"
+        ", XF86AudioPause, exec, uwsm app -- playerctl play-pause"
+        ", XF86AudioPlay, exec, uwsm app -- playerctl play-pause"
+        ", XF86AudioPrev, exec, uwsm app -- playerctl previous"
 
       ];
       ##############################
       ### WINDOWS AND WORKSPACES ###
       ##############################
+      workspace = [
+        "w[tv1], gapsout:0, gapsin:0"
+        "f[1], gapsout:0, gapsin:0"
+      ];
+
       windowrulev2 = [
+        "bordersize 0, floating:0, onworkspace:w[tv1]"
+        "rounding 0, floating:0, onworkspace:w[tv1]"
+        "bordersize 0, floating:0, onworkspace:f[1]"
+        "rounding 0, floating:0, onworkspace:f[1]"
+
+        "opacity 0.95, class:^(kitty)$"
+        "opacity 0.95, class:^(org.kde.dolphin)$"
         "idleinhibit, fullscreen: 1"
         "float, title:^(Picture-in-Picture)$"
+        "move 1556 835, title:^(Picture-in-Picture)$"
+        "size 1000 600, title:^(Picture-in-Picture)$"
         "pin, title:^(Picture-in-Picture)$"
 
+        "workspace 6, title:^(Steam)$"
+
+        "workspace 7, class:^(org.inkscape.Inkscape)$"
+        "workspace 7, class:^(Gimp-2.10)$"
+
+        "workspace 8, title:^(RStudio)$"
+        "workspace 8, title:^(Positron)$"
+        "workspace 9, class:^(looking-glass-client)$"
+        "workspace 10, class:^(Spotify)$"
+        "suppressevent maximize, class:.*" # You'll probably like this.
+
+        ##########################
+        # Misc. floating windows #
+        ##########################
         "float,title:^(Open File)$"
         "float,title:^(Save File)$"
         "float,title:^(Save As)$"
@@ -125,7 +236,6 @@
         "float,class:^(download)$"
         "float,class:^(confirm)$"
       ];
-
     };
   };
 }
