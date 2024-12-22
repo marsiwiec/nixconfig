@@ -16,10 +16,10 @@
     wl-clipboard
     playerctl
     hyprpaper
-    hypridle
     hyprpicker
-    udiskie
   ];
+
+  services.mako.enable = true;
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -38,8 +38,6 @@
         "uwsm app -- waybar"
         "uwsm app -- mako"
         "uwsm app -- hyprpaper"
-        "uwsm app -- hypridle"
-        "uwsm app -- udiskie"
         "uwsm app -- wl-paste --type text --watch cliphist store # Stores only text data"
         "uwsm app -- wl-paste --type image --watch cliphist store # Stores only image data"
       ];

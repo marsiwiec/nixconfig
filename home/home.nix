@@ -16,6 +16,7 @@
     ./modules/office.nix
     ./modules/looking-glass.nix
     ./modules/hyprland.nix
+    ./modules/hypridle.nix
     ./modules/maestral.nix
     ./modules/rclone.nix
     ./modules/zotero.nix
