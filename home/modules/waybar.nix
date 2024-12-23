@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   programs.waybar = {
     enable = true;
     settings = [
@@ -32,7 +31,7 @@
         "hyprland/workspaces" = {
           format = "{icon}";
           format-icons = {
-            "6" =  "󰓓";
+            "6" = "󰓓";
             "7" = "󰖲";
             "8" = "󰟔";
             "9" = "󰖳";

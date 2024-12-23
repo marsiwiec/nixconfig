@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   programs.plasma = {
     enable = true;
     overrideConfig = true;
@@ -59,8 +58,8 @@
     };
     shortcuts = {
       kwin = {
-        "Window Close" = [ "Meta+Q" ];
-        "Window Fullscreen" = [ "Meta+Ctrl+F" ];
+        "Window Close" = ["Meta+Q"];
+        "Window Fullscreen" = ["Meta+Ctrl+F"];
       };
       "services/net.local.kitty.desktop"."_launch" = "Meta+Return";
       "services/firefox.desktop"."_launch" = "Meta+Shift+Return";

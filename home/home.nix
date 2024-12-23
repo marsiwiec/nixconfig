@@ -1,9 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-
-{
+{pkgs, ...}: {
   imports = [
     ./modules/utils.nix
     ./modules/sh.nix
@@ -11,7 +6,7 @@
     ./modules/kitty.nix
     ./modules/git.nix
     ./modules/spicetify.nix
-  # ./modules/plasma-manager.nix
+    # ./modules/plasma-manager.nix
     ./modules/nixvim.nix
     ./modules/office.nix
     ./modules/looking-glass.nix

@@ -1,5 +1,4 @@
 {
-
   description = "My nixos flake";
 
   inputs = {
@@ -31,69 +30,64 @@
     };
   };
 
-  outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      home-manager,
-      nixvim,
-      stylix,
-      spicetify-nix,
-      ...
-    }:
-    let
-      username = "msiwiec";
-      lib = nixpkgs.lib;
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      nixosConfigurations = {
-        ### Home desktop ###
-        nixgroot = lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            username = "${username}";
-            inherit inputs;
-          };
-          modules = [
-            stylix.nixosModules.stylix
-            ./systems/nixgroot/configuration.nix
-          ];
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    home-manager,
+    nixvim,
+    stylix,
+    spicetify-nix,
+    ...
+  }: let
+    username = "msiwiec";
+    lib = nixpkgs.lib;
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
+    nixosConfigurations = {
+      ### Home desktop ###
+      nixgroot = lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          username = "${username}";
+          inherit inputs;
         };
-        ### Lab desktop ###
-        labnix = lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            username = "${username}";
-            inherit inputs;
-          };
-          modules = [
-            stylix.nixosModules.stylix
-            ./systems/labnix/configuration.nix
-          ];
-        };
-
+        modules = [
+          stylix.nixosModules.stylix
+          ./systems/nixgroot/configuration.nix
+        ];
       };
-      homeConfigurations = {
-        "${username}" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            # inputs.plasma-manager.homeManagerModules.plasma-manager
-            stylix.homeManagerModules.stylix
-            nixvim.homeManagerModules.nixvim
-            inputs.spicetify-nix.homeManagerModules.default
-            ./home/home.nix
-            {
-              home = {
-                username = "${username}";
-                homeDirectory = "/home/${username}";
-              };
-            }
-          ];
-          extraSpecialArgs = { inherit inputs; };
+      ### Lab desktop ###
+      labnix = lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          username = "${username}";
+          inherit inputs;
         };
+        modules = [
+          stylix.nixosModules.stylix
+          ./systems/labnix/configuration.nix
+        ];
       };
-
     };
+    homeConfigurations = {
+      "${username}" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          # inputs.plasma-manager.homeManagerModules.plasma-manager
+          stylix.homeManagerModules.stylix
+          nixvim.homeManagerModules.nixvim
+          inputs.spicetify-nix.homeManagerModules.default
+          ./home/home.nix
+          {
+            home = {
+              username = "${username}";
+              homeDirectory = "/home/${username}";
+            };
+          }
+        ];
+        extraSpecialArgs = {inherit inputs;};
+      };
+    };
+  };
 }

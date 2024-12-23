@@ -8,8 +8,8 @@
       number = true;
 
       relativenumber = true;
-      shiftwidth = 4;
-      tabstop = 4;
+      shiftwidth = 2;
+      expandtab = true;
       mouse = "a";
       clipboard = {
         providers = {

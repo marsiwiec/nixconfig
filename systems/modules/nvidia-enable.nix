@@ -3,14 +3,10 @@
   lib,
   pkgs,
   ...
-}:
-
-let
+}: let
   bin = "/run/current-system/sw/bin";
-in
-{
+in {
   environment.systemPackages = with pkgs; [
-
     (writeShellScriptBin "nvidia-enable" ''
       ${bin}/virsh nodedev-reattach pci_0000_01_00_0 && \
       echo "GPU attached (now host ready)" && \
@@ -30,21 +26,20 @@ in
       echo "GPU detached (now vfio ready)" && \
       echo "COMPLETED!"
     '')
-
   ];
 
   security.sudo = {
     extraRules = [
       {
-        users = [ "msiwiec" ];
+        users = ["msiwiec"];
         commands = [
           {
             command = "${bin}/nvidia-enable";
-            options = [ "NOPASSWD" ];
+            options = ["NOPASSWD"];
           }
           {
             command = "${bin}/nvidia-disable";
-            options = [ "NOPASSWD" ];
+            options = ["NOPASSWD"];
           }
         ];
       }
@@ -55,7 +50,7 @@ in
     "nvidia-enable" = {
       description = "Start the NVIDIA GPU by releasing it from vfio";
       script = ''${bin}/nvidia-enable'';
-      wantedBy = [ "multi-user.target" ];
+      wantedBy = ["multi-user.target"];
     };
   };
 

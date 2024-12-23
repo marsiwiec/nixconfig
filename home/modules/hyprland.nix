@@ -1,5 +1,8 @@
-{ inputs, pkgs, ... }:
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     ./waybar.nix
     ./hypridle.nix
@@ -184,7 +187,6 @@
         ", XF86AudioPause, exec, uwsm app -- playerctl play-pause"
         ", XF86AudioPlay, exec, uwsm app -- playerctl play-pause"
         ", XF86AudioPrev, exec, uwsm app -- playerctl previous"
-
       ];
       ##############################
       ### WINDOWS AND WORKSPACES ###

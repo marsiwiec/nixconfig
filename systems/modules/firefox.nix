@@ -3,8 +3,7 @@
   config,
   lib,
   ...
-}:
-{
+}: {
   programs.firefox = {
     enable = true;
     policies = {
@@ -24,7 +23,6 @@
         "media.ffmpeg.vaapi.enabled" = true;
         "extensions.autoDisableScopes" = 0;
       };
-
     };
   };
 }

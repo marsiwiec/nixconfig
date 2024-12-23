@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   home.shellAliases = {
     ll = "ls -l";
     ".." = "cd ..";

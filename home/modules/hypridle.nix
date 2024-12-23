@@ -1,11 +1,10 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   systemd.user.services = {
     hypridle.Unit.After = lib.mkForce "graphical-session.target";
     hyprpaper.Unit.After = lib.mkForce "graphical-session.target";
   };
 
-  services.hypridle = {  
+  services.hypridle = {
     enable = true;
     settings = {
       general = {

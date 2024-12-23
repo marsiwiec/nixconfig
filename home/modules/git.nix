@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   programs.git = {
     enable = true;
     userName = "marsiwiec";
@@ -7,12 +6,12 @@
     extraConfig = {
       init.defaultBranch = "main";
       credential = {
-      	"https://github.com" = {
-		helper = "!gh auth git-credential";
-	};
-	"https://gist.github.com" = {
-		helper = "!gh auth git-credential";	
-	};
+        "https://github.com" = {
+          helper = "!gh auth git-credential";
+        };
+        "https://gist.github.com" = {
+          helper = "!gh auth git-credential";
+        };
       };
     };
   };

@@ -3,10 +3,9 @@
   config,
   lib,
   ...
-}:
-{
+}: {
   boot = {
-    kernelParams = [ "amd_iommu=on" ];
+    kernelParams = ["amd_iommu=on"];
     blacklistedKernelModules = [
       "nvidia"
       "nouveau"
@@ -19,5 +18,4 @@
     ];
     extraModprobeConfig = "options vfio-pci ids=10de:1c02,10de:10f1";
   };
-
 }
