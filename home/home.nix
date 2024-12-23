@@ -5,6 +5,7 @@
 
 {
   imports = [
+    ./modules/utils.nix
     ./modules/sh.nix
     ./modules/helix.nix
     ./modules/kitty.nix
