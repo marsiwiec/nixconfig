@@ -42,7 +42,7 @@
       "splash"
       "boot.shell_on_fail"
       "loglevel=3"
-      "rd.system.show_status=false"
+      "rd.systemd.show_status=false"
       "rd.udev.log_level=3"
       "udev.log_priority=3"
     ];
@@ -57,6 +57,8 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  security.polkit.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
@@ -113,7 +115,7 @@
     };
   };
 
-  services.desktopManager.plasma6.enable = true;
+  # services.desktopManager.plasma6.enable = true;
   services.sunshine = {
     enable = true;
     autoStart = true;

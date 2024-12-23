@@ -192,6 +192,7 @@
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
+      stdenv.cc.cc
       # Add any missing dynamic libraries for unpackaged programs
       # here, NOT in environment.systemPackages
     ];
