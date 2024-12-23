@@ -35,13 +35,13 @@
       "$fileManager" = "thunar";
       "monitor" = ",preferred,auto,auto";
       exec-once = [
-        "uwsm finalize"
         "uwsm app -- ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "uwsm app -- waybar"
         "uwsm app -- mako"
         "uwsm app -- hyprpaper"
         "uwsm app -- wl-paste --type text --watch cliphist store # Stores only text data"
         "uwsm app -- wl-paste --type image --watch cliphist store # Stores only image data"
+        "sudo nvidia-enable"
       ];
 
       general = {

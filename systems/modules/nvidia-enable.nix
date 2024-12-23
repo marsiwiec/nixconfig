@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   bin = "/run/current-system/sw/bin";
 in {
   environment.systemPackages = with pkgs; [
@@ -18,6 +13,7 @@ in {
     '')
 
     (writeShellScriptBin "nvidia-disable" ''
+      sleep 5 && \
       ${bin}/rmmod nvidia_modeset nvidia_uvm nvidia && \
       echo "NVIDIA drivers removed" && \
       ${bin}/modprobe -i vfio_pci vfio_pci_core vfio_iommu_type1 && \
@@ -46,13 +42,13 @@ in {
     ];
   };
 
-  systemd.services = {
-    "nvidia-enable" = {
-      description = "Start the NVIDIA GPU by releasing it from vfio";
-      script = ''${bin}/nvidia-enable'';
-      wantedBy = ["multi-user.target"];
-    };
-  };
+  #  systemd.services = {
+  #    "nvidia-enable" = {
+  #      description = "Start the NVIDIA GPU by releasing it from vfio";
+  #      script = ''${bin}/nvidia-enable'';
+  #      wantedBy = ["multi-user.target"];
+  #    };
+  #  };
 
   environment.shellAliases = {
     nvidia-enable = "sudo nvidia-enable";
