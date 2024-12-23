@@ -18,6 +18,11 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     stylix.url = "github:danth/stylix";
 
     spicetify-nix = {
@@ -31,8 +36,8 @@
       self,
       nixpkgs,
       home-manager,
+      nixvim,
       stylix,
-      plasma-manager,
       spicetify-nix,
       ...
     }:
@@ -74,8 +79,9 @@
         "${username}" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            inputs.plasma-manager.homeManagerModules.plasma-manager
+            # inputs.plasma-manager.homeManagerModules.plasma-manager
             stylix.homeManagerModules.stylix
+            nixvim.homeManagerModules.nixvim
             inputs.spicetify-nix.homeManagerModules.default
             ./home/home.nix
             {

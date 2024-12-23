@@ -29,6 +29,16 @@
           on-click = "uwsm app -- fuzzel || uwsm app -- pkill fuzzel";
           tooltip = false;
         };
+        "hyprland/workspaces" = {
+          format = "{icon}";
+          format-icons = {
+            "6" =  "󰓓";
+            "7" = "󰖲";
+            "8" = "󰟔";
+            "9" = "󰖳";
+            "10" = "󰝚";
+          };
+        };
         "hyprland/window" = {
           format = "  {}";
           max-length = 50;
@@ -115,7 +125,7 @@
         };
         tray = {
           icon-size = 20;
-          spacind = 15;
+          spacing = 15;
         };
         idle_inhibitor = {
           format = "<big>{icon}</big>";

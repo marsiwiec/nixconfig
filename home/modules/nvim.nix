@@ -12,6 +12,9 @@
     in
     {
       enable = true;
+      withNodeJs = true;
+      withPython3 = true;
+      withRuby = true;
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
@@ -32,6 +35,8 @@
         }
 
         neodev-nvim
+
+        nvim-autopairs
 
         nvim-cmp
         {

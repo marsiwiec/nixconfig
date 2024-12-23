@@ -17,6 +17,7 @@
     playerctl
     hyprpaper
     hyprpicker
+    polkit_gnome
   ];
 
   services.mako.enable = true;
@@ -25,9 +26,6 @@
     enable = true;
     systemd.enable = false;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    extraConfig = ''
-      env = QT_QPA_PLATFORMTHEME,kde
-    '';
     settings = {
       "$mod" = "SUPER";
       "$terminal" = "kitty";
@@ -35,6 +33,7 @@
       "monitor" = ",preferred,auto,auto";
       exec-once = [
         "uwsm finalize"
+        "uwsm app -- ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "uwsm app -- waybar"
         "uwsm app -- mako"
         "uwsm app -- hyprpaper"
@@ -217,7 +216,7 @@
         "workspace 8, title:^(RStudio)$"
         "workspace 8, title:^(Positron)$"
         "workspace 9, class:^(looking-glass-client)$"
-        "workspace 10, class:^(Spotify)$"
+        "workspace 10, class:^(spotify)$"
         "suppressevent maximize, class:.*" # You'll probably like this.
 
         ##########################

@@ -46,7 +46,7 @@
       "boot.shell_on_fail"
       "loglevel=3"
       "rd.system.show_status=false"
-      "rd.udev,log_level=3"
+      "rd.udev.log_level=3"
       "udev.log_priority=3"
     ];
   };
@@ -98,10 +98,6 @@
     };
   };
 
-  # Enable the GNOME Desktop Environment.
-  #services.xserver.displayManager.gdm.enable = true;
-  #services.xserver.desktopManager.gnome.enable = true;
-
   #  services.displayManager.sddm = {
   #    enable = true;
   #    theme = "everforest";
@@ -116,7 +112,7 @@
       default_session = {
         command = "tuigreet --time --remember --remember-session";
         user = "greeter";
-      };  
+      };
     };
   };
 
@@ -194,12 +190,14 @@
     })
   ];
 
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    stdenv.cc.cc
-    # Add any missing dynamic libraries for unpackaged programs
-    # here, NOT in environment.systemPackages
-  ];
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc
+      # Add any missing dynamic libraries for unpackaged programs
+      # here, NOT in environment.systemPackages
+    ];
+  };
 
   # List services that you want to enable:
   services = {

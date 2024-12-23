@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   imports = [
     ./firefox.nix
@@ -8,9 +8,9 @@
     ./virtualisation.nix
     ./avahi.nix
     ./tailscale.nix
-    ./inputleap.nix
     ./gc.nix
     ./hyprland.nix
+    ./lan-mouse.nix
     ./nvidia-enable.nix
     ./plasma6.nix
     ../../stylix/stylix.nix

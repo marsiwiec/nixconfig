@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   ...
 }:
@@ -11,8 +10,8 @@
     ./modules/kitty.nix
     ./modules/git.nix
     ./modules/spicetify.nix
-    ./modules/plasma-manager.nix
-    ./modules/nvim.nix
+  # ./modules/plasma-manager.nix
+    ./modules/nixvim.nix
     ./modules/office.nix
     ./modules/looking-glass.nix
     ./modules/hyprland.nix

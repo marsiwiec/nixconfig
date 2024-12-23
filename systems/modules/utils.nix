@@ -1,7 +1,5 @@
 {
   pkgs,
-  config,
-  lib,
   ...
 }:
 {
@@ -18,7 +16,9 @@
     inotify-tools
     nixd
     lua-language-server
-
+    gparted
+    nil
+    gvfs
   ];
   programs = {
     bat.enable = true;
