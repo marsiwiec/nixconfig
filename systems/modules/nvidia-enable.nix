@@ -14,7 +14,7 @@ in {
 
     (writeShellScriptBin "nvidia-disable" ''
       sleep 5 && \
-      ${bin}/rmmod nvidia_modeset nvidia_uvm nvidia && \
+      ${bin}/rmmod nvidia_modeset nvidia && \
       echo "NVIDIA drivers removed" && \
       ${bin}/modprobe -i vfio_pci vfio_pci_core vfio_iommu_type1 && \
       echo "VFIO drivers added" && \

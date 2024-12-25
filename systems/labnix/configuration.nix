@@ -10,7 +10,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../modules/common.nix
-    ../modules/labnix/vfio.nix
+    #    ../modules/labnix/vfio.nix
   ];
 
   # Attempt to fix resume from suspend

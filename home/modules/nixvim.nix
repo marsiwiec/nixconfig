@@ -34,10 +34,36 @@
     plugins = {
       lualine.enable = true;
       quarto.enable = true;
+      otter.enable = true;
       nvim-autopairs.enable = true;
-      telescope.enable = true;
+      telescope = {
+        enable = true;
+        settings = {
+          file_ignore_patterns = [
+            "^.git/"
+            "^.mypy_cache/"
+            "^__pycache__/"
+            "^output/"
+            "^data/"
+            "%.ipynb"
+          ];
+          layout_config = {
+            prompt_position = "top";
+          };
+          selection_caret = "> ";
+          set_env = {
+            COLORTERM = "truecolor";
+          };
+          sorting_strategy = "ascending";
+        };
+      };
       oil.enable = true;
-      treesitter.enable = true;
+      treesitter = {
+        enable = true;
+        settings = {
+          highlight.enable = true;
+        };
+      };
       luasnip.enable = true;
       bufferline.enable = true;
       web-devicons.enable = true;
@@ -95,6 +121,13 @@
         enable = true;
         autoEnableSources = true;
         settings = {
+          mapping = {
+            "<C-Space>" = "cmp.mapping.complete()";
+            "<C-e>" = "cmp.mapping.close()";
+            "<CR>" = "cmp.mapping.confirm({ select = true })";
+            "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+            "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+          };
           sources = [
             {name = "nvim_lsp";}
             {name = "path";}

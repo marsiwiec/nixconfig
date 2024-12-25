@@ -5,6 +5,7 @@
     ./python.nix
     ./utils.nix
     ./virtualisation.nix
+    ./vfio.nix
     ./avahi.nix
     ./tailscale.nix
     ./gc.nix

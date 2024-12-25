@@ -15,8 +15,11 @@
       };
     };
   };
-  programs.gh = {
-    enable = true;
-    gitCredentialHelper.enable = false;
+  programs = {
+    gh = {
+      enable = true;
+      gitCredentialHelper.enable = false;
+    };
+    lazygit.enable = true;
   };
 }
