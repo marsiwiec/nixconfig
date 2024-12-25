@@ -1,18 +1,18 @@
 {...}: {
   imports = [
-    ./sh.nix
+    ./terminal/sh.nix
     ./git.nix
-    ./emacs.nix
-    ./helix.nix
-    ./kitty.nix
-    ./utils.nix
-    ./nixvim.nix
+    ./editors/emacs.nix
+    ./editors/helix.nix
+    ./terminal/kitty.nix
+    ./terminal/utils.nix
+    ./editors/nixvim.nix
     ./office.nix
     ./rclone.nix
-    ./waybar.nix
+    ./WM/hyprland/waybar.nix
     ./zotero.nix
-    ./hypridle.nix
-    ./hyprland.nix
+    ./WM/hyprland/hypridle.nix
+    ./WM/hyprland/hyprland.nix
     ./maestral.nix
     ./spicetify.nix
     ./qutebrowser.nix
