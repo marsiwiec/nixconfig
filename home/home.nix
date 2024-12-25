@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./modules/emacs.nix
     ./modules/utils.nix
     ./modules/sh.nix
     ./modules/helix.nix
@@ -15,6 +16,7 @@
     ./modules/maestral.nix
     ./modules/rclone.nix
     ./modules/zotero.nix
+    ./modules/qutebrowser.nix
     ../stylix/stylix.nix
   ];
 

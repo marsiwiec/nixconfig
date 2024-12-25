@@ -33,6 +33,7 @@
 
     plugins = {
       lualine.enable = true;
+      neo-tree.enable = true;
       quarto.enable = true;
       otter.enable = true;
       nvim-autopairs.enable = true;
@@ -57,6 +58,7 @@
           sorting_strategy = "ascending";
         };
       };
+      which-key.enable = true;
       oil.enable = true;
       treesitter = {
         enable = true;

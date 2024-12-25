@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{...}: {
   home.shellAliases = {
     ll = "ls -l";
     ".." = "cd ..";
@@ -14,6 +10,7 @@
     yy = "yazi";
     ls = "ls --color=auto";
     grep = "grep --color=auto";
+    lg = "lazygit";
   };
   programs = {
     zsh = {
