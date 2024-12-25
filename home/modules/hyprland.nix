@@ -33,7 +33,7 @@
       "$mod" = "SUPER";
       "$terminal" = "kitty";
       "$fileManager" = "thunar";
-      "monitor" = ",preferred,auto,auto";
+      "monitor" = ",highrr,auto,auto";
       exec-once = [
         "uwsm app -- ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "uwsm app -- waybar"
