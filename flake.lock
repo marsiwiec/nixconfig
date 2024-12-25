@@ -485,11 +485,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1735140790,
-        "narHash": "sha256-Zz1EEW4bb75t8jn56Uglz0spelTBXQ9EgvQS4el0Jrk=",
+        "lastModified": 1735153785,
+        "narHash": "sha256-zhfNWUqDRmHx8Kcw1hJnFS75ESlT/rJ0Lh5ujV0jIyg=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "1a3d17da9150f255ff2144cbe8317c0200de0ee4",
+        "rev": "dddb64dc353ec9ef73be22d1cc1441782fb44068",
         "type": "github"
       },
       "original": {
@@ -866,11 +866,11 @@
         "tinted-tmux": "tinted-tmux"
       },
       "locked": {
-        "lastModified": 1735148633,
-        "narHash": "sha256-mBZidw+BiGvUFBRwU4AFUSFXvQCyX+HAAP8s045Ctaw=",
+        "lastModified": 1735151068,
+        "narHash": "sha256-sJ1/y4aXAZ22trJjY+nH/bJ+pydaDKf3wZtafM+Yjcs=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "a70154ec03034cfd1a88868dc0259456fc618435",
+        "rev": "079fecebad5f616561726359c89cedd811c8a722",
         "type": "github"
       },
       "original": {

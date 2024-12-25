@@ -9,9 +9,8 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../modules/common.nix
-    ../modules/gaming.nix
-    #    ../modules/nixgroot/vfio.nix
+    ../../nixosModules
+    ../../nixosModules/gaming.nix
   ];
 
   # Attempt to fix resume from suspend

@@ -71,14 +71,32 @@
       };
     };
     homeConfigurations = {
-      "${username}" = home-manager.lib.homeManagerConfiguration {
+      "${username}@nixgroot" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
           # inputs.plasma-manager.homeManagerModules.plasma-manager
           stylix.homeManagerModules.stylix
           nixvim.homeManagerModules.nixvim
           inputs.spicetify-nix.homeManagerModules.default
-          ./home/home.nix
+          ./systems/nixgroot/home.nix
+          ./homeManagerModules
+          {
+            home = {
+              username = "${username}";
+              homeDirectory = "/home/${username}";
+            };
+          }
+        ];
+        extraSpecialArgs = {inherit inputs;};
+      };
+      "${username}@labnix" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          stylix.homeManagerModules.stylix
+          nixvim.homeManagerModules.nixvim
+          inputs.spicetify-nix.homeManagerModules.default
+          ./systems/labnix/home.nix
+          ./homeManagerModules
           {
             home = {
               username = "${username}";
