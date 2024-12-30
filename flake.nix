@@ -10,11 +10,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #    plasma-manager = {
-    #      url = "github:nix-community/plasma-manager";
-    #      inputs.nixpkgs.follows = "nixpkgs";
-    #      inputs.home-manager.follows = "home-manager";
-    #    };
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
 
     nixvim = {
       url = "github:nix-community/nixvim";
@@ -27,18 +27,14 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-    };
   };
 
   outputs = inputs @ {
     self,
     nixpkgs,
     nixpkgs-stable,
-    ghostty,
     home-manager,
+    plasma-manager,
     nixvim,
     stylix,
     spicetify-nix,
@@ -61,12 +57,7 @@
         };
         modules = [
           stylix.nixosModules.stylix
-          ./systems/nixgroot/configuration.nix
-          {
-            environment.systemPackages = [
-              ghostty.packages.${system}.default
-            ];
-          }
+          ./hosts/nixgroot/configuration.nix
         ];
       };
 
@@ -79,7 +70,7 @@
         };
         modules = [
           stylix.nixosModules.stylix
-          ./systems/labnix/configuration.nix
+          ./hosts/labnix/configuration.nix
         ];
       };
     };
@@ -88,12 +79,11 @@
       "${username}@nixgroot" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          # inputs.plasma-manager.homeManagerModules.plasma-manager
+          inputs.plasma-manager.homeManagerModules.plasma-manager
           stylix.homeManagerModules.stylix
           nixvim.homeManagerModules.nixvim
           inputs.spicetify-nix.homeManagerModules.default
-          ./systems/nixgroot/home.nix
-          ./homeManagerModules
+          ./hosts/nixgroot/home.nix
           {
             home = {
               username = "${username}";
@@ -109,11 +99,11 @@
       "${username}@labnix" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
+          inputs.plasma-manager.homeManagerModules.plasma-manager
           stylix.homeManagerModules.stylix
           nixvim.homeManagerModules.nixvim
           inputs.spicetify-nix.homeManagerModules.default
-          ./systems/labnix/home.nix
-          ./homeManagerModules
+          ./hosts/labnix/home.nix
           {
             home = {
               username = "${username}";
