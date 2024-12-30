@@ -1,6 +1,5 @@
 {...}: {
   imports = [
-    ./ollama.nix
     ./avahi.nix
     ./firefox.nix
     #    ./gaming.nix
