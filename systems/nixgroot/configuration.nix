@@ -128,11 +128,20 @@
     variant = "";
   };
 
+  # Configure bluetooth
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+  services.blueman.enable = true;
+
   # Configure console keymap
   console.keyMap = "pl2";
 
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services.printing = {
+    enable = true;
+  };
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;

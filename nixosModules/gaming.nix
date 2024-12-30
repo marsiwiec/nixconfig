@@ -1,11 +1,17 @@
-{pkgs, ...}: {
+{
+  config,
+  inputs,
+  pkgs,
+  pkgs-stable,
+  ...
+}: {
   programs = {
     steam.enable = true;
     gamescope.enable = true;
     gamemode.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    heroic
+  environment.systemPackages = [
+    pkgs-stable.heroic
   ];
 }

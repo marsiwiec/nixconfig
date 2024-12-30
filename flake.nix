@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "nixpkgs/nixos-24.11";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -28,11 +29,17 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
   };
 
   outputs = inputs @ {
     self,
     nixpkgs,
+    nixpkgs-stable,
+    ghostty,
     home-manager,
     nixvim,
     stylix,
@@ -43,6 +50,7 @@
     lib = nixpkgs.lib;
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    pkgs-stable = nixpkgs-stable.legacyPackages.${system};
   in {
     nixosConfigurations = {
       ### Home desktop ###
@@ -51,12 +59,19 @@
         specialArgs = {
           username = "${username}";
           inherit inputs;
+          inherit pkgs-stable;
         };
         modules = [
           stylix.nixosModules.stylix
           ./systems/nixgroot/configuration.nix
+          {
+            environment.systemPackages = [
+              ghostty.packages.${system}.default
+            ];
+          }
         ];
       };
+
       ### Lab desktop ###
       labnix = lib.nixosSystem {
         inherit system;
@@ -70,6 +85,7 @@
         ];
       };
     };
+
     homeConfigurations = {
       "${username}@nixgroot" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
@@ -87,7 +103,10 @@
             };
           }
         ];
-        extraSpecialArgs = {inherit inputs;};
+        extraSpecialArgs = {
+          inherit inputs;
+          inherit pkgs-stable;
+        };
       };
       "${username}@labnix" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
@@ -104,7 +123,10 @@
             };
           }
         ];
-        extraSpecialArgs = {inherit inputs;};
+        extraSpecialArgs = {
+          inherit inputs;
+          inherit pkgs-stable;
+        };
       };
     };
   };
