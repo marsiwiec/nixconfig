@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     users.enable = lib.mkEnableOption "user config";
   };

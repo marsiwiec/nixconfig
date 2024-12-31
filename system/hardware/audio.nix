@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     audio.enable = lib.mkEnableOption "audio config";
   };

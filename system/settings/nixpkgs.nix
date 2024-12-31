@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     nixpkgs.enable = lib.mkEnableOption "config for nixpkgs regarding unfree etc";
   };

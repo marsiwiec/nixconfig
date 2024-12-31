@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     qutebrowser.enable = lib.mkEnableOption "enable qutebrowser";
   };

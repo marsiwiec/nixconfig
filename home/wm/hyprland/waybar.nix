@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     waybar.enable = lib.mkEnableOption "enable waybar status bar config";
   };

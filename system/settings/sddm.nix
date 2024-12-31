@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     sddm.enable = lib.mkEnableOption "config for sddm and catppuccin theme";
   };

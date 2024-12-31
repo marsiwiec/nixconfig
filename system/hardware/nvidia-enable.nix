@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   bin = "/run/current-system/sw/bin";
-in {
+in
+{
   options = {
     nvidia-enable.enable = lib.mkEnableOption "configuration for attaching and detaching NVIDIA GPU for passthrough and host use without reboot and config changes";
   };
@@ -36,15 +38,15 @@ in {
     security.sudo = {
       extraRules = [
         {
-          users = ["msiwiec"];
+          users = [ "msiwiec" ];
           commands = [
             {
               command = "${bin}/nvidia-enable";
-              options = ["NOPASSWD"];
+              options = [ "NOPASSWD" ];
             }
             {
               command = "${bin}/nvidia-disable";
-              options = ["NOPASSWD"];
+              options = [ "NOPASSWD" ];
             }
           ];
         }

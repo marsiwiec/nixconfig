@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     hyprland.enable = lib.mkEnableOption "enable home-manager config for hyprland";
   };

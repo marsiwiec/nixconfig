@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     polkit.enable = lib.mkEnableOption "polkit for wms";
   };

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -13,8 +14,8 @@
 
   # Set up mount options for btrfs
   fileSystems = {
-    "/".options = ["compress=zstd"];
-    "/home".options = ["compress=zstd"];
+    "/".options = [ "compress=zstd" ];
+    "/home".options = [ "compress=zstd" ];
     "/nix".options = [
       "compress=zstd"
       "noatime"
@@ -42,7 +43,7 @@
     ];
   };
 
-  environment.shells = with pkgs; [zsh];
+  environment.shells = with pkgs; [ zsh ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 

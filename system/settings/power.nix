@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     power.enable = lib.mkEnableOption "powermgmt config";
   };

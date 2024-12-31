@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     nixld.enable = lib.mkEnableOption "nixld config for dynamic libraries";
   };

@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     maestral.enable = lib.mkEnableOption "enable maestral dropbox client";
   };

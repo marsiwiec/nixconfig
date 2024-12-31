@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     obsidian.enable = lib.mkEnableOption "enable obsidian note app";
   };

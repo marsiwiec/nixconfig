@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     kitty.enable = lib.mkEnableOption "enable kitty terminal";
   };

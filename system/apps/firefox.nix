@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     firefox.enable = lib.mkEnableOption "config for Firefox";
   };

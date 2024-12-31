@@ -3,7 +3,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   options = {
     distrobox.enable = lib.mkEnableOption "config for distrobox with podman";
   };

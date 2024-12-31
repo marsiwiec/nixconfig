@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     bluetooth.enable = lib.mkEnableOption "bluetooth config";
   };

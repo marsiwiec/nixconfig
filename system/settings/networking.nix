@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     networking.enable = lib.mkEnableOption "networking config";
   };

@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     greetd.enable = lib.mkEnableOption "config for greetd and tuigreet";
   };

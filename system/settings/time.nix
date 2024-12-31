@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     time.enable = lib.mkEnableOption "time sync settings";
   };

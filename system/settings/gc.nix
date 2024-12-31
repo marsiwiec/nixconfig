@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     gc.enable = lib.mkEnableOption "config for garbage collection and store optimization";
   };
@@ -16,7 +17,7 @@
       };
       optimise = {
         automatic = true;
-        dates = ["03:45"];
+        dates = [ "03:45" ];
       };
     };
   };

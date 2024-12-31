@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     git.enable = lib.mkEnableOption "enable git config with gh-cli etc";
   };

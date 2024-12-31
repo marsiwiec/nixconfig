@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     sunshine.enable = lib.mkEnableOption "config for sunshine streaming";
   };

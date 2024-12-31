@@ -1,4 +1,5 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   options = {
     direnv.enable = lib.mkEnableOption "enable nix-direnv";
   };

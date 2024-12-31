@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     terminal-utils.enable = lib.mkEnableOption "enable additional utils for terminal";
   };

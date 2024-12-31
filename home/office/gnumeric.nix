@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     gnumeric.enable = lib.mkEnableOption "enable gnumeric spreadsheet app";
   };

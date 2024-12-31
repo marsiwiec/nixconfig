@@ -2,7 +2,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     kernel.enable = lib.mkEnableOption "kernel config";
   };
@@ -16,7 +17,7 @@
         theme = lib.mkForce "infinite_seal";
         themePackages = with pkgs; [
           (adi1090x-plymouth-themes.override {
-            selected_themes = ["infinite_seal"];
+            selected_themes = [ "infinite_seal" ];
           })
         ];
       };

@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     lan-mouse.enable = lib.mkEnableOption "lan-mouse config for sharing mouse/keyboard";
   };
@@ -11,6 +12,6 @@
     environment.systemPackages = with pkgs; [
       lan-mouse
     ];
-    networking.firewall.allowedTCPPorts = [4242];
+    networking.firewall.allowedTCPPorts = [ 4242 ];
   };
 }

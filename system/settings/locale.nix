@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     locale.enable = lib.mkEnableOption "locale settings";
   };

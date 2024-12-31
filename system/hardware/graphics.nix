@@ -3,7 +3,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   options = {
     graphics.enable = lib.mkEnableOption "enable basic graphics support";
   };

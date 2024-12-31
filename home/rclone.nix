@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     rclone.enable = lib.mkEnableOption "enable rclone for cloud storage";
   };

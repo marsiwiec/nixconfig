@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     helix.enable = lib.mkEnableOption "enable helix editor";
   };

@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     hyprland.enable = lib.mkEnableOption "enable Hyprland";
   };

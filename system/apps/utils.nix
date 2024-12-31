@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     utils.enable = lib.mkEnableOption "additional system utils";
   };

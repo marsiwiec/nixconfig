@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     thunar.enable = lib.mkEnableOption "config for thunar file manager";
   };

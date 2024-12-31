@@ -4,14 +4,17 @@
   config,
   inputs,
   ...
-}: let
+}:
+let
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-in {
+in
+{
   options = {
     spicetify.enable = lib.mkEnableOption "enable spicetify customization of spotify";
   };
   config = lib.mkIf config.spicetify.enable {
-    nixpkgs.config.allowUnfreePredicate = pkg:
+    nixpkgs.config.allowUnfreePredicate =
+      pkg:
       builtins.elem (lib.getName pkg) [
         "spotify"
       ];

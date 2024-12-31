@@ -4,9 +4,11 @@
   pkgs,
   username,
   ...
-}: let
+}:
+let
   cfg = config.virtualisation.kvmfr;
-in {
+in
+{
   options = {
     virtualization.enable = lib.mkEnableOption "config for virtualization";
     virtualisation.kvmfr = {
@@ -48,7 +50,7 @@ in {
           swtpm.enable = true;
           ovmf = {
             enable = true;
-            packages = [pkgs.OVMFFull.fd];
+            packages = [ pkgs.OVMFFull.fd ];
           };
           verbatimConfig = ''
               namespaces = []
@@ -80,7 +82,7 @@ in {
     boot.extraModulePackages = with config.boot.kernelPackages; [
       kvmfr
     ];
-    boot.kernelModules = ["kvmfr"];
+    boot.kernelModules = [ "kvmfr" ];
     boot.extraModprobeConfig = ''
       options kvmfr static_size_mb=128
     '';
@@ -89,7 +91,7 @@ in {
       SUBSYSTEM=="kvmfr", OWNER="${cfg.shm.user}", GROUP="${cfg.shm.group}", MODE="${cfg.shm.mode}"
     '';
 
-    users.users.${username}.extraGroups = ["libvirtd"];
+    users.users.${username}.extraGroups = [ "libvirtd" ];
 
     environment.systemPackages = with pkgs; [
       spice

@@ -3,7 +3,8 @@
   config,
   pkgs-stable,
   ...
-}: {
+}:
+{
   options = {
     gaming.enable = lib.mkEnableOption "enables gaming module with stea and heroic";
   };

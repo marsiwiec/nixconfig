@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     sh.enable = lib.mkEnableOption "shell config, aliases etc.";
   };

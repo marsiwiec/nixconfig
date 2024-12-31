@@ -3,13 +3,15 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     nixvim.enable = lib.mkEnableOption "enable nixvim config";
   };
   config = lib.mkIf config.nixvim.enable {
     home.packages = with pkgs; [
       alejandra
+      nixfmt-rfc-style
     ];
     programs.nixvim = {
       enable = true;
@@ -118,7 +120,7 @@
               enable = true;
               settings = {
                 formatting.command = [
-                  "alejandra"
+                  "nixfmt"
                 ];
               };
             };
@@ -140,9 +142,9 @@
               "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
             };
             sources = [
-              {name = "nvim_lsp";}
-              {name = "path";}
-              {name = "buffer";}
+              { name = "nvim_lsp"; }
+              { name = "path"; }
+              { name = "buffer"; }
             ];
           };
           cmdline.mapping = {
@@ -163,7 +165,10 @@
                   end
                 end
               '';
-              modes = ["i" "s"];
+              modes = [
+                "i"
+                "s"
+              ];
             };
           };
         };

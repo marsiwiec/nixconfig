@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     emacs.enable = lib.mkEnableOption "enable emacs editor";
   };

@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     hypridle.enable = lib.mkEnableOption "enable hypridle config for hyprland and other WMs";
   };
