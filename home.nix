@@ -11,6 +11,15 @@
     intel-one-mono
   ];
 
+  stylix = {
+    iconTheme = {
+      enable = true;
+      package = pkgs.papirus-icon-theme;
+      dark = "Papirus-Dark";
+      light = "Papirus";
+    };
+  };
+
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
