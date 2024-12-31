@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ../../home
+    ./home
   ];
 
   home.stateVersion = "24.11";

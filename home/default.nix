@@ -2,7 +2,6 @@
   imports = [
     ./browsers
     ./editors
-    ./KDE
     ./office
     ./terminal
     ./wm

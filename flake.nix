@@ -83,7 +83,7 @@
           stylix.homeManagerModules.stylix
           nixvim.homeManagerModules.nixvim
           inputs.spicetify-nix.homeManagerModules.default
-          ./hosts/nixgroot/home.nix
+          ./home.nix
           {
             home = {
               username = "${username}";
@@ -103,7 +103,7 @@
           stylix.homeManagerModules.stylix
           nixvim.homeManagerModules.nixvim
           inputs.spicetify-nix.homeManagerModules.default
-          ./hosts/labnix/home.nix
+          ./home.nix
           {
             home = {
               username = "${username}";
