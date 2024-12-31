@@ -22,10 +22,7 @@
       fzf
       dysk
       inotify-tools
-      nixd
-      lua-language-server
       gparted
-      nil
       gvfs
     ];
     programs = {
