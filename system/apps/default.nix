@@ -11,7 +11,7 @@
     ./lan-mouse.nix
     ./tailscale.nix
   ];
-  gaming.enable = lib.mkDefault false;
+  gaming.enable = lib.mkDefault true;
   lan-mouse.enable = lib.mkDefault false;
 
   utils.enable = lib.mkDefault true;

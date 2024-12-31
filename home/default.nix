@@ -2,10 +2,12 @@
   imports = [
     ./browsers
     ./editors
+    ./nixos
     ./office
     ./terminal
     ./wm
     ./git.nix
+    ./mpv.nix
     ./rclone.nix
     ./zotero.nix
     ./maestral.nix
@@ -14,6 +16,7 @@
     ../stylix/stylix.nix
   ];
   git.enable = lib.mkDefault true;
+  mpv.enable = lib.mkDefault true;
   rclone.enable = lib.mkDefault true;
   zotero.enable = lib.mkDefault true;
   maestral.enable = lib.mkDefault true;
