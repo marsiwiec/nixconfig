@@ -13,7 +13,7 @@
     ./maestral.nix
     ./spicetify.nix
     ./looking-glass.nix
-    ../stylix/stylix.nix
+    ../style/stylix/stylix.nix
   ];
   git.enable = lib.mkDefault true;
   mpv.enable = lib.mkDefault true;

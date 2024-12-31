@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   stylix = {
     enable = true;
-    image = ../wallpapers/eldenring2.jpg;
+    image = ../../wallpapers/eldenring2.jpg;
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest.yaml";
     fonts = {

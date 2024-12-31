@@ -1,8 +1,8 @@
-{lib, ...}: {
+{...}: {
   imports = [
     ./hardware
     ./settings
     ./apps
-    ../stylix/stylix.nix
+    ../style/stylix/stylix.nix
   ];
 }
