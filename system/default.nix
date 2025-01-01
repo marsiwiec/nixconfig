@@ -4,6 +4,6 @@
     ./hardware
     ./settings
     ./apps
-    ../style/stylix/stylix.nix
+    ../style/stylix/system/stylix.nix
   ];
 }

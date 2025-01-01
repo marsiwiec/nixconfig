@@ -2,25 +2,14 @@
 {
   imports = [
     ./browsers
+    ./cloud
     ./editors
+    ./media
     ./nixos
     ./office
+    ./passthrough
     ./terminal
     ./wm
-    ./git.nix
-    ./mpv.nix
-    ./rclone.nix
-    ./zotero.nix
-    ./maestral.nix
-    ./spicetify.nix
-    ./looking-glass.nix
-    ../style/stylix/stylix.nix
+    ../style/stylix/home/stylix.nix
   ];
-  git.enable = lib.mkDefault true;
-  mpv.enable = lib.mkDefault true;
-  rclone.enable = lib.mkDefault true;
-  zotero.enable = lib.mkDefault true;
-  maestral.enable = lib.mkDefault true;
-  spicetify.enable = lib.mkDefault true;
-  looking-glass.enable = lib.mkDefault true;
 }

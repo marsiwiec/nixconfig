@@ -5,7 +5,7 @@
 }:
 {
   options = {
-    kernel.enable = lib.mkEnableOption "kernel config";
+    boot.enable = lib.mkEnableOption "boot config";
   };
   config = {
     boot = {

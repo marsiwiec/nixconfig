@@ -7,7 +7,7 @@
     ./power.nix
     ./users.nix
     ./greetd.nix
-    ./kernel.nix
+    ./boot.nix
     ./locale.nix
     ./nix-ld.nix
     ./polkit.nix
@@ -24,7 +24,7 @@
   power.enable = lib.mkDefault true;
   users.enable = lib.mkDefault true;
   greetd.enable = lib.mkDefault true;
-  kernel.enable = lib.mkDefault true;
+  boot.enable = lib.mkDefault true;
   locale.enable = lib.mkDefault true;
   nixld.enable = lib.mkDefault true;
   polkit.enable = lib.mkDefault true;
