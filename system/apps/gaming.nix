@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   pkgs-stable,
   ...
 }:
@@ -17,6 +18,9 @@
 
     environment.systemPackages = [
       pkgs-stable.heroic
+      pkgs.mangohud
+      pkgs.protonup-qt
+      pkgs-stable.bottles
     ];
   };
 }
