@@ -16,15 +16,14 @@
         RStudio-with-my-packages = rstudioWrapper.override {
           packages = with rPackages; [
             tidyverse
-            drc
-            usethis
-            devtools
             patchwork
+            drc
           ];
         };
       in
       [
         RStudio-with-my-packages
+        quarto
       ];
   };
 }
