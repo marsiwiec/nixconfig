@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  inputs,
   ...
 }:
 {
@@ -11,6 +12,7 @@
   config = lib.mkIf config.helix.enable {
     programs.helix = {
       enable = true;
+      package = inputs.helix.packages."${pkgs.system}".helix;
       settings = {
         editor = {
           cursor-shape = {
