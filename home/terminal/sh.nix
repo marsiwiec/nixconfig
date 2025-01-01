@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 {
@@ -9,6 +10,9 @@
   };
 
   config = lib.mkIf config.sh.enable {
+
+    home.packages = [ pkgs.microfetch ];
+
     home.shellAliases = {
       ll = "ls -l";
       ".." = "cd ..";
@@ -28,6 +32,16 @@
         enable = true;
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
+        initExtra = ''
+          KITTY_INSTANCES=0
+          for pid in $(pidof -x kitty); do
+            KITTY_INSTANCES=$((KITTY_INSTANCES+1))
+          done
+          if [[ KITTY_INSTANCES -eq 1 ]]; then
+            date
+            microfetch
+          fi
+        '';
       };
       starship = {
         enable = true;
