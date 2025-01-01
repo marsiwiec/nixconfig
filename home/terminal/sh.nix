@@ -21,6 +21,7 @@
       ls = "ls --color=auto";
       grep = "grep --color=auto";
       lg = "lazygit";
+      nixdiff = "nix run nixpkgs#nvd -- diff $(ls -d1v /nix/var/nix/profiles/system-*-link|tail -n 2)";
     };
     programs = {
       zsh = {
