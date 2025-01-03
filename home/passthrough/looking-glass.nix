@@ -2,7 +2,6 @@
   lib,
   config,
   pkgs,
-  pkgs-stable,
   ...
 }:
 {
@@ -55,7 +54,6 @@
 
     programs.looking-glass-client = {
       enable = true;
-      package = pkgs-stable.looking-glass-client;
       settings = {
         app = {
           allowDMA = true;

@@ -2,7 +2,6 @@
   lib,
   config,
   pkgs,
-  pkgs-stable,
   ...
 }:
 {
@@ -16,11 +15,11 @@
       gamemode.enable = true;
     };
 
-    environment.systemPackages = [
-      pkgs-stable.heroic
-      pkgs.mangohud
-      pkgs.protonup-qt
-      pkgs-stable.bottles
+    environment.systemPackages = with pkgs; [
+      heroic
+      mangohud
+      protonup-qt
+      bottles
     ];
   };
 }
