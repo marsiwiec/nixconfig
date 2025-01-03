@@ -27,11 +27,13 @@
       lg = "lazygit";
       nixdiff = "nix run nixpkgs#nvd -- diff $(ls -d1v /nix/var/nix/profiles/system-*-link|tail -n 2)";
     };
+
     programs = {
       zsh = {
         enable = true;
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
+        defaultKeymap = "emacs";
         initExtra = ''
           TERM_INSTANCES=0
           for pid in $(pidof -x kitty ghostty); do
@@ -43,16 +45,20 @@
           fi
         '';
       };
+
       starship = {
         enable = true;
         enableZshIntegration = true;
       };
+
       atuin = {
         enable = true;
       };
+
       zoxide = {
         enable = true;
       };
+
     };
   };
 }
