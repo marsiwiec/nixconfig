@@ -2,7 +2,7 @@
 {
   imports = [
     ./wm
-    ./programming
+    ./dev
     ./utils.nix
     ./gaming.nix
     ./thunar.nix

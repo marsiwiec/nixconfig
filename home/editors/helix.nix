@@ -15,6 +15,7 @@
       package = inputs.helix.packages."${pkgs.system}".helix;
       settings = {
         editor = {
+          line-number = "relative";
           cursor-shape = {
             normal = "block";
             insert = "bar";
