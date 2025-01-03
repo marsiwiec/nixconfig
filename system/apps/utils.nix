@@ -17,7 +17,6 @@
       wget
       fastfetch
       ripgrep
-      kitty
       tree
       fzf
       dysk

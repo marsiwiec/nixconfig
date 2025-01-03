@@ -26,6 +26,10 @@
     ];
 
     services.mako.enable = true;
+    services.udiskie = {
+      enable = true;
+      tray = "never";
+    };
 
     wayland.windowManager.hyprland = {
       enable = true;

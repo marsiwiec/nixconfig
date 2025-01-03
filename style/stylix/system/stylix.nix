@@ -15,8 +15,9 @@
         package = pkgs.nerd-fonts.jetbrains-mono;
       };
       sizes = {
-        desktop = 12;
+        desktop = 14;
         terminal = 16;
+        popups = 14;
       };
     };
     cursor = {
