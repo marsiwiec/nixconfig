@@ -204,6 +204,7 @@
           "rounding 0, floating:0, onworkspace:f[1]"
 
           "opacity 0.95, class:^(kitty)$"
+          "opacity 0.95, class:^(ghostty)$"
           "opacity 0.95, class:^(org.kde.dolphin)$"
           "idleinhibit, fullscreen: 1"
           "float, title:^(Picture-in-Picture)$"

@@ -33,11 +33,11 @@
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
         initExtra = ''
-          KITTY_INSTANCES=0
-          for pid in $(pidof -x kitty); do
-            KITTY_INSTANCES=$((KITTY_INSTANCES+1))
+          TERM_INSTANCES=0
+          for pid in $(pidof -x kitty ghostty); do
+            TERM_INSTANCES=$((TERM_INSTANCES+1))
           done
-          if [[ KITTY_INSTANCES -eq 1 ]]; then
+          if [[ TERM_INSTANCES -eq 1 ]]; then
             date
             microfetch
           fi

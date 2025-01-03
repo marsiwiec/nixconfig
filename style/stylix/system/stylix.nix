@@ -16,6 +16,7 @@
       };
       sizes = {
         desktop = 12;
+        terminal = 16;
       };
     };
     cursor = {
