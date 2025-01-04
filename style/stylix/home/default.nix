@@ -1,8 +1,5 @@
 { pkgs, ... }:
 {
-  imports = [
-    ../system/stylix.nix
-  ];
   stylix = {
     iconTheme = {
       enable = true;

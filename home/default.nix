@@ -10,6 +10,7 @@
     ./passthrough
     ./terminal
     ./wm
-    ../style/stylix/home/stylix.nix
+    ../style/stylix
+    ../style/stylix/home
   ];
 }
