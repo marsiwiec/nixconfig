@@ -2,6 +2,7 @@
 {
   imports = [
     ./hardware
+    ./modules
     ./settings
     ./apps
     ../style/stylix
