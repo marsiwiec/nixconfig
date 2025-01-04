@@ -63,6 +63,7 @@
           modules = [
             stylix.nixosModules.stylix
             ./hosts/nixgroot/configuration.nix
+            ./style/stylix/system/nixgroot
           ];
         };
 
@@ -76,6 +77,7 @@
           modules = [
             stylix.nixosModules.stylix
             ./hosts/labnix/configuration.nix
+            ./style/stylix/system/labnix
           ];
         };
       };
@@ -89,6 +91,7 @@
             nixvim.homeManagerModules.nixvim
             inputs.spicetify-nix.homeManagerModules.default
             ./home.nix
+            ./style/stylix/home/nixgroot
             {
               home = {
                 username = "${username}";
@@ -109,6 +112,7 @@
             nixvim.homeManagerModules.nixvim
             inputs.spicetify-nix.homeManagerModules.default
             ./home.nix
+            ./style/stylix/home/labnix
             {
               home = {
                 username = "${username}";

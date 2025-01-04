@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -9,10 +9,6 @@
   gaming.enable = false;
   sddm.enable = true;
   greetd.enable = false;
-
-  stylix = lib.mkForce {
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
-  };
 
   networking.hostName = "labnix"; # Define your hostname.
 
