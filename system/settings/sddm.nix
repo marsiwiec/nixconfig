@@ -14,13 +14,14 @@
         flavor = "frappe";
         font = "Intel One Mono";
         fontSize = "12";
-        background = "${../../wallpapers/wolf.png}";
+        background = "${../../style/wallpapers/eldenring.jpg}";
         loginBackground = true;
       })
     ];
     services.displayManager.sddm = {
       enable = true;
-      theme = "everforest";
+      package = pkgs.kdePackages.sddm;
+      theme = "catppuccin-frappe";
       wayland = {
         enable = true;
       };

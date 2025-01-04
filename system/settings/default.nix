@@ -18,12 +18,12 @@
     ./virtualisation.nix
   ];
   sddm.enable = lib.mkDefault false;
+  greetd.enable = lib.mkDefault true;
 
   gc.enable = lib.mkDefault true;
   time.enable = lib.mkDefault true;
   power.enable = lib.mkDefault true;
   users.enable = lib.mkDefault true;
-  greetd.enable = lib.mkDefault true;
   boot.enable = lib.mkDefault true;
   locale.enable = lib.mkDefault true;
   nixld.enable = lib.mkDefault true;

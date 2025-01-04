@@ -14,12 +14,12 @@
       loader.efi.canTouchEfiVariables = true;
       plymouth = {
         enable = true;
-        theme = lib.mkForce "seal";
-        themePackages = with pkgs; [
-          (adi1090x-plymouth-themes.override {
-            selected_themes = [ "seal" ];
-          })
-        ];
+        # theme = lib.mkForce "seal";
+        # themePackages = with pkgs; [
+        #   (adi1090x-plymouth-themes.override {
+        #     selected_themes = [ "seal" ];
+        #   })
+        # ];
       };
       consoleLogLevel = 0;
       initrd.verbose = false;
