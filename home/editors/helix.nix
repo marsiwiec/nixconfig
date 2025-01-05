@@ -16,6 +16,10 @@
       settings = {
         editor = {
           line-number = "relative";
+          end-of-line-diagnostics = "hint";
+          inline-diagnostics = {
+            cursor-line = "warning";
+          };
           cursor-shape = {
             normal = "block";
             insert = "bar";
