@@ -6,7 +6,7 @@
 }:
 {
   options = {
-    gaming.enable = lib.mkEnableOption "enables gaming module with stea and heroic";
+    gaming.enable = lib.mkEnableOption "Gaming with Steam and Heroic";
   };
   config = lib.mkIf config.gaming.enable {
     programs = {
