@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 {
@@ -18,5 +19,6 @@
       nvidiaSettings = true;
       package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
+    environment.systemPackages = with pkgs; [ cudaPackages.cudatoolkit ];
   };
 }

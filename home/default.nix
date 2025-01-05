@@ -4,6 +4,7 @@
     ./browsers
     ./cloud
     ./editors
+    ./graphics
     ./media
     ./nixos
     ./office
