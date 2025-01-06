@@ -8,7 +8,7 @@
   ];
 
   devenv.enable = lib.mkDefault true;
-  R.enable = lib.mkDefault true;
+  #  R.enable = lib.mkDefault true;
   python.enable = lib.mkDefault true;
   LSPs.enable = lib.mkDefault true;
 }
