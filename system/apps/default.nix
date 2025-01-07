@@ -10,6 +10,7 @@
     ./distrobox.nix
     ./lan-mouse.nix
     ./tailscale.nix
+    ./ollama.nix
   ];
 
   lan-mouse.enable = lib.mkDefault false;
@@ -20,4 +21,5 @@
   sunshine.enable = lib.mkDefault true;
   distrobox.enable = lib.mkDefault true;
   tailscale.enable = lib.mkDefault true;
+  ollama.enable = lib.mkDefault true;
 }

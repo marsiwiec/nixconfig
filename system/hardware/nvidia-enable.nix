@@ -18,14 +18,18 @@ in
         echo "GPU attached (now host ready)" && \
         ${bin}/rmmod vfio_pci vfio_pci_core vfio_iommu_type1 && \
         echo "VFIO drivers removed" && \
-        ${bin}/modprobe -i nvidia_modeset nvidia_uvm nvidia && \
+        ${bin}/modprobe -i nvidia && \
+        sleep 2 && \
+        ${bin}/modprobe -i nvidia_modeset && \
+        sleep 2 && \
+        ${bin}/modprobe -i nvidia_uvm && \
         echo "NVIDIA drivers added" && \
         echo "COMPLETED!"
       '')
 
       (writeShellScriptBin "nvidia-disable" ''
         sleep 5 && \
-        ${bin}/rmmod nvidia_modeset nvidia && \
+        ${bin}/rmmod nvidia_modeset nvidia_uvm nvidia && \
         echo "NVIDIA drivers removed" && \
         ${bin}/modprobe -i vfio_pci vfio_pci_core vfio_iommu_type1 && \
         echo "VFIO drivers added" && \
