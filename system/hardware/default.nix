@@ -7,6 +7,7 @@
     ./graphics.nix
     ./printing.nix
     ./bluetooth.nix
+    ./logitech.nix
     ./nvidia-enable.nix
   ];
   vfio.enable = lib.mkDefault true;
@@ -15,5 +16,6 @@
   graphics.enable = lib.mkDefault true;
   printing.enable = lib.mkDefault true;
   bluetooth.enable = lib.mkDefault true;
+  logitech.enable = lib.mkDefault true;
   nvidia-enable.enable = lib.mkDefault true;
 }
