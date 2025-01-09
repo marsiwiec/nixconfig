@@ -10,6 +10,20 @@
 
   networking.hostName = "nixgroot"; # Define your hostname.
 
+  sops = {
+    secrets = {
+      syncthing_nixgroot_key.owner = "msiwiec";
+      syncthing_nixgroot_cert.owner = "msiwiec";
+    };
+  };
+
+  services = {
+    syncthing = {
+      key = "/run/secrets/syncthing_nixgroot_key";
+      cert = "/run/secrets/syncthing_nixgroot_cert";
+    };
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

@@ -12,6 +12,20 @@
 
   networking.hostName = "labnix"; # Define your hostname.
 
+  sops = {
+    secrets = {
+      syncthing_labnix_key.owner = "msiwiec";
+      syncthing_labnix_cert.owner = "msiwiec";
+    };
+  };
+
+  services = {
+    syncthing = {
+      key = "/run/secrets/syncthing_labnix_key";
+      cert = "/run/secrets/syncthing_labnix_cert";
+    };
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

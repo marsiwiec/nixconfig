@@ -5,6 +5,16 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "nixpkgs/nixos-24.11";
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,6 +46,8 @@
       self,
       nixpkgs,
       nixpkgs-stable,
+      sops-nix,
+      disko,
       home-manager,
       plasma-manager,
       nixvim,
@@ -62,6 +74,7 @@
           };
           modules = [
             stylix.nixosModules.stylix
+            sops-nix.nixosModules.sops
             ./hosts/nixgroot/configuration.nix
             ./style/stylix/system/nixgroot
           ];
@@ -76,8 +89,19 @@
           };
           modules = [
             stylix.nixosModules.stylix
+            sops-nix.nixosModules.sops
             ./hosts/labnix/configuration.nix
             ./style/stylix/system/labnix
+          ];
+        };
+
+        ### Hetzner Cloud ###
+        nixcloud = lib.nixosSystem {
+          inherit system;
+          modules = [
+            disko.nixosModules.disko
+            sops-nix.nixosModules.sops
+            ./hosts/nixcloud/configuration.nix
           ];
         };
       };
