@@ -20,6 +20,8 @@
   services.openssh.enable = true;
 
   sops = {
+    defaultSopsFile = ../../secrets/.syncthing-secrets.yaml;
+    defaultSopsFormat = "yaml";
     secrets = {
       syncthing_nixcloud_key.owner = "msiwiec";
       syncthing_nixcloud_cert.owner = "msiwiec";
