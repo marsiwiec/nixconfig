@@ -24,6 +24,9 @@
       syncthing_nixcloud_key.owner = "msiwiec";
       syncthing_nixcloud_cert.owner = "msiwiec";
     };
+    age = {
+      sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+    };
   };
 
   environment.systemPackages = map lib.lowPrio [
