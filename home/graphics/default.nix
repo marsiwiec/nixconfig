@@ -18,9 +18,9 @@
     home.packages = with pkgs; [
       inkscape-with-extensions
       gimp
-      (blender.override {
-        cudaSupport = true;
-      })
+      # (blender.override {
+      #   cudaSupport = true;
+      # })
     ];
   };
 }
