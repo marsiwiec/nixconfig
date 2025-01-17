@@ -21,6 +21,8 @@
       ruff
       python312Packages.jedi-language-server
       python312Packages.python-lsp-server
+      #typst
+      tinymist
       #rust
       rust-analyzer
       #other

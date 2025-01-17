@@ -123,6 +123,7 @@
           "$mod, V, togglefloating"
           "$mod, SPACE, exec, uwsm app -- fuzzel || uwsm app -- pkill fuzzel"
           "$mod, P, pseudo" # dwindle
+          "$mod, O, swapsplit"
           "$mod, J, togglesplit" # dwindle
           "$mod, C, exec, uwsm app -- hyprpicker -a"
           "$mod SHIFT, L, exec, uwsm app -- pidof hyprlock || uwsm app -- hyprlock"

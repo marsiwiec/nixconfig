@@ -46,6 +46,11 @@
           auto-format = true;
           formatter.command = lib.getExe pkgs.pyright;
         }
+        {
+          name = "typst";
+          auto-format = true;
+          formatter.command = lib.getExe pkgs.typstyle;
+        }
       ];
     };
   };
