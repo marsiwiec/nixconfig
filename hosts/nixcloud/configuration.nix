@@ -20,11 +20,15 @@
   services.openssh.enable = true;
 
   sops = {
-    defaultSopsFile = ../../secrets/.syncthing-secrets.yaml;
+    defaultSopsFile = ../../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
     secrets = {
-      syncthing_nixcloud_key.owner = "msiwiec";
-      syncthing_nixcloud_cert.owner = "msiwiec";
+      "syncthing/nixcloud/key" = {
+        owner = "msiwiec";
+      };
+      "syncthing/nixcloud/cert" = {
+        owner = "msiwiec";
+      };
     };
     age = {
       sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
@@ -50,8 +54,8 @@
     syncthing = {
       enable = true;
       user = "msiwiec";
-      key = "/run/secrets/syncthing_nixcloud_key";
-      cert = "/run/secrets/syncthing_nixcloud_cert";
+      key = "/run/secrets/syncthing/nixcloud/key";
+      cert = "/run/secrets/syncthing/nixcloud/cert";
       configDir = "/home/msiwiec/.config/syncthing"; # Folder for Syncthing's settings and keys. Will be overwritten by Nix!
       settings = {
         devices = {

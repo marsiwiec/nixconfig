@@ -3,7 +3,7 @@ keys:
   - &labnix age13s97ydy9fz4yn2sp9yjxc06lt2zxkkm6umw324whuuh8ldkqqgqqygqxpx
   - &nixcloud age1k6sles3jduurw3za9060v7sqxcxswpp09lww29g6gefd4je9fq4qghr5ca
 creation_rules:
-  - path_regex: secrets/.syncthing-secrets.yaml
+  - path_regex: secrets/secrets.yaml
     key_groups:
       - age:
         - *nixgroot

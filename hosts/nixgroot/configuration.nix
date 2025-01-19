@@ -12,15 +12,19 @@
 
   sops = {
     secrets = {
-      syncthing_nixgroot_key.owner = "msiwiec";
-      syncthing_nixgroot_cert.owner = "msiwiec";
+      "syncthing/nixgroot/cert" = {
+        owner = "msiwiec";
+      };
+      "syncthing/nixgroot/key" = {
+        owner = "msiwiec";
+      };
     };
   };
 
   services = {
     syncthing = {
-      key = "/run/secrets/syncthing_nixgroot_key";
-      cert = "/run/secrets/syncthing_nixgroot_cert";
+      key = "/run/secrets/syncthing/nixgroot/key";
+      cert = "/run/secrets/syncthing/nixgroot/cert";
     };
   };
 

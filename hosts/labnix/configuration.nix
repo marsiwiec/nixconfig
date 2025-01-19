@@ -14,15 +14,19 @@
 
   sops = {
     secrets = {
-      syncthing_labnix_key.owner = "msiwiec";
-      syncthing_labnix_cert.owner = "msiwiec";
+      "syncthing/labnix/cert" = {
+        owner = "msiwiec";
+      };
+      "syncthing/labnix/key" = {
+        owner = "msiwiec";
+      };
     };
   };
 
   services = {
     syncthing = {
-      key = "/run/secrets/syncthing_labnix_key";
-      cert = "/run/secrets/syncthing_labnix_cert";
+      key = "/run/secrets/syncthing/labnix/key";
+      cert = "/run/secrets/syncthing/labnix/cert";
     };
   };
 
