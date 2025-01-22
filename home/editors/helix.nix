@@ -12,6 +12,7 @@
   config = lib.mkIf config.helix.enable {
     programs.helix = {
       enable = true;
+      defaultEditor = true;
       package = inputs.helix.packages."${pkgs.system}".helix;
       settings = {
         editor = {
