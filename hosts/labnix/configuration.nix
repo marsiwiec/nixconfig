@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ../../system
   ];
+  ollama.enable = false;
 
   #### My own modules ####
   gaming.enable = false;
