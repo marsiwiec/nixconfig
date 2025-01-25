@@ -5,6 +5,11 @@
     ../../system
   ];
 
+  ### Fix for Lexar nvme SSDs ###
+  boot = {
+    kernelParams = [ "nvme_core.default_ps_max_latency_us=0" ];
+  };
+
   #### My own modules ####
   gaming.enable = true;
 
