@@ -9,6 +9,9 @@
     programs.foot = {
       enable = true;
       settings = {
+        main = {
+          pad = "5x0";
+        };
         cursor = {
           style = "beam";
           blink = true;
