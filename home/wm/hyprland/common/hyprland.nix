@@ -208,8 +208,9 @@
           "rounding 0, floating:0, onworkspace:f[1]"
 
           "opacity 0.95, class:^(kitty)$"
+          "opacity 0.95, class:^(foot)$"
           "opacity 0.95, class:^(ghostty)$"
-          "opacity 0.95, class:^(org.kde.dolphin)$"
+          "opacity 0.95, class:^(thunar)$"
           "idleinhibit, fullscreen: 1"
           "float, title:^(Picture-in-Picture)$"
           "move 1556 835, title:^(Picture-in-Picture)$"
