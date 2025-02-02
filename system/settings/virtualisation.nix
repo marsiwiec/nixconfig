@@ -7,6 +7,17 @@
 }:
 let
   cfg = config.virtualisation.kvmfr;
+  kvmfr = (
+    config.boot.kernelPackages.kvmfr.overrideAttrs (previousAttrs: {
+      patches = previousAttrs.patches ++ [
+        (pkgs.fetchpatch {
+          url = "https://github.com/gnif/LookingGlass/pull/1154/commits/7740692e3000c2019e21b9861585960174dd5ddc.patch";
+          hash = "sha256-QRg92WttsROFT8ZxUp9JeGPEZOhdZfznFBkAL8EQr+k=";
+          stripLen = 1;
+        })
+      ];
+    })
+  );
 in
 {
   options = {
@@ -79,7 +90,7 @@ in
       };
     };
 
-    boot.extraModulePackages = with config.boot.kernelPackages; [
+    boot.extraModulePackages = [
       kvmfr
     ];
     boot.kernelModules = [ "kvmfr" ];

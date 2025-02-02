@@ -116,6 +116,7 @@
             inputs.spicetify-nix.homeManagerModules.default
             ./home.nix
             ./style/stylix/home/nixgroot
+            ./home/wm/hyprland/nixgroot
             {
               home = {
                 username = "${username}";
@@ -136,6 +137,7 @@
             nixvim.homeManagerModules.nixvim
             inputs.spicetify-nix.homeManagerModules.default
             ./home.nix
+            ./home/wm/hyprland/labnix
             ./style/stylix/home/labnix
             {
               home = {
