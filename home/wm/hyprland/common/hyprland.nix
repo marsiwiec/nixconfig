@@ -173,6 +173,11 @@
           "$mod SHIFT, down, movefocus, d"
         ];
 
+        binde = [
+          "$mod SHIFT, Comma, splitratio, +0.1"
+          "$mod SHIFT, Period, splitratio, -0.1"
+        ];
+
         bindm = [
           # Move/resize windows with mod + LMB/RMB and dragging
           "$mod, mouse:272, movewindow"
