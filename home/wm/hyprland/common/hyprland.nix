@@ -118,6 +118,7 @@
           "$mod, Q, killactive"
           "$mod SHIFT, E, exit"
           "$mod, W, exec, uwsm app -- $fileManager"
+          "$mod SHIFT, B, exec, uwsm app -- waybar"
           "$mod SHIFT, Return, exec, uwsm app -- firefox"
           "$mod, V, togglefloating"
           "$mod, SPACE, exec, uwsm app -- fuzzel || uwsm app -- pkill fuzzel"
