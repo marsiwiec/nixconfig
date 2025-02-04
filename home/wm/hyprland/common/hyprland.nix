@@ -116,7 +116,7 @@
         bind = [
           "$mod, RETURN, exec, uwsm app -- $terminal"
           "$mod, Q, killactive"
-          "$mod SHIFT, E, exit"
+          "$mod SHIFT, E, exec, uwsm stop"
           "$mod, W, exec, uwsm app -- $fileManager"
           "$mod SHIFT, B, exec, uwsm app -- waybar"
           "$mod SHIFT, Return, exec, uwsm app -- firefox"
@@ -171,11 +171,12 @@
           "$mod SHIFT, right, movefocus, r"
           "$mod SHIFT, up, movefocus, u"
           "$mod SHIFT, down, movefocus, d"
-        ];
 
-        binde = [
-          "$mod SHIFT, Comma, splitratio, +0.1"
-          "$mod SHIFT, Period, splitratio, -0.1"
+          # resize active window
+          "$mod SHIFT, Comma, resizeactive, 20 0"
+          "$mod SHIFT, Period, resizeactive, -20 0"
+          "$mod SHIFT, Semicolon, resizeactive, 0 20"
+          "$mod SHIFT, Slash, resizeactive, 0 -20"
         ];
 
         bindm = [
