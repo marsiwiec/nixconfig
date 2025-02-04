@@ -12,7 +12,7 @@
   config = lib.mkIf config.utils.enable {
     environment.localBinInPath = true;
     environment.systemPackages = with pkgs; [
-      vim
+      neovim
       pciutils
       wget
       fastfetch

@@ -28,11 +28,6 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     stylix.url = "github:danth/stylix";
 
     spicetify-nix = {
@@ -50,7 +45,6 @@
       disko,
       home-manager,
       plasma-manager,
-      nixvim,
       stylix,
       spicetify-nix,
       ...
@@ -112,7 +106,6 @@
           modules = [
             inputs.plasma-manager.homeManagerModules.plasma-manager
             stylix.homeManagerModules.stylix
-            nixvim.homeManagerModules.nixvim
             inputs.spicetify-nix.homeManagerModules.default
             ./home.nix
             ./style/stylix/home/nixgroot
@@ -134,7 +127,6 @@
           modules = [
             inputs.plasma-manager.homeManagerModules.plasma-manager
             stylix.homeManagerModules.stylix
-            nixvim.homeManagerModules.nixvim
             inputs.spicetify-nix.homeManagerModules.default
             ./home.nix
             ./home/wm/hyprland/labnix
