@@ -173,10 +173,10 @@
           "$mod SHIFT, down, movefocus, d"
 
           # resize active window
-          "$mod SHIFT, Comma, resizeactive, 20 0"
-          "$mod SHIFT, Period, resizeactive, -20 0"
-          "$mod SHIFT, Semicolon, resizeactive, 0 20"
-          "$mod SHIFT, Slash, resizeactive, 0 -20"
+          "$mod SHIFT, Comma, resizeactive, -20 0"
+          "$mod SHIFT, Period, resizeactive, 20 0"
+          "$mod SHIFT, Semicolon, resizeactive, 0 -20"
+          "$mod SHIFT, Slash, resizeactive, 0 20"
         ];
 
         bindm = [
