@@ -10,6 +10,8 @@
   };
 
   config = lib.mkIf config.sysfonts.enable {
-    fonts.packages = with pkgs; [ corefonts ];
+    fonts.packages = with pkgs; [
+      corefonts
+    ];
   };
 }

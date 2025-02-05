@@ -11,6 +11,14 @@
     programs.zellij = {
       enable = true;
       enableZshIntegration = true;
+      settings = {
+        default_mode = "locked";
+        ui = {
+          pane_frames = {
+            rounded_corners = true;
+          };
+        };
+      };
     };
   };
 }
