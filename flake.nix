@@ -27,7 +27,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-
     stylix.url = "github:danth/stylix";
 
     spicetify-nix = {
@@ -37,7 +36,7 @@
   };
 
   outputs =
-    inputs@{
+    {
       self,
       nixpkgs,
       nixpkgs-stable,
@@ -48,40 +47,35 @@
       stylix,
       spicetify-nix,
       ...
-    }:
+    }@inputs:
     let
       username = "msiwiec";
-      lib = nixpkgs.lib;
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-      pkgs-stable = nixpkgs-stable.legacyPackages.${system};
     in
     {
       nixosConfigurations = {
         ### Home desktop ###
-        nixgroot = lib.nixosSystem {
-          inherit system;
+        nixgroot = inputs.nixpkgs.lib.nixosSystem {
           specialArgs = {
             username = "${username}";
             inherit inputs;
-            inherit pkgs-stable;
           };
           modules = [
+            { nixpkgs.hostPlatform = "x86_64-linux"; }
+            ./hosts/nixgroot/configuration.nix
             stylix.nixosModules.stylix
             sops-nix.nixosModules.sops
-            ./hosts/nixgroot/configuration.nix
             ./style/stylix/system/nixgroot
           ];
         };
 
         ### Lab desktop ###
-        labnix = lib.nixosSystem {
-          inherit system;
+        labnix = inputs.nixpkgs.lib.nixosSystem {
           specialArgs = {
             username = "${username}";
             inherit inputs;
           };
           modules = [
+            { nixpkgs.hostPlatform = "x86_64-linux"; }
             stylix.nixosModules.stylix
             sops-nix.nixosModules.sops
             ./hosts/labnix/configuration.nix
@@ -90,9 +84,9 @@
         };
 
         ### Hetzner Cloud ###
-        nixcloud = lib.nixosSystem {
-          inherit system;
+        nixcloud = inputs.nixpkgs.lib.nixosSystem {
           modules = [
+            { nixpkgs.hostPlatform = "x86_64-linux"; }
             disko.nixosModules.disko
             sops-nix.nixosModules.sops
             ./hosts/nixcloud/configuration.nix
@@ -102,7 +96,8 @@
 
       homeConfigurations = {
         "${username}@nixgroot" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+          nixpkgs.hostPlatform = "x86_64-linux";
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
           modules = [
             inputs.plasma-manager.homeManagerModules.plasma-manager
             stylix.homeManagerModules.stylix
@@ -119,11 +114,10 @@
           ];
           extraSpecialArgs = {
             inherit inputs;
-            inherit pkgs-stable;
           };
         };
         "${username}@labnix" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
           modules = [
             inputs.plasma-manager.homeManagerModules.plasma-manager
             stylix.homeManagerModules.stylix
@@ -140,7 +134,6 @@
           ];
           extraSpecialArgs = {
             inherit inputs;
-            inherit pkgs-stable;
           };
         };
       };
