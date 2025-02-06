@@ -96,7 +96,6 @@
 
       homeConfigurations = {
         "${username}@nixgroot" = home-manager.lib.homeManagerConfiguration {
-          nixpkgs.hostPlatform = "x86_64-linux";
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           modules = [
             inputs.plasma-manager.homeManagerModules.plasma-manager
