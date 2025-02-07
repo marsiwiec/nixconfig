@@ -14,6 +14,8 @@
       #nix
       nil
       nixd
+      #markdown
+      marksman
       #lua
       lua-language-server
       #python
