@@ -36,7 +36,7 @@
         defaultKeymap = "emacs";
         initExtra = ''
           TERM_INSTANCES=0
-          for pid in $(pidof -x kitty ghostty); do
+          for pid in $(pidof -x kitty ghostty wezterm-gui); do
             TERM_INSTANCES=$((TERM_INSTANCES+1))
           done
           if [[ TERM_INSTANCES -eq 1 ]]; then
