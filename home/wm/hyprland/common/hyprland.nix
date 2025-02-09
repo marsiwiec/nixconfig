@@ -49,8 +49,8 @@
         ];
 
         general = {
-          gaps_in = 3;
-          gaps_out = 6;
+          gaps_in = 2;
+          gaps_out = 4;
           border_size = 3;
           resize_on_border = false;
           allow_tearing = false;
