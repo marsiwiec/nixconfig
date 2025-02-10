@@ -13,11 +13,12 @@
       isNormalUser = true;
       description = "msiwiec";
       extraGroups = [
+        "wheel"
         "kvm"
         "qemu"
         "libvirtd"
         "networkmanager"
-        "wheel"
+        "i2c"
       ];
     };
   };

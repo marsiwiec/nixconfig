@@ -10,6 +10,7 @@
     ./logitech.nix
     ./keyboard.nix
     ./nvidia-enable.nix
+    ./screen.nix
   ];
   vfio.enable = lib.mkDefault true;
   audio.enable = lib.mkDefault true;

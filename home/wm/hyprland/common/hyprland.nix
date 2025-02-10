@@ -199,6 +199,8 @@
           ", XF86AudioPause, exec, uwsm app -- playerctl play-pause"
           ", XF86AudioPlay, exec, uwsm app -- playerctl play-pause"
           ", XF86AudioPrev, exec, uwsm app -- playerctl previous"
+          ", XF86MonBrightnessUp, exec, ddcutil --bus=6 setvcp 10 + 10"
+          ", XF86MonBrightnessDown, exec, ddcutil --bus=6 setvcp 10 - 10"
         ];
         ##############################
         ### WINDOWS AND WORKSPACES ###
