@@ -9,6 +9,6 @@
   # emacs.enable = lib.mkDefault true;
   helix.enable = lib.mkDefault true;
   vscode.enable = lib.mkDefault true;
-  # positron.enable = lib.mkDefault true;
+  positron.enable = lib.mkDefault true;
 
 }
