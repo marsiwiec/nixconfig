@@ -20,15 +20,17 @@
       pavucontrol
       wl-clipboard
       playerctl
-      hyprpaper
       hyprpicker
       polkit_gnome
     ];
 
-    services.mako.enable = true;
-    services.udiskie = {
-      enable = true;
-      tray = "never";
+    services = {
+      mako.enable = true;
+      hyprpaper.enable = true;
+      udiskie = {
+        enable = true;
+        tray = "never";
+      };
     };
 
     wayland.windowManager.hyprland = {
@@ -42,7 +44,6 @@
           "uwsm app -- ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
           "uwsm app -- waybar"
           "uwsm app -- mako"
-          "uwsm app -- hyprpaper"
           "uwsm app -- wl-paste --type text --watch cliphist store # Stores only text data"
           "uwsm app -- wl-paste --type image --watch cliphist store # Stores only image data"
           "sudo nvidia-enable"
