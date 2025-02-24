@@ -7,8 +7,5 @@
       dark = "Papirus-Dark";
       light = "Papirus";
     };
-    targets = {
-      hyprlock.enable = false;
-    };
   };
 }
