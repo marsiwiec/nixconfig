@@ -12,8 +12,8 @@
     nix = {
       gc = {
         automatic = true;
-        dates = "weekly";
-        options = "--delete-older-than 30d";
+        dates = "monthly";
+        options = "--delete-older-than 90d";
       };
       optimise = {
         automatic = true;
