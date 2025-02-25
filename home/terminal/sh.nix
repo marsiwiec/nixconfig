@@ -21,6 +21,7 @@
       "/" = "cd /";
       sudo = "sudo ";
       v = "nvim";
+      h = "hx";
       yy = "yazi";
       ls = "ls --color=auto";
       grep = "grep --color=auto";
