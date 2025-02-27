@@ -12,7 +12,7 @@
     environment.systemPackages = with pkgs; [
       bibata-cursors
       (catppuccin-sddm.override {
-        flavor = "mocha";
+        flavor = "frappe";
         font = "Intel One Mono";
         fontSize = "12";
         background = "${../../style/wallpapers/wolf.png}";
@@ -22,7 +22,7 @@
     services.displayManager.sddm = {
       enable = true;
       package = pkgs.kdePackages.sddm;
-      theme = "catppuccin-mocha";
+      theme = "catppuccin-frappe";
       settings = {
         Theme = {
           CursorTheme = "Bibata-Modern-Ice";
