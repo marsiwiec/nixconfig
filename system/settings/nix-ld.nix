@@ -12,7 +12,7 @@
     programs.nix-ld = {
       enable = true;
       libraries = with pkgs; [
-        stdenv.cc.cc
+        stdenv.cc.cc.lib
         glib
         glibc
         # Add any missing dynamic libraries for unpackaged programs
