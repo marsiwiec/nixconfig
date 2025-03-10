@@ -27,6 +27,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
     stylix.url = "github:danth/stylix";
 
     spicetify-nix = {
@@ -53,6 +54,7 @@
     in
     {
       nixosConfigurations = {
+
         ### Home desktop ###
         nixgroot = inputs.nixpkgs.lib.nixosSystem {
           specialArgs = {

@@ -11,8 +11,8 @@
     ./zellij.nix
     ./wezterm.nix
   ];
-  kitty.enable = lib.mkDefault true;
-  foot_term.enable = lib.mkDefault true;
+  # kitty.enable = lib.mkDefault true;
+  # foot_term.enable = lib.mkDefault true;
   wezterm.enable = lib.mkDefault true;
   zellij.enable = lib.mkDefault true;
   sh.enable = lib.mkDefault true;
