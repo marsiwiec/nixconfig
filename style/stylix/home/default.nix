@@ -7,5 +7,10 @@
       dark = "Papirus-Dark";
       light = "Papirus";
     };
+    targets = {
+      waybar = {
+        font = "sansSerif";
+      };
+    };
   };
 }
