@@ -25,7 +25,7 @@
 
         listener = [
           {
-            timeout = 600; # 5min
+            timeout = 900; # 5min
             on-timeout = "uwsm app -- loginctl lock-session"; # lock screen when timeout has passed
           }
           {

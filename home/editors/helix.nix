@@ -43,6 +43,10 @@
           formatter.command = lib.getExe pkgs.nixfmt-rfc-style;
         }
         {
+          name = "r";
+          auto-format = true;
+        }
+        {
           name = "python";
           auto-format = true;
           formatter.command = lib.getExe pkgs.pyright;
@@ -51,6 +55,17 @@
           name = "typst";
           auto-format = true;
           formatter.command = lib.getExe pkgs.typstyle;
+        }
+        {
+          name = "markdown";
+          auto-format = true;
+          file-types = [
+            "md"
+            "markdown"
+            "qmd"
+            "PULLREQ_EDITMSG"
+          ];
+          language-servers = [ pkgs.marksman ];
         }
       ];
     };
