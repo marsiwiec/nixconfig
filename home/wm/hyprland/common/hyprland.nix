@@ -66,7 +66,7 @@
           kb_layout = "pl";
           kb_options = "caps:escape";
           follow_mouse = 1;
-          sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
+          sensitivity = 0.25; # -1.0 - 1.0, 0 means no modification.
         };
 
         decoration = {
