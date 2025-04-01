@@ -5,5 +5,11 @@
   };
   config = lib.mkIf config.zathura.enable {
     programs.zathura.enable = true;
+    xdg.mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "application/pdf" = "zathura.desktop";
+      };
+    };
   };
 }

@@ -9,11 +9,19 @@
     media.enable = lib.mkEnableOption "config for basic image/video viewers";
   };
   config = lib.mkIf config.media.enable {
-    programs.mpv = {
-      enable = true;
-      defaultProfiles = [ "gpu-hq" ];
-      scripts = [ pkgs.mpvScripts.mpris ];
+    programs = {
+      mpv = {
+        enable = true;
+        defaultProfiles = [ "gpu-hq" ];
+        scripts = [ pkgs.mpvScripts.mpris ];
+      };
+      imv.enable = true;
     };
-    programs.imv.enable = true;
+    xdg.mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "image/*" = "imv-folder.desktop";
+      };
+    };
   };
 }
