@@ -49,7 +49,7 @@
         {
           name = "python";
           auto-format = true;
-          formatter.command = lib.getExe pkgs.pyright;
+          formatter.command = lib.getExe pkgs.black;
         }
         {
           name = "typst";
