@@ -22,6 +22,7 @@
       playerctl
       hyprpicker
       polkit_gnome
+      hyprshot
     ];
 
     services = {
@@ -121,6 +122,9 @@
           "$mod, W, exec, uwsm app -- $fileManager"
           "$mod SHIFT, B, exec, uwsm app -- waybar"
           "$mod SHIFT, Return, exec, uwsm app -- firefox"
+          "$mod, PRINT, exec, hyprshot -m window --clipboard-only" # screenshot a window
+          " , PRINT, exec, hyprshot -m output --clipboard-only" # screenshot a monitor
+          "$mod SHIFT, PRINT, exec, hyprshot -m region --clipboard-only" # screenshot a region
           "$mod, V, togglefloating"
           "$mod, SPACE, exec, uwsm app -- fuzzel || uwsm app -- pkill fuzzel"
           "$mod, P, pseudo" # dwindle
