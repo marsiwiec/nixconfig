@@ -20,7 +20,8 @@
     xdg.mimeApps = {
       enable = true;
       defaultApplications = {
-        "image/*" = "imv-folder.desktop";
+        "image/png" = [ "imv-dir.desktop" ];
+        "image/jpeg" = [ "imv-dir.desktop" ];
       };
     };
   };
