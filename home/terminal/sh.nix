@@ -35,7 +35,7 @@
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
         defaultKeymap = "emacs";
-        initExtra = ''
+        initContent = ''
           TERM_INSTANCES=0
           for pid in $(pidof -x kitty ghostty wezterm-gui); do
             TERM_INSTANCES=$((TERM_INSTANCES+1))
