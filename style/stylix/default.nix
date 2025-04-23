@@ -3,6 +3,9 @@
   stylix = {
     enable = true;
     polarity = "dark";
+    opacity = {
+      terminal = 0.9;
+    };
     fonts = {
       monospace = {
         name = "Intel One Mono";
