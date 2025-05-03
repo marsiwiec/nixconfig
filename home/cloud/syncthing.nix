@@ -23,6 +23,10 @@
             name = "nixcloud";
             id = "BRKNJ2L-KUTOHBD-JI57IX5-42BTHTO-NNFIWNZ-ZUR5XZM-66GBYGX-FESONAH";
           };
+          qnap = {
+            name = "qnap";
+            id = "KSFW7A3-GW5NQ64-KHVLDFD-NIJGQU6-WBEHWOE-LVRAQGL-BK6LVRE-EQ73VA6";
+          };
         };
         folders = {
           zotero = {
