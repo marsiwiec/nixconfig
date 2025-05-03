@@ -42,6 +42,7 @@
               "nixgroot"
               "labnix"
               "nixcloud"
+              "qnap"
             ];
           };
         };
