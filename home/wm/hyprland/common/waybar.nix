@@ -89,6 +89,9 @@
               paused = "󰏤";
             };
             interval = 1;
+            ignored-players = [
+              "firefox"
+            ];
           };
           pulseaudio = {
             format = "{icon} {volume}%";
