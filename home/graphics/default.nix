@@ -17,7 +17,7 @@
   config = lib.mkIf config.graphics.enable {
     home.packages = with pkgs; [
       inkscape-with-extensions
-      gimp
+      gimp3-with-plugins
       fiji
       # (blender.override {
       #   cudaSupport = true;
