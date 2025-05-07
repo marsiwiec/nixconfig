@@ -7,10 +7,10 @@
 let
   positron = pkgs.positron-bin.overrideAttrs (
     finalAttrs: previousAttrs: {
-      version = "2025.05.0-103";
+      version = "2025.05.0-142";
       src = pkgs.fetchurl {
-        url = "https://cdn.posit.co/positron/dailies/deb/x86_64/Positron-2025.05.0-103-x64.deb";
-        hash = "sha256-AVvxVm4P+n/R4iEcdvXj+B4riA4AR8m5M5LOKN8ieJ4=";
+        url = "https://cdn.posit.co/positron/dailies/deb/x86_64/Positron-2025.05.0-142-x64.deb";
+        hash = "sha256-F1L8aMPAOHd9/GiFI2Tl5alel10YNg9B/MdJCORtLek=";
       };
     }
   );
