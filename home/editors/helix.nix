@@ -45,6 +45,7 @@
         {
           name = "r";
           auto-format = true;
+          formatter.command = "air format";
         }
         {
           name = "python";

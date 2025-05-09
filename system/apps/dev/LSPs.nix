@@ -27,6 +27,8 @@
       tinymist
       #rust
       rust-analyzer
+      #r
+      air-formatter
       #other
       cmake-language-server
       arduino-language-server
