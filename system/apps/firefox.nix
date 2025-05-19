@@ -24,7 +24,7 @@
         };
         Preferences = {
           "browser.aboutConfig.showWarning" = false;
-          "browser.tabs.loadInBackground" = true; # Load tabs automatically
+          "browser.tabs.loadInBackground" = true;
           "media.ffmpeg.vaapi.enabled" = true;
           "extensions.autoDisableScopes" = 0;
         };

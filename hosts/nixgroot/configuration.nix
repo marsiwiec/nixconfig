@@ -12,8 +12,10 @@
 
   #### My own modules ####
   gaming.enable = true;
+  sddm.enable = true;
+  greetd.enable = false;
 
-  networking.hostName = "nixgroot"; # Define your hostname.
+  networking.hostName = "nixgroot";
 
   sops = {
     secrets = {

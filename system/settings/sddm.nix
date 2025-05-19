@@ -18,11 +18,25 @@
         background = "${../../style/wallpapers/wolf.png}";
         loginBackground = true;
       })
+      (sddm-astronaut.override {
+        embeddedTheme = "pixel_sakura";
+      })
     ];
     services.displayManager.sddm = {
       enable = true;
       package = pkgs.kdePackages.sddm;
-      theme = "catppuccin-frappe";
+      extraPackages = with pkgs; [
+        kdePackages.qtsvg
+        kdePackages.qtmultimedia
+        kdePackages.qtvirtualkeyboard
+      ];
+      theme =
+        if config.networking.hostName == "labnix" then
+          "catppuccin-frappe"
+        else if config.networking.hostName == "nixgroot" then
+          "sddm-astronaut-theme"
+        else
+          [ ];
       settings = {
         Theme = {
           CursorTheme = "Bibata-Modern-Ice";
@@ -30,6 +44,7 @@
       };
       wayland = {
         enable = true;
+        compositor = "kwin";
       };
     };
   };
