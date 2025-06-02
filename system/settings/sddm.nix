@@ -19,7 +19,7 @@
         loginBackground = true;
       })
       (sddm-astronaut.override {
-        embeddedTheme = "pixel_sakura_static";
+        embeddedTheme = "astronaut";
       })
     ];
     services.displayManager.sddm = {
