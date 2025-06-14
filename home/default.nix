@@ -10,7 +10,7 @@
     ./office
     ./passthrough
     ./terminal
-    ./wm
+    ./desktop
     ../style/stylix
     ../style/stylix/home
   ];
