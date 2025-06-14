@@ -22,29 +22,35 @@
         embeddedTheme = "astronaut";
       })
     ];
-    services.displayManager.sddm = {
-      enable = true;
-      package = pkgs.kdePackages.sddm;
-      extraPackages = with pkgs; [
-        kdePackages.qtsvg
-        kdePackages.qtmultimedia
-        kdePackages.qtvirtualkeyboard
-      ];
-      theme =
-        if config.networking.hostName == "labnix" then
-          "catppuccin-frappe"
-        else if config.networking.hostName == "nixgroot" then
-          "sddm-astronaut-theme"
-        else
-          [ ];
-      settings = {
-        Theme = {
-          CursorTheme = "Bibata-Modern-Ice";
-        };
+    services.displayManager = {
+      autoLogin = {
+        enable = if config.networking.hostName == "nixgroot" then true else false;
+        user = "msiwiec";
       };
-      wayland = {
+      sddm = {
         enable = true;
-        compositor = "kwin";
+        package = pkgs.kdePackages.sddm;
+        extraPackages = with pkgs; [
+          kdePackages.qtsvg
+          kdePackages.qtmultimedia
+          kdePackages.qtvirtualkeyboard
+        ];
+        theme =
+          if config.networking.hostName == "labnix" then
+            "catppuccin-frappe"
+          else if config.networking.hostName == "nixgroot" then
+            "sddm-astronaut-theme"
+          else
+            [ ];
+        settings = {
+          Theme = {
+            CursorTheme = "Bibata-Modern-Ice";
+          };
+        };
+        wayland = {
+          enable = true;
+          # compositor = "kwin";
+        };
       };
     };
   };
