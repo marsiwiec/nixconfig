@@ -1,7 +1,7 @@
 { lib, ... }:
 {
   imports = [
-    ./wm
+    ./desktop
     ./dev
     ./utils.nix
     ./thunar.nix

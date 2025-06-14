@@ -10,6 +10,9 @@
   };
 
   config = lib.mkIf config.hyprland.enable {
+    # enable imported modules
+    mako.enable = true;
+
     programs = {
       fuzzel.enable = true;
       hyprlock.enable = true;
@@ -26,13 +29,6 @@
     ];
 
     services = {
-      mako = {
-        enable = true;
-        settings = {
-          icon-path = "${config.gtk.iconTheme.package}/share/icons/Papirus-Dark";
-          default-timeout = 12000;
-        };
-      };
       hyprpaper.enable = true;
       udiskie = {
         enable = true;

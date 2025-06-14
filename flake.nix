@@ -102,7 +102,7 @@
             inputs.spicetify-nix.homeManagerModules.default
             ./home.nix
             ./style/stylix/home/nixgroot
-            ./home/wm/hyprland/nixgroot
+            ./home/desktop/hyprland/nixgroot
             {
               home = {
                 username = "${username}";
@@ -121,7 +121,7 @@
             stylix.homeManagerModules.stylix
             inputs.spicetify-nix.homeManagerModules.default
             ./home.nix
-            ./home/wm/hyprland/labnix
+            ./home/desktop/hyprland/labnix
             ./style/stylix/home/labnix
             {
               home = {
