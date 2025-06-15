@@ -9,6 +9,7 @@
         in
         {
           "Mod+Space".action = spawn "fuzzel";
+          "Mod+P".action = sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy";
           "Mod+Return".action = spawn "wezterm";
           "Mod+Shift+Return".action = spawn "firefox";
           "Mod+W".action = spawn "thunar";
