@@ -18,6 +18,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    niri.url = "github:sodiboo/niri-flake";
+
     helix.url = "github:helix-editor/helix/master";
 
     plasma-manager = {
@@ -41,6 +43,7 @@
       sops-nix,
       disko,
       home-manager,
+      niri,
       plasma-manager,
       stylix,
       spicetify-nix,
@@ -63,6 +66,7 @@
             ./hosts/nixgroot/configuration.nix
             stylix.nixosModules.stylix
             sops-nix.nixosModules.sops
+            niri.nixosModules.niri
             ./style/stylix/system/nixgroot
           ];
         };
@@ -100,9 +104,11 @@
             inputs.plasma-manager.homeManagerModules.plasma-manager
             stylix.homeManagerModules.stylix
             inputs.spicetify-nix.homeManagerModules.default
+            niri.homeModules.niri
             ./home.nix
             ./style/stylix/home/nixgroot
             ./home/desktop/hyprland/nixgroot
+            ./home/desktop/niri/nixgroot.nix
             {
               home = {
                 username = "${username}";

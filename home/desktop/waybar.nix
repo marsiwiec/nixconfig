@@ -19,7 +19,9 @@
           modules-left = [
             "custom/os_button"
             "hyprland/workspaces"
+            "niri/workspaces"
             "hyprland/window"
+            "niri/window"
           ];
           modules-center = [
             "clock"
@@ -50,6 +52,10 @@
             };
           };
           "hyprland/window" = {
+            format = "  {}";
+            max-length = 50;
+          };
+          "niri/window" = {
             format = "  {}";
             max-length = 50;
           };

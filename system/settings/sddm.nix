@@ -23,10 +23,10 @@
       })
     ];
     services.displayManager = {
-      autoLogin = {
-        enable = if config.networking.hostName == "nixgroot" then true else false;
-        user = "msiwiec";
-      };
+      # autoLogin = {
+      #   enable = if config.networking.hostName == "nixgroot" then true else false;
+      #   user = "msiwiec";
+      # };
       sddm = {
         enable = true;
         package = pkgs.kdePackages.sddm;

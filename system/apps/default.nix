@@ -1,7 +1,6 @@
 { lib, ... }:
 {
   imports = [
-    ./desktop
     ./dev
     ./utils.nix
     ./thunar.nix
