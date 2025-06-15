@@ -13,7 +13,7 @@
           "Mod+Shift+Return".action = spawn "firefox";
           "Mod+W".action = spawn "thunar";
 
-          "Mod+Shift+Slash".action = show-hotkey-overlay;
+          "Mod+Shift+Backslash".action = show-hotkey-overlay;
 
           "Mod+Q".action = close-window;
           "Mod+F".action = fullscreen-window;
@@ -45,6 +45,10 @@
           "Mod+MouseMiddle".action = maximize-column;
           "Mod+Shift+Comma".action.set-column-width = "-10%";
           "Mod+Shift+Period".action.set-column-width = "+10%";
+          "Mod+Shift+Semicolon".action.set-window-height = "+10%";
+          "Mod+Shift+Slash".action.set-window-height = "-10%";
+          "Mod+J".action = consume-or-expel-window-left;
+          "Mod+Semicolon".action = consume-or-expel-window-right;
 
           "Mod+Shift+Left".action = focus-column-left;
           "Mod+Shift+Right".action = focus-column-right;
