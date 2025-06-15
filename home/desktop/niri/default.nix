@@ -32,6 +32,7 @@
       nerd-fonts.jetbrains-mono
       pavucontrol
       wl-clipboard
+      cliphist
       playerctl
       polkit_gnome
       hyprpicker
@@ -60,6 +61,27 @@
             { command = [ "${lib.getExe pkgs.xwayland-satellite-unstable}" ]; }
             {
               command = [ "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1" ];
+            }
+            {
+              command = [
+                "wl-paste"
+                "--type"
+                "text"
+                "--watch"
+                "cliphist"
+                "store"
+              ];
+            }
+            {
+
+              command = [
+                "wl-paste"
+                "--type"
+                "image"
+                "--watch"
+                "cliphist"
+                "store"
+              ];
             }
             {
               command = [
