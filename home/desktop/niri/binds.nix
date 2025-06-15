@@ -24,7 +24,7 @@
           "Mod+Print".action = screenshot-window;
 
           "Mod+C".action = sh "hyprpicker -a";
-          "Mod+Shift+L".action = sh "pidof hyprlock || hyprlock";
+          "Mod+Shift+L".action = sh "pidof swaylock || swaylock";
 
           "Mod+O".action = toggle-overview;
 

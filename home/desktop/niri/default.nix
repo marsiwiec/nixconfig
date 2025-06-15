@@ -25,7 +25,7 @@
 
     programs = {
       fuzzel.enable = true;
-      hyprlock.enable = true;
+      swaylock.enable = true;
     };
 
     home.packages = with pkgs; [
