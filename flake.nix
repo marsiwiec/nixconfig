@@ -81,6 +81,7 @@
             { nixpkgs.hostPlatform = "x86_64-linux"; }
             stylix.nixosModules.stylix
             sops-nix.nixosModules.sops
+            niri.nixosModules.niri
             ./hosts/labnix/configuration.nix
             ./style/stylix/system/labnix
           ];
@@ -126,6 +127,7 @@
             inputs.plasma-manager.homeManagerModules.plasma-manager
             stylix.homeManagerModules.stylix
             inputs.spicetify-nix.homeManagerModules.default
+            niri.homeModules.niri
             ./home.nix
             ./home/desktop/hyprland/labnix
             ./style/stylix/home/labnix

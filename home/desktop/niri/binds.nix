@@ -56,13 +56,13 @@
           "Mod+Shift+Down".action = focus-workspace-down;
           "Mod+Shift+Up".action = focus-workspace-up;
 
-          "Mod+WheelScrollLeft".action = focus-column-left;
-          "Mod+WheelScrollRight".action = focus-column-right;
-          "Mod+Ctrl+WheelScrollLeft".action = move-column-left;
-          "Mod+Ctrl+WheelScrollRight".action = move-column-right;
+          "Mod+WheelScrollLeft".action = focus-workspace-up;
+          "Mod+WheelScrollRight".action = focus-workspace-down;
 
-          "Mod+WheelScrollDown".action = focus-workspace-down;
-          "Mod+WheelScrollUp".action = focus-workspace-up;
+          "Mod+WheelScrollDown".action = focus-column-right;
+          "Mod+WheelScrollUp".action = focus-column-left;
+          "Mod+Shift+WheelScrollDown".action = move-column-left;
+          "Mod+Shift+WheelScrollUp".action = move-column-right;
 
           "XF86AudioRaiseVolume".action.spawn = [
             "wpctl"
