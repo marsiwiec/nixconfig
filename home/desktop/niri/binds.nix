@@ -62,8 +62,10 @@
 
           "Mod+WheelScrollDown".action = focus-column-right;
           "Mod+WheelScrollUp".action = focus-column-left;
-          "Mod+Shift+WheelScrollDown".action = move-column-left;
-          "Mod+Shift+WheelScrollUp".action = move-column-right;
+          "Mod+Shift+WheelScrollDown".action = swap-window-right;
+          "Mod+Shift+WheelScrollUp".action = swap-window-left;
+          "Mod+Ctrl+F".action = move-column-to-first;
+          "Mod+Ctrl+L".action = move-column-to-last;
 
           "XF86AudioRaiseVolume".action.spawn = [
             "wpctl"
