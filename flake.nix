@@ -51,6 +51,26 @@
     }@inputs:
     let
       username = "msiwiec";
+      common-nixos-modules = [
+        { nixpkgs.hostPlatform = "x86_64-linux"; }
+        ./overlays/linux-firmware.nix
+        stylix.nixosModules.stylix
+        sops-nix.nixosModules.sops
+        niri.nixosModules.niri
+      ];
+      common-home-modules = [
+        inputs.plasma-manager.homeManagerModules.plasma-manager
+        stylix.homeManagerModules.stylix
+        inputs.spicetify-nix.homeManagerModules.default
+        niri.homeModules.niri
+        ./home.nix
+        {
+          home = {
+            username = "${username}";
+            homeDirectory = "/home/${username}";
+          };
+        }
+      ];
     in
     {
       nixosConfigurations = {
@@ -61,12 +81,8 @@
             username = "${username}";
             inherit inputs;
           };
-          modules = [
-            { nixpkgs.hostPlatform = "x86_64-linux"; }
+          modules = common-nixos-modules ++ [
             ./hosts/nixgroot/configuration.nix
-            stylix.nixosModules.stylix
-            sops-nix.nixosModules.sops
-            niri.nixosModules.niri
             ./style/stylix/system/nixgroot
           ];
         };
@@ -77,45 +93,30 @@
             username = "${username}";
             inherit inputs;
           };
-          modules = [
-            { nixpkgs.hostPlatform = "x86_64-linux"; }
-            stylix.nixosModules.stylix
-            sops-nix.nixosModules.sops
-            niri.nixosModules.niri
+          modules = common-nixos-modules ++ [
             ./hosts/labnix/configuration.nix
             ./style/stylix/system/labnix
           ];
         };
 
-        ### Hetzner Cloud ###
-        nixcloud = inputs.nixpkgs.lib.nixosSystem {
-          modules = [
-            { nixpkgs.hostPlatform = "x86_64-linux"; }
-            disko.nixosModules.disko
-            sops-nix.nixosModules.sops
-            ./hosts/nixcloud/configuration.nix
-          ];
-        };
+        # ### Hetzner Cloud ###
+        # nixcloud = inputs.nixpkgs.lib.nixosSystem {
+        #   modules = [
+        #     { nixpkgs.hostPlatform = "x86_64-linux"; }
+        #     disko.nixosModules.disko
+        #     sops-nix.nixosModules.sops
+        #     ./hosts/nixcloud/configuration.nix
+        #   ];
+        # };
       };
 
       homeConfigurations = {
         "${username}@nixgroot" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          modules = [
-            inputs.plasma-manager.homeManagerModules.plasma-manager
-            stylix.homeManagerModules.stylix
-            inputs.spicetify-nix.homeManagerModules.default
-            niri.homeModules.niri
-            ./home.nix
+          modules = common-home-modules ++ [
             ./style/stylix/home/nixgroot
             ./home/desktop/hyprland/nixgroot
             ./home/desktop/niri/nixgroot.nix
-            {
-              home = {
-                username = "${username}";
-                homeDirectory = "/home/${username}";
-              };
-            }
           ];
           extraSpecialArgs = {
             inherit inputs;
@@ -123,20 +124,9 @@
         };
         "${username}@labnix" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          modules = [
-            inputs.plasma-manager.homeManagerModules.plasma-manager
-            stylix.homeManagerModules.stylix
-            inputs.spicetify-nix.homeManagerModules.default
-            niri.homeModules.niri
-            ./home.nix
-            ./home/desktop/hyprland/labnix
+          modules = common-home-modules ++ [
             ./style/stylix/home/labnix
-            {
-              home = {
-                username = "${username}";
-                homeDirectory = "/home/${username}";
-              };
-            }
+            ./home/desktop/hyprland/labnix
           ];
           extraSpecialArgs = {
             inherit inputs;
