@@ -108,6 +108,9 @@
             always-center-single-column = true;
 
             shadow.enable = true;
+
+            background-color = "transparent";
+
             tab-indicator = {
               position = "top";
               gaps-between-tabs = 10;

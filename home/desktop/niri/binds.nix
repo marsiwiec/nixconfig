@@ -20,6 +20,7 @@
           "Mod+F".action = fullscreen-window;
           "Mod+V".action = toggle-window-floating;
           "Mod+Shift+Print".action = expand-column-to-available-width;
+          "Mod+Period".action = switch-preset-column-width;
           "Mod+Shift+E".action = quit;
           "Print".action = screenshot;
           "Mod+Print".action = screenshot-window;
