@@ -99,16 +99,11 @@
             focus-follows-mouse.enable = true;
           };
 
-          cursor = {
-            size = 36;
-          };
-
           layout = {
             border = {
               enable = true;
               width = 3;
             };
-            focus-ring.enable = false;
             gaps = 4;
             always-center-single-column = true;
 

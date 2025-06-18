@@ -63,6 +63,7 @@
         stylix.homeManagerModules.stylix
         inputs.spicetify-nix.homeManagerModules.default
         niri.homeModules.niri
+        niri.homeModules.stylix
         ./home.nix
         {
           home = {
