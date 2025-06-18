@@ -44,6 +44,7 @@
           "Mod+Shift+6".action.move-column-to-workspace = 6;
 
           "Mod+MouseMiddle".action = maximize-column;
+          "Mod+Shift+C".action = center-window;
           "Mod+Shift+Comma".action.set-column-width = "-10%";
           "Mod+Shift+Period".action.set-column-width = "+10%";
           "Mod+Shift+Semicolon".action.set-window-height = "+10%";
