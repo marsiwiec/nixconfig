@@ -53,8 +53,8 @@
 
           "Mod+Shift+Left".action = focus-column-left;
           "Mod+Shift+Right".action = focus-column-right;
-          "Mod+Shift+Down".action = focus-workspace-down;
-          "Mod+Shift+Up".action = focus-workspace-up;
+          "Mod+Shift+Down".action = focus-window-or-workspace-down;
+          "Mod+Shift+Up".action = focus-window-or-workspace-up;
 
           "Mod+WheelScrollLeft".action = focus-workspace-up;
           "Mod+WheelScrollRight".action = focus-workspace-down;
