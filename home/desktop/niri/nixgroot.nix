@@ -9,6 +9,9 @@
             mode.height = 1440;
             mode.refresh = 74.924004;
           };
+          "HDMI-A-2" = {
+            enable = false;
+          };
         };
 
       };

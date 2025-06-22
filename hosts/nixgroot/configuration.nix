@@ -12,8 +12,6 @@
 
   #### My own modules ####
   gaming.enable = true;
-  sddm.enable = true;
-  greetd.enable = false;
   ollama.enable = false;
 
   networking.hostName = "nixgroot";

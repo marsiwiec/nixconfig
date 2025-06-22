@@ -11,9 +11,9 @@
 
   config = lib.mkIf config.plasma6.enable {
     services.desktopManager.plasma6.enable = true;
-    environment.plasma6.excludePackages = with pkgs.kdePackages; [
-      xwaylandvideobridge
-      elisa
-    ];
+    # environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    #   xwaylandvideobridge
+    #   elisa
+    # ];
   };
 }

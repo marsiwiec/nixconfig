@@ -17,8 +17,8 @@
     ./filesystems.nix
     ./virtualisation.nix
   ];
-  sddm.enable = lib.mkDefault false;
-  greetd.enable = lib.mkDefault true;
+  sddm.enable = lib.mkDefault true;
+  greetd.enable = lib.mkDefault false;
 
   gc.enable = lib.mkDefault true;
   time.enable = lib.mkDefault true;

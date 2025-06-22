@@ -8,8 +8,6 @@
 
   #### My own modules ####
   gaming.enable = false;
-  sddm.enable = true;
-  greetd.enable = false;
 
   networking.hostName = "labnix"; # Define your hostname.
 

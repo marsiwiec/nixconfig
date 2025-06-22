@@ -10,6 +10,7 @@
   ];
   niri.enable = lib.mkDefault true;
   hyprland.enable = lib.mkDefault true;
+  plasma-manager.enable = lib.mkDefault true;
   waybar.enable = lib.mkDefault true;
   hypridle.enable = lib.mkDefault true;
 }
