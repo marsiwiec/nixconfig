@@ -96,6 +96,12 @@
           hotkey-overlay.skip-at-startup = true;
 
           input = {
+            keyboard = {
+              xkb = {
+                layout = "pl";
+                options = "caps:escape";
+              };
+            };
             focus-follows-mouse.enable = true;
           };
 
