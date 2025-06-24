@@ -18,7 +18,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri.url = "github:sodiboo/niri-flake";
+    niri.url = "github:sodiboo/niri-flake/13e7a34df7aa4e7d8ec4dd9df9d5a01973f28f49";
 
     helix.url = "github:helix-editor/helix/master";
 
