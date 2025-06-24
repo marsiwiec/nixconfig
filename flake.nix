@@ -5,6 +5,11 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "nixpkgs/nixos-24.11";
 
+    silent-sddm = {
+      url = "github:uiriansan/SilentSDDM";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     disko = {
       url = "github:nix-community/disko";
     };
@@ -40,6 +45,7 @@
       self,
       nixpkgs,
       nixpkgs-stable,
+      silent-sddm,
       sops-nix,
       disko,
       home-manager,

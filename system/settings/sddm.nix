@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  inputs,
   ...
 }:
 {
@@ -21,6 +22,7 @@
       (sddm-astronaut.override {
         embeddedTheme = "pixel_sakura_static";
       })
+      inputs.silent-sddm.packages.x86_64-linux.sddm-silent
     ];
     services.displayManager = {
       # autoLogin = {
@@ -34,15 +36,20 @@
           kdePackages.qtsvg
           kdePackages.qtmultimedia
           kdePackages.qtvirtualkeyboard
+          inputs.silent-sddm.packages.x86_64-linux.sddm-silent
         ];
-        theme =
-          if config.networking.hostName == "labnix" then
-            "catppuccin-frappe"
-          else if config.networking.hostName == "nixgroot" then
-            "sddm-astronaut-theme"
-          else
-            [ ];
+        theme = "silent";
+        # if config.networking.hostName == "labnix" then
+        #   "catpuccin-latte"
+        # else if config.networking.hostName == "nixgroot" then
+        #   "sddm-astronaut-theme"
+        # else
+        #   [ ];
         settings = {
+          General = {
+            GreeterEnvironment = "QML2_IMPORT_PATH=/run/current-system/sw/share/sddm/themes/silent/components/,QT_IM_MODULE=qtvirtualkeyboard";
+            InputMethod = "qtvirtualkeyboard";
+          };
           Theme = {
             CursorTheme = "Bibata-Modern-Ice";
           };
