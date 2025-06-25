@@ -5,7 +5,7 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "nixpkgs/nixos-24.11";
 
-    silent-sddm = {
+    silentSDDM = {
       url = "github:uiriansan/SilentSDDM";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -23,7 +23,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri.url = "github:sodiboo/niri-flake/13e7a34df7aa4e7d8ec4dd9df9d5a01973f28f49";
+    niri.url = "github:sodiboo/niri-flake";
 
     helix.url = "github:helix-editor/helix/master";
 
@@ -33,7 +33,7 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    stylix.url = "github:danth/stylix";
+    stylix.url = "github:danth/stylix/79e816c2e63df5024e28292fee0d92dc106ff66c";
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -45,7 +45,7 @@
       self,
       nixpkgs,
       nixpkgs-stable,
-      silent-sddm,
+      silentSDDM,
       sops-nix,
       disko,
       home-manager,

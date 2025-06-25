@@ -5,24 +5,29 @@
   inputs,
   ...
 }:
+let
+  sddm-theme = inputs.silentSDDM.packages.${pkgs.system}.default.override {
+    theme = "default";
+  };
+in
 {
   options = {
     sddm.enable = lib.mkEnableOption "config for sddm and catppuccin theme";
   };
   config = lib.mkIf config.sddm.enable {
-    environment.systemPackages = with pkgs; [
-      bibata-cursors
-      (catppuccin-sddm.override {
-        flavor = "frappe";
-        font = "Intel One Mono";
-        fontSize = "12";
-        background = "${../../style/wallpapers/wolf.png}";
-        loginBackground = true;
-      })
-      (sddm-astronaut.override {
-        embeddedTheme = "pixel_sakura_static";
-      })
-      inputs.silent-sddm.packages.x86_64-linux.sddm-silent
+    environment.systemPackages = [
+      pkgs.bibata-cursors
+      # (catppuccin-sddm.override {
+      #   flavor = "frappe";
+      #   font = "Intel One Mono";
+      #   fontSize = "12";
+      #   background = "${../../style/wallpapers/wolf.png}";
+      #   loginBackground = true;
+      # })
+      # (sddm-astronaut.override {
+      #   embeddedTheme = "pixel_sakura_static";
+      # })
+      sddm-theme
     ];
     services.displayManager = {
       # autoLogin = {
@@ -32,13 +37,8 @@
       sddm = {
         enable = true;
         package = lib.mkForce pkgs.kdePackages.sddm;
-        extraPackages = with pkgs; [
-          kdePackages.qtsvg
-          kdePackages.qtmultimedia
-          kdePackages.qtvirtualkeyboard
-          inputs.silent-sddm.packages.x86_64-linux.sddm-silent
-        ];
-        theme = "silent";
+        theme = sddm-theme.pname;
+        extraPackages = sddm-theme.propagatedBuildInputs;
         # if config.networking.hostName == "labnix" then
         #   "catpuccin-latte"
         # else if config.networking.hostName == "nixgroot" then
@@ -47,7 +47,7 @@
         #   [ ];
         settings = {
           General = {
-            GreeterEnvironment = "QML2_IMPORT_PATH=/run/current-system/sw/share/sddm/themes/silent/components/,QT_IM_MODULE=qtvirtualkeyboard";
+            GreeterEnvironment = "QML2_IMPORT_PATH=${sddm-theme}/share/sddm/themes/${sddm-theme.pname}/components/,QT_IM_MODULE=qtvirtualkeyboard";
             InputMethod = "qtvirtualkeyboard";
           };
           Theme = {
