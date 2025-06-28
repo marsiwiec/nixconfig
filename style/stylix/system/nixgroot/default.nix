@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   stylix = {
-    image = ../../../wallpapers/clair_obscur.jpg;
+    image = ../../../wallpapers/flowers.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest.yaml";
   };
 }
