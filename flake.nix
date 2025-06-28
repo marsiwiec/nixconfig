@@ -25,8 +25,6 @@
 
     niri.url = "github:sodiboo/niri-flake";
 
-    helix.url = "github:helix-editor/helix/master";
-
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
