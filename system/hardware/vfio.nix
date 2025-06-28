@@ -15,6 +15,10 @@ in
       kernelParams = [ "amd_iommu=on" ];
       blacklistedKernelModules = [
         "nvidia"
+        "nvidiafb"
+        "nvidia-drm"
+        "nvidia-uvm"
+        "nvidia-modeset"
         "nouveau"
       ];
       kernelModules = [
