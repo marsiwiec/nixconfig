@@ -7,10 +7,12 @@
     ./mako.nix
     ./waybar.nix
     ./hypridle.nix
+    ./swayidle.nix
   ];
   niri.enable = lib.mkDefault true;
-  hyprland.enable = lib.mkDefault true;
-  plasma-manager.enable = lib.mkDefault false;
+  # hyprland.enable = lib.mkDefault true;
+  # plasma-manager.enable = lib.mkDefault true;
   waybar.enable = lib.mkDefault true;
-  hypridle.enable = lib.mkDefault true;
+  # hypridle.enable = lib.mkDefault true;
+  swayidle.enable = lib.mkDefault true;
 }

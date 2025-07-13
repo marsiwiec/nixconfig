@@ -12,6 +12,8 @@
   config = lib.mkIf config.niri.enable {
     nixpkgs.overlays = [ inputs.niri.overlays.niri ];
 
+    services.dbus.implementation = "broker";
+
     systemd.user.services = {
       niri-flake-polkit.enable = false;
     };
