@@ -12,10 +12,17 @@
   config = lib.mkIf config.swayidle.enable {
     services.swayidle = {
       enable = true;
+      extraArgs = [
+        "-w"
+      ];
       events = [
         {
           event = "before-sleep";
-          command = "${lib.getExe pkgs.swaylock}";
+          command = "${lib.getExe pkgs.swaylock} -f";
+        }
+        {
+          event = "lock";
+          command = "${lib.getExe pkgs.swaylock} -f";
         }
         {
           event = "after-resume";
@@ -25,7 +32,7 @@
       timeouts = [
         {
           timeout = 600;
-          command = "${lib.getExe pkgs.swaylock}";
+          command = "${lib.getExe pkgs.swaylock} -f";
         }
         {
           timeout = 900;
