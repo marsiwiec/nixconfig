@@ -57,7 +57,7 @@
       username = "msiwiec";
       common-nixos-modules = [
         { nixpkgs.hostPlatform = "x86_64-linux"; }
-        ./overlays
+        # ./overlays
         stylix.nixosModules.stylix
         sops-nix.nixosModules.sops
         niri.nixosModules.niri
