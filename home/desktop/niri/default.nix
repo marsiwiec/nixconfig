@@ -113,6 +113,10 @@
             };
             gaps = 4;
             always-center-single-column = true;
+            struts = {
+              left = 5;
+              right = 5;
+            };
 
             shadow.enable = true;
 
