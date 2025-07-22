@@ -32,6 +32,8 @@
       "application/x-extension-xht" = [ "firefox.desktop" ];
 
       "application/zip" = [ "xarchiver.desktop" ];
+
+      "image/svg+xml" = [ "org.inkscape.Inkscape.desktop" ];
     };
   };
 
