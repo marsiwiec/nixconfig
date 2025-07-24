@@ -12,7 +12,7 @@ let
 in
 {
   options = {
-    sddm.enable = lib.mkEnableOption "config for sddm and catppuccin theme";
+    sddm.enable = lib.mkEnableOption "config for sddm theme";
   };
   config = lib.mkIf config.sddm.enable {
     environment.systemPackages = [
@@ -28,6 +28,7 @@ in
       #   embeddedTheme = "pixel_sakura_static";
       # })
       sddm-theme
+      sddm-theme.test
     ];
     services.displayManager = {
       # autoLogin = {
