@@ -122,6 +122,7 @@
             ./style/stylix/home/nixgroot
             ./home/desktop/hyprland/nixgroot
             ./home/desktop/niri/nixgroot.nix
+            ./home/nixgroot
           ];
           extraSpecialArgs = {
             inherit inputs;

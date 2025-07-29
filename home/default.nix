@@ -8,7 +8,6 @@
     ./media
     ./nixos
     ./office
-    ./passthrough
     ./terminal
     ./desktop
     ../style/stylix

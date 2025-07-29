@@ -4,12 +4,16 @@
     ./hardware-configuration.nix
     ../../system
   ];
-  ollama.enable = false;
 
   #### My own modules ####
+  nvidia.enable = false;
+  nvidia-enable.enable = false;
+  vfio.enable = false;
+  virtualisation.kvmfr.enable = false;
   gaming.enable = false;
+  ollama.enable = false;
 
-  networking.hostName = "labnix"; # Define your hostname.
+  networking.hostName = "labnix";
 
   sops = {
     secrets = {
