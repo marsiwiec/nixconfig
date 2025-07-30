@@ -10,7 +10,10 @@
   };
   config = lib.mkIf config.shells.enable {
     environment = {
-      shells = with pkgs; [ zsh ];
+      shells = with pkgs; [
+        zsh
+        nushell
+      ];
       variables = {
         EDITOR = "hx";
         VISUAL = "hx";

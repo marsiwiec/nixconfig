@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 {
@@ -12,6 +13,7 @@
     users.users.msiwiec = {
       isNormalUser = true;
       description = "msiwiec";
+      shell = pkgs.nushell;
       extraGroups = [
         "wheel"
         "kvm"

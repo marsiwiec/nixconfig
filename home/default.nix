@@ -6,7 +6,6 @@
     ./editors
     ./graphics
     ./media
-    ./nixos
     ./office
     ./terminal
     ./desktop
