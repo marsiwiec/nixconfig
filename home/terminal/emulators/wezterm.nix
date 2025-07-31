@@ -12,10 +12,19 @@
       enable = true;
       enableZshIntegration = true;
       extraConfig = ''
+        local wezterm = require("wezterm")
         return {
           enable_tab_bar = false,
           default_cursor_style = "SteadyBar",
           window_close_confirmation = "NeverPrompt",
+          term = "wezterm",
+          keys = {
+            {
+              key = "t",
+              mods = "SUPER",
+              action = wezterm.action.DisableDefaultAssignment,
+            },
+          },
         }
       '';
     };
