@@ -13,7 +13,7 @@
     users.users.msiwiec = {
       isNormalUser = true;
       description = "msiwiec";
-      shell = pkgs.nushell;
+      # shell = pkgs.nushell;
       extraGroups = [
         "wheel"
         "kvm"
