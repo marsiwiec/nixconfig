@@ -11,9 +11,6 @@
   config = lib.mkIf config.nushell.enable {
     programs.nushell = {
       enable = true;
-      plugins = with pkgs.nushellPlugins; [
-        highlight
-      ];
       settings = {
         buffer_editor = "hx";
         show_banner = false;
