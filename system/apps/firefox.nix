@@ -27,6 +27,8 @@
           "browser.tabs.loadInBackground" = true;
           "media.ffmpeg.vaapi.enabled" = true;
           "extensions.autoDisableScopes" = 0;
+          "browser.ml.chat.enabled" = false;
+          "browser.tabs.groups.smart.enabled" = false;
         };
       };
     };
