@@ -30,6 +30,7 @@ in
       sddm-theme
       sddm-theme.test
     ];
+    qt.enable = true;
     services.displayManager = {
       # autoLogin = {
       #   enable = if config.networking.hostName == "nixgroot" then true else false;
