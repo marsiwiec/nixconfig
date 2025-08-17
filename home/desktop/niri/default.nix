@@ -36,6 +36,7 @@
       playerctl
       polkit_gnome
       hyprpicker
+      nautilus
     ];
 
     services = {
