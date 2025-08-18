@@ -60,11 +60,11 @@
           show_startup_tips = false;
         };
       };
-      carapace = {
-        enable = true;
-        enableZshIntegration = true;
-        enableNushellIntegration = true;
-      };
+      # carapace = {
+      #   enable = true;
+      #   enableZshIntegration = true;
+      #   enableNushellIntegration = true;
+      # };
     };
   };
 }
