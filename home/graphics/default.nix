@@ -18,6 +18,7 @@
     home.packages = with pkgs; [
       inkscape-with-extensions
       gimp3-with-plugins
+      krita
       fiji
       # (blender.override {
       #   cudaSupport = true;
