@@ -12,6 +12,7 @@
   config = lib.mkIf config.sysfonts.enable {
     fonts.packages = with pkgs; [
       corefonts
+      nerd-fonts.symbols-only
     ];
   };
 }

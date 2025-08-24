@@ -12,9 +12,15 @@
     home.packages = with pkgs; [
       emacs
       coreutils
+      clang
       ripgrep
       fd
+      pandoc
+      shellcheck
     ];
     services.emacs.enable = true;
+    programs.zsh.initContent = ''
+      export PATH="$HOME/.emacs.d/bin:$PATH"
+    '';
   };
 }
