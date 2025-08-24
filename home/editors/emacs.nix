@@ -17,6 +17,7 @@
       fd
       pandoc
       shellcheck
+      ispell
     ];
     services.emacs.enable = true;
     programs.zsh.initContent = ''
