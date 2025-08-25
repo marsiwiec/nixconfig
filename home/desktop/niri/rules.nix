@@ -20,6 +20,14 @@
         {
           matches = [
             {
+              app-id = "org.wezfurlong.wezterm";
+            }
+          ];
+          default-column-width.fixed = 1110;
+        }
+        {
+          matches = [
+            {
               app-id = "^firefox$";
               title = "^Picture-in-Picture$";
             }
@@ -31,22 +39,6 @@
             relative-to = "bottom-right";
           };
         }
-        # {
-        #   matches = [
-        #     {
-        #       title = "^Steam$";
-        #     }
-        #   ];
-        #   open-on-workspace = "games";
-        # }
-        # {
-        #   matches = [
-        #     {
-        #       app-id = "^looking-glass-client$";
-        #     }
-        #   ];
-        #   open-on-workspace = "win";
-        # }
         {
           matches = [
             {
