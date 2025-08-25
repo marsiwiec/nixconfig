@@ -18,6 +18,9 @@
       pandoc
       shellcheck
       ispell
+      cmake
+      libtool
+      nodejs
     ];
     services.emacs.enable = true;
     programs.zsh.initContent = ''
