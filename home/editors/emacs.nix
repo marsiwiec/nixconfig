@@ -11,6 +11,7 @@
   config = lib.mkIf config.emacs.enable {
     home.packages = with pkgs; [
       emacs
+      gnumake
       coreutils
       clang
       ripgrep
