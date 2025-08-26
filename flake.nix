@@ -31,7 +31,10 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    stylix.url = "github:danth/stylix/79e816c2e63df5024e28292fee0d92dc106ff66c";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";

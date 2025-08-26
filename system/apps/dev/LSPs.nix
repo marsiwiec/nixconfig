@@ -22,17 +22,12 @@
       #python
       pyright
       ruff
-      python312Packages.jedi-language-server
-      python312Packages.python-lsp-server
       #typst
       tinymist
       #rust
       rust-analyzer
       #r
       air-formatter
-      #other
-      cmake-language-server
-      arduino-language-server
     ];
   };
 }
