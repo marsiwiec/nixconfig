@@ -28,6 +28,14 @@
         {
           matches = [
             {
+              app-id = "Emacs";
+            }
+          ];
+          default-column-width.fixed = 1200;
+        }
+        {
+          matches = [
+            {
               app-id = "^firefox$";
               title = "^Picture-in-Picture$";
             }

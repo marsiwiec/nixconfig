@@ -30,7 +30,6 @@
       sqlite
 
       isync
-      pass
       pinentry-curses
 
       imagemagick
@@ -41,8 +40,12 @@
     programs.zsh.initContent = ''
       export PATH="$HOME/.emacs.d/bin:$PATH"
     '';
-    programs.mu = {
-      enable = true;
+    programs = {
+      mu.enable = true;
+      msmtp = {
+        enable = true;
+      };
+      password-store.enable = true;
     };
   };
 }
