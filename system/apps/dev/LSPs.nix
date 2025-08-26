@@ -16,6 +16,7 @@
       nixd
       #markdown
       marksman
+      markdown-oxide
       #lua
       lua-language-server
       #python

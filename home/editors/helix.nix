@@ -64,7 +64,6 @@
             "qmd"
             "PULLREQ_EDITMSG"
           ];
-          language-servers = [ pkgs.marksman ];
         }
       ];
     };
