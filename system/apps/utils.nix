@@ -29,6 +29,9 @@
       yazi.enable = true;
       htop.enable = true;
       git.enable = true;
+      gnupg.agent = {
+        enable = true;
+      };
     };
   };
 }
