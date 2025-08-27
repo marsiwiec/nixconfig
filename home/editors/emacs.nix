@@ -29,22 +29,25 @@
       nodejs
       sqlite
 
-      isync
       pinentry-curses
 
       imagemagick
       maim
       graphviz
     ];
-    services.emacs.enable = true;
+    services = {
+      emacs.enable = true;
+      mbsync = {
+        enable = true;
+        postExec = "${pkgs.mu}/bin/mu index";
+      };
+    };
     programs.zsh.initContent = ''
       export PATH="$HOME/.emacs.d/bin:$PATH"
     '';
     programs = {
       mu.enable = true;
-      msmtp = {
-        enable = true;
-      };
+      msmtp.enable = true;
       password-store.enable = true;
     };
   };
