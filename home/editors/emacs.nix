@@ -38,6 +38,7 @@
     services = {
       emacs.enable = true;
       mbsync = {
+        preExec = "mkdir -p ~/Maildir";
         enable = true;
         postExec = "${pkgs.mu}/bin/mu index";
       };
@@ -48,6 +49,41 @@
     programs = {
       mu.enable = true;
       msmtp.enable = true;
+      mbsync = {
+        enable = true;
+        extraConfig = ''
+          # First section: remote IMAP account
+          IMAPAccount fastmail
+          Host imap.fastmail.com
+          Port 993
+          UserCmd "pass mail/fastmail/login"
+          PassCmd "pass mail/fastmail/password"
+          TLSType IMAPS
+          TLSVersions +1.2
+
+          IMAPStore fastmail-remote
+          Account fastmail
+
+          # This section describes the local storage
+          MaildirStore fastmail-local
+          Path ~/Maildir/
+          Inbox ~/Maildir/INBOX
+          # The SubFolders option allows to represent all
+          # IMAP subfolders as local subfolders
+          SubFolders Verbatim
+
+          # This section a "channel", a connection between remote and local
+          Channel fastmail
+          Far :fastmail-remote:
+          Near :fastmail-local:
+          Patterns *
+          Expunge None
+          CopyArrivalDate yes
+          Sync All
+          Create Near
+          SyncState *
+        '';
+      };
       password-store.enable = true;
     };
   };
