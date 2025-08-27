@@ -13,6 +13,7 @@
     fonts.packages = with pkgs; [
       corefonts
       nerd-fonts.symbols-only
+      alegreya
     ];
   };
 }
