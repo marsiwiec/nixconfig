@@ -1,7 +1,7 @@
 { lib, ... }:
 {
   imports = [
-    ./emacs.nix
+    ./emacs
     ./helix.nix
     ./positron.nix
     ./zed.nix

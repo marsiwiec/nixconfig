@@ -5,8 +5,8 @@
     polarity = "dark";
     fonts = {
       monospace = {
-        name = "Intel One Mono";
-        package = pkgs.intel-one-mono;
+        name = "IntoneMono NF";
+        package = pkgs.nerd-fonts.intone-mono;
       };
       sansSerif = {
         name = "JetBrainsMono Nerd Font";

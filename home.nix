@@ -8,10 +8,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  home.packages = with pkgs; [
-    intel-one-mono
-  ];
-
   home.sessionVariables = {
     EDITOR = "hx";
     VISUAL = "hx";
