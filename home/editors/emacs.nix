@@ -29,6 +29,8 @@
       nodejs
       sqlite
 
+      mu
+
       pinentry-curses
 
       imagemagick
@@ -47,7 +49,6 @@
       export PATH="$HOME/.emacs.d/bin:$PATH"
     '';
     programs = {
-      mu.enable = true;
       msmtp.enable = true;
       mbsync = {
         enable = true;
