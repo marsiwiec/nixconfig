@@ -11,6 +11,7 @@
   config = lib.mkIf config.emacs.enable {
     programs.emacs = {
       enable = true;
+      package = pkgs.emacs-pgtk;
       extraPackages = epkgs: [
         epkgs.mu4e
       ];

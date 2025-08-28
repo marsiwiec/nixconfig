@@ -28,7 +28,7 @@
         {
           matches = [
             {
-              app-id = "Emacs";
+              app-id = "emacs";
             }
           ];
           default-column-width.fixed = 1200;
