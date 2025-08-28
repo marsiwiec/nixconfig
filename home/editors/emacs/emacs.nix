@@ -44,11 +44,11 @@
     ];
     services = {
       emacs.enable = true;
-      mbsync = {
-        preExec = "mkdir -p ~/Maildir";
-        enable = true;
-        postExec = "${pkgs.mu}/bin/mu index";
-      };
+      # mbsync = {
+      #   preExec = "mkdir -p ~/Maildir";
+      #   enable = true;
+      #   postExec = "${pkgs.mu}/bin/mu index";
+      # };
     };
     programs.zsh.initContent = ''
       export PATH="$HOME/.emacs.d/bin:$PATH"
