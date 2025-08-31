@@ -12,7 +12,6 @@
     # Enable the X11 windowing system.
     services = {
       xserver.enable = true;
-      lact.enable = true;
     };
 
     hardware = {
