@@ -56,7 +56,7 @@
           environment = {
             QT_QPA_PLATFORM = "wayland";
             ELECTRON_OZONE_PLATFORM_HINT = "auto";
-            DISPLAY = ":0";
+            # DISPLAY = ":0";
           };
 
           spawn-at-startup = [

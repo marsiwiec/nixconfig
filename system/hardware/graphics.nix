@@ -10,7 +10,10 @@
   };
   config = lib.mkIf config.graphics.enable {
     # Enable the X11 windowing system.
-    services.xserver.enable = true;
+    services = {
+      xserver.enable = true;
+      lact.enable = true;
+    };
 
     hardware = {
       graphics = {
