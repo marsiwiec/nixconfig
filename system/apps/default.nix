@@ -11,6 +11,7 @@
     ./tailscale.nix
     ./ollama.nix
     ./bottles.nix
+    ./localsend.nix
   ];
 
   lan-mouse.enable = lib.mkDefault false;
@@ -23,4 +24,5 @@
   tailscale.enable = lib.mkDefault true;
   ollama.enable = lib.mkDefault true;
   bottles.enable = lib.mkDefault true;
+  localsend.enable = lib.mkDefault true;
 }

@@ -20,6 +20,7 @@
       gimp3-with-plugins
       krita
       fiji
+      pinta
       # (blender.override {
       #   cudaSupport = true;
       # })

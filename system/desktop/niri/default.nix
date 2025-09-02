@@ -35,6 +35,7 @@
         enable = true;
         package = pkgs.niri-unstable;
       };
+      seahorse.enable = true; # pass + encryption management
     };
   };
 }
