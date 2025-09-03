@@ -6,6 +6,8 @@
   config = lib.mkIf config.syncthing.enable {
     services.syncthing = {
       enable = true;
+      overrideFolders = true;
+      overrideDevices = true;
       settings = {
         user = "msiwiec";
         configDir = "/home/msiwiec/.config/syncthing";
@@ -38,6 +40,20 @@
               "nixgroot"
               "labnix"
               "qnap"
+            ];
+          };
+          org = {
+            path = "/home/msiwiec/org";
+            versioning = {
+              type = "simple";
+              params = {
+                keep = "10";
+                cleanoutDays = "0";
+              };
+            };
+            devices = [
+              "nixgroot"
+              "labnix"
             ];
           };
         };
