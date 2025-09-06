@@ -116,8 +116,8 @@
             gaps = 4;
             always-center-single-column = true;
             struts = {
-              left = 4;
-              right = 4;
+              left = 3;
+              right = 3;
             };
 
             shadow.enable = true;
