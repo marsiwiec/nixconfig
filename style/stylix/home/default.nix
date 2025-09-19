@@ -11,6 +11,10 @@
       waybar = {
         font = "sansSerif";
       };
+      firefox = {
+        firefoxGnomeTheme.enable = true;
+        profileNames = [ "default" ];
+      };
     };
   };
 }
