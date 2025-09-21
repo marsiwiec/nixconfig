@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 {
@@ -38,7 +39,7 @@
           ];
           "custom/os_button" = {
             format = "<big>󱄅</big>";
-            on-click = "uwsm app -- fuzzel || uwsm app -- pkill fuzzel";
+            on-click = "fuzzel || pkill fuzzel";
             tooltip = false;
           };
           "hyprland/workspaces" = {
@@ -129,7 +130,6 @@
             tooltip-format-ethernet = "{ifname}";
             tooltip-format-disconnected = "Disconnected";
             max-length = 50;
-            on-click = "uwsm app -- nm-connection-editor";
           };
           disk = {
             interval = 30;
