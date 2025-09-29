@@ -18,6 +18,10 @@
             tidyverse
             patchwork
             drc
+            rstatix
+            ggthemes
+            styler
+            miniUI
           ];
         };
         # R-with-my-packages = rWrapper.override {
