@@ -12,9 +12,11 @@
     programs.emacs = {
       enable = true;
       package = pkgs.emacs-pgtk;
-      extraPackages = epkgs: [
-        epkgs.mu4e
-      ];
+      extraPackages =
+        epkgs: with epkgs; [
+          mu4e
+          treesit-grammars.with-all-grammars
+        ];
     };
     home.file.".emacs.d/themes/doom-stylix-theme.el".source = config.lib.stylix.colors {
       template = builtins.readFile ./themes/doom-stylix-theme.el.mustache;
