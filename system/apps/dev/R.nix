@@ -22,6 +22,9 @@
             ggthemes
             styler
             miniUI
+            pdftools
+            rsvg
+            magick
           ];
         };
         # R-with-my-packages = rWrapper.override {
