@@ -4,6 +4,9 @@
   pkgs,
   ...
 }:
+let
+  colors = config.lib.stylix.colors;
+in
 {
   options = {
     waybar.enable = lib.mkEnableOption "enable waybar status bar config";
@@ -71,10 +74,10 @@
               weeks-pos = "";
               on-scroll = 1;
               format = {
-                months = "<span color='#A7C080'><b>{}</b></span>";
-                days = "<span color='#D3C6AA'><b>{}</b></span>";
-                weekdays = "<span color='#D699B6'><b>{}</b></span>";
-                today = "<span color='#E69875'><b><u>{}</u></b></span>";
+                months = "<span color='#${colors.base0E}'><b>{}</b></span>";
+                days = "<span color='#${colors.base05}'><b>{}</b></span>";
+                weekdays = "<span color='#${colors.base0D}'><b>{}</b></span>";
+                today = "<span color='#${colors.base0A}'><b><u>{}</u></b></span>";
               };
             };
             actions = {
