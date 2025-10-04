@@ -13,6 +13,9 @@ in
   };
 
   config = lib.mkIf config.waybar.enable {
+    home.packages = with pkgs; [
+      waybar-mpris
+    ];
     programs.waybar = {
       enable = true;
       systemd.enable = true;
@@ -31,7 +34,7 @@ in
             "clock"
           ];
           modules-right = [
-            "mpris"
+            "custom/waybar-mpris"
             "pulseaudio"
             "network"
             "disk"
@@ -92,7 +95,7 @@ in
               ];
             };
           };
-          mpris = {
+          "mpris" = {
             format = "{status_icon} {title} - {artist}";
             max-length = 50;
             status-icons = {
@@ -104,7 +107,19 @@ in
               "firefox"
             ];
           };
-          pulseaudio = {
+          "custom/waybar-mpris" = {
+            return-type = "json";
+            exec = "waybar-mpris --autofocus --play 󰏤 --pause 󰐊 --order SYMBOL:ARTIST:TITLE";
+            on-click = "waybar-mpris --send toggle";
+            on-click-right = "waybar-mpris --send next";
+            on-click-middle = "waybar-mpris --send prev";
+            max-length = 50;
+            escape = true;
+            ignored-players = [
+              "firefox"
+            ];
+          };
+          "pulseaudio" = {
             format = "{icon} {volume}%";
             format-bluetooth = " {volume}%";
             format-muted = "";
@@ -123,7 +138,7 @@ in
               "Easy Effects Sink"
             ];
           };
-          network = {
+          "network" = {
             format = "{ifname}";
             format-wifi = "  {signalStrength}%";
             format-ethernet = "󰊗 {ipaddr}/{cidr}";
@@ -134,22 +149,22 @@ in
             tooltip-format-disconnected = "Disconnected";
             max-length = 50;
           };
-          disk = {
+          "disk" = {
             interval = 30;
             format = "  {percentage_used}%";
             path = "/";
           };
-          cpu = {
+          "cpu" = {
             format = "  {usage}%";
           };
-          memory = {
+          "memory" = {
             format = "  {}%";
           };
-          tray = {
+          "tray" = {
             icon-size = 20;
             spacing = 15;
           };
-          idle_inhibitor = {
+          "idle_inhibitor" = {
             format = "<big>{icon}</big>";
             format-icons = {
               activated = "󰅶";
