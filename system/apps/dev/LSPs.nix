@@ -17,6 +17,8 @@
       #markdown
       marksman
       markdown-oxide
+      harper
+      mpls
       #lua
       lua-language-server
       #python
