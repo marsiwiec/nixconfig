@@ -20,11 +20,7 @@
       };
       defaultKeymap = "emacs";
       initContent = ''
-        TERM_INSTANCES=0
-        for pid in $(pidof -x kitty ghostty wezterm-gui); do
-          TERM_INSTANCES=$((TERM_INSTANCES+1))
-        done
-        if [[ TERM_INSTANCES -eq 1 ]]; then
+        if [[ $(wezterm cli list | wc -l) -eq 2 ]]; then
           date
           microfetch
         fi
