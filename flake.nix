@@ -43,12 +43,8 @@
 
   outputs =
     {
-      self,
       nixpkgs,
-      nixpkgs-stable,
-      silentSDDM,
       sops-nix,
-      disko,
       home-manager,
       niri,
       plasma-manager,
@@ -57,24 +53,26 @@
       ...
     }@inputs:
     let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs { inherit system; };
       username = "msiwiec";
       common-nixos-modules = [
-        { nixpkgs.hostPlatform = "x86_64-linux"; }
+        { nixpkgs.hostPlatform = system; }
         # ./overlays
         stylix.nixosModules.stylix
         sops-nix.nixosModules.sops
         niri.nixosModules.niri
       ];
       common-home-modules = [
-        inputs.plasma-manager.homeManagerModules.plasma-manager
+        plasma-manager.homeManagerModules.plasma-manager
         stylix.homeManagerModules.stylix
-        inputs.spicetify-nix.homeManagerModules.default
+        spicetify-nix.homeManagerModules.default
         niri.homeModules.niri
         niri.homeModules.stylix
         ./home.nix
         {
           home = {
-            username = "${username}";
+            username = username;
             homeDirectory = "/home/${username}";
           };
         }
@@ -82,31 +80,22 @@
     in
     {
       nixosConfigurations = {
-
         ### Home desktop ###
         nixgroot = inputs.nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            username = "${username}";
-            inherit inputs;
-          };
+          specialArgs = { inherit inputs username; };
           modules = common-nixos-modules ++ [
             ./hosts/nixgroot/configuration.nix
             ./style/stylix/system/nixgroot
           ];
         };
-
         ### Lab desktop ###
         labnix = inputs.nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            username = "${username}";
-            inherit inputs;
-          };
+          specialArgs = { inherit inputs username; };
           modules = common-nixos-modules ++ [
             ./hosts/labnix/configuration.nix
             ./style/stylix/system/labnix
           ];
         };
-
         # ### Hetzner Cloud ###
         # nixcloud = inputs.nixpkgs.lib.nixosSystem {
         #   modules = [
@@ -117,10 +106,9 @@
         #   ];
         # };
       };
-
       homeConfigurations = {
         "${username}@nixgroot" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          inherit pkgs;
           modules = common-home-modules ++ [
             ./style/stylix/home/nixgroot
             ./home/desktop/hyprland/nixgroot
@@ -128,17 +116,17 @@
             ./home/nixgroot
           ];
           extraSpecialArgs = {
-            inherit inputs;
+            inherit inputs system;
           };
         };
         "${username}@labnix" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          pkgs = pkgs;
           modules = common-home-modules ++ [
             ./style/stylix/home/labnix
             ./home/desktop/hyprland/labnix
           ];
           extraSpecialArgs = {
-            inherit inputs;
+            inherit inputs system;
           };
         };
       };
