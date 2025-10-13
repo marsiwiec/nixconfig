@@ -7,5 +7,5 @@
   ];
   firefox.enable = lib.mkDefault true;
   qutebrowser.enable = lib.mkDefault false;
-  chromium.enable = lib.mkDefault true;
+  # chromium.enable = lib.mkDefault true;
 }

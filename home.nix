@@ -32,6 +32,7 @@
         "application/zip" = [ "xarchiver.desktop" ];
 
         "image/svg+xml" = [ "org.inkscape.Inkscape.desktop" ];
+        "image/gif" = [ "imv.desktop" ];
       };
     };
   };
