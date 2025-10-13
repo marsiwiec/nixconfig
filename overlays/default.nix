@@ -2,6 +2,6 @@
 
 {
   imports = [
-    ./linux-firmware.nix
+    # ./linux-firmware.nix
   ];
 }
