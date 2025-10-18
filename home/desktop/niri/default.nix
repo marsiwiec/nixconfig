@@ -37,6 +37,7 @@
       polkit_gnome
       hyprpicker
       nautilus
+      sway-audio-idle-inhibit
     ];
 
     services = {
@@ -64,6 +65,7 @@
             {
               command = [ "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1" ];
             }
+            { command = [ "${lib.getExe pkgs.sway-audio-idle-inhibit}" ]; }
             {
               command = [
                 "wl-paste"
