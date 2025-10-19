@@ -11,9 +11,11 @@
   config = lib.mkIf config.graphics.enable {
     services = {
       xserver.enable = true;
+      lact.enable = true;
     };
 
     hardware = {
+      amdgpu.overdrive.enable = true;
       graphics = {
         enable = true;
         enable32Bit = true;
