@@ -11,9 +11,11 @@
   config = lib.mkIf config.git.enable {
     programs.git = {
       enable = true;
-      userName = "marsiwiec";
-      userEmail = "marsiwiec@users.noreply.github.com";
-      extraConfig = {
+      settings = {
+        user = {
+          name = "marsiwiec";
+          email = "marsiwiec@users.noreply.github.com";
+        };
         init.defaultBranch = "main";
         credential = {
           "https://github.com" = {
