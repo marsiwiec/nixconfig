@@ -22,8 +22,8 @@
           "Mod+Shift+Print".action = expand-column-to-available-width;
           "Mod+Period".action = switch-preset-column-width;
           "Mod+Shift+E".action = quit;
-          "Print".action = screenshot;
-          "Mod+Print".action = screenshot-window;
+          "Print".action.screenshot = [ ];
+          "Mod+Print".action.screenshot-window = [ ];
 
           "Mod+C".action = sh "hyprpicker -a";
           "Mod+Shift+L".action = sh "pidof swaylock || swaylock";
