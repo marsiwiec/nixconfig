@@ -94,6 +94,7 @@ in
       spice-gtk
       spice-protocol
       freerdp
+      virtiofsd
     ];
     programs.virt-manager.enable = true;
   };
