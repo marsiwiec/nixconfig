@@ -178,28 +178,10 @@ in
           margin-left: 0.25em;
           margin-right: 0.25em;
         }
-
-
-        #tray {
+        #pulseaudio, #network, #disk, #memory, #cpu, #custom-pacman, #custom-waybar-mpris, #custom-os_button, #tray, #idle_inhibitor {
           margin-right: 10px;
           margin-left: 10px;
         }
-
-        #pulseaudio, #network, #disk, #memory, #cpu, #custom-pacman, #idle_inhibitor {
-          margin-right: 10px;
-          margin-left: 10px;
-        }
-
-        #mpris {
-          margin-right: 20px;
-          margin-left: 5px;
-        }
-
-        #custom-os_button {
-          margin-right: 10px;
-          margin-left: 10px;
-        }
-
         #window {
           margin-left: 15px;
         }
