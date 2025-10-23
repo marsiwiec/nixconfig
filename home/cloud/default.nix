@@ -5,7 +5,7 @@
     ./rclone.nix
     ./syncthing.nix
   ];
-  maestral.enable = lib.mkDefault true;
+  # maestral.enable = lib.mkDefault true;
   rclone.enable = lib.mkDefault true;
   syncthing.enable = lib.mkDefault true;
 }
