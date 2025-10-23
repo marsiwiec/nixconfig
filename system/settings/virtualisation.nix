@@ -68,7 +68,7 @@ in
         shm = {
           enable = true;
           size = 128;
-          user = "msiwiec";
+          user = "qemu-libvirtd";
           group = "kvm";
           mode = "0660";
         };
