@@ -46,11 +46,11 @@ in
         enable = true;
         onBoot = "ignore";
         qemu = {
-          package = pkgs.qemu_kvm;
           swtpm.enable = true;
+          vhostUserPackages = [ pkgs.virtiofsd ];
           verbatimConfig = ''
-              namespaces = []
-              user = "+1000"
+            namespaces = []
+            user = "+1000"
             cgroup_device_acl = [
               "/dev/kvmfr0",
               "/dev/vfio/vfio", "/dev/vfio/11", "/dev/vfio/12",
@@ -94,7 +94,6 @@ in
       spice-gtk
       spice-protocol
       freerdp
-      virtiofsd
     ];
     programs.virt-manager.enable = true;
   };
