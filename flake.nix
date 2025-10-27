@@ -49,11 +49,11 @@
 
     niri.url = "github:sodiboo/niri-flake";
 
-    # plasma-manager = {
-    #   url = "github:nix-community/plasma-manager";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.home-manager.follows = "home-manager";
-    # };
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
 
     stylix = {
       url = "github:danth/stylix";
@@ -80,13 +80,18 @@
         "x86_64-linux"
         "aarch64-darwin"
       ];
+
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
       mkNixOSConfig =
         path:
         nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs vars; };
-          modules = [ path ];
+          modules = [
+            inputs.stylix.nixosModules.stylix
+            ./style/stylix
+            path
+          ];
         };
 
       mkDarwinConfig =
@@ -102,39 +107,14 @@
         nixgroot = mkNixOSConfig ./hosts/nixgroot/configuration.nix;
         labnix = mkNixOSConfig ./hosts/labnix/configuration.nix;
       };
-        # ### Hetzner Cloud ###
-        # nixcloud = inputs.nixpkgs.lib.nixosSystem {
-        #   modules = [
-        #     { nixpkgs.hostPlatform = "x86_64-linux"; }
-        #     disko.nixosModules.disko
-        #     sops-nix.nixosModules.sops
-        #     ./hosts/nixcloud/configuration.nix
-        #   ];
-        # };
-      };
-      homeConfigurations = {
-        "${username}@nixgroot" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = common-home-modules ++ [
-            ./style/stylix/home/nixgroot
-            ./home/desktop/hyprland/nixgroot
-            ./home/desktop/niri/nixgroot.nix
-            ./home/nixgroot
-          ];
-          extraSpecialArgs = {
-            inherit inputs system;
-          };
-        };
-        "${username}@labnix" = home-manager.lib.homeManagerConfiguration {
-          pkgs = pkgs;
-          modules = common-home-modules ++ [
-            ./style/stylix/home/labnix
-            ./home/desktop/hyprland/labnix
-          ];
-          extraSpecialArgs = {
-            inherit inputs system;
-          };
-        };
-      };
+      # ### Hetzner Cloud ###
+      # nixcloud = inputs.nixpkgs.lib.nixosSystem {
+      #   modules = [
+      #     { nixpkgs.hostPlatform = "x86_64-linux"; }
+      #     disko.nixosModules.disko
+      #     sops-nix.nixosModules.sops
+      #     ./hosts/nixcloud/configuration.nix
+      #   ];
+      # };
     };
 }

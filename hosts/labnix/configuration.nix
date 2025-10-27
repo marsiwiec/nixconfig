@@ -7,15 +7,18 @@
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
+    inputs.stylix.homeModules.stylix
+    ../../style/stylix/home
 
     ./hardware-configuration.nix
-    ../../system
+    ../../modules/nixos
+    ../../style/stylix/system/labnix
   ];
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs vars; };
     useGlobalPkgs = true;
-    useUserPkgs = true;
+    useUserPackages = true;
     users = {
       ${vars.userName} = {
         imports = [

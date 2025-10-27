@@ -2,12 +2,26 @@
   lib,
   pkgs,
   vars,
-  osConfig,
+  inputs,
   ...
 }:
 {
   imports = [
+    inputs.stylix.homeManagerModules.stylix
+    inputs.niri.homeModules.niri
+    inputs.niri.homeModules.stylix
 
+    ./browsers
+    ./cloud
+    ./desktop
+    ./editors
+    ./graphics
+    ./media
+    ./nixgroot
+    ./office
+    ./terminal
+    ../../style/stylix
+    ../../style/stylix/home
   ];
 
   home = {
@@ -16,7 +30,7 @@
       (lib.mkIf pkgs.stdenv.isLinux "/home/${vars.userName}")
       (lib.mkIf pkgs.stdenv.isDarwin "/Users/${vars.userName}")
     ];
-    stateVersion = "25.05";
+    stateVersion = "24.11";
     sessionVariables = lib.mkIf pkgs.stdenv.isDarwin {
       SOPS_AGE_KEY_FILE = "$HOME/.config/sops/age/keys.txt";
     };
