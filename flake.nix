@@ -56,7 +56,7 @@
     };
 
     stylix = {
-      url = "github:nix-community/stylix";
+      url = "github:nix-community/stylix/3eb00bf9866634bd83219dd02d1ee0144b6f673e";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
