@@ -1,10 +1,29 @@
-{ ... }:
+{
+  inputs,
+  outputs,
+  vars,
+  ...
+}:
 {
   imports = [
+    inputs.home-manager.nixosModules.home-manager
+
     ./hardware-configuration.nix
     ../../system
   ];
 
+  home-manager = {
+    extraSpecialArgs = { inherit inputs outputs vars; };
+    useGlobalPkgs = true;
+    useUserPkgs = true;
+    users = {
+      ${vars.userName} = {
+        imports = [
+          ../../home.nix
+        ];
+      };
+    };
+  };
   #### My own modules ####
   nvidia.enable = false;
   nvidia-enable.enable = false;

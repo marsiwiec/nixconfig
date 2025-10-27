@@ -23,13 +23,37 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-homebrew = {
+      url = "github:zhaofengli-wip/nix-homebrew";
+    };
+
+    homebrew-bundle = {
+      url = "github:homebrew/homebrew-bundle";
+      flake = false;
+    };
+
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+
     niri.url = "github:sodiboo/niri-flake";
 
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
+    # plasma-manager = {
+    #   url = "github:nix-community/plasma-manager";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.home-manager.follows = "home-manager";
+    # };
 
     stylix = {
       url = "github:danth/stylix";
@@ -43,59 +67,41 @@
 
   outputs =
     {
+      self,
       nixpkgs,
-      sops-nix,
-      home-manager,
-      niri,
-      plasma-manager,
-      stylix,
-      spicetify-nix,
+      nix-darwin,
       ...
     }@inputs:
     let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
-      username = "msiwiec";
-      common-nixos-modules = [
-        { nixpkgs.hostPlatform = system; }
-        # ./overlays
-        stylix.nixosModules.stylix
-        sops-nix.nixosModules.sops
-        niri.nixosModules.niri
+      inherit (self) outputs;
+      vars = import ./vars.nix;
+
+      systems = [
+        "x86_64-linux"
+        "aarch64-darwin"
       ];
-      common-home-modules = [
-        plasma-manager.homeManagerModules.plasma-manager
-        stylix.homeManagerModules.stylix
-        spicetify-nix.homeManagerModules.default
-        niri.homeModules.niri
-        niri.homeModules.stylix
-        ./home.nix
-        {
-          home = {
-            username = username;
-            homeDirectory = "/home/${username}";
-          };
-        }
-      ];
+      forAllSystems = nixpkgs.lib.genAttrs systems;
+
+      mkNixOSConfig =
+        path:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs vars; };
+          modules = [ path ];
+        };
+
+      mkDarwinConfig =
+        path:
+        nixpkgs.lib.darwinSystem {
+          specialArgs = { inherit inputs outputs vars; };
+          modules = [ path ];
+        };
     in
     {
       nixosConfigurations = {
         ### Home desktop ###
-        nixgroot = inputs.nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs username; };
-          modules = common-nixos-modules ++ [
-            ./hosts/nixgroot/configuration.nix
-            ./style/stylix/system/nixgroot
-          ];
-        };
-        ### Lab desktop ###
-        labnix = inputs.nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs username; };
-          modules = common-nixos-modules ++ [
-            ./hosts/labnix/configuration.nix
-            ./style/stylix/system/labnix
-          ];
-        };
+        nixgroot = mkNixOSConfig ./hosts/nixgroot/configuration.nix;
+        labnix = mkNixOSConfig ./hosts/labnix/configuration.nix;
+      };
         # ### Hetzner Cloud ###
         # nixcloud = inputs.nixpkgs.lib.nixosSystem {
         #   modules = [
