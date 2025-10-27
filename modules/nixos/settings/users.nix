@@ -1,7 +1,7 @@
 {
   lib,
   config,
-  pkgs,
+  vars,
   ...
 }:
 {
@@ -10,9 +10,9 @@
   };
   config = lib.mkIf config.users.enable {
     # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users.msiwiec = {
+    users.users.${vars.userName} = {
       isNormalUser = true;
-      description = "msiwiec";
+      description = "${vars.userName}";
       # shell = pkgs.nushell;
       extraGroups = [
         "wheel"

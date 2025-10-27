@@ -1,27 +1,46 @@
-{ ... }:
+{
+  inputs,
+  outputs,
+  vars,
+  ...
+}:
 {
   imports = [
+    inputs.home-manager.nixosModules.home-manager
+    ../../style/stylix/labnix
+
     ./hardware-configuration.nix
-    ../../system
+    ../../modules/nixos
   ];
 
-  ### Fix for Lexar nvme SSDs ###
-  boot = {
-    kernelParams = [ "nvme_core.default_ps_max_latency_us=0" ];
+  home-manager = {
+    extraSpecialArgs = { inherit inputs outputs vars; };
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users = {
+      ${vars.userName} = {
+        imports = [
+          ../../modules/home-manager
+        ];
+      };
+    };
   };
-
   #### My own modules ####
-  gaming.enable = true;
+  nvidia.enable = false;
+  nvidia-enable.enable = false;
+  vfio.enable = false;
+  virtualisation.kvmfr.enable = false;
+  gaming.enable = false;
   ollama.enable = false;
 
-  networking.hostName = "nixgroot";
+  networking.hostName = "labnix";
 
   sops = {
     secrets = {
-      "syncthing/nixgroot/cert" = {
+      "syncthing/labnix/cert" = {
         owner = "msiwiec";
       };
-      "syncthing/nixgroot/key" = {
+      "syncthing/labnix/key" = {
         owner = "msiwiec";
       };
     };
@@ -29,8 +48,8 @@
 
   services = {
     syncthing = {
-      key = "/run/secrets/syncthing/nixgroot/key";
-      cert = "/run/secrets/syncthing/nixgroot/cert";
+      key = "/run/secrets/syncthing/labnix/key";
+      cert = "/run/secrets/syncthing/labnix/cert";
     };
   };
 

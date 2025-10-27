@@ -11,6 +11,7 @@
   config = lib.mkIf config.locale.enable {
     # Select internationalisation properties.
     i18n.defaultLocale = "en_US.UTF-8";
+    i18n.extraLocales = [ "en_GB.UTF-8/UTF-8" ];
 
     i18n.extraLocaleSettings = {
       LC_ADDRESS = "pl_PL.UTF-8";

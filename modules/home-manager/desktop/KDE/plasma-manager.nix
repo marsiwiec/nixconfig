@@ -6,7 +6,7 @@
 }:
 {
   imports = [
-    inputs.plasma-manager.homeManagerModules.plasma-manager
+    inputs.plasma-manager.homeModules.plasma-manager
   ];
   options = {
     plasma-manager.enable = lib.mkEnableOption "enable plasma-manager config";

@@ -2,7 +2,7 @@
   config,
   lib,
   pkgs,
-  username,
+  vars,
   ...
 }:
 let
@@ -87,7 +87,7 @@ in
       SUBSYSTEM=="kvmfr", OWNER="${cfg.shm.user}", GROUP="${cfg.shm.group}", MODE="${cfg.shm.mode}"
     '';
 
-    users.users.${username}.extraGroups = [ "libvirtd" ];
+    users.users.${vars.userName}.extraGroups = [ "libvirtd" ];
 
     environment.systemPackages = with pkgs; [
       spice

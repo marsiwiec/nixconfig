@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "nixpkgs/nixos-24.11";
+    nixpkgs-stable.url = "nixpkgs/nixos-25.05";
 
     silentSDDM = {
       url = "github:uiriansan/SilentSDDM";
@@ -32,20 +32,20 @@
       url = "github:zhaofengli-wip/nix-homebrew";
     };
 
-    homebrew-bundle = {
-      url = "github:homebrew/homebrew-bundle";
-      flake = false;
-    };
+    # homebrew-bundle = {
+    #   url = "github:homebrew/homebrew-bundle";
+    #   flake = false;
+    # };
 
-    homebrew-core = {
-      url = "github:homebrew/homebrew-core";
-      flake = false;
-    };
+    # homebrew-core = {
+    #   url = "github:homebrew/homebrew-core";
+    #   flake = false;
+    # };
 
-    homebrew-cask = {
-      url = "github:homebrew/homebrew-cask";
-      flake = false;
-    };
+    # homebrew-cask = {
+    #   url = "github:homebrew/homebrew-cask";
+    #   flake = false;
+    # };
 
     niri.url = "github:sodiboo/niri-flake";
 
@@ -56,7 +56,7 @@
     };
 
     stylix = {
-      url = "github:danth/stylix";
+      url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -104,17 +104,8 @@
     {
       nixosConfigurations = {
         ### Home desktop ###
-        nixgroot = mkNixOSConfig ./hosts/nixgroot/configuration.nix;
-        labnix = mkNixOSConfig ./hosts/labnix/configuration.nix;
+        nixgroot = mkNixOSConfig ./machines/nixgroot/configuration.nix;
+        labnix = mkNixOSConfig ./machines/labnix/configuration.nix;
       };
-      # ### Hetzner Cloud ###
-      # nixcloud = inputs.nixpkgs.lib.nixosSystem {
-      #   modules = [
-      #     { nixpkgs.hostPlatform = "x86_64-linux"; }
-      #     disko.nixosModules.disko
-      #     sops-nix.nixosModules.sops
-      #     ./hosts/nixcloud/configuration.nix
-      #   ];
-      # };
     };
 }

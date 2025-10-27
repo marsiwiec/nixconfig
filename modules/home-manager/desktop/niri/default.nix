@@ -2,7 +2,6 @@
   lib,
   config,
   pkgs,
-  inputs,
   ...
 }:
 {
@@ -17,8 +16,6 @@
   };
 
   config = lib.mkIf config.niri.enable {
-
-    nixpkgs.overlays = [ inputs.niri.overlays.niri ];
 
     # enable imported modules
     mako.enable = true;
@@ -50,14 +47,11 @@
 
     programs = {
       niri = {
-        enable = true;
-        package = pkgs.niri-unstable;
+        # enable = true;
         settings = {
-
           environment = {
             QT_QPA_PLATFORM = "wayland";
             ELECTRON_OZONE_PLATFORM_HINT = "auto";
-            # DISPLAY = ":0";
           };
 
           spawn-at-startup = [
