@@ -24,11 +24,11 @@
           vulkan-validation-layers
           vulkan-extension-layer
           libva
-          vaapiVdpau
+          libva-vdpau-driver
           libvdpau-va-gl
         ];
         extraPackages32 = with pkgs.pkgsi686Linux; [
-          vaapiVdpau
+          libva-vdpau-driver
           libvdpau-va-gl
         ];
       };
