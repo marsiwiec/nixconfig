@@ -6,11 +6,13 @@
 }:
 {
   imports = [
-    inputs.home-manager.darwinModules.home-manager
-
     ./hardware-configuration.nix
+    ../../modules/macos/base.nix
   ];
 
+  users.users.${vars.userName} = {
+    home = /Users/${vars.userName};
+  };
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs vars; };
     useGlobalPkgs = true;
@@ -28,4 +30,5 @@
     computerName = "macnix";
     localHostName = "macnix";
   };
+  system.stateVersion = 6;
 }

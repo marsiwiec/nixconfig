@@ -8,16 +8,16 @@
   imports = [
     # ./browsers
     # ./cloud
-    # ./editors
+    ./editors
     # ./graphics
     # ./media
     # ./office
-    # ./terminal
+    ./terminal
   ];
+  positron.enable = false;
+  emacs.enable = false;
 
   home = {
-    username = vars.userName;
-    homeDirectory = "/Users/${vars.userName}";
     stateVersion = "24.11";
   };
   programs.home-manager.enable = true;

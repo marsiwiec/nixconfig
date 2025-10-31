@@ -81,9 +81,12 @@
 
       mkDarwinConfig =
         path:
-        nixpkgs.lib.darwinSystem {
+        nix-darwin.lib.darwinSystem {
           specialArgs = { inherit inputs outputs vars; };
-          modules = [ path ];
+          modules = [
+            inputs.home-manager.darwinModules.home-manager
+            path
+          ];
         };
     in
     {
@@ -91,6 +94,9 @@
         ### Home desktop ###
         nixgroot = mkNixOSConfig ./machines/nixgroot/configuration.nix;
         labnix = mkNixOSConfig ./machines/labnix/configuration.nix;
+      };
+      darwinConfigurations = {
+        macnix = mkDarwinConfig ./machines/macnix/configuration.nix;
       };
     };
 }

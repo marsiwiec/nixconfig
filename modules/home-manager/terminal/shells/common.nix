@@ -10,7 +10,6 @@
   };
 
   config = lib.mkIf config.shell-common.enable {
-    home.packages = [ pkgs.microfetch ];
     home.shell.enableNushellIntegration = true;
     home.shell.enableZshIntegration = true;
     home.shellAliases = {

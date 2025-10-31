@@ -11,7 +11,6 @@
 
   nix-homebrew = {
     enable = true;
-    enableRosetta = true;
     user = vars.userName;
   };
   homebrew = {
@@ -25,17 +24,9 @@
       cleanup = "zap";
     };
     casks = [
-      "wezterm"
-      "firefox"
-      "obsidian"
       "positron"
-      "spotify"
-      "steam"
       "the-unarchiver"
       "vlc"
     ];
-    masApps = {
-      "Tailscale" = 1475387142;
-    };
   };
 }

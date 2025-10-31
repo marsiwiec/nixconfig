@@ -70,7 +70,7 @@
               "--enable-footnotes"
             ];
           };
-          air = {
+          air = lib.mkIf pkgs.stdenv.isLinux {
             command = lib.getExe pkgs.air-formatter;
             args = [
               "language-server"

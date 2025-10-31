@@ -32,15 +32,12 @@
 
   system = {
     primaryUser = vars.userName;
-    startupChime = false;
+    startup.chime = false;
     defaults = {
       dock = {
         autohide = true;
         mru-spaces = false;
         tilesize = 96;
-        mvous-br-corner = 4;
-        mvous-bl-corner = 11;
-        mvous-tr-corner = 5;
       };
       finder = {
         AppleShowAllExtensions = true;
@@ -59,5 +56,4 @@
       };
     };
   };
-  system.stateVersion = 4;
 }
