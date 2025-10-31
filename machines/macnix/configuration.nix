@@ -18,7 +18,7 @@
     users = {
       ${vars.userName} = {
         imports = [
-
+          ../../modules/home-manager/darwin.nix
         ];
       };
     };
