@@ -7,7 +7,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/darwin/base.nix
+    ../../modules/system/darwin/base.nix
     ../../style/stylix/macnix
   ];
 
@@ -21,7 +21,7 @@
     users = {
       ${vars.userName} = {
         imports = [
-          ../../modules/home-manager/darwin.nix
+          ../../modules/home/darwin.nix
           ../../style/stylix/macnix
         ];
       };

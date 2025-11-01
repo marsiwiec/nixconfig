@@ -10,7 +10,7 @@
     ../../style/stylix/nixgroot
 
     ./hardware-configuration.nix
-    ../../modules/nixos
+    ../../modules/system/nixos
   ];
 
   ### Fix for Lexar nvme SSDs ###
@@ -25,8 +25,8 @@
     users = {
       ${vars.userName} = {
         imports = [
-          ../../modules/home-manager/nixos.nix
-          ../../modules/home-manager/desktop/niri/nixgroot.nix
+          ../../modules/home/nixos.nix
+          ../../modules/home/desktop/niri/nixgroot.nix
         ];
       };
     };

@@ -10,7 +10,7 @@
     ../../style/stylix/labnix
 
     ./hardware-configuration.nix
-    ../../modules/nixos
+    ../../modules/system/nixos
   ];
 
   home-manager = {
@@ -20,7 +20,7 @@
     users = {
       ${vars.userName} = {
         imports = [
-          ../../modules/home-manager/nixos.nix
+          ../../modules/home/nixos.nix
         ];
       };
     };
