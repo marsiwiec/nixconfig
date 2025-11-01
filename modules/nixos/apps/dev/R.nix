@@ -21,24 +21,12 @@
             rstatix
             ggthemes
             styler
-            miniUI
-            pdftools
             rsvg
-            magick
           ];
         };
-        # R-with-my-packages = rWrapper.override {
-        #   packages = with rPackages; [
-        #     tidyverse
-        #     patchwork
-        #     drc
-        #     languageserver
-        #   ];
-        # };
       in
       [
         RStudio-with-my-packages
-        # R-with-my-packages
         quarto
       ];
   };
