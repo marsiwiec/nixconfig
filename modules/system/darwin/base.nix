@@ -2,6 +2,8 @@
 {
   imports = [
     ./_packages.nix
+    ../../../modules/system/nixos/apps/dev
+    ../../../modules/system/nixos/apps/tailscale.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -24,6 +26,9 @@
   programs.zsh.enable = true;
   security.pam.services.sudo_local.touchIdAuth = true;
 
+  environment.systemPackages = with pkgs; [
+    nh
+  ];
   services = {
     tailscale.enable = true;
     skhd = {
