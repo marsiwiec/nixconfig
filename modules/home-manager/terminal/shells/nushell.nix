@@ -30,10 +30,6 @@
           }
         }
         start_zellij
-        let term_instances = (ps | where name in ['kitty', 'ghostty', 'wezterm-gui'] | length)
-        if $term_instances == 1 {
-          ^date
-          microfetch
         }'';
     };
   };

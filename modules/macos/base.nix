@@ -21,18 +21,27 @@
       ];
     };
   };
-  ids.gids.nixbld = 350;
-
   programs.zsh.enable = true;
   security.pam.services.sudo_local.touchIdAuth = true;
 
   services = {
     tailscale.enable = true;
+    skhd = {
+      enable = true;
+      skhdConfig = ''
+        cmd - return : open -a wezterm
+        alt + shift - return : open -a firefox
+      '';
+    };
   };
 
   system = {
     primaryUser = vars.userName;
     startup.chime = false;
+    keyboard = {
+      enableKeyMapping = true;
+      remapCapsLockToEscape = true;
+    };
     defaults = {
       dock = {
         autohide = true;
@@ -54,6 +63,7 @@
         AppleInterfaceStyle = "Dark";
         KeyRepeat = 2;
         InitialKeyRepeat = 15;
+        _HIHideMenuBar = true;
       };
     };
   };

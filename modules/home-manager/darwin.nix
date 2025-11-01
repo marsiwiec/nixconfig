@@ -7,16 +7,26 @@
 {
   imports = [
     inputs.mac-app-util.homeManagerModules.default
-    # ./browsers
+    ./browsers
     # ./cloud
     ./editors
     # ./graphics
     # ./media
-    # ./office
+    ./office
     ./terminal
   ];
   positron.enable = false;
   emacs.enable = false;
+  chromium.enable = false;
+  zathura.enable = false;
+  libreoffice.enable = false;
+
+  stylix.targets = {
+    firefox = {
+      firefoxGnomeTheme.enable = true;
+      profileNames = [ "default" ];
+    };
+  };
 
   home = {
     stateVersion = "24.11";
