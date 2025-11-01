@@ -8,7 +8,7 @@
   imports = [
     inputs.mac-app-util.homeManagerModules.default
     ./browsers
-    # ./cloud
+    ./cloud
     ./editors
     # ./graphics
     # ./media

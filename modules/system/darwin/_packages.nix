@@ -24,7 +24,7 @@
       cleanup = "zap";
     };
     casks = [
-      "rstudio"
+      # "rstudio"
       "positron"
       "the-unarchiver"
       "vlc"
