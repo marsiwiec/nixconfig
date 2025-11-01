@@ -6,6 +6,7 @@
 }:
 {
   imports = [
+    inputs.mac-app-util.homeManagerModules.default
     # ./browsers
     # ./cloud
     ./editors

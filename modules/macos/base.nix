@@ -36,8 +36,9 @@
     defaults = {
       dock = {
         autohide = true;
+        orientation = "left";
         mru-spaces = false;
-        tilesize = 96;
+        tilesize = 64;
       };
       finder = {
         AppleShowAllExtensions = true;

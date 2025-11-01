@@ -28,6 +28,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    mac-app-util.url = "github:hraban/mac-app-util";
+
     nix-homebrew = {
       url = "github:zhaofengli-wip/nix-homebrew";
     };
@@ -41,7 +43,7 @@
     };
 
     stylix = {
-      url = "github:nix-community/stylix/3eb00bf9866634bd83219dd02d1ee0144b6f673e";
+      url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -74,7 +76,7 @@
           specialArgs = { inherit inputs outputs vars; };
           modules = [
             inputs.stylix.nixosModules.stylix
-            ./style/stylix
+            ./style/stylix/nixos.nix
             path
           ];
         };
@@ -85,6 +87,8 @@
           specialArgs = { inherit inputs outputs vars; };
           modules = [
             inputs.home-manager.darwinModules.home-manager
+            inputs.stylix.darwinModules.stylix
+            inputs.mac-app-util.darwinModules.default
             path
           ];
         };

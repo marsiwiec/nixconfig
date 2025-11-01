@@ -8,6 +8,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/macos/base.nix
+    ../../style/stylix/macnix
   ];
 
   users.users.${vars.userName} = {
@@ -21,6 +22,7 @@
       ${vars.userName} = {
         imports = [
           ../../modules/home-manager/darwin.nix
+          ../../style/stylix/macnix
         ];
       };
     };
