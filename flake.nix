@@ -1,5 +1,5 @@
 {
-  description = "My nixos flake";
+  description = "My nixos/darwin flake";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -62,13 +62,6 @@
     let
       inherit (self) outputs;
       vars = import ./vars.nix;
-
-      systems = [
-        "x86_64-linux"
-        "aarch64-darwin"
-      ];
-
-      forAllSystems = nixpkgs.lib.genAttrs systems;
 
       mkNixOSConfig =
         path:

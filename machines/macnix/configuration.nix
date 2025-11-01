@@ -7,7 +7,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/macos/base.nix
+    ../../modules/darwin/base.nix
     ../../style/stylix/macnix
   ];
 

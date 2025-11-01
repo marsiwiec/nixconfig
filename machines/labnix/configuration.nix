@@ -20,7 +20,7 @@
     users = {
       ${vars.userName} = {
         imports = [
-          ../../modules/home-manager
+          ../../modules/home-manager/nixos.nix
         ];
       };
     };

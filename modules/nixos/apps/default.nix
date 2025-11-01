@@ -8,6 +8,7 @@
     ./sunshine.nix
     ./distrobox.nix
     ./lan-mouse.nix
+    ./nh.nix
     ./tailscale.nix
     ./ollama.nix
     ./bottles.nix
@@ -16,6 +17,7 @@
 
   lan-mouse.enable = lib.mkDefault false;
 
+  nh.enable = lib.mkDefault true;
   utils.enable = lib.mkDefault true;
   thunar.enable = lib.mkDefault true;
   firefox.enable = lib.mkDefault true;
