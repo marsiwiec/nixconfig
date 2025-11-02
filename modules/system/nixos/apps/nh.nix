@@ -12,7 +12,7 @@
   config = lib.mkIf config.nh.enable {
     programs.nh = {
       enable = true;
-      flake = "${config.users.defaultUserHome}/nixconfig";
+      flake = "${config.users.defaultUserHome}/${vars.userName}/nixconfig";
     };
     environment.shellAliases = {
       update = "nh os switch --ask";

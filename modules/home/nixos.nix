@@ -3,6 +3,7 @@
   pkgs,
   vars,
   inputs,
+  osConfig,
   ...
 }:
 {
@@ -30,13 +31,16 @@
     };
   };
 
-  stylix.targets = {
-    waybar = {
-      font = "sansSerif";
-    };
-    firefox = {
-      firefoxGnomeTheme.enable = true;
-      profileNames = [ "default" ];
+  stylix = {
+    icons = osConfig.stylix.icons;
+    targets = {
+      waybar = {
+        font = "sansSerif";
+      };
+      firefox = {
+        firefoxGnomeTheme.enable = true;
+        profileNames = [ "default" ];
+      };
     };
   };
 
