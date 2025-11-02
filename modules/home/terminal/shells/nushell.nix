@@ -30,7 +30,8 @@
           }
         }
         start_zellij
-        }'';
+        ${lib.getExe pkgs.cowsay} nu
+      '';
     };
   };
 }
