@@ -28,42 +28,19 @@
     programs = {
       direnv = {
         enable = true;
-        enableZshIntegration = true;
-        enableNushellIntegration = true;
         nix-direnv.enable = true;
       };
-      starship = {
-        enable = true;
-        enableZshIntegration = true;
-        enableNushellIntegration = true;
-      };
-      atuin = {
-        enable = true;
-        enableZshIntegration = true;
-        enableNushellIntegration = true;
-      };
-      zoxide = {
-        enable = true;
-        enableZshIntegration = true;
-        enableNushellIntegration = true;
-      };
-      yazi = {
-        enable = true;
-        enableZshIntegration = true;
-        enableNushellIntegration = true;
-      };
+      starship.enable = true;
+      atuin.enable = true;
+      zoxide.enable = true;
+      yazi.enable = true;
       zellij = {
         enable = true;
-        enableZshIntegration = true;
+        enableZshIntegration = true; # Still needs it
         settings = {
           show_startup_tips = false;
         };
       };
-      # carapace = {
-      #   enable = true;
-      #   enableZshIntegration = true;
-      #   enableNushellIntegration = true;
-      # };
     };
   };
 }
