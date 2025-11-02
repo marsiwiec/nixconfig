@@ -10,8 +10,8 @@
       overrideDevices = true;
       settings = {
         user = "msiwiec";
-        configDir = "/home/msiwiec/.config/syncthing";
-        dataDir = "/home/msiwiec/Documents";
+        configDir = "~/.config/syncthing";
+        dataDir = "~/Documents";
         devices = {
           nixgroot = {
             name = "nixgroot";
@@ -21,6 +21,10 @@
             name = "labnix";
             id = "VS33NBI-U57M5JI-3BLPP7X-2PJ6HNG-VACPDFX-2MMJLGJ-NE5H4IY-5DCTDQR";
           };
+          macnix = {
+            name = "macnix";
+            id = "4FXETP4-QCPRETB-LQZPJI4-5QDJ2EV-D6URIJR-BYPCD77-7YSTGWB-VD74GQ6";
+          };
           qnap = {
             name = "qnap";
             id = "KSFW7A3-GW5NQ64-KHVLDFD-NIJGQU6-WBEHWOE-LVRAQGL-BK6LVRE-EQ73VA6";
@@ -28,7 +32,7 @@
         };
         folders = {
           zotero = {
-            path = "/home/msiwiec/Documents/zotero";
+            path = "~/Documents/zotero";
             versioning = {
               type = "simple";
               params = {
@@ -39,11 +43,12 @@
             devices = [
               "nixgroot"
               "labnix"
+              "macnix"
               "qnap"
             ];
           };
           org = {
-            path = "/home/msiwiec/org";
+            path = "~/org";
             versioning = {
               type = "simple";
               params = {
