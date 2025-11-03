@@ -50,7 +50,7 @@
         autohide = true;
         orientation = "left";
         mru-spaces = false;
-        tilesize = 64;
+        tilesize = 48;
       };
       finder = {
         AppleShowAllExtensions = true;
