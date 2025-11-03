@@ -8,15 +8,8 @@
 }:
 {
   imports = [
-    ./browsers
-    ./cloud
-    ./desktop
-    ./editors
-    ./graphics
-    ./media
-    ./nixgroot
-    ./office
-    ./terminal
+    ../common
+    ./common
   ];
 
   home = {

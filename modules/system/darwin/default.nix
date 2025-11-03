@@ -1,9 +1,8 @@
 { pkgs, vars, ... }:
 {
   imports = [
+    ../common
     ./_packages.nix
-    ../../../modules/system/nixos/apps/dev
-    ../../../modules/system/nixos/apps/tailscale.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -30,7 +29,6 @@
     nh
   ];
   services = {
-    tailscale.enable = true;
     skhd = {
       enable = true;
       skhdConfig = ''

@@ -7,19 +7,8 @@
 {
   imports = [
     inputs.mac-app-util.homeManagerModules.default
-    ./browsers
-    ./cloud
-    ./editors
-    # ./graphics
-    # ./media
-    ./office
-    ./terminal
+    ../common
   ];
-  positron.enable = false;
-  emacs.enable = false;
-  chromium.enable = false;
-  zathura.enable = false;
-  libreoffice.enable = false;
 
   stylix.targets = {
     firefox = {
