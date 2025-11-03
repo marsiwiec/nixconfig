@@ -25,8 +25,9 @@
     users = {
       ${vars.userName} = {
         imports = [
-          ../../modules/home/nixos.nix
-          ../../modules/home/desktop/niri/nixgroot.nix
+          ../../modules/home/nixos
+          ../../modules/home/nixos/nixgroot
+          ../../modules/home/nixos/common/desktop/niri/nixgroot.nix
         ];
       };
     };

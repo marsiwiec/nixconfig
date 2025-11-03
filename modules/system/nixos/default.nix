@@ -6,7 +6,7 @@
   imports = [
     inputs.sops-nix.nixosModules.sops
     inputs.niri.nixosModules.niri
-
+    ../common
     ./apps
     ./desktop
     ./fonts

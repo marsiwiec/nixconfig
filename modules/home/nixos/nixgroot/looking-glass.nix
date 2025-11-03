@@ -36,7 +36,7 @@
       # assign an icon the nix way...
       (stdenv.mkDerivation {
         name = "windows-icon";
-        src = [ ../../../style/icons/win11icon.png ];
+        src = [ ../../../../style/icons/win11icon.png ];
 
         unpackPhase = ''
           for srcFile in $src; do
