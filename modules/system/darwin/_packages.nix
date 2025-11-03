@@ -23,8 +23,12 @@
       upgrade = true;
       cleanup = "zap";
     };
+    taps = [
+      "nikitabobko/tap"
+    ];
     casks = [
       # "rstudio"
+      "aerospace"
       "positron"
       "the-unarchiver"
       "vlc"
