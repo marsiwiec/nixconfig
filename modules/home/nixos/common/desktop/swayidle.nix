@@ -18,11 +18,11 @@
       events = [
         {
           event = "before-sleep";
-          command = "${lib.getExe pkgs.swaylock} -f";
+          command = "noctalia-shell ipc call lockScreen lock";
         }
         {
           event = "lock";
-          command = "${lib.getExe pkgs.swaylock} -f";
+          command = "noctalia-shell ipc call lockScreen lock";
         }
         {
           event = "after-resume";
@@ -32,7 +32,7 @@
       timeouts = [
         {
           timeout = 900;
-          command = "${lib.getExe pkgs.swaylock} -f";
+          command = "noctalia-shell ipc call lockScreen lock";
         }
         {
           timeout = 1200;

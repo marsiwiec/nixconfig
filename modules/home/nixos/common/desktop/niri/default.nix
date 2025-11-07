@@ -22,7 +22,7 @@
 
     programs = {
       fuzzel.enable = true;
-      swaylock.enable = true;
+      # swaylock.enable = true;
     };
 
     home.packages = with pkgs; [
@@ -38,7 +38,7 @@
     ];
 
     services = {
-      hyprpaper.enable = true;
+      # hyprpaper.enable = true;
       udiskie = {
         enable = true;
         tray = "never";
@@ -102,6 +102,11 @@
             };
             focus-follows-mouse.enable = true;
             warp-mouse-to-focus.enable = true;
+          };
+
+          debug = {
+            # Allows notification actions and window activation from Noctalia.
+            honor-xdg-activation-with-invalid-serial = true;
           };
 
           layout = {
