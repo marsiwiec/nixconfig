@@ -8,7 +8,7 @@
           clip-to-geometry = true;
           geometry-corner-radius =
             let
-              r = 8.0;
+              r = 20.0;
             in
             {
               top-left = r;
@@ -61,7 +61,7 @@
         {
           matches = [
             {
-              namespace = "^hyprpaper$";
+              namespace = "^noctalia-overview*";
             }
           ];
           place-within-backdrop = true;

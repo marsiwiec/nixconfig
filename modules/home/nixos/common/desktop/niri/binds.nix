@@ -8,8 +8,9 @@
           sh = spawn "sh" "-c";
         in
         {
-          "Mod+Space".action = spawn "fuzzel";
-          "Mod+P".action = sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy";
+          # "Mod+Space".action = spawn "fuzzel";
+          "Mod+Space".action = sh "noctalia-shell ipc call launcher toggle";
+          "Mod+P".action = sh "noctalia-shell ipc call launcher clipboard";
           "Mod+Return".action = spawn "wezterm";
           "Mod+Shift+Return".action = spawn "firefox";
           "Mod+W".action = spawn "thunar";
@@ -26,7 +27,8 @@
           "Mod+Print".action.screenshot-window = [ ];
 
           "Mod+C".action = sh "hyprpicker -a";
-          "Mod+Shift+L".action = sh "pidof swaylock || swaylock";
+          # "Mod+Shift+L".action = sh "pidof swaylock || swaylock";
+          "Mod+Shift+L".action = sh "noctalia-shell ipc call lockScreen lock";
 
           "Mod+O".action = toggle-overview;
 
