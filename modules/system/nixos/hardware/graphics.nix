@@ -15,7 +15,10 @@
     };
 
     hardware = {
-      amdgpu.overdrive.enable = true;
+      amdgpu = {
+        overdrive.enable = true;
+        initrd.enable = true;
+      };
       graphics = {
         enable = true;
         enable32Bit = true;
