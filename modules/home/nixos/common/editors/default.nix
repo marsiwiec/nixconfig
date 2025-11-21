@@ -4,6 +4,6 @@
     ./emacs
     ./positron.nix
   ];
-  emacs.enable = lib.mkDefault true;
+  # emacs.enable = lib.mkDefault true;
   positron.enable = lib.mkDefault true;
 }
