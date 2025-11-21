@@ -9,6 +9,10 @@
   };
   config = {
     boot = {
+      tmp = {
+        useTmpfs = true;
+        cleanOnBoot = true;
+      };
       kernelPackages = pkgs.linuxPackages_latest;
       loader.systemd-boot.enable = true;
       loader.efi.canTouchEfiVariables = true;
