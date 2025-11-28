@@ -14,8 +14,13 @@
         cleanOnBoot = true;
       };
       kernelPackages = pkgs.linuxPackages_latest;
-      loader.systemd-boot.enable = true;
-      loader.efi.canTouchEfiVariables = true;
+      loader = {
+        systemd-boot = {
+          enable = true;
+          configurationLimit = 20;
+        };
+        efi.canTouchEfiVariables = true;
+      };
       plymouth = {
         enable = true;
         # theme = lib.mkForce "seal";
