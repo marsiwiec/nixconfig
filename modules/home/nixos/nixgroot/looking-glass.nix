@@ -46,8 +46,8 @@
         '';
 
         installPhase = ''
-          mkdir -p $out $out/share $out/share/pixmaps
-          cp $src $out/share/pixmaps/windows.png
+          mkdir -p $out $out/share $out/share/icons/hicolor/48x48/apps
+          cp $src $out/share/icons/hicolor/48x48/apps/windows.png
         '';
       })
     ];
