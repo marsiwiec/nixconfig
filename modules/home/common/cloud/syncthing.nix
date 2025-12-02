@@ -47,20 +47,6 @@
               "qnap"
             ];
           };
-          org = {
-            path = "~/org";
-            versioning = {
-              type = "simple";
-              params = {
-                keep = "10";
-                cleanoutDays = "0";
-              };
-            };
-            devices = [
-              "nixgroot"
-              "labnix"
-            ];
-          };
         };
       };
     };
