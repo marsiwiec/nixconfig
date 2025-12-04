@@ -15,20 +15,11 @@
       extraArgs = [
         "-w"
       ];
-      events = [
-        {
-          event = "before-sleep";
-          command = "${lib.getExe pkgs.swaylock} -f";
-        }
-        {
-          event = "lock";
-          command = "${lib.getExe pkgs.swaylock} -f";
-        }
-        {
-          event = "after-resume";
-          command = "${lib.getExe pkgs.niri} msg action power-on-monitors";
-        }
-      ];
+      events = {
+        "before-sleep" = "${lib.getExe pkgs.swaylock} -f";
+        "lock" = "${lib.getExe pkgs.swaylock} -f";
+        "after-resume" = "${lib.getExe pkgs.niri} msg action power-on-monitors";
+      };
       timeouts = [
         {
           timeout = 900;
