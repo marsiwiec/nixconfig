@@ -8,8 +8,10 @@
           sh = spawn "sh" "-c";
         in
         {
-          "Mod+Space".action = spawn "fuzzel";
-          "Mod+P".action = sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy";
+          # "Mod+Space".action = spawn "fuzzel";
+          "Mod+Space".action = sh "dms ipc call spotlight toggle";
+          # "Mod+P".action = sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy";
+          "Mod+P".action = sh "dms ipc call clipboard toggle";
           "Mod+Return".action = spawn "wezterm";
           "Mod+Shift+Return".action = spawn "firefox";
           "Mod+W".action = spawn "thunar";
