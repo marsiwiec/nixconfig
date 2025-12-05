@@ -10,7 +10,6 @@
     niri.enable = lib.mkEnableOption "enable niri WM";
   };
   config = lib.mkIf config.niri.enable {
-
     nixpkgs.overlays = [ inputs.niri.overlays.niri ];
 
     services.dbus.implementation = "broker";
