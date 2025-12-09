@@ -14,7 +14,11 @@
       defaultEditor = true;
       settings = {
         editor = {
-          soft-wrap.enable = true;
+          soft-wrap = {
+            enable = true;
+            wrap-at-text-width = true;
+          };
+          text-width = 80;
           line-number = "relative";
           end-of-line-diagnostics = "hint";
           inline-diagnostics.cursor-line = "error";
@@ -40,13 +44,16 @@
             command = lib.getExe pkgs.tinymist;
             config = {
               formatterMode = "typstyle";
-              exportPdf = "onSave";
+              exportPdf = "onType";
               outputPath = "$root/target/$dir/$name";
-              preview.browsing.args = [
-                "--data-plane-host=127.0.0.1:0"
-                "--invert-colors=never"
-                "--open"
-              ];
+              preview = {
+                background.enabled = true;
+                background.args = [
+                  "--data-plane-host=127.0.0.1:23635"
+                  "--invert-colors=never"
+                  "--open"
+                ];
+              };
             };
           };
           harper = {
@@ -100,7 +107,10 @@
             name = "typst";
             rulers = [ 80 ];
             auto-format = true;
-            language-servers = [ "tinymist" ];
+            language-servers = [
+              "tinymist"
+              "harper"
+            ];
           }
           {
             name = "markdown";
