@@ -40,13 +40,16 @@
             command = lib.getExe pkgs.tinymist;
             config = {
               formatterMode = "typstyle";
-              exportPdf = "onSave";
+              exportPdf = "onType";
               outputPath = "$root/target/$dir/$name";
-              preview.browsing.args = [
-                "--data-plane-host=127.0.0.1:0"
-                "--invert-colors=never"
-                "--open"
-              ];
+              preview = {
+                background.enabled = true;
+                background.args = [
+                  "--data-plane-host=127.0.0.1:23635"
+                  "--invert-colors=never"
+                  "--open"
+                ];
+              };
             };
           };
           harper = {
