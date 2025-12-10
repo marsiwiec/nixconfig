@@ -14,7 +14,11 @@
       defaultEditor = true;
       settings = {
         editor = {
-          soft-wrap.enable = true;
+          soft-wrap = {
+            enable = true;
+            wrap-at-text-width = true;
+          };
+          text-width = 80;
           line-number = "relative";
           end-of-line-diagnostics = "hint";
           inline-diagnostics.cursor-line = "error";
@@ -103,7 +107,10 @@
             name = "typst";
             rulers = [ 80 ];
             auto-format = true;
-            language-servers = [ "tinymist" ];
+            language-servers = [
+              "tinymist"
+              "harper"
+            ];
           }
           {
             name = "markdown";
