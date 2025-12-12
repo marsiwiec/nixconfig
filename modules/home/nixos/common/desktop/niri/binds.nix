@@ -9,26 +9,32 @@
         in
         {
           # "Mod+Space".action = spawn "fuzzel";
-          "Mod+Space".action = sh "dms ipc call spotlight toggle";
-          # "Mod+P".action = sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy";
-          "Mod+P".action = sh "dms ipc call clipboard toggle";
+          "Mod+Space".action = spawn "dms" "ipc" "call" "spotlight" "toggle";
+          "Mod+V".action = spawn "dms" "ipc" "call" "clipboard" "toggle";
           "Mod+Return".action = spawn "wezterm";
           "Mod+Shift+Return".action = spawn "firefox";
           "Mod+W".action = spawn "thunar";
 
           "Mod+Shift+Backslash".action = show-hotkey-overlay;
+          "Mod+M".action = spawn "dms" "ipc" "call" "processlist" "toggle";
+          "Mod+N".action = spawn "dms" "ipc" "call" "notifications" "toggle";
+          "Mod+P".action = spawn "dms" "ipc" "call" "notepad" "toggle";
+          "Mod+X".action = spawn "dms" "ipc" "call" "powermenu" "toggle";
+          "Mod+Comma".action = spawn "dms" "ipc" "call" "settings" "toggle";
+          "Ctrl+Alt+Delete".action = spawn "dms" "ipc" "call" "processlist" "toggle";
 
           "Mod+Q".action = close-window;
           "Mod+F".action = fullscreen-window;
-          "Mod+V".action = toggle-window-floating;
+          "Mod+Shift+V".action = toggle-window-floating;
           "Mod+Shift+Print".action = expand-column-to-available-width;
           "Mod+Period".action = switch-preset-column-width;
           "Mod+Shift+E".action = quit;
-          "Print".action.screenshot = [ ];
-          "Mod+Print".action.screenshot-window = [ ];
+          "Print".action = spawn "dms" "screenshot" "full";
+          "Mod+Print".action = spawn "dms" "screenshot" "region";
+          "Mod+Y".action = spawn "dms" "ipc" "call" "dankdash" "wallpaper";
 
-          "Mod+C".action = sh "hyprpicker -a";
-          "Mod+Shift+L".action = sh "pidof swaylock || swaylock";
+          "Mod+C".action = spawn "dms" "color" "pick";
+          "Mod+Alt+L".action = spawn "dms" "ipc" "call" "lock" "lock";
 
           "Mod+O".action = toggle-overview;
 
@@ -70,65 +76,47 @@
           "Mod+Ctrl+F".action = move-column-to-first;
           "Mod+Ctrl+L".action = move-column-to-last;
 
-          "XF86AudioRaiseVolume".action.spawn = [
-            "wpctl"
-            "set-volume"
-            "@DEFAULT_AUDIO_SINK@"
-            "0.05+"
-          ];
-          "XF86AudioLowerVolume".action.spawn = [
-            "wpctl"
-            "set-volume"
-            "@DEFAULT_AUDIO_SINK@"
-            "0.05-"
-          ];
-          "XF86AudioMute".action.spawn = [
-            "wpctl"
-            "set-mute"
-            "@DEFAULT_AUDIO_SINK"
-            "toggle"
-          ];
-          "XF86AudioMicMute".action.spawn = [
-            "wpctl"
-            "set-mute"
-            "@DEFAULT_AUDIO_SOURCE"
-            "toggle"
-          ];
-          "XF86AudioNext".action.spawn = [
-            "playerctl"
-            "next"
-          ];
-          "XF86AudioPause".action.spawn = [
-            "playerctl"
-            "play-pause"
-          ];
-          "XF86AudioPlay".action.spawn = [
-            "playerctl"
-            "play-pause"
-          ];
-          "XF86AudioPrev".action.spawn = [
-            "playerctl"
-            "previous"
-          ];
-          "XF86MonBrightnessUp".action.spawn = [
-            "ddcutil"
-            "--bus=6"
-            "setvcp"
-            "10"
-            "+"
-            "10"
-          ];
-          "XF86MonBrightnessDown".action.spawn = [
-            "ddcutil"
-            "--bus=6"
-            "setvcp"
-            "10"
-            "-"
-            "10"
-          ];
-
+          "XF86AudioRaiseVolume" = {
+            action = spawn "dms" "ipc" "call" "audio" "increment" "3";
+            allow-when-locked = true;
+          };
+          "XF86AudioLowerVolume" = {
+            action = spawn "dms" "ipc" "call" "audio" "decrement" "3";
+            allow-when-locked = true;
+          };
+          "XF86AudioMute" = {
+            action = spawn "dms" "ipc" "call" "audio" "mute";
+            allow-when-locked = true;
+          };
+          "XF86AudioMicMute" = {
+            action = spawn "dms" "ipc" "call" "audio" "micmute";
+            allow-when-locked = true;
+          };
+          "XF86AudioNext" = {
+            action = spawn "dms" "ipc" "call" "mpris" "next";
+            allow-when-locked = true;
+          };
+          "XF86AudioPause" = {
+            action = spawn "dms" "ipc" "call" "mpris" "playPause";
+            allow-when-locked = true;
+          };
+          "XF86AudioPlay" = {
+            action = spawn "dms" "ipc" "call" "mpris" "playPause";
+            allow-when-locked = true;
+          };
+          "XF86AudioPrev" = {
+            action = spawn "dms" "ipc" "call" "mpris" "previous";
+            allow-when-locked = true;
+          };
+          "XF86MonBrightnessUp" = {
+            action = spawn "dms" "ipc" "call" "brightness" "increment" "5";
+            allow-when-locked = true;
+          };
+          "XF86MonBrightnessDown" = {
+            action = spawn "dms" "ipc" "call" "brightness" "decrement" "5";
+            allow-when-locked = true;
+          };
         };
-
     };
   };
 }
