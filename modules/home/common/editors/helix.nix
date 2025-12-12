@@ -21,7 +21,7 @@
           text-width = 80;
           line-number = "relative";
           end-of-line-diagnostics = "hint";
-          inline-diagnostics.cursor-line = "error";
+          inline-diagnostics.cursor-line = "warning";
           cursorline = true;
           cursor-shape = {
             normal = "block";
@@ -62,10 +62,10 @@
             config = {
               harper-ls = {
                 dialect = "American";
-                linters = {
-                  SentenceCapitalization = false;
-                };
-                diagnosticSeverity = "error";
+                # linters = {
+                #   SentenceCapitalization = false;
+                # };
+                # diagnosticSeverity = "error";
               };
             };
           };
