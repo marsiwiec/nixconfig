@@ -23,7 +23,7 @@
               app-id = "org.wezfurlong.wezterm";
             }
           ];
-          default-column-width.fixed = 1110;
+          default-column-width.fixed = 1200;
         }
         {
           matches = [

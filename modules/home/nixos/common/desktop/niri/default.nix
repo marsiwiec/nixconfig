@@ -18,27 +18,27 @@
   config = lib.mkIf config.niri.enable {
 
     # enable imported modules
-    mako.enable = true;
+    # mako.enable = true;
 
-    programs = {
-      fuzzel.enable = true;
-      swaylock.enable = true;
-    };
+    # programs = {
+    #   fuzzel.enable = true;
+    #   swaylock.enable = true;
+    # };
 
     home.packages = with pkgs; [
       nerd-fonts.jetbrains-mono
-      pavucontrol
-      wl-clipboard
-      cliphist
-      playerctl
-      polkit_gnome
-      hyprpicker
+      # pavucontrol
+      # wl-clipboard
+      # cliphist
+      # playerctl
+      # polkit_gnome
+      # hyprpicker
       nautilus
       sway-audio-idle-inhibit
     ];
 
     services = {
-      hyprpaper.enable = true;
+      # hyprpaper.enable = true;
       udiskie = {
         enable = true;
         tray = "never";
@@ -56,7 +56,7 @@
           };
 
           spawn-at-startup = [
-            { command = [ "${lib.getExe pkgs.xwayland-satellite-unstable}" ]; }
+            # { command = [ "${lib.getExe pkgs.xwayland-satellite-unstable}" ]; }
             # {
             #   command = [ "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1" ];
             # }

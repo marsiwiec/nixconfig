@@ -18,10 +18,11 @@
   config = lib.mkIf config.dms.enable {
     programs.dankMaterialShell = {
       enable = true;
-      niri = {
-        # enableKeybinds = true;
-        enableSpawn = true;
-      };
+      systemd.enable = true;
+      # niri = {
+      #   # enableKeybinds = true;
+      #   enableSpawn = true;
+      # };
     };
     xdg.configFile."DankMaterialShell/stylix.json".source =
       with config.lib.stylix.colors.withHashtag;
