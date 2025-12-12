@@ -57,31 +57,31 @@
 
           spawn-at-startup = [
             { command = [ "${lib.getExe pkgs.xwayland-satellite-unstable}" ]; }
-            {
-              command = [ "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1" ];
-            }
+            # {
+            #   command = [ "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1" ];
+            # }
             { command = [ "${lib.getExe pkgs.sway-audio-idle-inhibit}" ]; }
-            {
-              command = [
-                "wl-paste"
-                "--type"
-                "text"
-                "--watch"
-                "cliphist"
-                "store"
-              ];
-            }
-            {
+            # {
+            #   command = [
+            #     "wl-paste"
+            #     "--type"
+            #     "text"
+            #     "--watch"
+            #     "cliphist"
+            #     "store"
+            #   ];
+            # }
+            # {
 
-              command = [
-                "wl-paste"
-                "--type"
-                "image"
-                "--watch"
-                "cliphist"
-                "store"
-              ];
-            }
+            #   command = [
+            #     "wl-paste"
+            #     "--type"
+            #     "image"
+            #     "--watch"
+            #     "cliphist"
+            #     "store"
+            #   ];
+            # }
             {
               command = [
                 "sudo"

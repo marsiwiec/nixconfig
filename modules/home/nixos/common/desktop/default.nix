@@ -8,7 +8,7 @@
     ./waybar.nix
     ./hypridle.nix
     ./swayidle.nix
-    ./dank_material_shell.nix
+    ./dankMaterialShell.nix
   ];
   niri.enable = lib.mkDefault true;
   # hyprland.enable = lib.mkDefault true;
