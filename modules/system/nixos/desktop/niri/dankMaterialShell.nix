@@ -12,9 +12,15 @@
     inputs.dankMaterialShell.nixosModules.greeter
   ];
   config = lib.mkIf config.dankMaterialShell.enable {
-    programs.dankMaterialShell.greeter = {
-      enable = true;
-      compositor.name = "niri";
+    programs = {
+      dankMaterialShell.greeter = {
+        enable = true;
+        compositor.name = "niri";
+      };
+      dsearch = {
+        enable = true;
+        systemd.enable = true;
+      };
     };
   };
 }

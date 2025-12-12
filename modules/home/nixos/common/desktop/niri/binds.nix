@@ -1,11 +1,15 @@
-{ config, ... }:
+{
+  config,
+  osConfig,
+  ...
+}:
 {
   programs.niri = {
     settings = {
       binds =
         with config.lib.niri.actions;
         let
-          sh = spawn "sh" "-c";
+          monitor = if osConfig.networking.hostName == "nixgroot" then "ddc:i2c-5" else "";
         in
         {
           # "Mod+Space".action = spawn "fuzzel";
@@ -109,11 +113,11 @@
             allow-when-locked = true;
           };
           "XF86MonBrightnessUp" = {
-            action = spawn "dms" "ipc" "call" "brightness" "increment" "5";
+            action = spawn "dms" "ipc" "call" "brightness" "increment" "5" "${monitor}";
             allow-when-locked = true;
           };
           "XF86MonBrightnessDown" = {
-            action = spawn "dms" "ipc" "call" "brightness" "decrement" "5";
+            action = spawn "dms" "ipc" "call" "brightness" "decrement" "5" "${monitor}";
             allow-when-locked = true;
           };
         };
