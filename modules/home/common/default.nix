@@ -4,6 +4,7 @@
     ./browsers
     ./cloud
     ./editors
+    ./network
     ./office
     ./terminal
   ];

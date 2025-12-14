@@ -56,16 +56,20 @@
               };
             };
           };
+          codebook = {
+            command = lib.getExe pkgs.codebook;
+            args = [ "serve" ];
+          };
           harper = {
             command = lib.getExe pkgs.harper;
             args = [ "--stdio" ];
             config = {
               harper-ls = {
                 dialect = "American";
-                # linters = {
-                #   SentenceCapitalization = false;
-                # };
-                # diagnosticSeverity = "error";
+                linters = {
+                  SentenceCapitalization = false;
+                };
+                diagnosticSeverity = "error";
               };
             };
           };
@@ -109,7 +113,8 @@
             auto-format = true;
             language-servers = [
               "tinymist"
-              "harper"
+              # "harper"
+              "codebook"
             ];
           }
           {
@@ -117,7 +122,8 @@
             language-servers = [
               "marksman"
               "markdown-oxide"
-              "harper-ls"
+              # "harper-ls"
+              "codebook"
               "mpls"
             ];
             auto-format = true;
