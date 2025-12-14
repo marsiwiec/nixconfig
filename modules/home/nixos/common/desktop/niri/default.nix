@@ -42,6 +42,11 @@
       udiskie = {
         enable = true;
         tray = "never";
+        settings = {
+          program_options = {
+            file_manager = "thunar";
+          };
+        };
       };
     };
 

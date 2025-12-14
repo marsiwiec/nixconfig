@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  vars,
   ...
 }:
 {
@@ -12,8 +13,14 @@
       firewall.enable = true;
       networkmanager.enable = true;
     };
-    # services = {
-    #   openssh.enable = true;
-    # };
+    services = {
+      openssh = {
+        enable = true;
+        settings = {
+          PermitRootLogin = "no";
+          AllowUsers = [ "${vars.userName}" ];
+        };
+      };
+    };
   };
 }

@@ -59,6 +59,8 @@
 
         "image/svg+xml" = [ "org.inkscape.Inkscape.desktop" ];
         "image/gif" = [ "imv.desktop" ];
+
+        "inode/directory" = [ "thunar.desktop" ];
       };
     };
   };
