@@ -27,7 +27,7 @@
           };
           qnap = {
             name = "qnap";
-            id = "KSFW7A3-GW5NQ64-KHVLDFD-NIJGQU6-WBEHWOE-LVRAQGL-BK6LVRE-EQ73VA6";
+            id = "KBS4QQF-7CHDIAR-RJSTU7O-NECPLPN-IBFWARQ-PGMDMEW-WTRFFFG-FIVT3AM";
           };
         };
         folders = {
