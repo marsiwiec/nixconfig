@@ -38,7 +38,10 @@
           "Mod+Y".action = spawn "dms" "ipc" "call" "dankdash" "wallpaper";
 
           "Mod+C".action = spawn "dms" "color" "pick";
-          "Mod+Alt+L".action = spawn "dms" "ipc" "call" "lock" "lock";
+          "Mod+Alt+L" = {
+            action = spawn "dms" "ipc" "call" "lock" "lock";
+            allow-when-locked = true;
+          };
 
           "Mod+O".action = toggle-overview;
 
