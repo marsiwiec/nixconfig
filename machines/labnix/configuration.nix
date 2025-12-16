@@ -21,6 +21,7 @@
       ${vars.userName} = {
         imports = [
           ../../modules/home/nixos
+          ../../modules/home/nixos/common/desktop/niri/labnix.nix
         ];
       };
     };
