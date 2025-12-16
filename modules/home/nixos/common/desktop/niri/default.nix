@@ -86,12 +86,6 @@
             #     "store"
             #   ];
             # }
-            {
-              command = [
-                "sudo"
-                "nvidia-enable"
-              ];
-            }
           ];
 
           prefer-no-csd = true;

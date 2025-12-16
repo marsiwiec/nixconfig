@@ -13,7 +13,14 @@
             enable = false;
           };
         };
-
+        spawn-at-startup = [
+          {
+            command = [
+              "sudo"
+              "nvidia-enable"
+            ];
+          }
+        ];
       };
     };
   };

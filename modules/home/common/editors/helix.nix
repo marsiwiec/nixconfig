@@ -60,7 +60,7 @@
             command = lib.getExe pkgs.codebook;
             args = [ "serve" ];
           };
-          harper = {
+          harper-ls = {
             command = lib.getExe pkgs.harper;
             args = [ "--stdio" ];
             config = {
@@ -113,8 +113,8 @@
             auto-format = true;
             language-servers = [
               "tinymist"
-              # "harper"
-              "codebook"
+              "harper-ls"
+              # "codebook"
             ];
           }
           {
@@ -122,8 +122,8 @@
             language-servers = [
               "marksman"
               "markdown-oxide"
-              # "harper-ls"
-              "codebook"
+              "harper-ls"
+              # "codebook"
               "mpls"
             ];
             auto-format = true;
