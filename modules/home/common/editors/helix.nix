@@ -69,7 +69,7 @@
                 linters = {
                   SentenceCapitalization = false;
                 };
-                diagnosticSeverity = "error";
+                diagnosticSeverity = "warning";
               };
             };
           };
@@ -121,7 +121,7 @@
             name = "markdown";
             language-servers = [
               "marksman"
-              "markdown-oxide"
+              # "markdown-oxide"
               "harper-ls"
               # "codebook"
               "mpls"
@@ -130,7 +130,6 @@
             file-types = [
               "md"
               "markdown"
-              "qmd"
               "PULLREQ_EDITMSG"
             ];
           }
