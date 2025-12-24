@@ -4,7 +4,7 @@
     ./hyprland
     ./KDE
     ./niri
-    ./niri/dankMaterialShell.nix
+    ./niri/dank-material-shell.nix
   ];
   plasma6.enable = lib.mkDefault false;
   # hyprland.enable = lib.mkDefault true;

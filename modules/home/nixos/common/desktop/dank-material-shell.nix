@@ -7,12 +7,12 @@
 }:
 {
   options = {
-    dms.enable = lib.mkEnableOption "enable DankMaterialShell";
+    dms.enable = lib.mkEnableOption "enable dank-material-shell";
   };
 
   imports = [
-    inputs.dankMaterialShell.homeModules.dankMaterialShell.default
-    inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
+    inputs.dms.homeModules.default
+    inputs.dms.homeModules.niri
   ];
 
   config = lib.mkIf config.dms.enable {
@@ -20,7 +20,7 @@
       DMS_HIDE_TRAYIDS = "spotify-client";
     };
     programs = {
-      dankMaterialShell = {
+      dank-material-shell = {
         enable = true;
         systemd.enable = true;
         # niri = {

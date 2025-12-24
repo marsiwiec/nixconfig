@@ -9,11 +9,11 @@
 {
   options.dankMaterialShell.enable = lib.mkEnableOption "enable DMS config";
   imports = [
-    inputs.dankMaterialShell.nixosModules.greeter
+    inputs.dms.nixosModules.greeter
   ];
   config = lib.mkIf config.dankMaterialShell.enable {
     programs = {
-      dankMaterialShell.greeter = {
+      dank-material-shell.greeter = {
         enable = true;
         compositor.name = "niri";
         configHome = "/home/${vars.userName}";

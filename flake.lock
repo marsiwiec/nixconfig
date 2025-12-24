@@ -85,30 +85,6 @@
         "type": "github"
       }
     },
-    "dankMaterialShell": {
-      "inputs": {
-        "dgop": [
-          "dgop"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "quickshell": "quickshell"
-      },
-      "locked": {
-        "lastModified": 1766503994,
-        "narHash": "sha256-ZtADAlXS3Q5cFDXzd8A1JtF753c577FKTQOsw1FUIps=",
-        "owner": "AvengeMedia",
-        "repo": "DankMaterialShell",
-        "rev": "7dbe608c286f0975d9e97258f42d67a7a99eb896",
-        "type": "github"
-      },
-      "original": {
-        "owner": "AvengeMedia",
-        "repo": "DankMaterialShell",
-        "type": "github"
-      }
-    },
     "dgop": {
       "inputs": {
         "nixpkgs": [
@@ -144,6 +120,30 @@
       "original": {
         "owner": "nix-community",
         "repo": "disko",
+        "type": "github"
+      }
+    },
+    "dms": {
+      "inputs": {
+        "dgop": [
+          "dgop"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "quickshell": "quickshell"
+      },
+      "locked": {
+        "lastModified": 1766587675,
+        "narHash": "sha256-BL3n62NPEeHC3mpfPz0FOimZ7ahiqoEnqfz/3kQU3n8=",
+        "owner": "AvengeMedia",
+        "repo": "DankMaterialShell",
+        "rev": "10e81cfdd3d7eacfad2e16b960825e4de0d0a856",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AvengeMedia",
+        "repo": "DankMaterialShell",
         "type": "github"
       }
     },
@@ -226,11 +226,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1766387499,
-        "narHash": "sha256-AjK3/UKDzeXFeYNLVBaJ3+HLE9he1g5UrlNd4/BM3eA=",
+        "lastModified": 1766553851,
+        "narHash": "sha256-hHKQhHkXxuPJwLkI8wdu826GLV5AcuW9/HVdc9eBnTU=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "527ad07e6625302b648ed3b28c34b62a79bd103e",
+        "rev": "7eca7f7081036a7b740090994c9ec543927f89a7",
         "type": "github"
       },
       "original": {
@@ -249,11 +249,11 @@
         "xwayland-satellite-unstable": "xwayland-satellite-unstable"
       },
       "locked": {
-        "lastModified": 1766486718,
-        "narHash": "sha256-mpBf9jM5oQOwilR3ctz2RxHeTwrnq97YVnmheK+L8Q8=",
+        "lastModified": 1766517173,
+        "narHash": "sha256-zhb16f8hDVw7rsVNEIZQJOw78VQ4Eu3sjzwznxSzVtk=",
         "owner": "sodiboo",
         "repo": "niri-flake",
-        "rev": "6ed9381160d73d8b5aaf45e46d0dc305a53c9247",
+        "rev": "ff40739a8a6d1f2890e91b5bedbb8f09e6c43e4f",
         "type": "github"
       },
       "original": {
@@ -302,11 +302,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1766038392,
-        "narHash": "sha256-ht/GuKaw5NT3M12xM+mkUtkSBVtzjJ8IHIy6R/ncv9g=",
+        "lastModified": 1766524813,
+        "narHash": "sha256-N/sxS27+t9nGvGWqwwAceSMW/Y5ddcypS/aiTnZ7ScA=",
         "owner": "nix-darwin",
         "repo": "nix-darwin",
-        "rev": "5fb45ece6129bd7ad8f7310df0ae9c00bae7c562",
+        "rev": "c2b36207f2c396c79dbed9d40536db221bd4e363",
         "type": "github"
       },
       "original": {
@@ -351,11 +351,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1766201043,
-        "narHash": "sha256-eplAP+rorKKd0gNjV3rA6+0WMzb1X1i16F5m5pASnjA=",
+        "lastModified": 1766473571,
+        "narHash": "sha256-5G1NDO2PulBx1RoaA6U1YoUDX0qZslpPxv+n5GX6Qto=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b3aad468604d3e488d627c0b43984eb60e75e782",
+        "rev": "76701a179d3a98b07653e2b0409847499b2a07d3",
         "type": "github"
       },
       "original": {
@@ -494,7 +494,7 @@
     "quickshell": {
       "inputs": {
         "nixpkgs": [
-          "dankMaterialShell",
+          "dms",
           "nixpkgs"
         ]
       },
@@ -515,9 +515,9 @@
     },
     "root": {
       "inputs": {
-        "dankMaterialShell": "dankMaterialShell",
         "dgop": "dgop",
         "disko": "disko",
+        "dms": "dms",
         "home-manager": "home-manager",
         "niri": "niri",
         "nix-darwin": "nix-darwin",
