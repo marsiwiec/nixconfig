@@ -29,5 +29,17 @@
         systemd.enable = true;
       };
     };
+    ### Stuff below is for unlocking github and gitea ssh passkeys on login
+    # as per https://discourse.nixos.org/t/gpg-ssh-gnome-keyring-recommendation/48647/8
+    services.gnome.gnome-keyring.enable = true;
+    security.pam.services = {
+      login.enableGnomeKeyring = true;
+      greetd.enableGnomeKeyring = true;
+      greetd-password.enableGnomeKeyring = true;
+    };
+    services.dbus.packages = with pkgs; [
+      gnome-keyring
+      gcr
+    ];
   };
 }

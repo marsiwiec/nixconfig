@@ -7,10 +7,10 @@
 {
   options.ssh.enable = lib.mkEnableOption "enable ssh";
   config = lib.mkIf config.ssh.enable {
-    programs.ssh = {
-      enable = true;
-    };
-    services.ssh-agent.enable = true;
+    # programs.ssh = {
+    #   enable = true;
+    # };
+    # services.ssh-agent.enable = true;
   };
 
 }
