@@ -5,15 +5,12 @@
     ./_packages.nix
   ];
 
+  R.enable = false;
+  tailscale.enable = false;
+
   nixpkgs.config.allowUnfree = true;
   nix = {
-    gc = {
-      automatic = true;
-      options = "--delete-older-than 7d";
-    };
-    optimise = {
-      automatic = true;
-    };
+    enable = false;
     settings = {
       experimental-features = "nix-command flakes";
       trusted-users = [
@@ -57,7 +54,6 @@
         FXPreferredViewStyle = "clmv";
       };
       menuExtraClock = {
-        ShowSeconds = true;
         Show24Hour = true;
         ShowAMPM = false;
       };

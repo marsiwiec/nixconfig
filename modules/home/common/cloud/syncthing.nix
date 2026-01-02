@@ -23,7 +23,7 @@
           };
           macnix = {
             name = "macnix";
-            id = "4FXETP4-QCPRETB-LQZPJI4-5QDJ2EV-D6URIJR-BYPCD77-7YSTGWB-VD74GQ6";
+            id = "AWTAL37-2RF3F5N-D652ZXD-FCOHPUC-2IGHBR4-JQGCDCK-QWRAHED-56A2AAN";
           };
           qnap = {
             name = "qnap";

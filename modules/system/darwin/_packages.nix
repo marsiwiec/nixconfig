@@ -11,6 +11,7 @@
 
   nix-homebrew = {
     enable = true;
+    autoMigrate = true;
     user = vars.userName;
   };
   homebrew = {
@@ -25,13 +26,18 @@
     };
     taps = [
       "nikitabobko/tap"
+      "r-lib/rig"
+      "BarutSRB/tap"
     ];
     casks = [
-      # "rstudio"
-      "aerospace"
+      "alfred"
+      "macfuse"
+      # "omniwm"
+      # "aerospace"
+      "rig"
+      "rstudio"
       "positron"
-      "the-unarchiver"
-      "vlc"
+      "libreoffice"
     ];
   };
 }
