@@ -5,22 +5,19 @@
     ./_packages.nix
   ];
 
+  R.enable = false;
+  tailscale.enable = false;
+
   nixpkgs.config.allowUnfree = true;
   nix = {
-    gc = {
-      automatic = true;
-      options = "--delete-older-than 7d";
-    };
-    optimise = {
-      automatic = true;
-    };
-    settings = {
-      experimental-features = "nix-command flakes";
-      trusted-users = [
-        "root"
-        "@admin"
-      ];
-    };
+    enable = false;
+    #   settings = {
+    #     experimental-features = "nix-command flakes";
+    #     trusted-users = [
+    #       "root"
+    #       "@admin"
+    #     ];
+    #   };
   };
   programs.zsh.enable = true;
   security.pam.services.sudo_local.touchIdAuth = true;
@@ -57,7 +54,6 @@
         FXPreferredViewStyle = "clmv";
       };
       menuExtraClock = {
-        ShowSeconds = true;
         Show24Hour = true;
         ShowAMPM = false;
       };

@@ -10,6 +10,8 @@
     ../common
   ];
 
+  super-productivity.enable = false;
+
   stylix.targets = {
     firefox = {
       firefoxGnomeTheme.enable = true;
