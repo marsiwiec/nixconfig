@@ -29,6 +29,7 @@
     ];
     casks = [
       "alfred"
+      "appcleaner"
       "gimp"
       "inkscape"
       "libreoffice"
