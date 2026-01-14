@@ -1,5 +1,6 @@
 {
   lib,
+  config,
   pkgs,
   ...
 }:
@@ -7,7 +8,7 @@
   options = {
     boot.enable = lib.mkEnableOption "boot config";
   };
-  config = {
+  config = lib.mkIf config.boot.enable {
     boot = {
       tmp = {
         useTmpfs = true;
@@ -21,15 +22,7 @@
         };
         efi.canTouchEfiVariables = true;
       };
-      plymouth = {
-        enable = true;
-        # theme = lib.mkForce "seal";
-        # themePackages = with pkgs; [
-        #   (adi1090x-plymouth-themes.override {
-        #     selected_themes = [ "seal" ];
-        #   })
-        # ];
-      };
+      plymouth.enable = true;
       consoleLogLevel = 0;
       initrd.verbose = false;
       kernelParams = [

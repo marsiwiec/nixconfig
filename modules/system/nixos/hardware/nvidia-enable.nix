@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  vars,
   ...
 }:
 let
@@ -42,7 +43,7 @@ in
     security.sudo = {
       extraRules = [
         {
-          users = [ "msiwiec" ];
+          users = [ vars.userName ];
           commands = [
             {
               command = "${bin}/nvidia-enable";
@@ -56,14 +57,6 @@ in
         }
       ];
     };
-
-    #  systemd.services = {
-    #    "nvidia-enable" = {
-    #      description = "Start the NVIDIA GPU by releasing it from vfio";
-    #      script = ''${bin}/nvidia-enable'';
-    #      wantedBy = ["multi-user.target"];
-    #    };
-    #  };
 
     environment.shellAliases = {
       nvidia-enable = "sudo nvidia-enable";

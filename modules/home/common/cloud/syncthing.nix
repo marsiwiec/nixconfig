@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, vars, ... }:
 {
   options = {
     syncthing.enable = lib.mkEnableOption "syncthing config";
@@ -9,7 +9,7 @@
       overrideFolders = true;
       overrideDevices = true;
       settings = {
-        user = "msiwiec";
+        user = vars.userName;
         configDir = "~/.config/syncthing";
         dataDir = "~/Documents";
         devices = {

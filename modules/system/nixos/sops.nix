@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, vars, ... }:
 {
   environment.systemPackages = with pkgs; [
     sops
@@ -8,7 +8,7 @@
     defaultSopsFile = ../../../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
     age = {
-      keyFile = "/home/msiwiec/.config/sops/age/keys.txt";
+      keyFile = "/home/${vars.userName}/.config/sops/age/keys.txt";
     };
   };
 }
