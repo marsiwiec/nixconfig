@@ -29,6 +29,7 @@
 
           "Mod+Q".action = close-window;
           "Mod+F".action = fullscreen-window;
+          "Mod+Shift+F".action = maximize-window-to-edges;
           "Mod+Shift+V".action = toggle-window-floating;
           "Mod+Shift+Print".action = expand-column-to-available-width;
           "Mod+Period".action = switch-preset-column-width;
