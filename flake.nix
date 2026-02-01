@@ -1,102 +1,38 @@
+# DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
+# Use `nix run .#write-flake` to regenerate it.
 {
-  description = "My nixos/darwin flake";
+
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
-
-    silentSDDM = {
-      url = "github:uiriansan/SilentSDDM";
+    dank-material-shell = {
       inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:AvengeMedia/DankMaterialShell";
     };
-
-    disko = {
-      url = "github:nix-community/disko";
+    flake-file.url = "github:vic/flake-file";
+    flake-parts = {
+      inputs.nixpkgs-lib.follows = "nixpkgs-lib";
+      url = "github:hercules-ci/flake-parts";
     };
-
+    home-manager = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager";
+    };
+    import-tree.url = "github:vic/import-tree";
+    niri-flake.url = "github:sodiboo/niri-flake";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-lib.follows = "nixpkgs";
+    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
     sops-nix = {
+      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:Mic92/sops-nix";
     };
-
-    dms = {
-      url = "github:AvengeMedia/DankMaterialShell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-darwin = {
-      url = "github:nix-darwin/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    mac-app-util.url = "github:hraban/mac-app-util";
-    nix-homebrew = {
-      url = "github:zhaofengli-wip/nix-homebrew";
-    };
-
-    niri.url = "github:sodiboo/niri-flake";
-
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
-
     stylix = {
-      url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:danth/stylix";
     };
-
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-    };
+    systems.url = "github:nix-systems/default";
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      nix-darwin,
-      ...
-    }@inputs:
-    let
-      inherit (self) outputs;
-      vars = import ./vars.nix;
-
-      mkNixOSConfig =
-        path:
-        nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs vars; };
-          modules = [
-            inputs.stylix.nixosModules.stylix
-            ./style/stylix/nixos.nix
-            path
-          ];
-        };
-
-      mkDarwinConfig =
-        path:
-        nix-darwin.lib.darwinSystem {
-          specialArgs = { inherit inputs outputs vars; };
-          modules = [
-            inputs.home-manager.darwinModules.home-manager
-            inputs.stylix.darwinModules.stylix
-            inputs.mac-app-util.darwinModules.default
-            path
-          ];
-        };
-    in
-    {
-      nixosConfigurations = {
-        ### Home desktop ###
-        nixgroot = mkNixOSConfig ./machines/nixgroot/configuration.nix;
-        labnix = mkNixOSConfig ./machines/labnix/configuration.nix;
-      };
-      darwinConfigurations = {
-        macnix = mkDarwinConfig ./machines/macnix/configuration.nix;
-      };
-    };
 }
