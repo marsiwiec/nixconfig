@@ -12,7 +12,7 @@
     programs.nix-ld = {
       enable = true;
       libraries = with pkgs; [
-        stdenv.cc.cc.lib
+        stdenv.cc.cc
         glib
         glibc
         zlib
