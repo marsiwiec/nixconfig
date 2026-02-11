@@ -17,12 +17,4 @@
       })
     ];
   };
-
-  flake.modules.darwin.overlays = {
-    nixpkgs.overlays = [
-      (final: _prev: {
-        dms = inputs.dank-material-shell.packages.${final.stdenv.hostPlatform.system}.default;
-      })
-    ];
-  };
 }

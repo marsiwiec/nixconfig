@@ -8,13 +8,31 @@
     { pkgs, ... }:
     {
       imports = with inputs.self.modules.nixos; [
-        overlays
-        nix-settings
+        audio
+        bluetooth
+        boot
+        fonts
+        gaming
+        graphics
+        home-manager
+        keyboard
         locale
-        security-defaults
+        logitech
+        networking
         nh
-        sops
+        power
+        printing
+        screen
+        security-defaults
         shell
+        ssh
+        sops
+        stylix
+        systemConstants
+        tailscale
+        time
+        utils
+
       ];
       programs.nix-ld = {
         enable = true;

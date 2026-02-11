@@ -1,4 +1,7 @@
 { config, ... }:
+# let
+#   username = config.systemConstants.username;
+# in
 {
   flake.modules.generic.syncthing = {
     services.syncthing = {
@@ -6,7 +9,7 @@
       overrideFolders = true;
       overrideDevices = true;
       settings = {
-        user = config.systemConstants.username;
+        user = "msiwiec";
         configDir = "~/.config/syncthing";
         dataDir = "~/Documents";
         devices = {

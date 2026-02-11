@@ -1,6 +1,7 @@
+{ self, ... }:
 {
   flake.modules.nixos.nvidia-enable =
-    { self, pkgs, ... }:
+    { config, pkgs, ... }:
     let
       bin = "/run/current-system/sw/bin";
     in
@@ -35,7 +36,7 @@
       security.sudo = {
         extraRules = [
           {
-            users = [ self.modules.nixos.msiwiec ];
+            users = [ config.systemConstants.username ];
             commands = [
               {
                 command = "${bin}/nvidia-enable";
