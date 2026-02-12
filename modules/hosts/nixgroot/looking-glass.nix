@@ -1,7 +1,6 @@
-{ config, ... }:
 {
   flake.modules.homeManager.looking-glass =
-    { pkgs, ... }:
+    { osConfig, pkgs, ... }:
     {
       home.packages = with pkgs; [
         (writeShellScriptBin "win" ''
@@ -28,7 +27,7 @@
         # assign an icon the nix way...
         (stdenv.mkDerivation {
           name = "windows-icon";
-          src = [ "${config.systemConstants.iconDir}/win11icon.png" ];
+          src = [ "${osConfig.systemConstants.iconDir}/win11icon.png" ];
 
           unpackPhase = ''
             for srcFile in $src; do

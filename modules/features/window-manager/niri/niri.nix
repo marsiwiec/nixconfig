@@ -8,6 +8,9 @@
     nixos.niri =
       { pkgs, ... }:
       {
+        home-manager.sharedModules = [
+          inputs.self.modules.homeManager.niri
+        ];
 
         imports = [ inputs.self.modules.nixos.niri-module ];
 
@@ -42,7 +45,7 @@
       }:
       {
         imports = with inputs.self.modules.homeManager; [
-          niri-keybinds
+          # niri-keybinds
           niri-window-rules
         ];
 

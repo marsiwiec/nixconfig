@@ -1,7 +1,11 @@
 {
   flake.modules.nixos.shell = {
-    programs.zsh.enable = true;
+    programs = {
+      zsh.enable = true;
+      gnupg.agent.enable = true;
+    };
   };
+
   flake.modules.homeManager.shell =
     {
       config,
@@ -42,7 +46,6 @@
         yazi.enable = true;
         htop.enable = true;
         bat.enable = true;
-        gnupg.agent.enable = true;
         zellij = {
           enable = true;
           enableZshIntegration = true; # Still needs it

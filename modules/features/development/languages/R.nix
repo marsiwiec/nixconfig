@@ -1,11 +1,10 @@
+{ inputs, ... }:
 {
-  flake.modules.nixos.R =
-    { inputs, ... }:
-    {
-      home-manager.sharedModules = [
-        inputs.self.modules.homeManager.R
-      ];
-    };
+  flake.modules.nixos.R = {
+    home-manager.sharedModules = [
+      inputs.self.modules.homeManager.R
+    ];
+  };
 
   flake.modules.homeManager.R =
     { pkgs, ... }:

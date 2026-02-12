@@ -28,6 +28,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:Mic92/sops-nix";
     };
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     stylix = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:danth/stylix";

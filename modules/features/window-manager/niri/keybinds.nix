@@ -24,7 +24,6 @@
         "Mod+W" = "thunar";
 
         "Mod+Shift+Backslash".show-hotkey-overlay = [ ];
-        "Mod+M" = dms "processlist" "toggle";
         "Mod+N" = dms "notifications" "toggle";
         "Mod+P" = dms "notepad" "toggle";
         "Mod+X" = dms "powermenu" "toggle";

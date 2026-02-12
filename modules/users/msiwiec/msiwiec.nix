@@ -1,5 +1,6 @@
 {
   inputs,
+  lib,
   ...
 }:
 let
@@ -8,81 +9,77 @@ let
 in
 {
   # Extra NixOS configuration for any system msiwiec is a user on
-  flake.modules = {
-    nixos.msiwiec = {
-      imports = with inputs.self.modules.nixos; [
-        dank-material-shell
-        home-manager
-        localsend
-        nh
-        niri
-        R
-        shell
-        thunar
-        utils
-      ];
-
-      # Decrypt the password hash at activation time before user creation
-      #  sops.secrets."msiwiec-password".neededForUsers = true;
-      users.users.msiwiec = {
-        isNormalUser = true;
-        description = name;
-        extraGroups = [
-          "wheel"
-          "video"
-          "audio"
-          "input"
-          "networkmanager"
-          "kvm"
-          "qemu"
-          "libvirtd"
-          "i2c"
-        ];
-      };
+  flake.modules.nixos.msiwiec = {
+    home-manager.users.msiwiec = {
+      imports = [ inputs.self.modules.homeManager.msiwiec ];
     };
-    homeManager.msiwiec =
-      { lib, ... }:
-      {
-        imports = with inputs.self.modules.homeManager; [
-          ai
-          cli
-          dank-material-shell
-          devenv
-          firefox
-          git
-          helix
-          lsp
-          nh
-          niri
-          niri-keybinds
-          niri-window-rules
-          office
-          python
-          R
-          shell
-          wezterm
-        ];
+    imports = with inputs.self.modules.nixos; [
+      bottles
+      dank-material-shell
+      distrobox
+      localsend
+      nh
+      niri
+      R
+      rclone
+      shell
+      sunshine
+      thunar
+      utils
+    ];
 
-        home-manager.users.msiwiec = {
-          imports = [ inputs.self.modules.homeManager.msiwiec ];
-        };
-        home = {
-          username = lib.mkDefault "msiwiec";
-          homeDirectory = lib.mkDefault "/home/msiwiec";
-        };
-        programs.zsh.enable = true;
-
-        # Git configuration with user info
-        programs.git.settings.user = {
-          inherit name email;
-        };
-      };
-    darwin.msiwiec = {
-      imports = with inputs.self.modules.darwin; [
-        home-manager
-        zsh-shell
+    # Decrypt the password hash at activation time before user creation
+    #  sops.secrets."msiwiec-password".neededForUsers = true;
+    users.users.msiwiec = {
+      isNormalUser = true;
+      description = name;
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+        "kvm"
+        "qemu"
+        "libvirtd"
+        "i2c"
       ];
-
     };
+  };
+  flake.modules.homeManager.msiwiec = {
+    imports = with inputs.self.modules.homeManager; [
+      ai
+      chromium
+      devenv
+      firefox
+      git
+      helix
+      image-editors
+      lsp
+      media
+      nh
+      office
+      positron
+      python
+      R
+      shell
+      shell-utils
+      spicetify
+      wezterm
+    ];
+
+    home = {
+      username = lib.mkDefault "msiwiec";
+      homeDirectory = lib.mkDefault "/home/msiwiec";
+      stateVersion = "24.11";
+    };
+    programs.zsh.enable = true;
+
+    # Git configuration with user info
+    programs.git.settings.user = {
+      inherit name email;
+    };
+  };
+  flake.modules.darwin.msiwiec = {
+    imports = with inputs.self.modules.darwin; [
+      home-manager
+    ];
   };
 }

@@ -15,6 +15,7 @@
         modules = [
           inputs.self.modules.nixos.${name}
           inputs.self.modules.nixos.overlays
+          inputs.self.modules.generic.systemConstants
           { nixpkgs.hostPlatform = lib.mkDefault system; }
         ];
       };
@@ -24,6 +25,7 @@
         modules = [
           inputs.self.modules.darwin.${name}
           inputs.self.modules.darwin.overlays
+          inputs.self.modules.generic.systemConstants
           { nixpkgs.hostPlatform = lib.mkDefault system; }
         ];
       };
@@ -33,6 +35,7 @@
           pkgs = inputs.nixpkgs.legacyPackages.${system};
           modules = [
             inputs.self.modules.homeManager.${name}
+            inputs.self.modules.generic.systemConstants
           ];
         };
     };

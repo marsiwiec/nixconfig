@@ -1,4 +1,4 @@
-{ config, inputs, ... }:
+{ inputs, ... }:
 {
   flake.modules = {
     nixos.dank-material-shell =
@@ -49,15 +49,22 @@
         ];
 
       };
-    homeManager.dank-material-shell = {
-      imports = [
-        inputs.dank-material-shell.homeModules.dank-material-shell
-        inputs.dank-material-shell.homeModules.niri
-      ];
+    homeManager.dank-material-shell =
+      {
+        config,
+        lib,
+        pkgs,
+        ...
+      }:
+      {
+        imports = [
+          inputs.dank-material-shell.homeModules.dank-material-shell
+          inputs.dank-material-shell.homeModules.niri
+        ];
 
-      home.sessionVariables = {
-        DMS_HIDE_TRAYIDS = "spotify-client";
-
+        home.sessionVariables = {
+          DMS_HIDE_TRAYIDS = "spotify-client";
+        };
         programs = {
           dank-material-shell = {
             enable = true;
@@ -92,8 +99,6 @@
               "info" = base0D;
             }
           );
-
       };
-    };
   };
 }

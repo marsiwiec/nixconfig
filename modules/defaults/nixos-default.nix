@@ -12,7 +12,6 @@
         bluetooth
         boot
         fonts
-        gaming
         graphics
         home-manager
         keyboard
@@ -28,12 +27,12 @@
         ssh
         sops
         stylix
-        systemConstants
         tailscale
         time
         utils
-
+        virtualisation
       ];
+
       programs.nix-ld = {
         enable = true;
         libraries = with pkgs; [
@@ -46,7 +45,7 @@
           zlib
         ];
       };
-      # Default filesystem layout common for every NixOS build
+
       fileSystems = lib.mkDefault {
         "/".options = [ "compress=zstd" ];
         "/home".options = [ "compress=zstd" ];
