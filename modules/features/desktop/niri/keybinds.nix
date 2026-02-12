@@ -17,18 +17,18 @@
     {
       programs.niri.settings.binds = {
         # "Mod+Space"= "fuzzel";
-        "Mod+Space" = dms "spotlight" "toggle";
-        "Mod+V" = dms "clipboard" "toggle";
-        "Mod+Return" = "wezterm";
-        "Mod+Shift+Return" = "firefox";
-        "Mod+W" = "thunar";
+        "Mod+Space" = dms "spotlight" ["toggle"];
+        "Mod+V" = dms "clipboard" ["toggle"];
+        "Mod+Return".action.spawn = ["wezterm"];
+        "Mod+Shift+Return".action.spawn = ["firefox"];
+        "Mod+W".action.spawn = ["thunar"];
 
-        "Mod+Shift+Backslash".show-hotkey-overlay = [ ];
-        "Mod+N" = dms "notifications" "toggle";
-        "Mod+P" = dms "notepad" "toggle";
-        "Mod+X" = dms "powermenu" "toggle";
-        "Mod+Comma" = dms "settings" "toggle";
-        "Ctrl+Alt+Delete" = dms "processlist" "toggle";
+        "Mod+Shift+Backslash".action.show-hotkey-overlay = [ ];
+        "Mod+N" = dms "notifications" ["toggle"];
+        "Mod+P" = dms "notepad" ["toggle"];
+        "Mod+X" = dms "powermenu" ["toggle"];
+        "Mod+Comma" = dms "settings" ["toggle"];
+        "Ctrl+Alt+Delete" = dms "processlist" ["toggle"];
 
         "Mod+Q".action.close-window = [ ];
         "Mod+F".action.fullscreen-window = [ ];
@@ -39,11 +39,10 @@
         "Mod+Shift+E".action.quit = [ ];
         "Print" = dms "niri" [ "screenshot" ];
         "Mod+Print" = dms "niri" [ "screenshotWindow" ];
-        "Mod+Y" = dms "dankdash" "wallpaper";
+        "Mod+Y" = dms "dankdash" ["wallpaper"];
 
-        "Mod+C" = dms "color" "pick";
-        "Mod+Alt+L" = {
-          action = dms "lock" "lock";
+        "Mod+C" = dms "color" ["pick"];
+        "Mod+Alt+L" = dms' "lock" ["lock"] {
           allow-when-locked = true;
         };
 

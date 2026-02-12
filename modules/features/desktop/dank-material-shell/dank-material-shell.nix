@@ -9,6 +9,7 @@
       }:
       let
         username = config.systemConstants.username;
+        userhome = "/home/${username}";
       in
       {
         home-manager.sharedModules = [
@@ -21,8 +22,8 @@
           dank-material-shell.greeter = {
             enable = true;
             compositor.name = "niri";
-            configHome = "/home/${username}";
-            configFiles = [ "/home/${username}/.config/DankMaterialShell/settings.json" ];
+            configHome = "${userhome}";
+            configFiles = [ "${userhome}/.config/DankMaterialShell/settings.json" ];
             logs = {
               save = true;
               path = "/tmp/dms-greeter.log";
@@ -75,30 +76,33 @@
             # };
           };
         };
-        xdg.configFile."DankMaterialShell/stylix.json".source =
-          with config.lib.stylix.colors.withHashtag;
-          lib.mkIf config.stylix.enable (
-            pkgs.writers.writeJSON "custom-theme.json" {
-              "name" = "Stylix";
-              "primary" = base0C;
-              "primaryText" = base00;
-              "primaryContainer" = base0D;
-              "secondary" = base0E;
-              "surface" = base00;
-              "surfaceText" = base05;
-              "surfaceVariant" = base01;
-              "surfaceVariantText" = base04;
-              "surfaceTint" = base0C;
-              "background" = base00;
-              "backgroundText" = base07;
-              "outline" = base03;
-              "surfaceContainer" = base01;
-              "surfaceContainerHigh" = base02;
-              "error" = base08;
-              "warning" = base0A;
-              "info" = base0D;
-            }
-          );
+        xdg.configFile = {
+          "DankMaterialShell/stylix.json".source =
+            with config.lib.stylix.colors.withHashtag;
+            lib.mkIf config.stylix.enable (
+              pkgs.writers.writeJSON "custom-theme.json" {
+                "name" = "Stylix";
+                "primary" = base0C;
+                "primaryText" = base00;
+                "primaryContainer" = base0D;
+                "secondary" = base0E;
+                "surface" = base00;
+                "surfaceText" = base05;
+                "surfaceVariant" = base01;
+                "surfaceVariantText" = base04;
+                "surfaceTint" = base0C;
+                "background" = base00;
+                "backgroundText" = base07;
+                "outline" = base03;
+                "surfaceContainer" = base01;
+                "surfaceContainerHigh" = base02;
+                "error" = base08;
+                "warning" = base0A;
+                "info" = base0D;
+              }
+            );
+          "DankMaterialShell/settings.json".source = lib.mkForce ./settings.json;
+        };
       };
   };
 }

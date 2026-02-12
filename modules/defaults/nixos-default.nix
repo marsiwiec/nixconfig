@@ -12,10 +12,6 @@
       ...
     }:
     {
-      lib.generators.withRecursion = {
-        depthLimit = 10;
-        throwOnDepthLimit = false;
-      };
       imports =
         with inputs.self.modules.nixos;
         [

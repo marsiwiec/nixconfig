@@ -5,8 +5,8 @@
       enable = true;
       settings = {
         user = lib.mkDefault {
-          name = "${config.systemConstants.username}";
-          email = "${config.systemConstants.username}@users.noreply.github.com";
+          name = "marsiwiec";
+          email = "marsiwiec@users.noreply.github.com";
         };
         init.defaultBranch = "main";
       };

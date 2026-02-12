@@ -45,7 +45,7 @@
       }:
       {
         imports = with inputs.self.modules.homeManager; [
-          # niri-keybinds
+          niri-keybinds
           niri-window-rules
         ];
 

@@ -27,6 +27,9 @@
     nixos.stylix =
       { pkgs, ... }:
       {
+        home-manager.sharedModules = [
+          inputs.self.modules.homeManager.stylix
+        ];
         imports = [
           inputs.stylix.nixosModules.stylix
         ];

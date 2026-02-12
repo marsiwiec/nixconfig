@@ -1,10 +1,23 @@
 {
-  flake.modules.nixos.shell = {
-    programs = {
-      zsh.enable = true;
-      gnupg.agent.enable = true;
+  flake.modules.nixos.shell =
+    { pkgs, ... }:
+    {
+      environment = {
+        shells = with pkgs; [
+          zsh
+          nushell
+        ];
+        variables = {
+          EDITOR = "hx";
+          VISUAL = "hx";
+        };
+      };
+      users.defaultUserShell = pkgs.zsh;
+      programs = {
+        zsh.enable = true;
+        gnupg.agent.enable = true;
+      };
     };
-  };
 
   flake.modules.homeManager.shell =
     {
@@ -14,6 +27,7 @@
       ...
     }:
     {
+
       home.packages = with pkgs; [
         unzip
         duf

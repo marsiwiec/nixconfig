@@ -16,6 +16,9 @@
           "nix-command"
           "flakes"
         ];
+        trusted-users = [
+          "@wheel"
+        ];
       };
     };
     nixpkgs.config.allowUnfree = true;

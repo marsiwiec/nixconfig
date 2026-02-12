@@ -13,6 +13,7 @@
       {
         home-manager.sharedModules = [
           inputs.self.modules.homeManager.looking-glass
+          inputs.self.modules.homeManager.niri-outputs-nixgroot
         ];
         imports = [
           inputs.home-manager.nixosModules.home-manager

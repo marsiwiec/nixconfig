@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.labnix = {
+  flake.modules.nixos.labnix-filesystem = {
     fileSystems = {
       "/" = {
         device = "/dev/disk/by-uuid/bf35f6ff-4942-45cf-aebd-3626dfeaf5ab";
@@ -16,6 +16,7 @@
       "/home" = {
         device = "/dev/disk/by-uuid/bf35f6ff-4942-45cf-aebd-3626dfeaf5ab";
         fsType = "btrfs";
+        options = [ "subvol=home" ];
       };
 
       "/boot" = {

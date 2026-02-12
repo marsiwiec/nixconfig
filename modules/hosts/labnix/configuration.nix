@@ -11,6 +11,9 @@
         ...
       }:
       {
+        home-manager.sharedModules = [
+          inputs.self.modules.homeManager.niri-outputs-labnix
+        ];
         imports = [
           inputs.home-manager.nixosModules.home-manager
           inputs.sops-nix.nixosModules.sops
@@ -22,6 +25,7 @@
         ++ (with inputs.self.modules.nixos; [
           default-settings
           msiwiec
+          labnix-filesystem
         ]);
 
         networking.hostName = "labnix";
