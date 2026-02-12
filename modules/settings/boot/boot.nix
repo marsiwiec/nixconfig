@@ -17,7 +17,18 @@
         };
         plymouth.enable = true;
         consoleLogLevel = 0;
-        initrd.verbose = false;
+        initrd = {
+          verbose = false;
+          availableKernelModules = [
+            "nvme"
+            "xhci_pci"
+            "ahci"
+            "usbhid"
+            "usb_storage"
+            "sd_mod"
+          ];
+          kernelModules = [ ];
+        };
         kernelParams = [
           "quiet"
           "splash"
@@ -28,6 +39,8 @@
           "udev.log_priority=3"
           "amdgpu.dcdebugmask=0x10"
         ];
+        kernelModules = [ "kvm-amd" ];
+        extraModulePackages = [ ];
       };
 
     };

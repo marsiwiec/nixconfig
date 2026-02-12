@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.nixgroot = {
+  flake.modules.nixos.nixgroot-filesystem = {
     fileSystems = {
       "/" = {
         device = "/dev/disk/by-uuid/15a37742-fbb6-4f2a-9928-5475762ff986";

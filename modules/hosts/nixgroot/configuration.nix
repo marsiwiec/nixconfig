@@ -26,6 +26,7 @@
           default-settings
           gaming
           msiwiec
+          nixgroot-filesystem
           nvidia
           nvidia-enable
           vfio
