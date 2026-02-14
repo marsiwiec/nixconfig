@@ -29,7 +29,7 @@
           power
           printing
           screen
-          security-defaults
+          security
           shell
           ssh
           sops
@@ -39,6 +39,9 @@
           utils
           virtualisation
         ]
+        ++ (with inputs.self.modules.generic; [
+          nix-settings
+        ])
         ++ [ "${modulesPath}/installer/scan/not-detected.nix" ];
 
       programs.nix-ld = {

@@ -23,8 +23,8 @@
         ])
         ++ (with inputs.self.modules.nixos; [
           default-settings
-          msiwiec
           labnix-filesystem
+          msiwiec
         ]);
 
         networking.hostName = "labnix";

@@ -12,24 +12,19 @@
       }:
       {
         home-manager.sharedModules = [
-          inputs.self.modules.homeManager.looking-glass
           inputs.self.modules.homeManager.niri-outputs-nixgroot
         ];
         imports = [
           inputs.home-manager.nixosModules.home-manager
           inputs.sops-nix.nixosModules.sops
         ]
-        ++ (with inputs.self.modules.generic; [
-          nix-settings
-        ])
         ++ (with inputs.self.modules.nixos; [
           default-settings
           gaming
           msiwiec
           nixgroot-filesystem
           nvidia
-          nvidia-enable
-          vfio
+          nvidia-passthrough
         ]);
 
         networking.hostName = "nixgroot";
@@ -53,6 +48,8 @@
           key = "/run/secrets/syncthing/nixgroot/key";
           cert = "/run/secrets/syncthing/nixgroot/cert";
         };
+
+        hardware.enableRedistributableFirmware = true;
         system.stateVersion = "24.11";
       };
   };

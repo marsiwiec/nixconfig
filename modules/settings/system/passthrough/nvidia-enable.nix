@@ -1,4 +1,3 @@
-{ self, ... }:
 {
   flake.modules.nixos.nvidia-enable =
     { config, pkgs, ... }:

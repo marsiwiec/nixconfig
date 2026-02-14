@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.security-defaults = {
+  flake.modules.nixos.security = {
     # Modern alternatives to legacy subsystems
     networking.nftables.enable = true; # Replaces iptables
     services.dbus.implementation = "broker"; # Faster, more secure D-Bus
