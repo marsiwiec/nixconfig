@@ -21,7 +21,6 @@
         ]
         ++ (with inputs.self.modules.generic; [
           nix-settings
-          syncthing
         ])
         ++ (with inputs.self.modules.nixos; [
           default-settings

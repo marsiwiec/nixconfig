@@ -63,6 +63,7 @@ in
       shell
       shell-utils
       spicetify
+      syncthing
       wezterm
     ];
 
@@ -74,7 +75,7 @@ in
     programs.zsh.enable = true;
 
     # Git configuration with user info
-    programs.git.settings.users = {
+    programs.git.settings.user = {
       name = git-username;
       email = git-email;
     };

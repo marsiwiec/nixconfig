@@ -1,9 +1,5 @@
-{ config, ... }:
-# let
-#   username = config.systemConstants.username;
-# in
 {
-  flake.modules.generic.syncthing = {
+  flake.modules.homeManager.syncthing = {
     services.syncthing = {
       enable = true;
       overrideFolders = true;

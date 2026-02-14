@@ -20,7 +20,6 @@
         ]
         ++ (with inputs.self.modules.generic; [
           nix-settings
-          syncthing
         ])
         ++ (with inputs.self.modules.nixos; [
           default-settings
@@ -49,6 +48,8 @@
           key = "/run/secrets/syncthing/labnix/key";
           cert = "/run/secrets/syncthing/labnix/cert";
         };
+
+        hardware.enableRedistributableFirmware = true;
         system.stateVersion = "24.11";
       };
   };
