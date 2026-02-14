@@ -5,7 +5,8 @@
 }:
 let
   name = "Marcin Siwiec";
-  email = "marsiwiec@users.noreply.github.com";
+  git-username = "marsiwiec";
+  git-email = "marsiwiec@users.noreply.github.com";
 in
 {
   # Extra NixOS configuration for any system msiwiec is a user on
@@ -73,8 +74,9 @@ in
     programs.zsh.enable = true;
 
     # Git configuration with user info
-    programs.git.settings.user = {
-      inherit name email;
+    programs.git.settings.users = {
+      name = git-username;
+      email = git-email;
     };
   };
   flake.modules.darwin.msiwiec = {
