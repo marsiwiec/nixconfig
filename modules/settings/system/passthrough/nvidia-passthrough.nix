@@ -31,7 +31,10 @@
           "vfio_iommu_type1"
           "vfio"
         ];
-        extraModprobeConfig = "options kvmfr static_size_mb=128 vfio-pci ids=10de:2782,10de:22bc";
+        extraModprobeConfig = ''
+          options kvmfr static_size_mb=128
+          options vfio-pci ids=10de:2782,10de:22bc
+        '';
       };
       services.udev.extraRules = ''
         SUBSYSTEM=="kvmfr", OWNER="qemu-libvirtd", GROUP="kvm", MODE="0660"
