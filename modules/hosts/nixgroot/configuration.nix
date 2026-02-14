@@ -27,6 +27,11 @@
           nvidia-passthrough
         ]);
 
+        ### Fix for Lexar nvme SSDs ###
+        boot = {
+          kernelParams = [ "nvme_core.default_ps_max_latency_us=0" ];
+        };
+
         networking.hostName = "nixgroot";
         stylix = {
           image = "${config.systemConstants.wallpaperDir}/flowers.png";
@@ -49,7 +54,6 @@
           cert = "/run/secrets/syncthing/nixgroot/cert";
         };
 
-        hardware.enableRedistributableFirmware = true;
         system.stateVersion = "24.11";
       };
   };
