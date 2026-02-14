@@ -22,7 +22,6 @@
     niri-flake.url = "github:sodiboo/niri-flake";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-lib.follows = "nixpkgs";
-    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
     sops-nix = {
       inputs.nixpkgs.follows = "nixpkgs";

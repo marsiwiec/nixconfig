@@ -9,7 +9,7 @@
 
     # Master nixpkgs for early access to fixes/features
     # Available as pkgs.master.* (currently unused)
-    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
+    # nixpkgs-master.url = "github:NixOS/nixpkgs/master";
   };
 
   flake.modules =
@@ -25,10 +25,10 @@
             config.allowUnfree = final.config.allowUnfree;
           };
           # Make master nixpkgs accessible under 'pkgs.master' (lazy)
-          master = import inputs.nixpkgs-master {
-            system = final.stdenv.hostPlatform.system;
-            config.allowUnfree = final.config.allowUnfree;
-          };
+          # master = import inputs.nixpkgs-master {
+          #   system = final.stdenv.hostPlatform.system;
+          #   config.allowUnfree = final.config.allowUnfree;
+          # };
         })
       ];
     in

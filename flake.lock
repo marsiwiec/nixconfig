@@ -303,22 +303,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-master": {
-      "locked": {
-        "lastModified": 1771064736,
-        "narHash": "sha256-COWre3xKIOWAVOXIkns+3R+ckN8I83462VHhQnvFv10=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "0bf8400accd0fcddf513df960b961e1fbee21957",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "master",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1770770419,
@@ -442,7 +426,6 @@
         "nixpkgs-lib": [
           "nixpkgs"
         ],
-        "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-stable": "nixpkgs-stable_2",
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
