@@ -16,7 +16,6 @@
         ];
 
         blacklistedKernelModules = [
-          "kvmfr"
           "nvidia"
           "nvidiafb"
           "nvidia-drm"
