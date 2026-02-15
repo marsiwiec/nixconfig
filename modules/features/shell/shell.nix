@@ -44,7 +44,6 @@
         sudo = "sudo ";
         v = "nvim";
         h = "hx";
-        yy = "yazi";
         lg = "lazygit";
       };
 
@@ -57,7 +56,10 @@
         starship.enable = true;
         atuin.enable = true;
         zoxide.enable = true;
-        yazi.enable = true;
+        yazi = {
+          enable = true;
+          shellWrapperName = "yy";
+        };
         htop.enable = true;
         bat.enable = true;
         zellij = {
