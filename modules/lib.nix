@@ -36,6 +36,7 @@
           modules = [
             inputs.self.modules.homeManager.${name}
             inputs.self.modules.generic.systemConstants
+            inputs.self.modules.homeManager.default-settings
           ];
         };
     };
