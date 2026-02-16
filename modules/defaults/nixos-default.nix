@@ -65,6 +65,14 @@
           "noatime"
         ];
       };
+
+      swapDevices = [
+        {
+          device = "/var/lib/swapfile";
+          size = 64 * 1024;
+        }
+      ];
+
       services.btrfs.autoScrub.enable = true;
       hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     };

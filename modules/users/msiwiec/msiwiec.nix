@@ -47,6 +47,7 @@ in
   flake.modules.homeManager.msiwiec = {
     imports = with inputs.self.modules.homeManager; [
       ai
+      blender
       chromium
       devenv
       firefox
