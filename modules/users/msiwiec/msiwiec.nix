@@ -58,6 +58,7 @@ in
       nh
       office
       positron
+      print3d
       python
       R
       shell
