@@ -5,7 +5,7 @@
       home.packages = with pkgs; [
         inkscape-with-extensions
         gimp3-with-plugins
-        krita
+        # krita
         fiji
         pinta
         # (blender.override {

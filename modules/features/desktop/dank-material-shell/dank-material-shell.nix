@@ -74,6 +74,7 @@
             #   # enableKeybinds = true;
             #   enableSpawn = true;
             # };
+            enableCalendarEvents = false; # temp khal bug
           };
         };
         xdg.configFile = {

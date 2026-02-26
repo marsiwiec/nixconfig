@@ -24,7 +24,7 @@ in
       R
       rclone
       shell
-      sunshine
+      # sunshine # boost update error
       thunar
       utils
     ];
