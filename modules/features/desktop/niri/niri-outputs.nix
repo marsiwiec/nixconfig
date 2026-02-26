@@ -1,0 +1,39 @@
+{
+  flake.modules.homeManager.niri-outputs-nixgroot = {
+    programs.niri.settings = {
+      outputs = {
+        "DP-1" = {
+          mode.width = 2560;
+          mode.height = 1440;
+          mode.refresh = 74.924004;
+        };
+        "HDMI-A-2" = {
+          enable = false;
+        };
+      };
+      spawn-at-startup = [
+        {
+          command = [
+            "sudo"
+            "nvidia-enable"
+          ];
+        }
+      ];
+    };
+  };
+  flake.modules.homeManager.niri-outputs-labnix = {
+    programs.niri.settings.outputs = {
+      "DP-2" = {
+        mode = {
+          width = 3440;
+          height = 1440;
+          refresh = 159.86;
+        };
+        focus-at-startup = true;
+      };
+      "HDMI-A-1" = {
+        enable = false;
+      };
+    };
+  };
+}
