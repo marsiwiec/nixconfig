@@ -9,6 +9,5 @@
       environment.systemPackages = with pkgs; [
         ddcutil
       ];
-      programs.light.enable = true;
     };
 }
