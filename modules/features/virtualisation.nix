@@ -1,11 +1,27 @@
 {
+  inputs,
+  ...
+}:
+{
   flake.modules.nixos.virtualisation =
     {
       config,
       pkgs,
+      lib,
       ...
     }:
     {
+      # Part 1: Overlay libvirt from the PR
+      nixpkgs.overlays = [
+        (final: prev: {
+          libvirt = inputs.nixpkgs-pr-496839.legacyPackages.${final.system}.libvirt;
+        })
+      ];
+
+      # Part 2: Use the libvirtd module from the PR
+      disabledModules = [ "virtualisation/libvirtd.nix" ];
+      imports = [ "${inputs.nixpkgs-pr-496839}/nixos/modules/virtualisation/libvirtd.nix" ];
+
       virtualisation = {
         libvirtd = {
           enable = true;

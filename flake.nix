@@ -21,6 +21,7 @@
     import-tree.url = "github:vic/import-tree";
     niri-flake.url = "github:sodiboo/niri-flake";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-pr-496839.url = "github:NixOS/nixpkgs/pull/496839/head"; # PR for temp fixing libvirt
     nixpkgs-lib.follows = "nixpkgs";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
     sops-nix = {
