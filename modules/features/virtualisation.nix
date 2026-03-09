@@ -10,7 +10,6 @@
         libvirtd = {
           enable = true;
           onBoot = "ignore";
-          package = pkgs.master.libvirt;
           qemu = {
             swtpm.enable = true;
             vhostUserPackages = [ pkgs.virtiofsd ];
