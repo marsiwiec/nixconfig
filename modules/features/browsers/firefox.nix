@@ -32,10 +32,10 @@
       };
     };
     stylix.targets.firefox = {
-      colors.enable = true;
+      # colors.enable = true;
       # firefoxGnomeTheme.enable = true;
-      colorTheme.enable = true;
-      # profileNames = [ "default" ];
+      # colorTheme.enable = true;
+      profileNames = [ "default" ];
     };
     xdg = {
       enable = true;

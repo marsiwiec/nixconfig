@@ -6,6 +6,8 @@
         gemini-cli-bin
         claude-code
         claude-monitor
+
+        lmstudio
       ];
     };
 }
