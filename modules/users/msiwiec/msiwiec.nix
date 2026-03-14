@@ -18,6 +18,7 @@ in
       bottles
       dank-material-shell
       distrobox
+      flatpak
       localsend
       nh
       niri
@@ -53,6 +54,7 @@ in
       devenv
       firefox
       git
+      ghostty
       helix
       image-editors
       lsp
