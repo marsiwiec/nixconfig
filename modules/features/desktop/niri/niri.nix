@@ -72,9 +72,9 @@
             ELECTRON_OZONE_PLATFORM_HINT = "auto";
           };
 
-          spawn-at-startup = [
-            { command = [ "${lib.getExe pkgs.sway-audio-idle-inhibit}" ]; }
-          ];
+          # spawn-at-startup = [
+          #   { command = [ "${lib.getExe pkgs.sway-audio-idle-inhibit}" ]; }
+          # ];
 
           prefer-no-csd = true;
 

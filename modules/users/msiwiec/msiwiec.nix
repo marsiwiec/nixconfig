@@ -55,8 +55,8 @@ in
       firefox
       git
       ghostty
+      graphics-software
       helix
-      image-editors
       lsp
       media
       nh

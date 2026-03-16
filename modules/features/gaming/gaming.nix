@@ -9,7 +9,7 @@
       };
 
       environment.systemPackages = with pkgs; [
-        heroic
+        # heroic
         mangohud
         protonup-qt
         bottles

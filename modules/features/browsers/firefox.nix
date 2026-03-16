@@ -14,7 +14,7 @@
             "extensions.autoDisableScopes" = 0;
             "browser.ml.chat.enabled" = false;
             "browser.tabs.groups.smart.enabled" = false;
-            "services.sync.prefs.sync.extensions.activeThemeID" = false;
+            # "services.sync.prefs.sync.extensions.activeThemeID" = false;
           };
         };
       };
@@ -33,7 +33,7 @@
     };
     stylix.targets.firefox = {
       # colors.enable = true;
-      # firefoxGnomeTheme.enable = true;
+      firefoxGnomeTheme.enable = true;
       # colorTheme.enable = true;
       profileNames = [ "default" ];
     };
