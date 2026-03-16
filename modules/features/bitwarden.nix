@@ -1,10 +1,15 @@
+{ lib, ... }:
 {
-  flake.modules.homeManager.bitwarden =
-    { pkgs, ... }:
+  flake.modules.nixos.bitwarden =
+    { config, pkgs, ... }:
     {
-      home.packages = with pkgs; [
-        bitwarden-desktop
+      environment.systemPackages = with pkgs; [
+        # bitwarden-desktop
         bitwarden-cli
+      ];
+
+      services.flatpak.packages = lib.mkIf config.services.flatpak.enable [
+        "com.bitwarden.desktop"
       ];
     };
 }

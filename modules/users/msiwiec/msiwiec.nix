@@ -15,6 +15,7 @@ in
       imports = [ inputs.self.modules.homeManager.msiwiec ];
     };
     imports = with inputs.self.modules.nixos; [
+      bitwarden
       bottles
       dank-material-shell
       distrobox
@@ -48,7 +49,6 @@ in
   flake.modules.homeManager.msiwiec = {
     imports = with inputs.self.modules.homeManager; [
       ai
-      bitwarden
       blender
       chromium
       devenv

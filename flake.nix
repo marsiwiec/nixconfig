@@ -19,6 +19,7 @@
     };
     import-tree.url = "github:vic/import-tree";
     niri-flake.url = "github:sodiboo/niri-flake";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-lib.follows = "nixpkgs";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
