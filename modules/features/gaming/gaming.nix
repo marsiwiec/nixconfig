@@ -1,6 +1,7 @@
+{ lib, ... }:
 {
   flake.modules.nixos.gaming =
-    { pkgs, ... }:
+    { config, pkgs, ... }:
     {
       programs = {
         steam.enable = true;
@@ -13,6 +14,10 @@
         mangohud
         protonup-qt
         bottles
+      ];
+
+      services.flatpak.packages = lib.mkIf config.services.flatpak.enable [
+        "com.heroicgameslauncher.hgl"
       ];
     };
 }
