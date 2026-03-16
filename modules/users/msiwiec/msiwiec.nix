@@ -50,7 +50,6 @@ in
     imports = with inputs.self.modules.homeManager; [
       ai
       blender
-      chromium
       devenv
       firefox
       git
