@@ -28,6 +28,14 @@
           {
             matches = [
               {
+                app-id = "fiji-Main";
+              }
+            ];
+            open-floating = true;
+          }
+          {
+            matches = [
+              {
                 app-id = "emacs";
               }
             ];
