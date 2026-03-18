@@ -15,5 +15,8 @@
       environment.systemPackages = with pkgs; [
         xarchiver
       ];
+      xdg.mime.defaultApplications = {
+        "application/zip" = [ "xarchiver.desktop" ];
+      };
     };
 }
