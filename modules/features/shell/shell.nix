@@ -52,7 +52,12 @@
           enable = true;
           nix-direnv.enable = true;
         };
-        starship.enable = true;
+        starship = {
+          enable = true;
+          settings = {
+            scan_timeout = 50;
+          };
+        };
         atuin.enable = true;
         zoxide.enable = true;
         yazi = {

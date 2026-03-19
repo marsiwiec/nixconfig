@@ -1,29 +1,6 @@
 { self, inputs, ... }:
 {
   flake.modules = {
-    # generic.stylix =
-    #   { pkgs, ... }:
-    #   {
-    #     stylix = {
-    #       enable = true;
-    #       polarity = "dark";
-    #       fonts = {
-    #         monospace = {
-    #           name = "IntoneMono NF";
-    #           package = pkgs.nerd-fonts.intone-mono;
-    #         };
-    #         sansSerif = {
-    #           name = "JetBrainsMono Nerd Font";
-    #           package = pkgs.nerd-fonts.jetbrains-mono;
-    #         };
-    #         sizes = {
-    #           desktop = 14;
-    #           terminal = 16;
-    #           popups = 14;
-    #         };
-    #       };
-    #     };
-    #   };
     nixos.stylix =
       { pkgs, ... }:
       {
@@ -73,6 +50,7 @@
             waybar = {
               font = "sansSerif";
             };
+            gtk.flatpakSupport.enable = false; # flatpak fix
           };
         };
       };
