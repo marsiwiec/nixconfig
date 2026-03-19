@@ -14,7 +14,6 @@
         #lua
         lua-language-server
         #python
-        pyright
         ruff
         #typst
         tinymist
