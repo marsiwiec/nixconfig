@@ -13,10 +13,11 @@
       services.tumbler.enable = true;
 
       environment.systemPackages = with pkgs; [
-        xarchiver
+        file-roller
       ];
       xdg.mime.defaultApplications = {
-        "application/zip" = [ "xarchiver.desktop" ];
+        "inode/directory" = [ "thunar.desktop" ];
+        "application/zip" = [ "org.gnome.FileRoller.desktop" ];
       };
     };
 }

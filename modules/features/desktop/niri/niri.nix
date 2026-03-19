@@ -51,7 +51,7 @@
 
         home.packages = with pkgs; [
           nerd-fonts.jetbrains-mono
-          nautilus
+          # nautilus
         ];
 
         services = {
