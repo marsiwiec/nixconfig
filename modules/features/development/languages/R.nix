@@ -4,6 +4,9 @@
     home-manager.sharedModules = [
       inputs.self.modules.homeManager.R
     ];
+    nixpkgs.config.permittedInsecurePackages = [
+      "electron-38.8.4"
+    ];
   };
 
   flake.modules.homeManager.R =
