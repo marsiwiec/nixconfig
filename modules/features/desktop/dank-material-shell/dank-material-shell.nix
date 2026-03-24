@@ -70,39 +70,159 @@
           dank-material-shell = {
             enable = true;
             systemd.enable = true;
-            # niri = {
-            #   # enableKeybinds = true;
-            #   enableSpawn = true;
-            # };
             enableCalendarEvents = false; # temp khal bug
+            settings = {
+              use24HourClock = true;
+              animationSpeed = 0;
+              maxWorkspaceIcons = 3;
+              audioVisualizerEnabled = false;
+              clockCompactMode = false;
+              appsDockEnlargePercentage = 125;
+              weatherEnabled = false;
+              showWeather = false;
+              notepadFontSize = 18;
+              acMonitorTimeout = 3600;
+              acLockTimeout = 1200;
+              lockBeforeSuspend = true;
+              loginctlLockIntegration = true;
+              fadeToLockEnabled = true;
+              fadeToLockGracePeriod = 5;
+              fadeToDpmsEnabled = true;
+              fadeToDpmsGracePeriod = 5;
+              launcherLogoMode = "os";
+              showWorkspacePadding = true;
+
+              barConfigs = [
+                {
+                  id = "default";
+                  name = "Main Bar";
+                  enabled = true;
+                  position = 0;
+                  screenPreferences = [
+                    "all"
+                  ];
+                  showOnLastDisplay = true;
+                  leftWidgets = [
+                    "launcherButton"
+                    "workspaceSwitcher"
+                    "focusedWindow"
+                  ];
+                  centerWidgets = [
+                    {
+                      id = "clock";
+                      enabled = true;
+                      clockCompactMode = false;
+                    }
+                  ];
+                  rightWidgets = [
+                    {
+                      id = "music";
+                      enabled = true;
+                      mediaSize = 3;
+                    }
+                    {
+                      id = "spacer";
+                      enabled = true;
+                      size = 20;
+                    }
+                    {
+                      id = "controlCenterButton";
+                      enabled = true;
+                    }
+                    {
+                      id = "spacer";
+                      enabled = true;
+                      size = 20;
+                    }
+                    {
+                      id = "dankPomodoroTimer";
+                      enabled = true;
+                    }
+                    {
+                      id = "idleInhibitor";
+                      enabled = true;
+                    }
+                    {
+                      id = "spacer";
+                      enabled = true;
+                      size = 20;
+                    }
+                    {
+                      id = "cpuUsage";
+                      enabled = true;
+                      minimumWidth = true;
+                    }
+                    {
+                      id = "memUsage";
+                      enabled = true;
+                      showSwap = false;
+                    }
+                    {
+                      id = "diskUsage";
+                      enabled = true;
+                    }
+                    {
+                      id = "spacer";
+                      enabled = true;
+                      size = 20;
+                    }
+                    {
+                      id = "dockerManager";
+                      enabled = true;
+                    }
+                    {
+                      id = "systemTray";
+                      enabled = true;
+                    }
+                    {
+                      id = "notificationButton";
+                      enabled = true;
+                    }
+                    {
+                      id = "powerMenuButton";
+                      enabled = true;
+                    }
+                  ];
+                  spacing = 4;
+                  innerPadding = 8;
+                  fontScale = 1.15;
+                }
+              ];
+
+              controlCenterWidgets = [
+                {
+                  id = "volumeSlider";
+                  enabled = true;
+                  width = 50;
+                }
+                {
+                  id = "brightnessSlider";
+                  enabled = true;
+                  width = 50;
+                }
+                {
+                  id = "wifi";
+                  enabled = true;
+                  width = 50;
+                }
+                {
+                  id = "bluetooth";
+                  enabled = true;
+                  width = 50;
+                }
+                {
+                  id = "audioOutput";
+                  enabled = true;
+                  width = 50;
+                }
+                {
+                  id = "nightMode";
+                  enabled = true;
+                  width = 50;
+                }
+              ];
+            };
           };
-        };
-        xdg.configFile = {
-          "DankMaterialShell/stylix.json".source =
-            with config.lib.stylix.colors.withHashtag;
-            lib.mkIf config.stylix.enable (
-              pkgs.writers.writeJSON "custom-theme.json" {
-                "name" = "Stylix";
-                "primary" = base0C;
-                "primaryText" = base00;
-                "primaryContainer" = base0D;
-                "secondary" = base0E;
-                "surface" = base00;
-                "surfaceText" = base05;
-                "surfaceVariant" = base01;
-                "surfaceVariantText" = base04;
-                "surfaceTint" = base0C;
-                "background" = base00;
-                "backgroundText" = base07;
-                "outline" = base03;
-                "surfaceContainer" = base01;
-                "surfaceContainerHigh" = base02;
-                "error" = base08;
-                "warning" = base0A;
-                "info" = base0D;
-              }
-            );
-          "DankMaterialShell/settings.json".source = lib.mkForce ./settings.json;
         };
       };
   };
