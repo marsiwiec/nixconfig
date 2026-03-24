@@ -42,7 +42,6 @@
   "showLauncherButton": true,
   "showWorkspaceSwitcher": true,
   "showFocusedWindow": true,
-  "showWeather": true,
   "showMusic": true,
   "showClipboard": true,
   "showCpuUsage": true,
@@ -198,7 +197,6 @@
   "dankLauncherV2BorderColor": "primary",
   "dankLauncherV2ShowFooter": true,
   "useAutoLocation": false,
-  "weatherEnabled": true,
   "networkPreference": "auto",
   "iconTheme": "System Default",
   "cursorSettings": {
@@ -405,9 +403,8 @@
         {
           "id": "clock",
           "enabled": true,
-          "clockCompactMode": true
-        },
-        "weather"
+          "clockCompactMode": false
+        }
       ],
       "rightWidgets": [
         {
