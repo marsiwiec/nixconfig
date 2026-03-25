@@ -1,6 +1,6 @@
 {
   flake.modules.nixos.nvidia =
-    { config, ... }:
+    { config, lib, ... }:
     {
       services.xserver.videoDrivers = [ "nvidia" ];
       hardware.nvidia = {
@@ -11,5 +11,7 @@
         powerManagement.enable = false;
         powerManagement.finegrained = false;
       };
+
+      hardware.nvidia-container-toolkit.enable = lib.mkIf config.virtualisation.podman.enable true;
     };
 }
