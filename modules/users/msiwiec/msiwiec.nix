@@ -18,7 +18,7 @@ in
       bitwarden
       bottles
       dank-material-shell
-      distrobox
+      containers
       flatpak
       localsend
       nh

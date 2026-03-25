@@ -1,6 +1,11 @@
 {
-  flake.modules.nixos.distrobox =
-    { pkgs, ... }:
+  flake.modules.nixos.containers =
+    {
+      config,
+      lib,
+      pkgs,
+      ...
+    }:
     {
       virtualisation = {
         podman = {
@@ -13,6 +18,10 @@
         boxbuddy
 
         podman-compose
+      ];
+
+      services.flatpak.packages = lib.mkIf config.services.flatpak.enable [
+        "io.podman_desktop.PodmanDesktop"
       ];
     };
 }
