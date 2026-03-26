@@ -65,7 +65,6 @@ in
       python
       R
       shell
-      shell-utils
       spicetify
       syncthing
       wezterm
@@ -76,7 +75,6 @@ in
       homeDirectory = lib.mkDefault "/home/msiwiec";
       stateVersion = "24.11";
     };
-    programs.zsh.enable = true;
 
     # Git configuration with user info
     programs.git.settings.user = {
