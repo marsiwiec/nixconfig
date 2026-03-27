@@ -6,14 +6,16 @@
       {
         home.packages = with pkgs; [
           obsidian
-          zotero
         ];
       }
       (lib.mkIf (pkgs.stdenv.isLinux) {
         home.packages = with pkgs; [
-          libreoffice
+          # libreoffice
           gnumeric
-          # super-productivity
+        ];
+        services.flatpak.packages = [
+          "org.zotero.Zotero"
+          "org.libreoffice.LibreOffice"
         ];
         programs.zathura.enable = true;
         xdg.mimeApps = {
