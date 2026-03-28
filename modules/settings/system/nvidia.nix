@@ -12,6 +12,6 @@
         powerManagement.finegrained = false;
       };
 
-      hardware.nvidia-container-toolkit.enable = lib.mkIf config.virtualisation.podman.enable true;
+      # hardware.nvidia-container-toolkit.enable = lib.mkIf config.virtualisation.podman.enable true;
     };
 }
