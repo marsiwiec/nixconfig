@@ -14,6 +14,30 @@
 
         imports = [ inputs.self.modules.nixos.niri-module ];
 
+        xdg.portal = {
+          enable = true;
+          xdgOpenUsePortal = true;
+          wlr.enable = true;
+          config = {
+            common = {
+              default = [
+                "gtk"
+                "gnome"
+              ];
+            };
+            niri = {
+              default = [
+                "gtk"
+                "gnome"
+              ];
+            };
+          };
+          extraPortals = with pkgs; [
+            xdg-desktop-portal-wlr
+            xdg-desktop-portal-gtk
+          ];
+        };
+
         services.accounts-daemon.enable = true;
 
         systemd.user.services = {
@@ -51,7 +75,6 @@
 
         home.packages = with pkgs; [
           nerd-fonts.jetbrains-mono
-          # nautilus
         ];
 
         services = {
