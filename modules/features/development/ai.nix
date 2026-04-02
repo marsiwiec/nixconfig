@@ -4,9 +4,6 @@
     {
       home.packages = with pkgs; [
         gemini-cli-bin
-        claude-code
-        claude-monitor
-
         lmstudio
       ];
     };
