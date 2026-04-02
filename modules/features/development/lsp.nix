@@ -21,6 +21,7 @@
         rust-analyzer
         #r
         air-formatter
+        jarl
       ];
     };
 }

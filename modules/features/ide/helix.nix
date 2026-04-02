@@ -80,6 +80,12 @@
                 "language-server"
               ];
             };
+            jarl = lib.mkIf pkgs.stdenv.isLinux {
+              command = lib.getExe pkgs.jarl;
+              args = [
+                "server"
+              ];
+            };
           };
           language = [
             {
@@ -92,7 +98,7 @@
               auto-format = true;
               language-servers = [
                 "air"
-                "r"
+                "jarl"
               ];
             }
             {
