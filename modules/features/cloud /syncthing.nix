@@ -11,11 +11,11 @@
         devices = {
           nixgroot = {
             name = "nixgroot";
-            id = "EWRXSIL-W2OZVRK-PYS6ATQ-76MKITY-JJFMEBO-BKMPEQJ-JEUAURW-FM67XAN";
+            id = "G2GCZQ7-3VUGKZ2-YFWYNDM-SODAD27-ZOPZQKO-AZAC5WL-QLJQQXS-PXGA6QR";
           };
           labnix = {
             name = "labnix";
-            id = "VS33NBI-U57M5JI-3BLPP7X-2PJ6HNG-VACPDFX-2MMJLGJ-NE5H4IY-5DCTDQR";
+            id = "PVREYAJ-J3Y2ZE5-SSBEXZG-336PJNT-5YHGUOY-WBWPGZI-G635EFU-UJCFAQ2";
           };
           macnix = {
             name = "macnix";
