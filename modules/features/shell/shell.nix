@@ -72,15 +72,6 @@
           settings = {
             show_startup_tips = false;
           };
-          package = pkgs.zellij.overrideAttrs (old: {
-            # temp fix for stylix theme
-            src = pkgs.fetchFromGitHub {
-              owner = "zellij-org";
-              repo = "zellij";
-              rev = "9014486ae70fa10ad8083d37837a4f17570f2ee8";
-              hash = "sha256-qecLq42wBl13F28Qjvt+ExL3cJm3edCdqxuAVwL4Keo=";
-            };
-          });
         };
         zsh = {
           enable = true;
