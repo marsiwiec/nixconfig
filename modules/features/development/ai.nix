@@ -5,6 +5,10 @@
       home.packages = with pkgs; [
         gemini-cli-bin
         lmstudio
+        nodejs
       ];
+      programs.opencode = {
+        enable = true;
+      };
     };
 }
