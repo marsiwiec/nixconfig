@@ -23,10 +23,10 @@ in
       localsend
       nh
       niri
-      R
+      # R
       rclone
       shell
-      # sunshine # boost update error
+      # sunshine
       thunar
       utils
     ];
@@ -49,7 +49,6 @@ in
   flake.modules.homeManager.msiwiec = {
     imports = with inputs.self.modules.homeManager; [
       ai
-      blender
       devenv
       firefox
       git
@@ -63,7 +62,6 @@ in
       positron
       print3d
       python
-      R
       shell
       spicetify
       syncthing
