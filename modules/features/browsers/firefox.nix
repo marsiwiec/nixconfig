@@ -14,8 +14,7 @@
             "extensions.autoDisableScopes" = 0;
             "browser.ml.chat.enabled" = false;
             "browser.tabs.groups.smart.enabled" = false;
-            # "services.sync.prefs.sync.extensions.activeThemeID" = false;
-            # "services.sync.addons.ignoreUserEnabledChanges" = true;
+            "gnomeTheme.tabsAsHeaderbar" = true;
           };
         };
       };
