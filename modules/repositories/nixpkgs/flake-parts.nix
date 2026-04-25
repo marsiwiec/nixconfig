@@ -18,17 +18,24 @@
       # Uses throw to ensure lazy evaluation - pkgs.stable/master are only
       # evaluated when actually accessed, reducing build time
       overlays = [
-        (final: _prev: {
+        (final: prev: {
           # Make stable nixpkgs accessible under 'pkgs.stable' (lazy)
           stable = import inputs.nixpkgs-stable {
             system = final.stdenv.hostPlatform.system;
             config.allowUnfree = final.config.allowUnfree;
           };
+
           # Make master nixpkgs accessible under 'pkgs.master' (lazy)
           # master = import inputs.nixpkgs-master {
           #   system = final.stdenv.hostPlatform.system;
           #   config.allowUnfree = final.config.allowUnfree;
           # };
+
+          # Skipping tests while upstream sorts it out, revert once
+          # Hydra consistently builds openldap green.
+          openldap = prev.openldap.overrideAttrs (_: {
+            doCheck = !prev.stdenv.hostPlatform.isi686;
+          });
         })
       ];
     in

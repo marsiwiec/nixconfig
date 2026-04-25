@@ -71,7 +71,7 @@ in
     home = {
       username = lib.mkDefault "msiwiec";
       homeDirectory = lib.mkDefault "/home/msiwiec";
-      stateVersion = "24.11";
+      stateVersion = "26.05";
     };
 
     # Git configuration with user info
