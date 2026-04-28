@@ -59,7 +59,6 @@ in
       helix
       lsp
       media
-      nh
       office
       positron
       print3d

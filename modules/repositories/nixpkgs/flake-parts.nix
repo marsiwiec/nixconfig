@@ -40,19 +40,9 @@
       ];
     in
     {
-      nixos.overlays =
-        { pkgs, ... }:
-        {
-          nixpkgs.overlays = overlays ++ [
-            (final: prev: {
-              rstudio = prev.rstudio.override (_: {
-                nodejs-slim = pkgs.nodejs // {
-                  python = pkgs.nodejs-slim.python;
-                };
-              });
-            })
-          ];
-        };
+      nixos.overlays = {
+        nixpkgs.overlays = overlays;
+      };
 
       darwin.overlays = {
         nixpkgs.overlays = overlays;

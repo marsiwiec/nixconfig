@@ -1,16 +1,13 @@
 {
-  flake.modules.nixos.nh = {
-    programs.nh.enable = true;
-    environment.shellAliases = {
-      update = "nh os switch --ask";
-    };
-  };
-  flake.modules.homeManager.nh =
+  flake.modules.nixos.nh =
     { config, ... }:
     {
       programs.nh = {
         enable = true;
-        flake = "${config.home.homeDirectory}/nixconfig";
+        flake = "/home/${config.systemConstants.username}/nixconfig";
+      };
+      environment.shellAliases = {
+        update = "nh os switch --ask";
       };
     };
 }
