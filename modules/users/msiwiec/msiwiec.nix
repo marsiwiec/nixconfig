@@ -9,7 +9,6 @@ let
   git-email = "marsiwiec@users.noreply.github.com";
 in
 {
-  # Extra NixOS configuration for any system msiwiec is a user on
   flake.modules.nixos.msiwiec = {
     home-manager.users.msiwiec = {
       imports = [ inputs.self.modules.homeManager.msiwiec ];
@@ -31,8 +30,11 @@ in
       utils
     ];
 
-    # Decrypt the password hash at activation time before user creation
-    #  sops.secrets."msiwiec-password".neededForUsers = true;
+    sops.secrets.github-token-nix-config = {
+      owner = "msiwiec";
+      group = "users";
+      mode = "0400";
+    };
     users.users.msiwiec = {
       isNormalUser = true;
       description = name;
@@ -74,7 +76,10 @@ in
       stateVersion = "26.05";
     };
 
-    # Git configuration with user info
+    nix.extraOptions = ''
+      !include /run/secrets/github-token-nix-config
+    '';
+
     programs.git.settings.user = {
       name = git-username;
       email = git-email;
