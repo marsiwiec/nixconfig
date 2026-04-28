@@ -50,7 +50,7 @@
             waybar = {
               font = "sansSerif";
             };
-            gtk.flatpakSupport.enable = false; # flatpak fix
+            # gtk.flatpakSupport.enable = false; # flatpak fix
           };
         };
       };
