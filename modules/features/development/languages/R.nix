@@ -16,6 +16,9 @@
         with pkgs;
         let
           RStudio-with-my-packages = rstudioWrapper.override {
+            # nodejs-slim = pkgs.nodejs // {
+            #   python = pkgs.nodejs-slim.python;
+            # };
             packages = with rPackages; [
               tidyverse
               patchwork

@@ -23,7 +23,7 @@ in
       localsend
       nh
       niri
-      # R
+      R
       rclone
       shell
       # sunshine
