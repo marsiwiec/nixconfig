@@ -54,7 +54,7 @@ in
       devenv
       firefox
       git
-      ghostty
+      # ghostty
       graphics-software
       helix
       lsp
