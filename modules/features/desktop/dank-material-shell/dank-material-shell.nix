@@ -91,6 +91,7 @@
               fadeToDpmsGracePeriod = 5;
               launcherLogoMode = "os";
               showWorkspacePadding = true;
+              muxType = "zellij";
 
               barConfigs = [
                 {
