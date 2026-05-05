@@ -31,5 +31,6 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zed.url = "github:zed-industries/zed";
   };
 }

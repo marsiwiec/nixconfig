@@ -67,6 +67,7 @@ in
       spicetify
       syncthing
       wezterm
+      zed
     ];
 
     home = {
