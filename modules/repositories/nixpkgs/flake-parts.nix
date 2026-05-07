@@ -5,11 +5,14 @@
 {
   flake-file.inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
+    # nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
 
     # Master nixpkgs for early access to fixes/features
     # Available as pkgs.master.* (currently unused)
     # nixpkgs-master.url = "github:NixOS/nixpkgs/master";
+
+    # nixpkgs-unstable for early access
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   };
 
   flake.modules =
@@ -20,16 +23,21 @@
       overlays = [
         (final: prev: {
           # Make stable nixpkgs accessible under 'pkgs.stable' (lazy)
-          stable = import inputs.nixpkgs-stable {
-            system = final.stdenv.hostPlatform.system;
-            config.allowUnfree = final.config.allowUnfree;
-          };
+          # stable = import inputs.nixpkgs-stable {
+          #   system = final.stdenv.hostPlatform.system;
+          #   config.allowUnfree = final.config.allowUnfree;
+          # };
 
           # Make master nixpkgs accessible under 'pkgs.master' (lazy)
           # master = import inputs.nixpkgs-master {
           #   system = final.stdenv.hostPlatform.system;
           #   config.allowUnfree = final.config.allowUnfree;
           # };
+
+          unstable = import inputs.nixpkgs-unstable {
+            system = final.stdenv.hostPlatform.system;
+            config.allowUnfree = final.config.allowUnfree;
+          };
 
           # Skipping tests while upstream sorts it out, revert once
           # Hydra consistently builds openldap green.
