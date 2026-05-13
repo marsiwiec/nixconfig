@@ -74,17 +74,21 @@
                 "--enable-footnotes"
               ];
             };
-            air = lib.mkIf pkgs.stdenv.isLinux {
+            air = {
               command = lib.getExe pkgs.air-formatter;
               args = [
                 "language-server"
               ];
             };
-            jarl = lib.mkIf pkgs.stdenv.isLinux {
+            jarl = {
               command = lib.getExe pkgs.jarl;
               args = [
                 "server"
               ];
+            };
+            pyrefly = {
+              command = lib.getExe pkgs.pyrefly;
+              args = [ "lsp" ];
             };
           };
           language = [
@@ -105,6 +109,7 @@
               name = "python";
               auto-format = true;
               formatter.command = lib.getExe pkgs.black;
+              language-servers = [ "pyrefly" ];
             }
             {
               name = "typst";
