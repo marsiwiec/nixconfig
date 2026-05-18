@@ -22,6 +22,7 @@
           enable = true;
           defaultApplications = {
             "application/pdf" = [ "org.pwmt.zathura-pdf-mupdf.desktop" ];
+            "text/csv" = [ "org.libreoffice.LibreOffice.desktop" ];
           };
         };
       })
