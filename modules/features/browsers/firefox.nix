@@ -43,6 +43,8 @@
           "x-scheme-handler/http" = [ "firefox.desktop" ];
           "x-scheme-handler/https" = [ "firefox.desktop" ];
           "x-scheme-handler/chrome" = [ "firefox.desktop" ];
+          "x-scheme-handler/about" = [ "firefox.desktop" ];
+          "x-scheme-handler/unknown" = [ "firefox.desktop" ];
           "text/html" = [ "firefox.desktop" ];
           "application/x-extension-htm" = [ "firefox.desktop" ];
           "application/x-extension-html" = [ "firefox.desktop" ];
