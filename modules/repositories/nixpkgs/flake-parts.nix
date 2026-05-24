@@ -51,9 +51,5 @@
       nixos.overlays = {
         nixpkgs.overlays = overlays;
       };
-
-      darwin.overlays = {
-        nixpkgs.overlays = overlays;
-      };
     };
 }

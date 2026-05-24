@@ -15,10 +15,6 @@
     nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
   };
 
-  flake.modules.darwin.overlays = {
-    nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
-  };
-
   flake.modules.nixos.niri-module = {
     imports = [ inputs.niri-flake.nixosModules.niri ];
     # Use the binary cache provided by github:sodiboo/niri-flake to speed up builds

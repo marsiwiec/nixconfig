@@ -5,5 +5,9 @@
       networkmanager.enable = true;
       # useDHCP = true;
     };
+    programs.localsend = {
+      enable = true;
+      openFirewall = true;
+    };
   };
 }

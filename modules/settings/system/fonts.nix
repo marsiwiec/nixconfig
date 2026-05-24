@@ -13,7 +13,4 @@
         ];
       };
     };
-  flake.modules.darwin.fonts = {
-
-  };
 }

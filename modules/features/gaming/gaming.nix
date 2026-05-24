@@ -13,7 +13,6 @@
         # heroic
         mangohud
         protonup-qt
-        bottles
       ];
 
       services.flatpak.packages = lib.mkIf config.services.flatpak.enable [

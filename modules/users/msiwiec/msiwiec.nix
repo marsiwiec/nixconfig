@@ -19,15 +19,10 @@ in
       dank-material-shell
       containers
       flatpak
-      localsend
-      nh
       niri
       R
       rclone
-      shell
-      # sunshine
       thunar
-      utils
     ];
 
     sops.secrets.github-token-nix-config = {
@@ -84,10 +79,5 @@ in
       name = git-username;
       email = git-email;
     };
-  };
-  flake.modules.darwin.msiwiec = {
-    imports = with inputs.self.modules.darwin; [
-      home-manager
-    ];
   };
 }
