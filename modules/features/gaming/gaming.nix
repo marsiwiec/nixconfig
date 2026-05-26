@@ -12,7 +12,8 @@
       environment.systemPackages = with pkgs; [
         # heroic
         mangohud
-        protonup-qt
+        # protonup-qt
+        protonplus
       ];
 
       services.flatpak.packages = lib.mkIf config.services.flatpak.enable [

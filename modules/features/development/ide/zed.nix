@@ -34,5 +34,8 @@
       home.packages = [
         zed-editor-wrapped
       ];
+      xdg.mimeApps.defaultApplications = {
+        "text/plain" = [ "dev.zed.Zed.desktop" ];
+      };
     };
 }
