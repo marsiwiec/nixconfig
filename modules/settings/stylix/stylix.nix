@@ -12,6 +12,7 @@
         ];
         stylix = {
           enable = true;
+          targets.kmscon.enable = false; # temp bugfix
           polarity = "dark";
           fonts = {
             monospace = {
