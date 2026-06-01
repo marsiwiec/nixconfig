@@ -4,10 +4,10 @@
     {
       home.packages = with pkgs; [
         (positron-bin.overrideAttrs (old: {
-          version = "2026.05.1-2";
+          version = "2026.06.0-211";
           src = pkgs.fetchurl {
-            url = "https://cdn.posit.co/positron/releases/deb/x86_64/Positron-2026.05.2-3-x64.deb";
-            hash = "sha256-oCW3E8dZNksaKWdRZOeqXwEIgX0oCfe6VvTxBe18jYc=";
+            url = "https://cdn.posit.co/positron/releases/deb/x86_64/Positron-2026.06.0-211-x64.deb";
+            hash = "sha256-YvnweVTKAvxZTR5/FY1VWt03Gx4LFa2faL+Z0AYCtpY=";
           };
           buildInputs = old.buildInputs ++ [
             pkgs.libsecret
