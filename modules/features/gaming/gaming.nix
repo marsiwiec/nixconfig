@@ -10,10 +10,11 @@
       };
 
       environment.systemPackages = with pkgs; [
-        # heroic
         mangohud
-        # protonup-qt
         protonplus
+
+        # some games below
+        brogue-ce
       ];
 
       services.flatpak.packages = lib.mkIf config.services.flatpak.enable [
