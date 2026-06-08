@@ -34,16 +34,11 @@
           #   config.allowUnfree = final.config.allowUnfree;
           # };
 
+          # Make nixpkgs-unstable accessible under 'pkgs.unstable' (lazy)
           unstable = import inputs.nixpkgs-unstable {
             system = final.stdenv.hostPlatform.system;
             config.allowUnfree = final.config.allowUnfree;
           };
-
-          # Skipping tests while upstream sorts it out, revert once
-          # Hydra consistently builds openldap green.
-          openldap = prev.openldap.overrideAttrs (_: {
-            doCheck = !prev.stdenv.hostPlatform.isi686;
-          });
         })
       ];
     in
