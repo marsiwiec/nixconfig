@@ -63,6 +63,14 @@
         yazi = {
           enable = true;
           shellWrapperName = "yy";
+          plugins = {
+            git = {
+              package = pkgs.yaziPlugins.git;
+              setup = true;
+              settings.order = 1500;
+            };
+            chmod = pkgs.yaziPlugins.chmod;
+          };
         };
         htop.enable = true;
         bat.enable = true;
