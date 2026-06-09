@@ -20,5 +20,11 @@
         key = "/run/secrets/syncthing/${config.networking.hostName}/key";
         cert = "/run/secrets/syncthing/${config.networking.hostName}/cert";
       };
+
+      # Ensure syncthing starts after sops secrets are available
+      systemd.services.syncthing = {
+        after = [ "sops-install-secrets.service" ];
+        requires = [ "sops-install-secrets.service" ];
+      };
     };
 }
