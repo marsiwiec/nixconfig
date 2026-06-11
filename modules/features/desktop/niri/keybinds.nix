@@ -41,7 +41,11 @@
         "Mod+Print" = dms "niri" [ "screenshotWindow" ];
         "Mod+Y" = dms "dankdash" [ "wallpaper" ];
 
-        "Mod+C" = dms "color" [ "pick" ];
+        "Mod+C".action.spawn = [
+          "dms"
+          "color"
+          "pick"
+        ];
         "Mod+Alt+L" = dms' "lock" [ "lock" ] {
           allow-when-locked = true;
         };
