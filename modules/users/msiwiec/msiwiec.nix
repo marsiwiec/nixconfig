@@ -47,6 +47,7 @@ in
     imports = with inputs.self.modules.homeManager; [
       ai
       devenv
+      devshells
       firefox
       git
       # ghostty
