@@ -7,7 +7,7 @@
         flake = "/home/${config.systemConstants.username}/nixconfig";
       };
       environment.shellAliases = {
-        update = "nh os switch --ask";
+        update = "NH_SHOW_ACTIVATION_LOGS=1 nh os switch --ask";
       };
     };
 }
