@@ -69,7 +69,7 @@
       }:
       {
         imports = with inputs.self.modules.homeManager; [
-          niri-keybinds
+          noctalia-keybinds
           niri-window-rules
         ];
 

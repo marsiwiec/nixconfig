@@ -16,10 +16,11 @@ in
     imports = with inputs.self.modules.nixos; [
       bitwarden
       bottles
-      dank-material-shell
+      # dank-material-shell
       containers
       flatpak
       niri
+      noctalia
       R
       rclone
       thunar
