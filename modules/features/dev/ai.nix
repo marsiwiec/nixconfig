@@ -6,5 +6,8 @@
         enable = true;
         package = pkgs.unstable.opencode;
       };
+      home.packages = with pkgs; [
+        nodejs
+      ];
     };
 }
