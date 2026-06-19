@@ -61,12 +61,17 @@
         imports = [
           inputs.dank-material-shell.homeModules.dank-material-shell
           inputs.dank-material-shell.homeModules.niri
+          inputs.dank-calendar.homeModules.dank-calendar
         ];
 
         home.sessionVariables = {
-          DMS_HIDE_TRAYIDS = "spotify-client";
+          DMS_HIDE_TRAYIDS = "spotify-client,dank-calendar";
         };
         programs = {
+          dank-calendar = {
+            enable = true;
+            systemd.enable = true;
+          };
           dank-material-shell = {
             enable = true;
             systemd.enable = true;
@@ -78,8 +83,8 @@
               audioVisualizerEnabled = false;
               clockCompactMode = false;
               appsDockEnlargePercentage = 125;
-              weatherEnabled = false;
-              showWeather = false;
+              weatherEnabled = true;
+              showWeather = true;
               notepadFontSize = 18;
               acMonitorTimeout = 3600;
               acLockTimeout = 1200;
