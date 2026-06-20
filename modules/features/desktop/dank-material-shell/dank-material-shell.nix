@@ -83,8 +83,8 @@
               audioVisualizerEnabled = false;
               clockCompactMode = false;
               appsDockEnlargePercentage = 125;
-              weatherEnabled = true;
-              showWeather = true;
+              weatherEnabled = false;
+              showWeather = false;
               notepadFontSize = 18;
               acMonitorTimeout = 3600;
               acLockTimeout = 1200;
@@ -96,6 +96,7 @@
               fadeToDpmsGracePeriod = 5;
               launcherLogoMode = "os";
               showWorkspacePadding = true;
+              showOccupiedWorkspacesOnly = true;
               muxType = "zellij";
 
               barConfigs = [
