@@ -80,12 +80,6 @@
                 "language-server"
               ];
             };
-            jarl = {
-              command = lib.getExe pkgs.jarl;
-              args = [
-                "server"
-              ];
-            };
             pyrefly = {
               command = lib.getExe pkgs.pyrefly;
               args = [ "lsp" ];
@@ -102,7 +96,7 @@
               auto-format = true;
               language-servers = [
                 "air"
-                "jarl"
+                "r"
               ];
             }
             {
