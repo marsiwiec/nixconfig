@@ -1,32 +1,38 @@
 {
   flake.modules.nixos.nixgroot-filesystem = {
-    fileSystems = {
-      "/" = {
-        device = "/dev/disk/by-uuid/15a37742-fbb6-4f2a-9928-5475762ff986";
-        fsType = "btrfs";
-        options = [ "subvol=root" ];
-      };
 
-      "/nix" = {
-        device = "/dev/disk/by-uuid/15a37742-fbb6-4f2a-9928-5475762ff986";
-        fsType = "btrfs";
-        options = [ "subvol=nix" ];
-      };
-
-      "/home" = {
-        device = "/dev/disk/by-uuid/fbc2dd82-45f4-4fc9-968a-f13e68201a3d";
-        fsType = "btrfs";
-      };
-
-      "/boot" = {
-        device = "/dev/disk/by-uuid/19CC-F4B9";
-        fsType = "vfat";
-        options = [
-          "fmask=0022"
-          "dmask=0022"
-        ];
-      };
+    fileSystems."/" = {
+      device = "/dev/disk/by-uuid/af5dc428-bd74-4012-97af-c9db8b02755b";
+      fsType = "btrfs";
     };
+
+    fileSystems."/nix" = {
+      device = "/dev/disk/by-uuid/af5dc428-bd74-4012-97af-c9db8b02755b";
+      fsType = "btrfs";
+      options = [ "subvol=nix" ];
+    };
+
+    fileSystems."/home" = {
+      device = "/dev/disk/by-uuid/af5dc428-bd74-4012-97af-c9db8b02755b";
+      fsType = "btrfs";
+      options = [ "subvol=home" ];
+    };
+
+    fileSystems."/home/msiwiec/Games" = {
+      device = "/dev/disk/by-uuid/ba3094ab-71c9-43be-8ae3-48510a13676d";
+      fsType = "btrfs";
+      options = [ "compress=zstd" ];
+    };
+
+    fileSystems."/boot" = {
+      device = "/dev/disk/by-uuid/2F7B-0FC7";
+      fsType = "vfat";
+      options = [
+        "fmask=0077"
+        "dmask=0077"
+      ];
+    };
+
     swapDevices = [ ];
   };
 }
