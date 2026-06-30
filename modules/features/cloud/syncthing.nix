@@ -11,7 +11,7 @@
         devices = {
           nixgroot = {
             name = "nixgroot";
-            id = "G2GCZQ7-3VUGKZ2-YFWYNDM-SODAD27-ZOPZQKO-AZAC5WL-QLJQQXS-PXGA6QR";
+            id = "4CEZVD4-OCVN6D4-PXIJIAB-QVRH3GC-VDFDQWV-PT3J25F-AEKJEON-JXHUWQH";
           };
           labnix = {
             name = "labnix";
