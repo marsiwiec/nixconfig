@@ -4,6 +4,9 @@
     networking.nftables.enable = true; # Replaces iptables
     services.dbus.implementation = "broker"; # Faster, more secure D-Bus
 
-    security.polkit.enable = true;
+    security.polkit = {
+      enable = true;
+      enablePkexecWrapper = true; # gparted needs a setuid pkexec
+    };
   };
 }
