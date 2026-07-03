@@ -169,6 +169,11 @@
                       enabled = true;
                     }
                     {
+                      id = "cpuTemp";
+                      enabled = true;
+                      minimumWidth = true;
+                    }
+                    {
                       id = "spacer";
                       enabled = true;
                       size = 20;
