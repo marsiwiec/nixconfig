@@ -20,7 +20,7 @@ in
       containers
       flatpak
       niri
-      # R
+      R
       rclone
       thunar
     ];
