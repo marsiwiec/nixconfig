@@ -21,6 +21,9 @@
         cert = "/run/secrets/syncthing/${config.networking.hostName}/cert";
       };
 
+      # APC UPS monitoring and safety features
+      services.apcupsd.enable = true;
+
       # Ensure syncthing starts after sops secrets are available
       systemd.services.syncthing = {
         after = [ "sops-install-secrets.service" ];

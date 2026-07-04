@@ -20,6 +20,7 @@
           gaming
           msiwiec
           nixgroot-filesystem
+          nixgroot-cooling
           nvidia
           nvidia-passthrough
         ];
