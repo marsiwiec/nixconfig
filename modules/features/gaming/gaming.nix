@@ -9,6 +9,10 @@
         gamemode.enable = true;
       };
 
+      users.users.${config.systemConstants.username} = {
+        extraGroups = [ "gamemode" ];
+      };
+
       environment.systemPackages = with pkgs; [
         mangohud
         protonplus
