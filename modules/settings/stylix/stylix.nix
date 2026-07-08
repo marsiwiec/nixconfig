@@ -43,7 +43,12 @@
         };
       };
     homeManager.stylix =
-      { osConfig, ... }:
+      {
+        osConfig,
+        config,
+        lib,
+        ...
+      }:
       {
         stylix = {
           icons = osConfig.stylix.icons;
@@ -54,6 +59,11 @@
             # gtk.flatpakSupport.enable = false; # flatpak fix
           };
         };
+
+        # Workaround for home-manager removing legacy auto-enable of pointerCursor.
+        # Stylix sets home.pointerCursor fields but not enable = true, so the
+        # cursor theme is no longer installed/enabled without this.
+        home.pointerCursor.enable = true;
       };
   };
 }
