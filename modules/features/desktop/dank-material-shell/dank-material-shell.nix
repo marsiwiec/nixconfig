@@ -232,6 +232,16 @@
                   enabled = true;
                   width = 50;
                 }
+                {
+                  id = "builtin_tailscale";
+                  enabled = true;
+                  width = 50;
+                }
+                {
+                  id = "builtin_vpn";
+                  enabled = true;
+                  width = 50;
+                }
               ];
             };
           };

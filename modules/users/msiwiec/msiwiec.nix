@@ -20,6 +20,7 @@ in
       containers
       flatpak
       niri
+      protonvpn
       R
       rclone
       thunar
