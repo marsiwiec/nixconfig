@@ -52,21 +52,24 @@
         description = "Tailscale slice";
       };
 
+      # Mark all outgoing traffic from tailscaled so it can bypass ProtonVPN.
+      # The cgroup path only exists once tailscaled has started, so add the nftables
+      # rule from ExecStartPost instead of from networking.nftables.tables.
       systemd.services.tailscaled.serviceConfig = {
         Slice = "tailscale.slice";
-      };
-
-      # Mark all outgoing traffic from tailscaled so it can bypass ProtonVPN.
-      # The cgroup path is only present at runtime, so disable the build-time ruleset check.
-      networking.nftables.checkRuleset = lib.mkForce false;
-      networking.nftables.tables.tailscale-bypass = {
-        family = "inet";
-        content = ''
-          chain output {
-            type filter hook output priority mangle;
-            socket cgroupv2 level 2 "tailscale.slice/tailscaled.service" meta mark set ${fwmark}
-          }
-        '';
+        ExecStartPost = [
+          (pkgs.writeShellScript "tailscale-bypass-nftables-start" ''
+            ${pkgs.nftables}/bin/nft delete table inet tailscale-bypass 2>/dev/null || true
+            ${pkgs.nftables}/bin/nft add table inet tailscale-bypass
+            ${pkgs.nftables}/bin/nft add chain inet tailscale-bypass output { type filter hook output priority mangle \; }
+            ${pkgs.nftables}/bin/nft add rule inet tailscale-bypass output socket cgroupv2 level 2 "tailscale.slice/tailscaled.service" meta mark set ${fwmark}
+          '')
+        ];
+        ExecStopPost = lib.mkAfter [
+          (pkgs.writeShellScript "tailscale-bypass-nftables-stop" ''
+            ${pkgs.nftables}/bin/nft delete table inet tailscale-bypass 2>/dev/null || true
+          '')
+        ];
       };
 
       # Route marked packets through a dedicated table that uses the physical interface.
