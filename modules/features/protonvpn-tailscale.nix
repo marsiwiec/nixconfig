@@ -10,7 +10,6 @@
       cfg = config.services.tailscale;
       fwmark = "0x5253";
       tailscaleFwmark = "0x80000/0xff0000";
-      port = toString cfg.port;
 
       dispatcherScript = pkgs.writeText "tailscale-bypass-route" ''
         #!/bin/sh
@@ -47,13 +46,25 @@
     lib.mkIf cfg.enable {
       environment.etc."iproute2/rt_tables.d/tailscale.conf".text = "100 tailscale_bypass\n";
 
-      # Mark outgoing Tailscale direct-UDP packets so they can bypass ProtonVPN.
+      # Run tailscaled in a dedicated slice so we can match all of its sockets
+      # in nftables and bypass ProtonVPN's kill-switch for the daemon.
+      systemd.slices.tailscale = {
+        description = "Tailscale slice";
+      };
+
+      systemd.services.tailscaled.serviceConfig = {
+        Slice = "tailscale.slice";
+      };
+
+      # Mark all outgoing traffic from tailscaled so it can bypass ProtonVPN.
+      # The cgroup path is only present at runtime, so disable the build-time ruleset check.
+      networking.nftables.checkRuleset = lib.mkForce false;
       networking.nftables.tables.tailscale-bypass = {
         family = "inet";
         content = ''
           chain output {
             type filter hook output priority mangle;
-            udp sport ${port} meta mark set ${fwmark}
+            socket cgroupv2 level 2 "tailscale.slice/tailscaled.service" meta mark set ${fwmark}
           }
         '';
       };
@@ -76,10 +87,12 @@
           Type = "oneshot";
           RemainAfterExit = true;
           ExecStop = ''
+            ${pkgs.iproute2}/bin/ip rule del fwmark ${fwmark} to 100.64.0.0/10 lookup 52 prio 505 2>/dev/null || true
+            ${pkgs.iproute2}/bin/ip -6 rule del fwmark ${fwmark} to fd7a:115c:a1e0::/48 lookup 52 prio 505 2>/dev/null || true
             ${pkgs.iproute2}/bin/ip rule del fwmark ${fwmark} lookup tailscale_bypass prio 1000 2>/dev/null || true
             ${pkgs.iproute2}/bin/ip -6 rule del fwmark ${fwmark} lookup tailscale_bypass prio 1000 2>/dev/null || true
-            ${pkgs.iproute2}/bin/ip rule del fwmark ${tailscaleFwmark} to 100.64.0.0/10 lookup main prio 505 2>/dev/null || true
-            ${pkgs.iproute2}/bin/ip -6 rule del fwmark ${tailscaleFwmark} to fd7a:115c:a1e0::/48 lookup main prio 505 2>/dev/null || true
+            ${pkgs.iproute2}/bin/ip rule del fwmark ${tailscaleFwmark} to 100.64.0.0/10 lookup 52 prio 505 2>/dev/null || true
+            ${pkgs.iproute2}/bin/ip -6 rule del fwmark ${tailscaleFwmark} to fd7a:115c:a1e0::/48 lookup 52 prio 505 2>/dev/null || true
             ${pkgs.iproute2}/bin/ip rule del fwmark ${tailscaleFwmark} lookup tailscale_bypass prio 510 2>/dev/null || true
             ${pkgs.iproute2}/bin/ip -6 rule del fwmark ${tailscaleFwmark} lookup tailscale_bypass prio 510 2>/dev/null || true
           '';
@@ -90,7 +103,16 @@
             echo "100 tailscale_bypass" >> /etc/iproute2/rt_tables
           fi
 
-          # Route marked Tailscale direct-UDP packets through the bypass table
+          # Tailnet traffic must still reach the tailscale0 interface, so send marked
+          # packets destined for Tailnet IPs to Tailscale's own routing table.
+          if ! ip rule show | grep -q "fwmark ${fwmark} to 100.64.0.0/10 lookup 52"; then
+            ip rule add fwmark ${fwmark} to 100.64.0.0/10 lookup 52 prio 505
+          fi
+          if ! ip -6 rule show | grep -q "fwmark ${fwmark} to fd7a:115c:a1e0::/48 lookup 52"; then
+            ip -6 rule add fwmark ${fwmark} to fd7a:115c:a1e0::/48 lookup 52 prio 505
+          fi
+
+          # Route other marked Tailscale traffic through the bypass table.
           if ! ip rule show | grep -q "fwmark ${fwmark} lookup tailscale_bypass"; then
             ip rule add fwmark ${fwmark} lookup tailscale_bypass prio 1000
           fi
@@ -101,13 +123,13 @@
           # Tailscale marks all of its own traffic with fwmark 0x80000 to avoid routing
           # loops. With ProtonVPN's permanent kill-switch active, that mark would otherwise
           # be routed to the kill-switch dummy interface and dropped. Send Tailnet traffic
-          # back to the main table (tailscale0 route) and everything else out the physical
-          # interface via the bypass table.
-          if ! ip rule show | grep -q "fwmark ${tailscaleFwmark} to 100.64.0.0/10 lookup main"; then
-            ip rule add fwmark ${tailscaleFwmark} to 100.64.0.0/10 lookup main prio 505
+          # to Tailscale's own routing table (tailscale0 route) and everything else out the
+          # physical interface via the bypass table.
+          if ! ip rule show | grep -q "fwmark ${tailscaleFwmark} to 100.64.0.0/10 lookup 52"; then
+            ip rule add fwmark ${tailscaleFwmark} to 100.64.0.0/10 lookup 52 prio 505
           fi
-          if ! ip -6 rule show | grep -q "fwmark ${tailscaleFwmark} to fd7a:115c:a1e0::/48 lookup main"; then
-            ip -6 rule add fwmark ${tailscaleFwmark} to fd7a:115c:a1e0::/48 lookup main prio 505
+          if ! ip -6 rule show | grep -q "fwmark ${tailscaleFwmark} to fd7a:115c:a1e0::/48 lookup 52"; then
+            ip -6 rule add fwmark ${tailscaleFwmark} to fd7a:115c:a1e0::/48 lookup 52 prio 505
           fi
           if ! ip rule show | grep -q "fwmark ${tailscaleFwmark} lookup tailscale_bypass"; then
             ip rule add fwmark ${tailscaleFwmark} lookup tailscale_bypass prio 510
