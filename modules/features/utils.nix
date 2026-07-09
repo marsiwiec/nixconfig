@@ -23,7 +23,10 @@
     homeManager.utils = {
       programs = {
         jq.enable = true;
-        fzf.enable = true;
+        fzf = {
+          enable = true;
+          historyWidget.command = ""; # yield control of ctrl-R to atuin
+        };
       };
     };
   };
