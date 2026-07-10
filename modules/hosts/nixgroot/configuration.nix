@@ -13,6 +13,7 @@
       {
         home-manager.sharedModules = [
           inputs.self.modules.homeManager.niri-outputs-nixgroot
+          inputs.self.modules.homeManager.nixgroot-protonvpn-settings
         ];
         imports = with inputs.self.modules.nixos; [
           host-common
@@ -23,6 +24,8 @@
           nixgroot-cooling
           nvidia
           nvidia-passthrough
+          protonvpn
+          protonvpn-tailscale
         ];
 
         ### Fix for Lexar nvme SSDs ###
