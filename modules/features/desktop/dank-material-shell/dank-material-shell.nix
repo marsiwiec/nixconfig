@@ -130,7 +130,7 @@
                     {
                       id = "spacer";
                       enabled = true;
-                      size = 20;
+                      size = 15;
                     }
                     {
                       id = "controlCenterButton";
@@ -139,7 +139,7 @@
                     {
                       id = "spacer";
                       enabled = true;
-                      size = 20;
+                      size = 15;
                     }
                     {
                       id = "dankPomodoroTimer";
@@ -152,7 +152,7 @@
                     {
                       id = "spacer";
                       enabled = true;
-                      size = 20;
+                      size = 15;
                     }
                     {
                       id = "cpuUsage";
@@ -169,14 +169,9 @@
                       enabled = true;
                     }
                     {
-                      id = "cpuTemp";
-                      enabled = true;
-                      minimumWidth = true;
-                    }
-                    {
                       id = "spacer";
                       enabled = true;
-                      size = 20;
+                      size = 15;
                     }
                     {
                       id = "dockerManager";
