@@ -98,6 +98,7 @@
               showWorkspacePadding = true;
               showOccupiedWorkspacesOnly = true;
               muxType = "zellij";
+              systemTrayIconTintMode = "monochrome";
 
               barConfigs = [
                 {
