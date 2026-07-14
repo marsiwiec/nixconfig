@@ -98,7 +98,11 @@
               showWorkspacePadding = true;
               showOccupiedWorkspacesOnly = true;
               muxType = "zellij";
-              systemTrayIconTintMode = "monochrome";
+              systemTrayIconTintMode = "primary";
+              cursorSettings = {
+                theme = config.stylix.cursor.name;
+                size = config.stylix.cursor.size;
+              };
 
               barConfigs = [
                 {
