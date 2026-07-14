@@ -10,8 +10,8 @@
     }:
     {
       imports = [
-        # inputs.self.modules.homeManager.niri-keybinds-dms
-        inputs.self.modules.homeManager.niri-keybinds-noctalia
+        inputs.self.modules.homeManager.niri-keybinds-dms
+        # inputs.self.modules.homeManager.niri-keybinds-noctalia
       ];
     };
 }
