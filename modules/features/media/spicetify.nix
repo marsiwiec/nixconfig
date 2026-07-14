@@ -16,6 +16,7 @@
       ];
       programs.spicetify = {
         enable = true;
+        spicetifyPackage = pkgs.master.spicetify-cli;
         enabledExtensions = with spicePkgs.extensions; [
           hidePodcasts
         ];

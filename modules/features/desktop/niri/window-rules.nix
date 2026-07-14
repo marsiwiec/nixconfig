@@ -20,6 +20,16 @@
           {
             matches = [
               {
+                app-id = "dev.noctalia.Noctalia";
+              }
+            ];
+            open-floating = true;
+            default-column-width.fixed = 1080;
+            default-window-height.fixed = 920;
+          }
+          {
+            matches = [
+              {
                 app-id = "org.wezfurlong.wezterm";
               }
             ];
