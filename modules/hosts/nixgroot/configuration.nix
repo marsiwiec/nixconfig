@@ -37,7 +37,7 @@
         networking.hostName = "nixgroot";
         stylix = {
           image = "${config.systemConstants.wallpaperDir}/flowers.png";
-          base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest.yaml";
+          base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-soft.yaml";
         };
       };
   };
