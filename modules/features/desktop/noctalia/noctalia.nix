@@ -5,7 +5,7 @@
 }:
 {
   flake.modules.nixos.noctalia =
-    { config, ... }:
+    { config, pkgs, ... }:
     {
 
       nix.settings = {
@@ -18,6 +18,10 @@
       imports = [
         inputs.noctalia.nixosModules.default
         inputs.noctalia-greeter.nixosModules.default
+      ];
+
+      environment.systemPackages = with pkgs; [
+        hyprpicker
       ];
 
       programs.noctalia = {

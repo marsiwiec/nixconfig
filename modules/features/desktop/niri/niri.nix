@@ -51,7 +51,6 @@
           cage
           xwayland-satellite
           swaybg
-          hyprpicker
         ];
 
         programs = {
