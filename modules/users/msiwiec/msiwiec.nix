@@ -20,7 +20,7 @@ in
       flatpak
       niri
       # noctalia
-      # R
+      R
       rclone
       thunar
     ];

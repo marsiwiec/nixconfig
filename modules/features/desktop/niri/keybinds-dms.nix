@@ -52,6 +52,7 @@
           "dms"
           "color"
           "pick"
+          "-a"
         ];
 
         # Lock / Kill quickshell

@@ -10,10 +10,9 @@
     { pkgs, ... }:
     {
       home.packages =
-        with pkgs;
         let
-          RStudio-with-my-packages = rstudioWrapper.override {
-            packages = with rPackages; [
+          RStudio-with-my-packages = pkgs.unstable.rstudioWrapper.override {
+            packages = with pkgs.rPackages; [
               tidyverse
               patchwork
               drc
@@ -26,7 +25,7 @@
         in
         [
           RStudio-with-my-packages
-          quarto
+          pkgs.quarto
         ];
     };
 }
