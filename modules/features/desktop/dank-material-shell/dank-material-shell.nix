@@ -16,10 +16,10 @@
           inputs.self.modules.homeManager.dank-material-shell
         ];
         imports = [
-          inputs.dank-material-shell.nixosModules.greeter
+          inputs.dank-greeter.nixosModules.default
         ];
         programs = {
-          dank-material-shell.greeter = {
+          dms-greeter = {
             enable = true;
             compositor.name = "niri";
             configHome = "${userhome}";
