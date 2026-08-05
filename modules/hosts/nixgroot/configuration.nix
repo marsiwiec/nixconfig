@@ -25,8 +25,8 @@
           nixgroot-cooling
           nvidia
           nvidia-passthrough
-          protonvpn
-          protonvpn-tailscale
+          # protonvpn
+          # protonvpn-tailscale
         ];
 
         ### Fix for Lexar nvme SSDs ###
