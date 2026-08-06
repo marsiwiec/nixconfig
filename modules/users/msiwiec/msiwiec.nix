@@ -51,6 +51,7 @@ in
         devenv
         devshells
         firefox
+        foot
         git
         # ghostty
         graphics-software
