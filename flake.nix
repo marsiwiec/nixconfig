@@ -20,7 +20,7 @@
     };
     home-manager.url = "github:nix-community/home-manager";
     import-tree.url = "github:vic/import-tree";
-    niri-flake.url = "github:sodiboo/niri-flake";
+    niri-flake.url = "github:sodiboo/niri-flake/6bb99ff875919f03ea6054026619d999061e1170";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
