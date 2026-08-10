@@ -14,7 +14,10 @@
       };
       users.defaultUserShell = pkgs.zsh;
       programs = {
-        zsh.enable = true;
+        zsh = {
+          enable = true;
+          enableGlobalCompInit = false;
+        };
         gnupg.agent.enable = true;
       };
     };
@@ -33,6 +36,14 @@
         duf
         just
       ];
+      home.activation.regenerateZshCompletionDump = lib.mkAfter ''
+        zshCompdump="${config.xdg.configHome}/zsh/.zcompdump"
+        rm -f "$zshCompdump"
+        ${pkgs.zsh}/bin/zsh -i -c 'exit' >/dev/null 2>&1 || true
+        if [[ ! -f "$zshCompdump" ]]; then
+          echo "home-manager: warning: failed to regenerate zsh completion dump" >&2
+        fi
+      '';
       home.shell.enableNushellIntegration = true;
       home.shell.enableZshIntegration = true;
       home.shellAliases = {
@@ -84,6 +95,7 @@
         zsh = {
           enable = true;
           dotDir = "${config.xdg.configHome}/zsh";
+          completionInit = "autoload -U compinit && compinit -C";
           autosuggestion.enable = true;
           syntaxHighlighting.enable = true;
           shellAliases = {
