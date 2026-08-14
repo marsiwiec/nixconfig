@@ -104,7 +104,7 @@
             nixdiff = "nix run nixpkgs#nvd -- diff $(ls -d1v /nix/var/nix/profiles/system-*-link|tail -n 2)";
           };
           defaultKeymap = "emacs";
-          initContent = lib.mkIf pkgs.stdenv.isLinux ''
+          initContent = lib.mkIf pkgs.stdenv.hostPlatform.isLinux ''
             if [[ $(wezterm cli list | wc -l) -eq 2 ]]; then
               date
               ${lib.getExe pkgs.microfetch}

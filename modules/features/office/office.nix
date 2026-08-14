@@ -8,7 +8,7 @@
           obsidian
         ];
       }
-      (lib.mkIf (pkgs.stdenv.isLinux) {
+      (lib.mkIf (pkgs.stdenv.hostPlatform.isLinux) {
         home.packages = with pkgs; [
           # libreoffice
           gnumeric
@@ -26,7 +26,7 @@
           };
         };
       })
-      (lib.mkIf (pkgs.stdenv.isDarwin) {
+      (lib.mkIf (pkgs.stdenv.hostPlatform.isDarwin) {
         home.packages = with pkgs; [
           libreoffice-bin
         ];
