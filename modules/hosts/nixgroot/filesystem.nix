@@ -24,6 +24,12 @@
       options = [ "compress=zstd" ];
     };
 
+    fileSystems."/home/msiwiec/Pictures/Photos" = {
+      device = "/dev/disk/by-uuid/86db8223-2023-421b-922d-a6942876bcd5";
+      fsType = "btrfs";
+      options = [ "compress=zstd" ];
+    };
+
     fileSystems."/boot" = {
       device = "/dev/disk/by-uuid/2F7B-0FC7";
       fsType = "vfat";
