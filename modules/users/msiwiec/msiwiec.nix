@@ -50,6 +50,7 @@ in
         ai
         devenv
         devshells
+        emacs
         firefox
         foot
         git
