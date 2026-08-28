@@ -1,7 +1,7 @@
 {
   flake-file.inputs = {
     dank-material-shell = {
-      url = "github:AvengeMedia/DankMaterialShell";
+      url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dank-greeter = {
