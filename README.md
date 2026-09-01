@@ -25,16 +25,20 @@ This repository contains my personal system configurations for various machines.
 
 ### `nixpad` — ThinkPad T14 Gen3 (AMD)
 
-The `nixpad` host uses LUKS + BTRFS with **TPM2-based unlock** (recommended,
-enroll after first boot):
+The `nixpad` host uses LUKS + BTRFS with **passphrase-only unlock** — the
+LUKS passphrase is typed in the initrd at every boot.
+
+TPM2-based auto-unlock is available as an optional convenience:
 
 ```bash
 sudo systemd-cryptenroll --tpm2-device=auto /dev/nvme0n1p2
 ```
 
-This keeps the passphrase as a fallback and enables automatic, secure
-unlock without an unencrypted `/boot`. The fingerprint reader remains
-handy for `sudo`, Polkit prompts, and screen unlock (`fprintd-enroll`).
+Only pair it with Secure Boot (e.g. via lanzaboote): without it, the TPM
+binds to a boot state that cannot detect initrd tampering, so
+passphrase-only unlock is the safer default. The fingerprint reader
+remains handy for `sudo`, Polkit prompts, and screen unlock
+(`fprintd-enroll`).
 
 ## 📂 Project Structure
 

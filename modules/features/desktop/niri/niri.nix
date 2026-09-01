@@ -112,6 +112,19 @@
             };
             focus-follows-mouse.enable = true;
             warp-mouse-to-focus.enable = true;
+
+            # ThinkPad TrackPoint (TPPS/2 Synaptics). Driver-level tuning
+            # (sensitivity/speed) lives in nixpad-laptop via hardware.trackpoint.
+            trackpoint = {
+              # Classic middle-button scrolling: hold the middle TrackPoint
+              # button and push the stick. Replaces the X11-only
+              # hardware.trackpoint.emulateWheel, which niri ignores.
+              # A plain click (no stick movement) still sends a middle click.
+              scroll-method = "on-button-down";
+              scroll-button = 274; # BTN_MIDDLE
+              # accel-speed: -1.0 to 1.0 (default 0.0)
+              # accel-profile: "adaptive" (default) or "flat"
+            };
           };
 
           layout = {

@@ -18,47 +18,56 @@ in
   #   umount /mnt
   # Get UUIDs for this file:
   #   lsblk -o NAME,UUID,FSTYPE
-  flake.modules.nixos.nixpad-filesystem = {
+  flake.modules.nixos.nixpad-filesystem =
+    { lib, ... }:
+    {
 
-    # Modern systemd stage-1 with TPM2-based unlock (recommended — enroll after
-    # first boot with: sudo systemd-cryptenroll --tpm2-device=auto /dev/nvme0n1p2).
-    # Keeps passphrase unlock as fallback, no unencrypted /boot needed.
-    boot.initrd.systemd.enable = true;
+      # Modern systemd stage-1. Unlock is passphrase-only (TPM2 token was
+      # removed from the LUKS header). TPM2 auto-unlock remains an option —
+      # enroll with: sudo systemd-cryptenroll --tpm2-device=auto /dev/nvme0n1p2
+      # — but only together with Secure Boot, otherwise passphrase-only is safer.
+      boot.initrd.systemd.enable = true;
 
-    boot.initrd.luks.devices.luksroot = {
-      device = "/dev/disk/by-uuid/8b0d8b88-c447-45c6-978c-4bcd7c8fb2da";
-      # NVMe TRIM support while encrypted
-      allowDiscards = true;
-    };
+      boot.initrd.luks.devices.luksroot = {
+        device = "/dev/disk/by-uuid/8b0d8b88-c447-45c6-978c-4bcd7c8fb2da";
+        # NVMe TRIM support while encrypted
+        allowDiscards = true;
+      };
 
-    fileSystems."/" = {
-      device = luksMapped;
-      fsType = "btrfs";
-    };
+      fileSystems."/" = {
+        device = luksMapped;
+        fsType = "btrfs";
+      };
 
-    fileSystems."/nix" = {
-      device = luksMapped;
-      fsType = "btrfs";
-      options = [ "subvol=nix" ];
-    };
+      fileSystems."/nix" = {
+        device = luksMapped;
+        fsType = "btrfs";
+        options = [ "subvol=nix" ];
+      };
 
-    fileSystems."/home" = {
-      device = luksMapped;
-      fsType = "btrfs";
-      options = [ "subvol=home" ];
-    };
+      fileSystems."/home" = {
+        device = luksMapped;
+        fsType = "btrfs";
+        options = [ "subvol=home" ];
+      };
 
-    fileSystems."/boot" = {
-      device = "/dev/disk/by-uuid/FCC5-B5BB";
-      fsType = "vfat";
-      options = [
-        "fmask=0077"
-        "dmask=0077"
+      fileSystems."/boot" = {
+        device = "/dev/disk/by-uuid/FCC5-B5BB";
+        fsType = "vfat";
+        options = [
+          "fmask=0077"
+          "dmask=0077"
+        ];
+      };
+
+      # No swap on this host: disables the 64G swapfile from `default-settings`.
+      # Hibernation is therefore impossible, which also means no memory image
+      # can ever leak to disk — the desired tradeoff for a theft-prone laptop.
+      swapDevices = lib.mkForce [
+        {
+          device = "/var/lib/swapfile";
+          size = 16 * 1024;
+        }
       ];
     };
-
-    # The default swapfile (64G, from `default-settings`) now also
-    # lives inside the LUKS volume, which makes hibernate safe.
-    swapDevices = [ ];
-  };
 }
