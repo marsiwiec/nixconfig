@@ -43,5 +43,17 @@
           };
         };
       };
+
+      ### Unlock github and gitea ssh passkeys on login (same as the DMS setup)
+      services.gnome.gnome-keyring.enable = true;
+      security.pam.services = {
+        login.enableGnomeKeyring = true;
+        greetd.enableGnomeKeyring = true;
+        greetd-password.enableGnomeKeyring = true;
+      };
+      services.dbus.packages = with pkgs; [
+        gnome-keyring
+        gcr
+      ];
     };
 }

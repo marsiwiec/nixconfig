@@ -21,6 +21,20 @@ This repository contains my personal system configurations for various machines.
 |------|---------|-------|
 | `nixgroot` | Main Desktop (Gaming, NVIDIA, Passthrough) | Everforest |
 | `labnix` | Work/Lab Machine | Catppuccin Frappe |
+| `nixpad` | ThinkPad T14 Gen3 (AMD) Laptop, LUKS + BTRFS, niri + noctalia | Everforest |
+
+### `nixpad` — ThinkPad T14 Gen3 (AMD)
+
+The `nixpad` host uses LUKS + BTRFS with **TPM2-based unlock** (recommended,
+enroll after first boot):
+
+```bash
+sudo systemd-cryptenroll --tpm2-device=auto /dev/nvme0n1p2
+```
+
+This keeps the passphrase as a fallback and enables automatic, secure
+unlock without an unencrypted `/boot`. The fingerprint reader remains
+handy for `sudo`, Polkit prompts, and screen unlock (`fprintd-enroll`).
 
 ## 📂 Project Structure
 

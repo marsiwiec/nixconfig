@@ -17,9 +17,9 @@
             name = "labnix";
             id = "PVREYAJ-J3Y2ZE5-SSBEXZG-336PJNT-5YHGUOY-WBWPGZI-G635EFU-UJCFAQ2";
           };
-          macnix = {
-            name = "macnix";
-            id = "AWTAL37-2RF3F5N-D652ZXD-FCOHPUC-2IGHBR4-JQGCDCK-QWRAHED-56A2AAN";
+          nixpad = {
+            name = "nixpad";
+            id = "BJQNGQ3-XETJ7LU-LJHR45H-2LG3P5Z-H6AFKT7-R6PUNX6-YRIPHXX-A6TDNQA";
           };
           qnap = {
             name = "qnap";
@@ -39,7 +39,7 @@
             devices = [
               "nixgroot"
               "labnix"
-              "macnix"
+              "nixpad"
               "qnap"
             ];
           };

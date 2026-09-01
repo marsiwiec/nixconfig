@@ -14,6 +14,7 @@
       {
         home-manager.sharedModules = [
           inputs.self.modules.homeManager.niri-outputs-nixgroot
+          inputs.self.modules.homeManager.niri-keybinds-dms
           inputs.self.modules.homeManager.nixgroot-protonvpn-settings
         ];
         imports = with inputs.self.modules.nixos; [
@@ -21,6 +22,7 @@
           default-settings
           gaming
           msiwiec
+          dank-material-shell
           nixgroot-filesystem
           nixgroot-cooling
           nvidia

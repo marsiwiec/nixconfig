@@ -68,8 +68,8 @@
         ...
       }:
       {
+        # NOTE: keybinds are chosen per-host (niri-keybinds-dms or niri-keybinds-noctalia)
         imports = with inputs.self.modules.homeManager; [
-          niri-keybinds
           niri-window-rules
         ];
 

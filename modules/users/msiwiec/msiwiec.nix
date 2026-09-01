@@ -13,13 +13,12 @@ in
     home-manager.users.msiwiec = {
       imports = [ inputs.self.modules.homeManager.msiwiec ];
     };
+    # NOTE: the desktop shell (dank-material-shell or noctalia) is chosen per-host
     imports = with inputs.self.modules.nixos; [
       bottles
-      dank-material-shell
       containers
       flatpak
       niri
-      # noctalia
       R
       rclone
       thunar
