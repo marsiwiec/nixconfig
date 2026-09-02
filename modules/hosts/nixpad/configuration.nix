@@ -24,6 +24,7 @@
           noctalia
           nixpad-filesystem
           nixpad-laptop
+          nixpad-secureboot
         ];
 
         networking.hostName = "nixpad";
