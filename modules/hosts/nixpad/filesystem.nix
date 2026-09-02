@@ -60,14 +60,21 @@ in
         ];
       };
 
-      # No swap on this host: disables the 64G swapfile from `default-settings`.
-      # Hibernation is therefore impossible, which also means no memory image
-      # can ever leak to disk — the desired tradeoff for a theft-prone laptop.
+      # 32 GB encrypted swapfile inside the LUKS volume (overrides the 64G
+      # from default-settings). Sized well above the 16G RAM so the compressed
+      # hibernation image always fits with headroom, on a btrfs root that is
+      # itself zstd-compressed. Sealed at rest along with everything else.
       swapDevices = lib.mkForce [
         {
           device = "/var/lib/swapfile";
-          size = 16 * 1024;
+          size = 32 * 1024;
         }
+      ];
+
+      # For hibernation
+      boot.resumeDevice = "/dev/mapper/luksroot";
+      boot.kernelParams = [
+        "resume_offset=17710765"
       ];
     };
 }

@@ -14,6 +14,7 @@
         home-manager.sharedModules = [
           inputs.self.modules.homeManager.niri-outputs-nixpad
           inputs.self.modules.homeManager.niri-keybinds-noctalia
+          inputs.self.modules.homeManager.nixpad-audio
         ];
         imports = with inputs.self.modules.nixos; [
           host-common

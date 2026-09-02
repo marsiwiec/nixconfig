@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   flake.modules.nixos.nixpad-laptop =
     { pkgs, ... }:
@@ -18,6 +19,8 @@
       # Upower is needed by noctalia's battery widget
       services.upower.enable = true;
 
+      services.apcupsd.enable = lib.mkForce false;
+
       # Trackpoint support (ThinkPad nub). The udev rule matches on the exact
       # input device name — for this model "TPPS/2 Synaptics TrackPoint"
       # (see /proc/bus/input/devices), NOT the nixpkgs default "TPPS/2 IBM
@@ -35,13 +38,15 @@
       # Fingerprint reader (present on most T14 Gen3 SKUs; harmless if absent)
       services.fprintd.enable = true;
 
-      # ---- Suspend (s2idle only on this APU; no S3) ----
-      # Explicit lid/power handling. Lid close suspends; power key suspends.
+      # ---- Suspend/Hibernate (s2idle only on this APU; no S3) ----
+      # Lid close hibernate (writes RAM to the encrypted swapfile, powers off);
+      # power key does a normal s2idle suspend. Lid-close-on-AC and docked
+      # follow the same policy.
       services.logind.settings.Login = {
         HandlePowerKey = "suspend";
-        HandleLidSwitch = "suspend";
-        HandleLidSwitchExternalPower = "suspend";
-        HandleLidSwitchDocked = "ignore"; # stay awake when docked with lid closed
+        HandleLidSwitch = "hibernate";
+        HandleLidSwitchExternalPower = "hibernate";
+        HandleLidSwitchDocked = "ignore"; # stay awake & usable when docked w/ external display
       };
 
       # Known ath11k_pci suspend/resume bug on this platform (ArchWiki
@@ -59,8 +64,16 @@
       };
       systemd.services.ath11k-resume = {
         description = "Reload ath11k_pci after resume";
-        after = [ "suspend.target" "hibernate.target" "hybrid-sleep.target" ];
-        wantedBy = [ "suspend.target" "hibernate.target" "hybrid-sleep.target" ];
+        after = [
+          "suspend.target"
+          "hibernate.target"
+          "hybrid-sleep.target"
+        ];
+        wantedBy = [
+          "suspend.target"
+          "hibernate.target"
+          "hybrid-sleep.target"
+        ];
         serviceConfig = {
           Type = "oneshot";
           ExecStart = "${pkgs.kmod}/bin/modprobe ath11k_pci";
