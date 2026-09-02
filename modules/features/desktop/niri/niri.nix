@@ -122,7 +122,7 @@
               # A plain click (no stick movement) still sends a middle click.
               scroll-method = "on-button-down";
               scroll-button = 274; # BTN_MIDDLE
-              # accel-speed: -1.0 to 1.0 (default 0.0)
+              accel-speed = -0.5;
               # accel-profile: "adaptive" (default) or "flat"
             };
           };
