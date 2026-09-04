@@ -7,6 +7,9 @@
   flake.modules.nixos.noctalia =
     { config, pkgs, ... }:
     {
+      home-manager.sharedModules = [
+        inputs.self.modules.homeManager.noctalia
+      ];
 
       nix.settings = {
         extra-substituters = [ "https://noctalia.cachix.org" ];
@@ -56,4 +59,14 @@
         gcr
       ];
     };
+
+  flake.modules.homeManager.noctalia = {
+    imports = [
+      inputs.noctalia.homeModules.default
+    ];
+
+    programs.noctalia = {
+      enable = true;
+    };
+  };
 }

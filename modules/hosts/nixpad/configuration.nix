@@ -30,7 +30,7 @@
         networking.hostName = "nixpad";
         stylix = {
           image = "${config.systemConstants.wallpaperDir}/space.png";
-          base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+          base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
         };
       };
   };
