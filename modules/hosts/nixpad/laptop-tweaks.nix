@@ -3,18 +3,30 @@
   flake.modules.nixos.nixpad-laptop =
     { pkgs, ... }:
     {
-      # ThinkPad-specific extras: fan control, battery and hotkeys via thinkpad_acpi
       boot.kernelModules = [ "thinkpad_acpi" ];
 
-      # Power/efficiency tweaks for the AMD Ryzen PRO (Rembrandt) APU
-      services.power-profiles-daemon.enable = true;
+      services.tlp.enable = true;
+      # noctalia enables `services.power-profiles-daemon` by default via its
+      # recommendedServices; its power menu talks to PPD over DBus. `tlp.pd`
+      # provides the same power-profiles-daemon DBus interface backed by TLP
+      # profiles, so we swap PPD out for it instead of losing the feature.
+      services.tlp.pd.enable = true;
+      services.power-profiles-daemon.enable = lib.mkForce false;
+      services.tlp.settings = {
+        START_CHARGE_THRESH_BAT0 = 75;
+        STOP_CHARGE_THRESH_BAT0 = 80;
+      };
+
+      # powertop stays installed for measurement only (`sudo powertop`);
+      # its boot auto-tune service is gone since TLP owns those tunables.
+      environment.systemPackages = with pkgs; [
+        lm_sensors
+        powertop
+      ];
 
       # Firmware updates via LVFS (UEFI BIOS, webcam, touchpad, CPU/GPU, TPM,
       # NVMe all supported on the T14 G3). Usage: fwupdmgr refresh / get-updates / update
       services.fwupd.enable = true;
-
-      # Sensor monitoring tools useful for laptop tuning
-      environment.systemPackages = with pkgs; [ lm_sensors ];
 
       # Upower is needed by noctalia's battery widget
       services.upower.enable = true;
@@ -39,45 +51,17 @@
       services.fprintd.enable = true;
 
       # ---- Suspend/Hibernate (s2idle only on this APU; no S3) ----
-      # Lid close hibernate (writes RAM to the encrypted swapfile, powers off);
-      # power key does a normal s2idle suspend. Lid-close-on-AC and docked
-      # follow the same policy.
+      # Lid close = suspend-then-hibernate: fast s2idle wake for short
+      # closures, auto-hibernate after HibernateDelaySec (30 min) so long
+      # closures drop to zero power. Power key does a normal s2idle suspend.
+      # Docked stays awake & usable with external display.
       services.logind.settings.Login = {
         HandlePowerKey = "suspend";
-        HandleLidSwitch = "hibernate";
-        HandleLidSwitchExternalPower = "hibernate";
-        HandleLidSwitchDocked = "ignore"; # stay awake & usable when docked w/ external display
+        HandleLidSwitch = "suspend-then-hibernate";
+        HandleLidSwitchExternalPower = "suspend-then-hibernate";
+        HandleLidSwitchDocked = "ignore";
       };
 
-      # Known ath11k_pci suspend/resume bug on this platform (ArchWiki
-      # T14 AMD G3): the module can block resume, freeze the GPU, or cause an
-      # immediate spurious wake. Unload it before sleep, reload after.
-      # WiFi reconnects in ~1-2s on resume; imperceptible vs. resume time.
-      systemd.services.ath11k-suspend = {
-        description = "Unload ath11k_pci before suspend";
-        before = [ "sleep.target" ];
-        wantedBy = [ "sleep.target" ];
-        serviceConfig = {
-          Type = "oneshot";
-          ExecStart = "${pkgs.kmod}/bin/rmmod ath11k_pci";
-        };
-      };
-      systemd.services.ath11k-resume = {
-        description = "Reload ath11k_pci after resume";
-        after = [
-          "suspend.target"
-          "hibernate.target"
-          "hybrid-sleep.target"
-        ];
-        wantedBy = [
-          "suspend.target"
-          "hibernate.target"
-          "hybrid-sleep.target"
-        ];
-        serviceConfig = {
-          Type = "oneshot";
-          ExecStart = "${pkgs.kmod}/bin/modprobe ath11k_pci";
-        };
-      };
+systemd.sleep.settings.Sleep.HibernateDelaySec = "30min";
     };
 }
