@@ -9,6 +9,12 @@
     type = lib.types.attrsOf lib.types.unspecified;
     default = { };
   };
+
+  # Factory namespace for parameterized host-dependent features
+  options.flake.factory = lib.mkOption {
+    type = lib.types.attrsOf lib.types.unspecified;
+    default = { };
+  };
   config.flake.lib = {
     mkNixos = system: name: {
       ${name} = inputs.nixpkgs.lib.nixosSystem {

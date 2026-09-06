@@ -68,7 +68,7 @@
         ...
       }:
       {
-        # NOTE: keybinds are chosen per-host (niri-keybinds-dms or niri-keybinds-noctalia)
+        # NOTE: keybinds come from the desktop shell factory (dms or noctalia)
         imports = with inputs.self.modules.homeManager; [
           niri-window-rules
         ];

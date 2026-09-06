@@ -13,7 +13,6 @@
       {
         home-manager.sharedModules = [
           inputs.self.modules.homeManager.niri-outputs-nixpad
-          inputs.self.modules.homeManager.niri-keybinds-noctalia
           inputs.self.modules.homeManager.nixpad-audio
         ];
         imports = with inputs.self.modules.nixos; [
@@ -21,10 +20,12 @@
           default-settings
           gaming
           msiwiec
-          noctalia
           nixpad-filesystem
           nixpad-laptop
           nixpad-secureboot
+        ] ++ [
+          (inputs.self.factory.desktopShell "noctalia")
+          (inputs.self.factory.llamaCpp "cpu")
         ];
 
         networking.hostName = "nixpad";
