@@ -45,9 +45,9 @@
           greetd-password.enableGnomeKeyring = true;
         };
         services.dbus.packages = with pkgs; [
-          gnome-keyring
-          gcr
-        ];
+        gnome-keyring
+        gcr_4
+      ];
 
       };
     homeManager.dank-material-shell =
