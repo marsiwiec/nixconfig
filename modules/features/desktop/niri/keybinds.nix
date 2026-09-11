@@ -1,7 +1,8 @@
 {
   lib,
   ...
-}: let
+}:
+let
   # Per-shell panel parameters; everything that differs between the dms and
   # noctalia desktops lives here. `prefix` is prepended to every panel IPC
   # call, so a bind's argv is stored without its shell-specific prefix.
@@ -12,34 +13,106 @@
         "ipc"
         "call"
       ];
-      color = [ "dms" "color" "pick" "-a" ];
-      lock = [ "lock" "lock" ];
-      wallpaper = [ "dankdash" "wallpaper" ];
+      color = [
+        "dms"
+        "color"
+        "pick"
+        "-a"
+      ];
+      lock = [
+        "lock"
+        "lock"
+      ];
+      wallpaper = [
+        "dankdash"
+        "wallpaper"
+      ];
       kill = true;
       toggles = {
-        "Mod+Space" = [ "spotlight" "toggle" ];
-        "Mod+V" = [ "clipboard" "toggle" ];
-        "Mod+N" = [ "notifications" "toggle" ];
-        "Mod+P" = [ "notepad" "toggle" ];
-        "Mod+X" = [ "powermenu" "toggle" ];
-        "Mod+Comma" = [ "settings" "toggle" ];
-        "Ctrl+Alt+Delete" = [ "processlist" "toggle" ];
+        "Mod+Space" = [
+          "spotlight"
+          "toggle"
+        ];
+        "Mod+V" = [
+          "clipboard"
+          "toggle"
+        ];
+        "Mod+N" = [
+          "notifications"
+          "toggle"
+        ];
+        "Mod+P" = [
+          "notepad"
+          "toggle"
+        ];
+        "Mod+X" = [
+          "powermenu"
+          "toggle"
+        ];
+        "Mod+Comma" = [
+          "settings"
+          "toggle"
+        ];
+        "Ctrl+Alt+Delete" = [
+          "processlist"
+          "toggle"
+        ];
       };
       screenshots = {
-        "Print" = [ "niri" "screenshot" ];
-        "Mod+Print" = [ "niri" "screenshotWindow" ];
+        "Print" = [
+          "niri"
+          "screenshot"
+        ];
+        "Mod+Print" = [
+          "niri"
+          "screenshotWindow"
+        ];
       };
       hardware = {
-        "XF86AudioRaiseVolume" = [ "audio" "increment" "3" ];
-        "XF86AudioLowerVolume" = [ "audio" "decrement" "3" ];
-        "XF86AudioMute" = [ "audio" "mute" ];
-        "XF86AudioMicMute" = [ "audio" "micmute" ];
-        "XF86AudioNext" = [ "mpris" "next" ];
-        "XF86AudioPause" = [ "mpris" "playPause" ];
-        "XF86AudioPlay" = [ "mpris" "playPause" ];
-        "XF86AudioPrev" = [ "mpris" "previous" ];
-        "XF86MonBrightnessUp" = [ "brightness" "increment" "5" ];
-        "XF86MonBrightnessDown" = [ "brightness" "decrement" "5" ];
+        "XF86AudioRaiseVolume" = [
+          "audio"
+          "increment"
+          "3"
+        ];
+        "XF86AudioLowerVolume" = [
+          "audio"
+          "decrement"
+          "3"
+        ];
+        "XF86AudioMute" = [
+          "audio"
+          "mute"
+        ];
+        "XF86AudioMicMute" = [
+          "audio"
+          "micmute"
+        ];
+        "XF86AudioNext" = [
+          "mpris"
+          "next"
+        ];
+        "XF86AudioPause" = [
+          "mpris"
+          "playPause"
+        ];
+        "XF86AudioPlay" = [
+          "mpris"
+          "playPause"
+        ];
+        "XF86AudioPrev" = [
+          "mpris"
+          "previous"
+        ];
+        "XF86MonBrightnessUp" = [
+          "brightness"
+          "increment"
+          "5"
+        ];
+        "XF86MonBrightnessDown" = [
+          "brightness"
+          "decrement"
+          "5"
+        ];
       };
     };
     noctalia = {
@@ -47,18 +120,45 @@
         "noctalia"
         "msg"
       ];
-      color = [ "hyprpicker" "-a" ];
-      lock = [ "session" "lock" ];
-      wallpaper = [ "panel-toggle" "wallpaper" ];
+      color = [
+        "hyprpicker"
+        "-a"
+      ];
+      lock = [
+        "session"
+        "lock"
+      ];
+      wallpaper = [
+        "panel-toggle"
+        "wallpaper"
+      ];
       kill = false;
       toggles = {
-        "Mod+Space" = [ "panel-toggle" "launcher" ];
-        "Mod+V" = [ "panel-toggle" "clipboard" ];
-        "Mod+N" = [ "panel-toggle" "control-center" ];
-        "Mod+P" = [ "panel-toggle" "noctalia/notes:panel" ];
-        "Mod+X" = [ "panel-toggle" "session" ];
+        "Mod+Space" = [
+          "panel-toggle"
+          "launcher"
+        ];
+        "Mod+V" = [
+          "panel-toggle"
+          "clipboard"
+        ];
+        "Mod+N" = [
+          "panel-toggle"
+          "control-center"
+        ];
+        "Mod+P" = [
+          "panel-toggle"
+          "noctalia/notes:panel"
+        ];
+        "Mod+X" = [
+          "panel-toggle"
+          "session"
+        ];
         "Mod+Comma" = [ "settings-toggle" ];
-        "Ctrl+Alt+Delete" = [ "panel-toggle" "control-center" ];
+        "Ctrl+Alt+Delete" = [
+          "panel-toggle"
+          "control-center"
+        ];
       };
       screenshots = {
         "Print" = [ "screenshot-fullscreen" ];
@@ -69,19 +169,33 @@
         "XF86AudioLowerVolume" = [ "volume-down" ];
         "XF86AudioMute" = [ "volume-mute" ];
         "XF86AudioMicMute" = [ "mic-mute" ];
-        "XF86AudioNext" = [ "media" "next" ];
-        "XF86AudioPause" = [ "media" "toggle" ];
-        "XF86AudioPlay" = [ "media" "toggle" ];
-        "XF86AudioPrev" = [ "media" "previous" ];
+        "XF86AudioNext" = [
+          "media"
+          "next"
+        ];
+        "XF86AudioPause" = [
+          "media"
+          "toggle"
+        ];
+        "XF86AudioPlay" = [
+          "media"
+          "toggle"
+        ];
+        "XF86AudioPrev" = [
+          "media"
+          "previous"
+        ];
         "XF86MonBrightnessUp" = [ "brightness-up" ];
         "XF86MonBrightnessDown" = [ "brightness-down" ];
       };
     };
   };
-in {
+in
+{
   # Factory aspect: full niri keybind set, parameterized by the desktop shell
   # (dms | noctalia). Returns a homeManager module for home-manager.sharedModules.
-  config.flake.factory.niriKeybinds = mode:
+  config.flake.factory.niriKeybinds =
+    mode:
     { config, ... }:
     let
       p = panels.${mode};
@@ -99,6 +213,7 @@ in {
         # Niri built-in actions
         "Mod+Shift+Backslash".action.show-hotkey-overlay = [ ];
         "Mod+Q".action.close-window = [ ];
+        "Mod+Escape".action.close-window = [ ];
         "Mod+F".action.fullscreen-window = [ ];
         "Mod+Shift+F".action.maximize-window-to-edges = [ ];
         "Mod+Shift+V".action.toggle-window-floating = [ ];
