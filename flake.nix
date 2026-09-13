@@ -1,4 +1,4 @@
-# DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
+# DO-NOT-EDIT. This file was auto-generated using github:denful/flake-file.
 # Use `nix run .#write-flake` to regenerate it.
 {
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
@@ -13,18 +13,18 @@
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    flake-file.url = "github:vic/flake-file";
+    flake-file.url = "github:denful/flake-file";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
     home-manager.url = "github:nix-community/home-manager";
-    import-tree.url = "github:vic/import-tree";
+    import-tree.url = "github:denful/import-tree";
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v1.1.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    niri-flake.url = "github:sodiboo/niri-flake/6bb99ff875919f03ea6054026619d999061e1170";
+    niri-flake.url = "github:epireyn/niri-flake";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";

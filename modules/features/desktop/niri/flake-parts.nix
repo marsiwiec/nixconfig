@@ -5,7 +5,8 @@
 {
   flake-file.inputs = {
     niri-flake = {
-      url = "github:sodiboo/niri-flake/6bb99ff875919f03ea6054026619d999061e1170";
+      # url = "github:sodiboo/niri-flake";
+      url = "github:epireyn/niri-flake"; # temp fix
       # Note: intentionally NOT following nixpkgs - niri-flake pins specific
       # nixpkgs versions for stability and uses its own binary cache
     };
