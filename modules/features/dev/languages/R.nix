@@ -25,7 +25,7 @@
         #   };
         # in
         [
-          rstudio
+          # rstudio
           quarto
         ];
     };
