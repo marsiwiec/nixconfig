@@ -5,9 +5,12 @@
       programs.foot = {
         enable = true;
         server.enable = true;
-        settings.cursor = {
-          style = "beam";
-          blink = "no";
+        settings = {
+          main.pad = "4x0";
+          cursor = {
+            style = "beam";
+            blink = "no";
+          };
         };
       };
     };
