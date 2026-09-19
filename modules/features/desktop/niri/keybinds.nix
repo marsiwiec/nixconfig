@@ -196,8 +196,11 @@ in
   # (dms | noctalia). Returns a homeManager module for home-manager.sharedModules.
   config.flake.factory.niriKeybinds =
     mode:
-    { config, ... }:
+    { config, osConfig, ... }:
     let
+      terminal = osConfig.systemConstants.terminal;
+      browser = osConfig.systemConstants.browser;
+      filemanager = osConfig.systemConstants.filemanager;
       p = panels.${mode};
       panelSpawn = argv: {
         action.spawn = p.prefix ++ argv;
@@ -205,12 +208,10 @@ in
       panelSpawnLocked = argv: (panelSpawn argv) // { allow-when-locked = true; };
 
       commonBinds = {
-        # App launchers
-        "Mod+Return".action.spawn = [ "wezterm" ];
-        "Mod+Shift+Return".action.spawn = [ "firefox" ];
-        "Mod+W".action.spawn = [ "thunar" ];
+        "Mod+Return".action.spawn = [ terminal ];
+        "Mod+Shift+Return".action.spawn = [ browser ];
+        "Mod+W".action.spawn = [ filemanager ];
 
-        # Niri built-in actions
         "Mod+Shift+Backslash".action.show-hotkey-overlay = [ ];
         "Mod+Q".action.close-window = [ ];
         "Mod+Escape".action.close-window = [ ];
@@ -222,7 +223,6 @@ in
         "Mod+Shift+E".action.quit = [ ];
         "Mod+O".action.toggle-overview = [ ];
 
-        # Workspace focus
         "Mod+1".action.focus-workspace = 1;
         "Mod+2".action.focus-workspace = 2;
         "Mod+3".action.focus-workspace = 3;
@@ -230,7 +230,6 @@ in
         "Mod+5".action.focus-workspace = 5;
         "Mod+6".action.focus-workspace = 6;
 
-        # Move column to workspace
         "Mod+Shift+1".action.move-column-to-workspace = 1;
         "Mod+Shift+2".action.move-column-to-workspace = 2;
         "Mod+Shift+3".action.move-column-to-workspace = 3;
@@ -238,7 +237,6 @@ in
         "Mod+Shift+5".action.move-column-to-workspace = 5;
         "Mod+Shift+6".action.move-column-to-workspace = 6;
 
-        # Window management
         "Mod+MouseMiddle".action.maximize-column = [ ];
         "Mod+Shift+C".action.center-window = [ ];
         "Mod+Shift+Comma".action.set-column-width = "-10%";
@@ -248,13 +246,11 @@ in
         "Mod+J".action.consume-or-expel-window-left = [ ];
         "Mod+Semicolon".action.consume-or-expel-window-right = [ ];
 
-        # Focus navigation
         "Mod+Shift+Left".action.focus-column-left = [ ];
         "Mod+Shift+Right".action.focus-column-right = [ ];
         "Mod+Shift+Down".action.focus-window-or-workspace-down = [ ];
         "Mod+Shift+Up".action.focus-window-or-workspace-up = [ ];
 
-        # Mouse/scroll
         "Mod+WheelScrollLeft".action.focus-workspace-up = [ ];
         "Mod+WheelScrollRight".action.focus-workspace-down = [ ];
         "Mod+WheelScrollDown".action.focus-column-right = [ ];
@@ -269,7 +265,6 @@ in
         (lib.mapAttrs (_: argv: panelSpawn argv) p.toggles)
         // (lib.mapAttrs (_: argv: panelSpawn argv) p.screenshots)
         // {
-          # Wallpaper, color picker, lock
           "Mod+Y" = panelSpawn p.wallpaper;
           "Mod+C".action.spawn = p.color;
           "Mod+Alt+L" = panelSpawnLocked p.lock;

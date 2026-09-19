@@ -27,8 +27,31 @@
       config,
       lib,
       pkgs,
+      osConfig,
       ...
     }:
+    let
+      # Show a fetch banner when a new terminal pane is opened (only when the
+      # pane-counting command for the configured terminal can report it).
+      bannerOnNewPane =
+        let
+          term = osConfig.systemConstants.terminal;
+        in
+        if term == "footclient" then
+          ''
+            if command -v footclient >/dev/null 2>&1 && [[ $(pgrep -c -x footclient 2>/dev/null) -eq 1 ]]; then
+              ${lib.getExe pkgs.microfetch}
+            fi
+          ''
+        else if term == "wezterm" then
+          ''
+            if [[ $(wezterm cli list | wc -l) -eq 1 ]]; then
+              ${lib.getExe pkgs.microfetch}
+            fi
+          ''
+        else
+          "";
+    in
     {
       programs.fd.enable = true;
       home.packages = with pkgs; [
@@ -104,11 +127,7 @@
             nixdiff = "nix run nixpkgs#nvd -- diff $(ls -d1v /nix/var/nix/profiles/system-*-link|tail -n 2)";
           };
           defaultKeymap = "emacs";
-          initContent = lib.mkIf pkgs.stdenv.hostPlatform.isLinux ''
-            if [[ $(wezterm cli list | wc -l) -eq 2 ]]; then
-              ${lib.getExe pkgs.microfetch}
-            fi
-          '';
+          initContent = lib.mkIf pkgs.stdenv.hostPlatform.isLinux bannerOnNewPane;
         };
         nushell = {
           enable = true;

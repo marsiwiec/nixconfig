@@ -65,6 +65,7 @@
     homeManager.niri =
       {
         pkgs,
+        osConfig,
         ...
       }:
       {
@@ -83,7 +84,7 @@
             tray = "never";
             settings = {
               program_options = {
-                file_manager = "thunar";
+                file_manager = osConfig.systemConstants.filemanager;
               };
             };
           };

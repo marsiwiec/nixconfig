@@ -65,7 +65,6 @@ in
         shell
         spicetify
         syncthing
-        wezterm
         zed
       ];
 

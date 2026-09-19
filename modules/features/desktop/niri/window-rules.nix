@@ -1,91 +1,105 @@
 {
-  flake.modules.homeManager.niri-window-rules = {
-    programs.niri = {
-      settings = {
-        window-rules = [
-          {
-            draw-border-with-background = false;
-            clip-to-geometry = true;
-            geometry-corner-radius =
-              let
-                r = 8.0;
-              in
-              {
-                top-left = r;
-                top-right = r;
-                bottom-left = r;
-                bottom-right = r;
+  flake.modules.homeManager.niri-window-rules =
+    { osConfig, ... }:
+    let
+      terminalAppId =
+        let
+          term = osConfig.systemConstants.terminal;
+        in
+        if term == "footclient" then
+          "^(foot|footclient)$"
+        else if term == "wezterm" then
+          "^org.wezfurlong.wezterm$"
+        else
+          "^${term}$";
+    in
+    {
+      programs.niri = {
+        settings = {
+          window-rules = [
+            {
+              draw-border-with-background = false;
+              clip-to-geometry = true;
+              geometry-corner-radius =
+                let
+                  r = 8.0;
+                in
+                {
+                  top-left = r;
+                  top-right = r;
+                  bottom-left = r;
+                  bottom-right = r;
+                };
+            }
+            {
+              matches = [
+                {
+                  app-id = "dev.noctalia.Noctalia";
+                }
+              ];
+              open-floating = true;
+              default-column-width.fixed = 1080;
+              default-window-height.fixed = 920;
+            }
+            {
+              matches = [
+                {
+                  app-id = terminalAppId;
+                }
+              ];
+              default-column-width.fixed = 1200;
+            }
+            {
+              matches = [
+                {
+                  app-id = "fiji-Main";
+                }
+              ];
+              open-floating = true;
+            }
+            {
+              matches = [
+                {
+                  app-id = "emacs";
+                }
+              ];
+              default-column-width.fixed = 1200;
+            }
+            {
+              matches = [
+                {
+                  app-id = "^firefox$";
+                  title = "^Picture-in-Picture$";
+                }
+              ];
+              open-floating = true;
+              default-floating-position = {
+                x = 8;
+                y = 8;
+                relative-to = "bottom-right";
               };
-          }
-          {
-            matches = [
-              {
-                app-id = "dev.noctalia.Noctalia";
-              }
-            ];
-            open-floating = true;
-            default-column-width.fixed = 1080;
-            default-window-height.fixed = 920;
-          }
-          {
-            matches = [
-              {
-                app-id = "org.wezfurlong.wezterm";
-              }
-            ];
-            default-column-width.fixed = 1200;
-          }
-          {
-            matches = [
-              {
-                app-id = "fiji-Main";
-              }
-            ];
-            open-floating = true;
-          }
-          {
-            matches = [
-              {
-                app-id = "emacs";
-              }
-            ];
-            default-column-width.fixed = 1200;
-          }
-          {
-            matches = [
-              {
-                app-id = "^firefox$";
-                title = "^Picture-in-Picture$";
-              }
-            ];
-            open-floating = true;
-            default-floating-position = {
-              x = 8;
-              y = 8;
-              relative-to = "bottom-right";
-            };
-          }
-          {
-            matches = [
-              {
-                app-id = "^spotify$";
-              }
-            ];
-            # open-on-workspace = "music";
-            open-maximized = true;
-          }
-        ];
-        layer-rules = [
-          {
-            matches = [
-              {
-                namespace = "^hyprpaper$";
-              }
-            ];
-            place-within-backdrop = true;
-          }
-        ];
+            }
+            {
+              matches = [
+                {
+                  app-id = "^spotify$";
+                }
+              ];
+              # open-on-workspace = "music";
+              open-maximized = true;
+            }
+          ];
+          layer-rules = [
+            {
+              matches = [
+                {
+                  namespace = "^hyprpaper$";
+                }
+              ];
+              place-within-backdrop = true;
+            }
+          ];
+        };
       };
     };
-  };
 }

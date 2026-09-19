@@ -21,6 +21,18 @@
           type = lib.types.path;
           default = "${self}/assets/avatars/neuron.png";
         };
+        terminal = lib.mkOption {
+          type = lib.types.str;
+          default = "footclient";
+        };
+        browser = lib.mkOption {
+          type = lib.types.str;
+          default = "firefox";
+        };
+        filemanager = lib.mkOption {
+          type = lib.types.str;
+          default = "thunar";
+        };
       };
     };
 }
