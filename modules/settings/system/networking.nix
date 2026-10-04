@@ -1,7 +1,10 @@
 {
   flake.modules.nixos.networking = {
     networking = {
-      firewall.enable = true;
+      firewall = {
+        enable = true;
+        allowedTCPPorts = [ 25565 ]; # minecraft server
+      };
       networkmanager.enable = true;
       # useDHCP = true;
     };
