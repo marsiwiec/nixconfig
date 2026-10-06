@@ -41,6 +41,7 @@
         ];
         kernelModules = [ "kvm-amd" ];
         extraModulePackages = [ ];
+        supportedFilesystems = [ "nfs" ];
       };
 
     };
