@@ -62,7 +62,7 @@
                   linters = {
                     SentenceCapitalization = false;
                   };
-                  diagnosticSeverity = "warning";
+                  diagnosticSeverity = "error";
                 };
               };
             };
