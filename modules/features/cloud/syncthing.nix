@@ -25,6 +25,10 @@
             name = "qnap";
             id = "FMN6MED-5R4ZDLT-Y5KMXYP-T7EE4UV-CJRJM37-ZFSVOKP-VQ4VX25-5QW6XAV";
           };
+          gandalf = {
+            name = "gandalf";
+            id = "LZNATYS-HFSEKLE-G63VQ7Z-BZBDQEK-TMIISPL-ONAVMXV-CKZZZWI-G72SHQA";
+          };
         };
         folders = {
           zotero = {
@@ -41,6 +45,7 @@
               "labnix"
               "nixpad"
               "qnap"
+              "gandalf"
             ];
           };
         };
