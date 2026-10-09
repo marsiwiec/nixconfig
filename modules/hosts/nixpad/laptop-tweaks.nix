@@ -25,10 +25,6 @@
         powertop
       ];
 
-      # Firmware updates via LVFS (UEFI BIOS, webcam, touchpad, CPU/GPU, TPM,
-      # NVMe all supported on the T14 G3). Usage: fwupdmgr refresh / get-updates / update
-      services.fwupd.enable = true;
-
       # Upower is needed by noctalia's battery widget
       services.upower.enable = true;
 

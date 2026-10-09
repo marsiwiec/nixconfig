@@ -16,6 +16,7 @@
         };
       };
 
+      services.fwupd.enable = true;
       services.syncthing = {
         key = "/run/secrets/syncthing/${config.networking.hostName}/key";
         cert = "/run/secrets/syncthing/${config.networking.hostName}/cert";
