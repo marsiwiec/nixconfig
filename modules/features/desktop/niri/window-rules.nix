@@ -52,7 +52,7 @@
             {
               matches = [
                 {
-                  app-id = "net-imagej-launcher-ClassLauncher";
+                  app-id = "fiji-Main";
                 }
               ];
               open-floating = true;
