@@ -12,7 +12,7 @@
     # nixpkgs-master.url = "github:NixOS/nixpkgs/master";
 
     # nixpkgs-unstable for early access
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    # nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   };
 
   flake.modules =
@@ -35,10 +35,10 @@
           # };
 
           # Make nixpkgs-unstable accessible under 'pkgs.unstable' (lazy)
-          unstable = import inputs.nixpkgs-unstable {
-            system = final.stdenv.hostPlatform.system;
-            config.allowUnfree = final.config.allowUnfree;
-          };
+          # unstable = import inputs.nixpkgs-unstable {
+          #   system = final.stdenv.hostPlatform.system;
+          #   config.allowUnfree = final.config.allowUnfree;
+          # };
         })
       ];
     in

@@ -23,10 +23,7 @@ in
       { pkgs, ... }:
       {
         programs = {
-          opencode = {
-            enable = true;
-            package = pkgs.unstable.opencode;
-          };
+          opencode.enable = true;
           pi-coding-agent.enable = true;
         };
         home.packages = with pkgs; [
