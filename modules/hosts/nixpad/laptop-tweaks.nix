@@ -13,10 +13,6 @@
       # profiles, so we swap PPD out for it instead of losing the feature.
       services.tlp.pd.enable = true;
       services.power-profiles-daemon.enable = lib.mkForce false;
-      services.tlp.settings = {
-        START_CHARGE_THRESH_BAT0 = 75;
-        STOP_CHARGE_THRESH_BAT0 = 80;
-      };
 
       # powertop stays installed for measurement only (`sudo powertop`);
       # its boot auto-tune service is gone since TLP owns those tunables.
@@ -25,8 +21,20 @@
         powertop
       ];
 
-      # Upower is needed by noctalia's battery widget
+      # Upower powers noctalia's battery widget and owns the battery charge
+      # thresholds (TLP no longer touches them). Upower takes the start/end
+      # values from its udev/hwdb preset (75/80 here) and noctalia's built-in
+      # "Use charge thresholds" toggle flips only the on/off state.
       services.upower.enable = true;
+
+      # Seed UPower's charge-threshold state file so the feature is enabled on
+      # a fresh install. `C` writes only when the file is missing, so toggling
+      # the limit off (which rewrites it to "0") persists across reboots.
+      # The content must be exactly one byte: upower compares it verbatim with
+      # g_strcmp0(data, "1"), so no trailing newline (hence builtins.toFile).
+      systemd.tmpfiles.rules = [
+        "C /var/lib/upower/charging-threshold-status 0640 root root - ${builtins.toFile "upower-charging-threshold-status" "1"}"
+      ];
 
       services.apcupsd.enable = lib.mkForce false;
 
