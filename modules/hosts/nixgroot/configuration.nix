@@ -16,21 +16,24 @@
           inputs.self.modules.homeManager.niri-outputs-nixgroot
           inputs.self.modules.homeManager.nixgroot-protonvpn-settings
         ];
-        imports = with inputs.self.modules.nixos; [
-          host-common
-          default-settings
-          gaming
-          msiwiec
-          nixgroot-filesystem
-          nixgroot-cooling
-          nvidia
-          nvidia-passthrough
-          # protonvpn
-          # protonvpn-tailscale
-        ] ++ [
-          (inputs.self.factory.desktopShell "dms")
-          (inputs.self.factory.llamaCpp "cuda")
-        ];
+        imports =
+          with inputs.self.modules.nixos;
+          [
+            host-common
+            default-settings
+            gaming
+            msiwiec
+            nixgroot-filesystem
+            nixgroot-cooling
+            nvidia
+            nvidia-passthrough
+            # protonvpn
+            # protonvpn-tailscale
+          ]
+          ++ [
+            (inputs.self.factory.desktopShell "noctalia")
+            (inputs.self.factory.llamaCpp "cuda")
+          ];
 
         ### Fix for Lexar nvme SSDs ###
         boot = {

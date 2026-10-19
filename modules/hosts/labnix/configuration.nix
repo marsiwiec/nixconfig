@@ -23,7 +23,7 @@
             msiwiec
           ]
           ++ [
-            (inputs.self.factory.desktopShell "dms")
+            (inputs.self.factory.desktopShell "noctalia")
             (inputs.self.factory.llamaCpp "rocm")
           ];
         networking.hostName = "labnix";
