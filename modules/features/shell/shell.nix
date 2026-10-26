@@ -131,6 +131,7 @@
         };
         nushell = {
           enable = true;
+          loadSessionVariables = true;
           settings = {
             buffer_editor = "hx";
             show_banner = false;

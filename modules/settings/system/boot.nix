@@ -18,7 +18,6 @@
         plymouth.enable = true;
         consoleLogLevel = 0;
         initrd = {
-          verbose = false;
           availableKernelModules = [
             "nvme"
             "xhci_pci"
