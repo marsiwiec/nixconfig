@@ -5,7 +5,7 @@
     lib.mkMerge [
       {
         home.packages = with pkgs; [
-          obsidian
+          # obsidian
         ];
       }
       (lib.mkIf (pkgs.stdenv.hostPlatform.isLinux) {
@@ -16,6 +16,7 @@
         services.flatpak.packages = [
           "org.zotero.Zotero"
           "org.libreoffice.LibreOffice"
+          "md.obsidian.Obsidian"
         ];
         programs.zathura.enable = true;
         xdg.mimeApps = {
