@@ -26,7 +26,7 @@ in
       # removed from the LUKS header). TPM2 auto-unlock remains an option —
       # enroll with: sudo systemd-cryptenroll --tpm2-device=auto /dev/nvme0n1p2
       # — but only together with Secure Boot, otherwise passphrase-only is safer.
-      boot.initrd.systemd.enable = true;
+      # boot.initrd.systemd.enable = true;
 
       boot.initrd.luks.devices.luksroot = {
         device = "/dev/disk/by-uuid/8b0d8b88-c447-45c6-978c-4bcd7c8fb2da";

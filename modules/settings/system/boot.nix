@@ -42,6 +42,5 @@
         extraModulePackages = [ ];
         supportedFilesystems = [ "nfs" ];
       };
-
     };
 }
