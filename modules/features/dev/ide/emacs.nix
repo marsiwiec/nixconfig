@@ -25,6 +25,11 @@
         libtool
         nodejs
         sqlite
+        hunspell
+        hunspellDicts.en-us-large
+        hunspellDicts.pl_PL
+        texliveFull
+        zip
 
         mu
 
