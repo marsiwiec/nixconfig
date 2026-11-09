@@ -29,6 +29,10 @@
             name = "gandalf";
             id = "LZNATYS-HFSEKLE-G63VQ7Z-BZBDQEK-TMIISPL-ONAVMXV-CKZZZWI-G72SHQA";
           };
+          pixel = {
+            name = "pixel";
+            id = "S7UXPR2-53AOTBU-TYBCHYD-YYMMRXV-Y6YDU4O-NW7DYBO-G6APHXA-IHYOLA5";
+          };
         };
         folders = {
           zotero = {
@@ -46,6 +50,23 @@
               "nixpad"
               "qnap"
               "gandalf"
+            ];
+          };
+          org = {
+            path = "~/org";
+            versioning = {
+              type = "simple";
+              params = {
+                keep = "10";
+                cleanoutDays = "0";
+              };
+            };
+            devices = [
+              "nixgroot"
+              "labnix"
+              "nixpad"
+              "gandalf"
+              "pixel"
             ];
           };
         };
