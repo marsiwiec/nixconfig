@@ -5,9 +5,6 @@
       overrideFolders = true;
       overrideDevices = true;
       settings = {
-        user = "msiwiec";
-        configDir = "~/.config/syncthing";
-        dataDir = "~/Documents";
         devices = {
           nixgroot = {
             name = "nixgroot";
@@ -72,6 +69,6 @@
         };
       };
     };
-    systemd.user.services.syncthing.environment.STNODEFAULTFOLDER = "true"; # Don't create default ~/Sync folder
+    systemd.user.services.syncthing.Service.Environment = [ "STNODEFAULTFOLDER=true" ]; # Don't create default ~/Sync folder
   };
 }
