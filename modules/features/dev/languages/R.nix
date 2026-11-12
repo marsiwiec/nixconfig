@@ -11,21 +11,21 @@
     {
       home.packages =
         with pkgs;
-        # let
-        #   RStudio-with-my-packages = pkgs.unstable.rstudioWrapper.override {
-        #     packages = with pkgs.rPackages; [
-        #       tidyverse
-        #       patchwork
-        #       drc
-        #       rstatix
-        #       ggthemes
-        #       styler
-        #       rsvg
-        #     ];
-        #   };
-        # in
+        let
+          RStudio-with-my-packages = pkgs.rstudioWrapper.override {
+            packages = with pkgs.rPackages; [
+              tidyverse
+              patchwork
+              drc
+              rstatix
+              ggthemes
+              styler
+              rsvg
+            ];
+          };
+        in
         [
-          # rstudio
+          RStudio-with-my-packages
           quarto
         ];
     };
