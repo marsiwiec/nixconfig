@@ -29,8 +29,15 @@
         networking.hostName = "labnix";
         # Force deep (S3) sleep instead of s2idle.  AMD Phoenix APUs fail to
         # reinitialise the display panel on resume from s2idle.
+        #
+        # SuspendState must be one of the states listed in /sys/power/state
+        # ("freeze", "mem", "disk").  "deep" is not valid there: it made logind
+        # report CanSuspend=na, so every `systemctl suspend` silently failed and
+        # the machine never slept.  The s2idle-vs-deep choice belongs in
+        # MemorySleepMode.
         systemd.sleep.settings.Sleep = {
-          "SuspendState" = "deep";
+          SuspendState = "mem";
+          MemorySleepMode = "deep";
         };
         stylix = {
           image = "${config.systemConstants.wallpaperDir}/star_wars.png";
