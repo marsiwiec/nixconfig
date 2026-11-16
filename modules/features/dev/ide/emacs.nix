@@ -29,6 +29,9 @@
         hunspellDicts.en-us-large
         hunspellDicts.pl_PL
         texliveFull
+        ghostscript
+        mupdf
+        poppler
         zip
 
         mu
