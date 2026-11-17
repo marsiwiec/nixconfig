@@ -4,15 +4,6 @@
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
-    dank-calendar.url = "github:AvengeMedia/dankcalendar";
-    dank-greeter = {
-      url = "github:AvengeMedia/dank-greeter";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    dank-material-shell = {
-      url = "github:AvengeMedia/DankMaterialShell/stable";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     flake-file.url = "github:denful/flake-file";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
