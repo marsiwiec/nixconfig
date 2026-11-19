@@ -44,6 +44,14 @@
             {
               matches = [
                 {
+                  title = "Progress";
+                }
+              ];
+              open-floating = true;
+            }
+            {
+              matches = [
+                {
                   app-id = terminalAppId;
                 }
               ];
@@ -90,7 +98,7 @@
             {
               matches = [
                 {
-                  app-id = "^spotify$";
+                  app-id = "^Spotify$";
                 }
               ];
               # open-on-workspace = "music";
