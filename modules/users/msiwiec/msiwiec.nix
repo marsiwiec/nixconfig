@@ -65,7 +65,7 @@ in
         shell
         spicetify
         syncthing
-        zed
+        # zed
       ];
 
       home = {
