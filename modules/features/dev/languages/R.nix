@@ -25,7 +25,7 @@
           };
         in
         [
-          # RStudio-with-my-packages
+          RStudio-with-my-packages
           quarto
         ];
     };
